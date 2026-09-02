@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DATOS PENDIENTES. No hay marcadores visibles en la página: cada dato que
+  falta está omitido del texto y señalado con un comentario PENDIENTE en su
+  ubicación exacta. Buscar "PENDIENTE" en este archivo para encontrarlos.
+
+    1. Modelo / SKU del tablero .............. seccion de metadatos
+    2. Corriente de salida del cargador ...... 4. Bateria y carga
+    3. Plazo para reportar faltantes ......... 3. Contenido y descripcion
+    4. Plazo de la garantia comercial ........ 15. Garantia limitada
+    5. Identificador de homologacion ENACOM .. 13. Informacion regulatoria
+
+  Mientras el punto 4 siga pendiente, la seccion 15 remite a la garantia legal
+  minima (6 meses, art. 11 de la Ley 24.240). Al fijar un plazo comercial mayor
+  hay que reemplazar ese parrafo, no agregarle texto.
+
+  No inventar el numero de homologacion ENACOM: declararlo solo cuando exista.
+  ============================================================================
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual de usuario y avisos de seguridad | Atlas 64</title>
+    <meta
+      name="description"
+      content="Manual de usuario del tablero Atlas: instrucciones de uso, advertencias de seguridad, batería, señales de radio, garantía limitada y condiciones legales."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand" aria-label="Atlas 64 logo">
+          <span class="brand-mark">A64</span>
+          <span class="brand-name">Atlas 64</span>
+        </div>
+        <nav class="nav-links" aria-label="Navegación secundaria">
+          <a href="/">Inicio</a>
+          <a href="/privacy-policy/">Privacidad</a>
+          <a href="/delete-account-guide/">Eliminar cuenta</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+        <a class="back-link" href="/">← Volver a Atlas 64</a>
+        <header class="page-header">
+          <p class="section-tag">Manual de usuario</p>
+          <h1>Tablero Atlas</h1>
+        </header>
+
+        <article class="article-card">
+          <!-- PENDIENTE (1): agregar el modelo/SKU cuando este definido -> "tablero electronico Atlas, modelo XXX, y aplicacion AtlasHub". -->
+          <p class="doc-meta"><strong>Producto:</strong> tablero electrónico Atlas y aplicación AtlasHub.</p>
+          <p class="doc-meta"><strong>Versión del manual:</strong> 1.0 &nbsp;·&nbsp; <strong>Última actualización:</strong> 2 de septiembre de 2026</p>
+          <p class="doc-meta"><strong>Fabricante / responsable:</strong> WOLOLO STUDIO S.A.S. (wololabs) — Maure Avelino 245, Ciudad de Mendoza, Provincia de Mendoza, República Argentina — <a href="mailto:admin@wololabs.com">admin@wololabs.com</a></p>
+
+          <div class="callout danger">
+            <p class="callout-title">Leé esto antes de usar el producto</p>
+            <p><strong>Este manual contiene advertencias de seguridad e instrucciones cuyo incumplimiento puede provocar lesiones graves, daños materiales o la pérdida de la garantía.</strong> Conservalo mientras uses el producto y entregalo junto con el tablero si lo prestás, revendés o regalás.</p>
+            <p>Al usar el tablero Atlas confirmás que leíste, entendiste y aceptás las instrucciones, advertencias y condiciones de este documento. Si no estás de acuerdo, no uses el producto y contactanos.</p>
+          </div>
+
+          <ul class="age-badges" aria-label="Advertencias principales">
+            <li>Edad recomendada: 13 años o más</li>
+            <li>Contiene piezas pequeñas</li>
+            <li>Peligro de asfixia — no apto para menores de 3 años</li>
+            <li>Batería recargable no removible</li>
+            <li>Emite señales de radiofrecuencia</li>
+          </ul>
+
+          <nav class="toc" aria-label="Índice del manual">
+            <h2>Índice</h2>
+            <ol>
+              <li><a href="#advertencias">Advertencias de seguridad</a></li>
+              <li><a href="#uso-previsto">Uso previsto y usos prohibidos</a></li>
+              <li><a href="#contenido">Contenido y descripción</a></li>
+              <li><a href="#bateria">Batería y carga</a></li>
+              <li><a href="#senales">Señales de radio e interferencias</a></li>
+              <li><a href="#luces-sonido">Luces, sonido y salud</a></li>
+              <li><a href="#primeros-pasos">Primeros pasos</a></li>
+              <li><a href="#uso-diario">Uso diario y limpieza</a></li>
+              <li><a href="#almacenamiento">Almacenamiento y transporte</a></li>
+              <li><a href="#problemas">Resolución de problemas</a></li>
+              <li><a href="#reparacion">Reparación y modificaciones</a></li>
+              <li><a href="#reciclaje">Eliminación y reciclaje</a></li>
+              <li><a href="#regulatorio">Información regulatoria</a></li>
+              <li><a href="#software">Software, firmware y licencia</a></li>
+              <li><a href="#garantia">Garantía limitada</a></li>
+              <li><a href="#exclusiones">Exclusión de garantías</a></li>
+              <li><a href="#responsabilidad">Limitación de responsabilidad</a></li>
+              <li><a href="#indemnidad">Indemnidad y uso por terceros</a></li>
+              <li><a href="#consumidor">Derechos del consumidor</a></li>
+              <li><a href="#legal">Disposiciones generales</a></li>
+              <li><a href="#contacto">Contacto y soporte</a></li>
+            </ol>
+          </nav>
+
+          <h2 id="advertencias">1. Advertencias de seguridad</h2>
+
+          <div class="callout danger">
+            <p class="callout-title">Peligro de asfixia — piezas pequeñas</p>
+            <p>El tablero Atlas incluye <strong>8 piezas genéricas con bases intercambiables</strong> y el módulo <strong>Atlas Core</strong>. Las piezas, sus bases y los componentes desmontables son <strong>piezas pequeñas</strong> que pueden causar <strong>asfixia por atragantamiento</strong> si se llevan a la boca.</p>
+            <ul>
+              <li><strong>Edad mínima recomendada: 13 años.</strong> <strong>No apto para menores de 3 años.</strong></li>
+              <li>Mantené el producto, sus piezas y su embalaje fuera del alcance de bebés, niños pequeños y mascotas.</li>
+              <li>Los menores deben usar el producto siempre <strong>bajo la supervisión directa de una persona adulta</strong>.</li>
+              <li>Antes y después de cada partida, revisá que no haya piezas sueltas, rotas o astilladas. Retirá de inmediato cualquier pieza dañada.</li>
+              <li>Si el producto incluye imanes: la ingestión de <strong>dos o más imanes</strong>, o de un imán junto con un objeto metálico, puede provocar perforaciones intestinales y ser mortal. Buscá atención médica de urgencia inmediatamente.</li>
+              <li>Descartá bolsas plásticas, films y otros materiales de embalaje antes de entregar el producto a un menor: <strong>no son juguetes</strong> y presentan riesgo de asfixia.</li>
+            </ul>
+          </div>
+
+          <div class="callout danger">
+            <p class="callout-title">Batería — riesgo de incendio, quemaduras y lesiones</p>
+            <ul>
+              <li><strong>No perfores, aplastes, cortes, dobles, desarmes, incineres ni sumerjas</strong> el producto ni sus baterías. Las celdas de polímero de litio son especialmente sensibles a la perforación y a la presión: un daño interno puede provocar incendio o explosión incluso pasado un tiempo desde el golpe.</li>
+              <li>No lo expongas a fuego, llamas, hornos, microondas, luz solar directa prolongada ni a temperaturas fuera del rango de funcionamiento de <strong>5 °C a 35 °C</strong> (por ejemplo, dentro de un vehículo cerrado al sol).</li>
+              <li>Si notás <strong>hinchazón, deformación, sobrecalentamiento, olor inusual, humo, ruido o fuga de líquido</strong>: dejá de usar el producto de inmediato, desconectalo si podés hacerlo con seguridad, alejalo de materiales inflamables y contactanos. No lo cargues nunca más.</li>
+              <li>Si el contenido de la batería entra en contacto con la piel o los ojos, enjuagá con abundante agua durante 15 minutos y buscá atención médica.</li>
+              <li>La batería es <strong>interna, recargable y no removible</strong>: no es reemplazable por la persona usuaria. No intentes extraerla ni abrir el equipo para acceder a ella.</li>
+              <li>El tablero Atlas y sus accesorios <strong>no contienen pilas removibles, pilas de botón ni pilas de moneda</strong>. Si alguna vez encontrás una pila suelta dentro del embalaje, no la uses y contactanos.</li>
+            </ul>
+          </div>
+
+          <div class="callout warning">
+            <p class="callout-title">Advertencias generales</p>
+            <ul>
+              <li>El tablero Atlas es un <strong>producto electrónico de interior</strong>. No lo uses bajo la lluvia, en exteriores, ni en ambientes húmedos, mojados, con polvo excesivo, vapores inflamables o riesgo de explosión.</li>
+              <li>No lo apoyes sobre superficies inestables ni en altura, donde pueda caer sobre una persona.</li>
+              <li>No lo uses mientras conducís, operás maquinaria o realizás cualquier actividad que requiera tu atención.</li>
+              <li>No dejes cables donde puedan provocar tropiezos o estrangulamiento.</li>
+              <li>Suspendé el uso si el producto presenta daños visibles, cables pelados, carcasa rajada o comportamiento anómalo.</li>
+            </ul>
+          </div>
+
+          <h2 id="uso-previsto">2. Uso previsto y usos prohibidos</h2>
+          <p>El tablero Atlas está diseñado <strong>exclusivamente</strong> para el entretenimiento doméstico: jugar juegos de mesa en interiores, en combinación con la aplicación AtlasHub, por parte de personas que cumplan la edad mínima indicada y respeten este manual.</p>
+          <p>Queda expresamente <strong>excluido y prohibido</strong> cualquier otro uso, en particular:</p>
+          <ul>
+            <li>Usos médicos, de diagnóstico, terapéuticos, de monitoreo de salud o de asistencia a personas.</li>
+            <li>Usos en los que un fallo pueda causar la muerte, lesiones o daños graves: aeronáutica, navegación, transporte, control industrial, energía, armamento, instalaciones nucleares, sistemas de emergencia o de seguridad.</li>
+            <li>Usos profesionales, comerciales, de alquiler o de explotación intensiva, salvo acuerdo escrito con nosotros.</li>
+            <li>Apuestas o juegos de azar con dinero real donde la legislación aplicable lo prohíba.</li>
+            <li>Cualquier uso en condiciones ambientales, eléctricas o mecánicas fuera de las especificaciones de este manual.</li>
+          </ul>
+          <p><strong>El tablero Atlas no es un juguete de primera infancia, no es un dispositivo médico, no es un instrumento de medición y no es un equipo de seguridad.</strong> No declaramos ni garantizamos su aptitud para ninguno de los usos excluidos, y no asumimos responsabilidad alguna derivada de ellos.</p>
+
+          <h2 id="contenido">3. Contenido y descripción</h2>
+          <p>La caja incluye:</p>
+          <ul>
+            <li><strong>Tablero Atlas</strong></li>
+            <li><strong>Atlas Core</strong></li>
+            <li><strong>8 piezas genéricas</strong> con sus bases intercambiables</li>
+            <li>Un <strong>cable USB-C</strong> de carga y datos</li>
+            <li>Un <strong>soporte para dispositivos móviles</strong></li>
+            <li>Un <strong>panfleto de inicio rápido</strong> con un código QR que lleva a este manual</li>
+          </ul>
+          <!-- PENDIENTE (3): fijar el plazo para reportar faltantes o danos de transporte -> "avisanos dentro de los N dias corridos desde la recepcion". Sin plazo definido se pide aviso "lo antes posible", que no restringe derechos del consumidor. -->
+          <p>Verificá el contenido al abrir la caja y avisanos <strong>lo antes posible</strong> si falta algo o llegó dañado, conservando el embalaje. El panfleto de inicio rápido es un resumen: <strong>las advertencias de seguridad completas y vinculantes son las de este manual</strong>.</p>
+          <p>El tablero se comunica con la aplicación AtlasHub instalada en tu teléfono mediante <strong>Bluetooth</strong>. Los datos de la partida viajan entre el teléfono y el tablero; el detalle de qué información tratamos está en la <a href="/privacy-policy/">política de privacidad</a>.</p>
+          <p><strong>Requisitos:</strong> teléfono con <strong>Android 7.0 (API 24) o superior</strong>, compatible con <strong>Bluetooth 4.0 Low Energy (BLE) o superior</strong>, y la aplicación AtlasHub instalada. La compatibilidad con dispositivos, capas de personalización, sistemas operativos y versiones futuras no está garantizada.</p>
+
+          <h2 id="bateria">4. Batería y carga</h2>
+          <p>El tablero incorpora <strong>dos baterías recargables de polímero de litio (LiPo) de 3500 mAh y 3,7 V cada una</strong>, internas y no removibles, con una energía nominal total aproximada de <strong>25,9 Wh</strong>. Para cargarlo de forma segura:</p>
+          <ol>
+            <!-- PENDIENTE (2): agregar la corriente de salida del cargador -> "salida de 5 V y N A". -->
+            <li>El tablero se carga por su conector <strong>USB-C</strong>, con el cable suministrado. Usá <strong>únicamente</strong> ese cable y un adaptador de corriente certificado que cumpla las normas de seguridad de tu país, con <strong>salida de 5 V</strong>. El uso de cargadores no aptos puede provocar incendio, descarga eléctrica o daño permanente, y <strong>anula la garantía</strong>.</li>
+            <li>Cargá en un lugar seco, ventilado, sobre una superficie no inflamable y dentro del rango de <strong>5 °C a 35 °C</strong>. Cargar fuera de ese rango daña la batería y puede resultar peligroso.</li>
+            <li><strong>No cargues el producto sin supervisión</strong>, ni mientras dormís, ni tapado con mantas, almohadas, ropa o papel.</li>
+            <li>Desconectá el cargador cuando la carga finalice y ante tormentas eléctricas.</li>
+            <li>No cargues un producto mojado, dañado, deformado o que haya sufrido un golpe fuerte o una caída.</li>
+            <li>Si no vas a usar el tablero por un tiempo prolongado, cargalo aproximadamente al 50 % y repetí la carga cada <strong>3 meses</strong> para preservar la batería.</li>
+          </ol>
+          <p>La autonomía y la capacidad de la batería son <strong>estimaciones</strong> y varían con el uso, la temperatura, la antigüedad y el número de ciclos de carga. La degradación progresiva de la batería es un <strong>desgaste normal</strong> y no constituye un defecto cubierto por la garantía.</p>
+
+          <h2 id="senales">5. Señales de radio e interferencias</h2>
+          <p>El tablero Atlas <strong>emite y recibe señales de radiofrecuencia</strong> para comunicarse con la aplicación.</p>
+
+          <div class="callout warning">
+            <p class="callout-title">Dispositivos médicos implantados</p>
+            <p>Las señales de radio pueden interferir con marcapasos, desfibriladores implantables, bombas de insulina, audífonos, implantes cocleares y otros dispositivos médicos.</p>
+            <ul>
+              <li>Mantené una distancia mínima de <strong>15 cm (6 pulgadas)</strong> entre el tablero y cualquier dispositivo médico implantado.</li>
+              <li>Si sospechás que el producto está interfiriendo con un dispositivo médico, <strong>apagalo de inmediato</strong>.</li>
+              <li>Si usás un dispositivo médico, <strong>consultá a tu médico o al fabricante del dispositivo antes de usar el tablero</strong>. Nosotros no podemos evaluar la compatibilidad con tu dispositivo particular.</li>
+            </ul>
+          </div>
+
+          <p>Además:</p>
+          <ul>
+            <li>Apagá el tablero donde esté señalizada la prohibición de usar equipos de radio: aeronaves, hospitales y centros de salud, estaciones de servicio, depósitos de combustible o productos químicos, y zonas de voladura.</li>
+            <li>El producto puede sufrir interferencias de otros equipos (routers, microondas, otros dispositivos Bluetooth) que provoquen desconexiones o retrasos. Esto <strong>no constituye un defecto</strong>.</li>
+            <li>El alcance de la conexión es aproximado y depende del entorno, los obstáculos y el teléfono utilizado.</li>
+            <li>No garantizamos una conexión ininterrumpida ni libre de errores.</li>
+          </ul>
+
+          <h2 id="luces-sonido">6. Luces, sonido y salud</h2>
+
+          <div class="callout warning">
+            <p class="callout-title">Advertencia sobre fotosensibilidad</p>
+            <p>Un porcentaje reducido de personas puede sufrir <strong>mareos, alteraciones de la visión, contracciones musculares, desorientación, movimientos involuntarios, convulsiones o pérdida de conciencia</strong> al exponerse a luces intermitentes o patrones luminosos, incluso sin antecedentes de epilepsia.</p>
+            <p><strong>Dejá de usar el producto de inmediato y consultá a un médico</strong> si experimentás alguno de estos síntomas. Si tenés antecedentes de epilepsia o convulsiones, consultá a tu médico antes de usarlo. Los menores son especialmente susceptibles: supervisalos.</p>
+          </div>
+
+          <ul>
+            <li><strong>No mires directamente</strong> a los emisores de luz ni los apuntes a los ojos de otras personas o animales, especialmente a corta distancia.</li>
+            <li>Jugá en una habitación bien iluminada, a una distancia cómoda del tablero, y hacé <strong>pausas de 10 a 15 minutos cada hora</strong>.</li>
+            <li>Si el producto emite sonido, mantené el volumen en un nivel moderado. La exposición prolongada a volúmenes altos puede dañar la audición.</li>
+            <li>Suspendé el uso si sentís fatiga visual, dolor de cabeza o molestias en manos, muñecas, brazos, cuello u hombros. Si las molestias persisten, consultá a un profesional de la salud.</li>
+          </ul>
+
+          <h2 id="primeros-pasos">7. Primeros pasos</h2>
+          <ol>
+            <li>Retirá el tablero y sus accesorios del embalaje y verificá que no presenten daños de transporte.</li>
+            <li>Cargá el tablero por completo antes del primer uso, siguiendo la sección <a href="#bateria">Batería y carga</a>.</li>
+            <li>Instalá la aplicación <strong>AtlasHub</strong> desde Google Play y creá tu cuenta.</li>
+            <li>Activá el Bluetooth en el teléfono y otorgá los permisos que la aplicación solicite. Android exige el permiso de ubicación para poder buscar dispositivos Bluetooth cercanos; como se explica en la <a href="/privacy-policy/">política de privacidad</a>, la app no accede a tu ubicación.</li>
+            <li>Encendé el tablero y seguí el asistente de emparejamiento de la aplicación.</li>
+            <li>Elegí un juego y comenzá la partida.</li>
+          </ol>
+
+          <h2 id="uso-diario">8. Uso diario y limpieza</h2>
+          <ul>
+            <li>Apoyá el tablero sobre una superficie plana, estable, seca y despejada.</li>
+            <li>No apoyes objetos pesados sobre el tablero, no te sientes ni te pares encima, y no lo uses como soporte de otros objetos.</li>
+            <li>No fuerces las piezas ni los conectores. Insertalos en la orientación correcta y sin presión excesiva.</li>
+            <li>Apagá el tablero cuando no lo uses.</li>
+            <li><strong>Limpieza:</strong> apagá y desconectá el producto. Usá un paño suave, seco o apenas humedecido con agua. <strong>Nunca</strong> sumerjas el tablero, ni uses alcohol, solventes, abrasivos, aire comprimido ni productos de limpieza agresivos. Dejá secar por completo antes de encenderlo o cargarlo.</li>
+            <li>Si entra líquido en el producto, <strong>no lo enciendas ni lo cargues</strong>: contactanos.</li>
+          </ul>
+
+          <h2 id="almacenamiento">9. Almacenamiento y transporte</h2>
+          <ul>
+            <li>Guardalo en un lugar seco, fresco y ventilado, dentro del rango de <strong>5 °C a 35 °C</strong>, lejos de la luz solar directa y de fuentes de calor.</li>
+            <li>Guardalo fuera del alcance de niños pequeños y mascotas.</li>
+            <li><strong>Transporte aéreo:</strong> los productos con baterías de litio están sujetos a restricciones. El tablero debe viajar en el <strong>equipaje de mano</strong>, nunca en el equipaje despachado, apagado y protegido contra encendidos accidentales. Su energía nominal total (<strong>25,9 Wh</strong>) está por debajo del umbral de 100 Wh a partir del cual se exige autorización previa del transportista, pero <strong>consultá siempre las normas de tu aerolínea y de la autoridad aeronáutica antes de volar</strong>: las condiciones pueden variar.</li>
+            <li>Protegé el producto de golpes y vibraciones durante el traslado. Los daños por transporte inadecuado no están cubiertos por la garantía.</li>
+          </ul>
+
+          <h2 id="problemas">10. Resolución de problemas</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Síntoma</th>
+                <th>Qué hacer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>El tablero no enciende</td>
+                <td>Cargalo al menos 30 minutos con el cable original y volvé a intentar.</td>
+              </tr>
+              <tr>
+                <td>La app no encuentra el tablero</td>
+                <td>Verificá que el Bluetooth esté activado, que los permisos estén concedidos y que el tablero esté encendido y cerca del teléfono.</td>
+              </tr>
+              <tr>
+                <td>La conexión se corta</td>
+                <td>Acercá el teléfono, alejá otros equipos inalámbricos y reiniciá la aplicación.</td>
+              </tr>
+              <tr>
+                <td>La batería dura poco</td>
+                <td>Cargala por completo, evitá temperaturas extremas y comprobá si hay una actualización de firmware.</td>
+              </tr>
+              <tr>
+                <td>Ruido, olor, calor o deformación</td>
+                <td><strong>Dejá de usarlo de inmediato</strong>, no lo cargues y contactanos.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Si el problema persiste, escribinos a <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> con el modelo, el número de serie y una descripción del fallo.</p>
+
+          <h2 id="reparacion">11. Reparación y modificaciones</h2>
+          <div class="callout warning">
+            <p class="callout-title">No abras ni modifiques el producto</p>
+            <p>El tablero no contiene piezas reparables por la persona usuaria. Abrirlo, desarmarlo, modificarlo, alterar su firmware o repararlo fuera de nuestro servicio autorizado:</p>
+            <ul>
+              <li><strong>anula la garantía en su totalidad</strong>;</li>
+              <li>puede invalidar las homologaciones regulatorias y la autorización para operar el equipo;</li>
+              <li>puede provocar incendio, descarga eléctrica, lesiones o daños;</li>
+              <li>traslada íntegramente a quien lo realiza la responsabilidad por cualquier consecuencia.</li>
+            </ul>
+            <p>Toda reparación debe realizarse a través de nuestro canal de soporte.</p>
+          </div>
+
+          <h2 id="reciclaje">12. Eliminación y reciclaje</h2>
+          <p>Este producto es un aparato eléctrico y electrónico con batería incorporada. <strong>No lo tires a la basura doméstica</strong> ni lo incineres.</p>
+          <ul>
+            <li>Llevalo a un punto limpio, centro de recogida de residuos electrónicos (RAEE/WEEE) o programa de devolución de tu localidad.</li>
+            <li>Las pilas y baterías se depositan en los contenedores específicos para ese fin.</li>
+            <li>Cumplí la normativa de residuos vigente en tu país. La eliminación incorrecta puede dañar el medio ambiente y la salud, y puede estar sancionada por ley.</li>
+          </ul>
+
+          <h2 id="regulatorio">13. Información regulatoria</h2>
+          <p>El tablero Atlas incorpora un módulo de radio <strong>Bluetooth Low Energy</strong> de baja potencia. En la <strong>República Argentina</strong>, los equipos de radiocomunicación requieren la homologación del <strong>ENACOM</strong> (Ente Nacional de Comunicaciones). El identificador de homologación correspondiente a tu unidad figura en la etiqueta del producto y en su embalaje.</p>
+          <!-- PENDIENTE (5): cuando exista la homologacion, agregar aqui el identificador ENACOM. No declararlo antes de obtenerlo. -->
+          <p>Este equipo cumple las condiciones de operación de los dispositivos de radio de baja potencia: (1) no puede causar interferencias perjudiciales, y (2) debe aceptar cualquier interferencia recibida, incluida la que pueda provocar un funcionamiento no deseado.</p>
+          <p class="fine-print">Los cambios o modificaciones no aprobados expresamente por el fabricante pueden anular la autorización de la persona usuaria para operar el equipo. Este producto está destinado a comercializarse únicamente en los mercados para los que fue homologado; su uso, importación o reventa en otros territorios queda bajo la responsabilidad exclusiva de quien lo realice, incluida la obtención de las homologaciones locales que correspondan.</p>
+
+          <h2 id="software">14. Software, firmware y licencia</h2>
+          <ul>
+            <li>El firmware del tablero y la aplicación AtlasHub se te licencian, <strong>no se te venden</strong>. Recibís una licencia personal, limitada, revocable, no exclusiva y no transferible para usarlos con el producto.</li>
+            <li>No está permitido copiar, distribuir, alquilar, sublicenciar, descompilar, aplicar ingeniería inversa, extraer el firmware ni eludir sus medidas técnicas de protección, salvo en la medida en que la ley lo permita de forma imperativa.</li>
+            <li>Podemos publicar <strong>actualizaciones de firmware y de la aplicación</strong> para corregir fallos o mejorar la seguridad y la compatibilidad. Algunas actualizaciones pueden ser necesarias para que el producto siga funcionando. Mantené el producto actualizado.</li>
+            <li>Una actualización puede modificar, limitar o discontinuar funciones. Nos reservamos el derecho de <strong>modificar o discontinuar servicios en línea</strong> con un preaviso razonable cuando sea posible.</li>
+            <li>Las marcas, logotipos, diseños, contenidos y reglas de juego son propiedad de wololabs o de sus licenciantes. Este manual no concede ningún derecho sobre ellos.</li>
+            <li>Interrumpir una actualización de firmware, apagar el tablero durante el proceso o instalar software no oficial puede dejar el producto inutilizable y no está cubierto por la garantía.</li>
+          </ul>
+
+          <h2 id="garantia">15. Garantía limitada</h2>
+          <!-- PENDIENTE (4): al fijar un plazo de garantia comercial mayor al minimo legal, REEMPLAZAR el parrafo siguiente por: "Garantizamos que el tablero Atlas esta libre de defectos de materiales y de fabricacion, en condiciones de uso normal conforme a este manual, durante N meses desde la fecha de compra acreditada por el comprobante original. Este plazo se suma a la garantia legal y nunca la reemplaza." -->
+          <p>Garantizamos que el tablero Atlas está libre de <strong>defectos de materiales y de fabricación</strong> en condiciones de uso normal conforme a este manual, durante el plazo de la <strong>garantía legal</strong> que corresponda según la normativa aplicable, contado desde la entrega y acreditado con el comprobante de compra original. En la República Argentina ese plazo es de <strong>6 meses como mínimo</strong> (art. 11 de la Ley 24.240).</p>
+          <p>Dentro de ese plazo, y a nuestra elección, <strong>repararemos, reemplazaremos o reembolsaremos</strong> el producto defectuoso. Este es tu <strong>único y exclusivo remedio</strong> bajo esta garantía comercial. La reparación o el reemplazo no reinician el plazo original.</p>
+          <p><strong>La garantía no cubre:</strong></p>
+          <ul>
+            <li>desgaste normal, rayones, decoloración y degradación gradual de la capacidad de la batería;</li>
+            <li>daños por caídas, golpes, aplastamiento, líquidos, humedad, arena, fuego, calor, corrosión o condiciones ambientales fuera de las especificadas;</li>
+            <li>uso indebido, negligencia, accidente, uso contrario a este manual o para fines no previstos;</li>
+            <li>uso de cargadores, cables, accesorios o repuestos no autorizados;</li>
+            <li>apertura, modificación, alteración del firmware o reparación por terceros no autorizados;</li>
+            <li>daños por transporte, instalación o almacenamiento inadecuados;</li>
+            <li>fuerza mayor, sobretensiones, fallos de la red eléctrica o desastres naturales;</li>
+            <li>productos sin número de serie legible, con etiquetas alteradas, o adquiridos a revendedores no autorizados, de segunda mano o falsificados;</li>
+            <li>software, contenidos, datos o configuraciones, y su pérdida;</li>
+            <li>incompatibilidades con teléfonos, sistemas operativos o versiones futuras.</li>
+          </ul>
+          <p><strong>Cómo reclamar:</strong> escribinos a <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> antes de enviar nada, indicando modelo, número de serie, descripción del fallo y comprobante de compra. Te indicaremos el procedimiento. Los envíos no autorizados pueden ser rechazados. Hacé una copia de tus datos antes de entregar el producto: no respondemos por su pérdida.</p>
+
+          <h2 id="exclusiones">16. Exclusión de garantías</h2>
+          <p>En la máxima medida permitida por la legislación aplicable, y sin perjuicio de la garantía limitada anterior y de los derechos legales imperativos de los consumidores, el producto, su firmware, la aplicación y los servicios asociados se proporcionan <strong>«tal cual» y «según disponibilidad»</strong>, sin garantías de ningún otro tipo, expresas o implícitas, incluidas —sin limitación— las garantías implícitas de comerciabilidad, calidad satisfactoria, adecuación a un fin determinado y no infracción.</p>
+          <p>No garantizamos que el funcionamiento del producto o de la aplicación sea ininterrumpido, seguro o libre de errores, ni que los defectos vayan a ser corregidos, ni la disponibilidad permanente de los servicios en línea.</p>
+
+          <h2 id="responsabilidad">17. Limitación de responsabilidad</h2>
+          <p>En la máxima medida permitida por la legislación aplicable:</p>
+          <ul>
+            <li>No responderemos por daños <strong>indirectos, incidentales, especiales, punitivos o consecuentes</strong>, ni por lucro cesante, pérdida de datos, pérdida de uso, pérdida de oportunidades o daño reputacional, aunque se nos hubiera advertido de su posibilidad.</li>
+            <li>Nuestra responsabilidad total acumulada, por cualquier causa y cualquiera sea la teoría jurídica invocada, <strong>no excederá el importe efectivamente pagado por el producto</strong> que da origen al reclamo.</li>
+          </ul>
+          <p><strong>Nada en este manual excluye ni limita nuestra responsabilidad por</strong> muerte o lesiones personales causadas por nuestra negligencia, por dolo, por fraude o tergiversación fraudulenta, por responsabilidad derivada de producto defectuoso, ni por cualquier otra responsabilidad que la ley no permita excluir o limitar. Si alguna limitación resultara inaplicable en tu jurisdicción, se aplicará el límite máximo que la ley permita.</p>
+
+          <h2 id="indemnidad">18. Indemnidad y uso por terceros</h2>
+          <p>Aceptás mantenernos indemnes frente a reclamaciones, daños, pérdidas y gastos razonables derivados de: (a) el uso del producto en contra de este manual o de la ley; (b) su modificación o reparación no autorizada; (c) su uso para fines expresamente excluidos; o (d) la falta de supervisión de menores a tu cargo.</p>
+          <p>Si prestás, revendés o cedés el producto, es tu responsabilidad <strong>entregar este manual completo</strong> y comunicar sus advertencias de seguridad a la persona que lo reciba.</p>
+
+          <h2 id="consumidor">19. Derechos del consumidor</h2>
+          <p>Si actuás como consumidor, gozás de <strong>derechos legales imperativos</strong> que <strong>este manual no restringe, excluye ni sustituye</strong>, y que se aplican con independencia y por encima de la garantía comercial descrita aquí.</p>
+          <p>En la <strong>República Argentina</strong> rigen la <strong>Ley 24.240 de Defensa del Consumidor</strong> y el Código Civil y Comercial de la Nación. En particular:</p>
+          <ul>
+            <li><strong>Garantía legal:</strong> los bienes muebles nuevos no consumibles tienen una garantía legal mínima de <strong>6 meses</strong> desde la entrega (art. 11 de la Ley 24.240). Nuestra garantía comercial se suma a ese mínimo y nunca lo reemplaza.</li>
+            <li><strong>Compras a distancia:</strong> si adquiriste el producto por internet, teléfono o fuera del establecimiento comercial, tenés <strong>10 días corridos</strong> desde la entrega para revocar la aceptación, sin expresar motivo y sin costo alguno (art. 34 de la Ley 24.240 y art. 1110 del Código Civil y Comercial).</li>
+            <li><strong>Información y trato digno:</strong> tenés derecho a información cierta, clara y detallada, y a condiciones de atención dignas y equitativas (arts. 4 y 8 bis de la Ley 24.240).</li>
+            <li>Ante un reclamo podés acudir a la autoridad de aplicación en defensa del consumidor de tu jurisdicción o al <strong>Servicio de Conciliación Previa en las Relaciones de Consumo (COPREC)</strong>.</li>
+          </ul>
+          <p>Algunas jurisdicciones no permiten la exclusión de garantías implícitas ni la limitación de ciertos daños; en esos casos, las exclusiones y limitaciones anteriores se aplicarán sólo en la medida permitida por la ley, y el resto del documento permanecerá en vigor.</p>
+
+          <h2 id="legal">20. Disposiciones generales</h2>
+          <ul>
+            <li><strong>Ley aplicable y jurisdicción:</strong> este manual se rige por las leyes de la <strong>República Argentina</strong>. Para toda controversia serán competentes los tribunales ordinarios de la <strong>Ciudad de Mendoza, Provincia de Mendoza</strong>, <strong>salvo que quien reclame revista el carácter de consumidor</strong>, en cuyo caso resultarán competentes los tribunales de su domicilio, conforme al art. 36 de la Ley 24.240 y al art. 1109 del Código Civil y Comercial.</li>
+            <li><strong>Divisibilidad:</strong> si una cláusula se declara inválida o inexigible, las demás continúan plenamente vigentes.</li>
+            <li><strong>No renuncia:</strong> el hecho de no exigir el cumplimiento de una disposición no supone renuncia a hacerlo más adelante.</li>
+            <li><strong>Actualizaciones del manual:</strong> podemos actualizar este documento para reflejar cambios en el producto, en la normativa o en la información de seguridad. La versión vigente es siempre la publicada en esta página, con su fecha de actualización.</li>
+            <li><strong>Especificaciones:</strong> las imágenes, colores, funciones y especificaciones son orientativas y pueden variar. Nos reservamos el derecho de introducir mejoras sin previo aviso.</li>
+            <li><strong>Idioma:</strong> el texto en español es la versión de referencia. Ante discrepancias con una traducción, prevalece el español.</li>
+            <li><strong>Privacidad:</strong> el tratamiento de datos personales se rige por la <a href="/privacy-policy/">política de privacidad</a>, que forma parte integrante de esta documentación.</li>
+          </ul>
+
+          <h2 id="contacto">21. Contacto y soporte</h2>
+          <p><strong>WOLOLO STUDIO S.A.S.</strong> (wololabs)<br />
+          Maure Avelino 245, Ciudad de Mendoza, Provincia de Mendoza, República Argentina<br />
+          <a href="mailto:admin@wololabs.com">admin@wololabs.com</a></p>
+          <p>Para consultas de seguridad, incidentes con la batería o cualquier situación que haya puesto en riesgo a una persona, escribinos con el asunto <strong>«Seguridad del producto»</strong> y le daremos prioridad.</p>
+
+          <div class="legal-block">
+            <p class="fine-print">Este manual forma parte del producto. Conservalo. Su contenido se ofrece de buena fe y con la mayor precisión posible; no sustituye el criterio de una persona adulta responsable ni el asesoramiento profesional. Ante cualquier duda sobre el uso seguro del producto, no lo uses y consultanos antes.</p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand footer-brand" aria-label="Atlas 64 logo">
+            <span class="brand-mark">A64</span>
+            <span class="brand-name">Atlas 64</span>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="/">Inicio</a>
+          <a href="/privacy-policy/">Política de privacidad</a>
+          <a href="/delete-account-guide/">Guía de baja de cuenta</a>
+          <a href="mailto:admin@wololabs.com">admin@wololabs.com</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
