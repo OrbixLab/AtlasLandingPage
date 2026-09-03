@@ -22,42 +22,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manual de usuario y avisos de seguridad | Atlas 64</title>
+    <title>Manual de usuario y avisos de seguridad | Atlas</title>
     <meta
       name="description"
       content="Manual de usuario del tablero Atlas: instrucciones de uso, advertencias de seguridad, batería, señales de radio, garantía limitada y condiciones legales."
     />
+    <meta name="theme-color" content="#f9b606" />
+    <link rel="icon" href="/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
+
     <header class="topbar">
-      <div class="container nav">
-        <div class="brand" aria-label="Atlas 64 logo">
-          <span class="brand-mark">A64</span>
-          <span class="brand-name">Atlas 64</span>
-        </div>
-        <nav class="nav-links" aria-label="Navegación secundaria">
-          <a href="/">Inicio</a>
-          <a href="/privacy-policy/">Privacidad</a>
-          <a href="/delete-account-guide/">Eliminar cuenta</a>
+      <div class="wrap topbar__inner">
+        <a class="brand" href="/" aria-label="Atlas — inicio">
+          <img class="brand-mark" src="/assets/icon-atlas-dark.png" alt="" width="26" height="26" />
+          <span class="brand-name">Atlas</span>
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-principal">
+          Menú
+        </button>
+        <nav class="topbar__nav" id="nav-principal" data-nav aria-label="Navegación principal">
+          <a href="/">Producto</a>
+          <a href="/ecosistema/">Ecosistema</a>
+          <a href="/sobre-nosotros/">Sobre nosotros</a>
         </nav>
       </div>
     </header>
 
-    <main class="page-shell">
-      <div class="container">
-        <a class="back-link" href="/">← Volver a Atlas 64</a>
-        <header class="page-header">
-          <p class="section-tag">Manual de usuario</p>
-          <h1>Tablero Atlas</h1>
-        </header>
+    <main id="contenido">
+      <section class="doc-hero">
+        <div class="wrap">
+          <a class="back-link" href="/">← Volver al inicio</a>
+          <p class="eyebrow">Manual de usuario</p>
+          <h1 class="display display--lg">Tablero Atlas</h1>
+          <p class="lede">Instrucciones de uso, advertencias de seguridad, cuidado de la batería, señales de radio, garantía limitada y condiciones legales del tablero Atlas y de la aplicación AtlasHub.</p>
+        </div>
+      </section>
 
+      <section class="page-shell">
+        <div class="wrap">
         <article class="article-card">
           <!-- PENDIENTE (1): agregar el modelo/SKU cuando este definido -> "tablero electronico Atlas, modelo XXX, y aplicacion AtlasHub". -->
           <p class="doc-meta"><strong>Producto:</strong> tablero electrónico Atlas y aplicación AtlasHub.</p>
@@ -384,24 +396,87 @@
             <p class="fine-print">Este manual forma parte del producto. Conservalo. Su contenido se ofrece de buena fe y con la mayor precisión posible; no sustituye el criterio de una persona adulta responsable ni el asesoramiento profesional. Ante cualquier duda sobre el uso seguro del producto, no lo uses y consultanos antes.</p>
           </div>
         </article>
-      </div>
+        <nav class="doc-links" aria-label="Otros documentos">
+            <a class="doc-link" href="/privacy-policy/">
+              <strong>Política de privacidad</strong>
+              <span>Qué datos maneja AtlasHub y cómo pedir su baja.</span>
+            </a>
+            <a class="doc-link" href="/delete-account-guide/">
+              <strong>Eliminar la cuenta</strong>
+              <span>Cómo borrar tu cuenta desde la app o por correo.</span>
+            </a>
+        </nav>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <div class="brand footer-brand" aria-label="Atlas 64 logo">
-            <span class="brand-mark">A64</span>
-            <span class="brand-name">Atlas 64</span>
+      <svg class="footer-deco footer-deco--left" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <g fill="#f9b606">
+          <rect x="60" y="4" width="34" height="7" /><rect x="60" y="4" width="7" height="34" />
+          <rect x="87" y="4" width="7" height="34" /><rect x="60" y="45" width="34" height="7" />
+          <rect x="20" y="60" width="34" height="7" /><rect x="20" y="60" width="7" height="34" />
+          <rect x="47" y="60" width="7" height="34" /><rect x="20" y="101" width="34" height="7" />
+          <rect x="0" y="120" width="34" height="7" /><rect x="0" y="120" width="7" height="34" />
+          <rect x="27" y="120" width="7" height="34" /><rect x="0" y="161" width="34" height="7" />
+        </g>
+      </svg>
+      <svg class="footer-deco footer-deco--right" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <g fill="#f9b606">
+          <rect x="120" y="0" width="34" height="7" /><rect x="120" y="0" width="7" height="34" />
+          <rect x="147" y="0" width="7" height="34" /><rect x="120" y="41" width="34" height="7" />
+          <rect x="150" y="60" width="34" height="7" /><rect x="150" y="60" width="7" height="34" />
+          <rect x="177" y="60" width="7" height="34" /><rect x="150" y="101" width="34" height="7" />
+          <rect x="90" y="120" width="34" height="7" /><rect x="90" y="120" width="7" height="34" />
+          <rect x="117" y="120" width="7" height="34" /><rect x="90" y="161" width="34" height="7" />
+        </g>
+      </svg>
+
+      <div class="wrap site-footer__inner">
+        <div class="site-footer__brand">
+          <img src="/assets/wordmark-atlas-dark.png" alt="Atlas" width="1200" height="326" loading="lazy" />
+          <p class="footer-tagline">El mapa de mundos</p>
+        </div>
+
+        <div class="site-footer__links">
+          <div>
+            <h3>Redes</h3>
+            <ul>
+              <li><a href="https://www.instagram.com/atlas64_/" rel="noopener">Instagram</a></li>
+              <!-- PENDIENTE: agregar las URLs de Discord, TikTok, X y LinkedIn. -->
+              <li>Discord</li>
+              <li>TikTok</li>
+              <li>X</li>
+              <li>LinkedIn</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Soporte</h3>
+            <ul>
+              <li><a href="/user-manual/">Manual de usuario</a></li>
+              <li><a href="/#faq">Preguntas frecuentes</a></li>
+              <li><a href="mailto:admin@wololabs.com">Contacto</a></li>
+              <li>
+                <a href="https://play.google.com/store/apps/details?id=com.wololabs.atlas" rel="noopener">
+                  Descargar la app
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="/privacy-policy/">Política de privacidad</a></li>
+              <li><a href="/delete-account-guide/">Eliminar la cuenta</a></li>
+            </ul>
           </div>
         </div>
-        <div class="footer-links">
-          <a href="/">Inicio</a>
-          <a href="/privacy-policy/">Política de privacidad</a>
-          <a href="/delete-account-guide/">Guía de baja de cuenta</a>
-          <a href="mailto:admin@wololabs.com">admin@wololabs.com</a>
-        </div>
+
+        <p class="site-footer__legal">© Atlas — Desarrollado por WOLO Labs. Made in Argentina.</p>
       </div>
     </footer>
+
+    <script src="/script.js" defer></script>
+
   </body>
 </html>

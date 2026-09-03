@@ -3,36 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guía para eliminar la cuenta | Atlas 64</title>
+    <title>Guía para eliminar la cuenta | Atlas</title>
     <meta name="description" content="Guía detallada para eliminar la cuenta de Atlas 64 desde la app o por email." />
+    <meta name="theme-color" content="#f9b606" />
+    <link rel="icon" href="/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
+
     <header class="topbar">
-      <div class="container nav">
-        <div class="brand" aria-label="Atlas 64 logo">
-          <span class="brand-mark">A64</span>
-          <span class="brand-name">Atlas 64</span>
-        </div>
-        <nav class="nav-links" aria-label="Navegación secundaria">
-          <a href="/">Inicio</a>
-          <a href="/user-manual/">Manual</a>
-          <a href="/privacy-policy/">Privacidad</a>
+      <div class="wrap topbar__inner">
+        <a class="brand" href="/" aria-label="Atlas — inicio">
+          <img class="brand-mark" src="/assets/icon-atlas-dark.png" alt="" width="26" height="26" />
+          <span class="brand-name">Atlas</span>
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-principal">
+          Menú
+        </button>
+        <nav class="topbar__nav" id="nav-principal" data-nav aria-label="Navegación principal">
+          <a href="/">Producto</a>
+          <a href="/ecosistema/">Ecosistema</a>
+          <a href="/sobre-nosotros/">Sobre nosotros</a>
         </nav>
       </div>
     </header>
 
-    <main class="page-shell">
-      <div class="container">
-        <a class="back-link" href="/">← Volver a Atlas 64</a>
-        <header class="page-header">
-          <p class="section-tag">Soporte</p>
-          <h1>Guía para eliminar la cuenta</h1>
-        </header>
+    <main id="contenido">
+      <section class="doc-hero">
+        <div class="wrap">
+          <a class="back-link" href="/">← Volver al inicio</a>
+          <p class="eyebrow">Soporte</p>
+          <h1 class="display display--lg">Guía para eliminar la cuenta</h1>
+          <p class="lede">Cómo eliminar tu cuenta de Atlas desde la aplicación o por correo, y qué datos se borran en cada caso.</p>
+        </div>
+      </section>
 
+      <section class="page-shell">
+        <div class="wrap">
         <article class="article-card">
           <p>Si quieres dejar de usar Atlas 64 o cerrar tu cuenta, podés hacerlo de dos formas: directamente desde la app o enviándonos un correo con la dirección con la que te registraste.</p>
 
@@ -75,7 +90,87 @@
           <h2>¿Necesitás ayuda?</h2>
           <p>Si tenés dudas o la solicitud no se completó, escribinos a <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> y te ayudamos a resolverlo.</p>
         </article>
-      </div>
+        <nav class="doc-links" aria-label="Otros documentos">
+            <a class="doc-link" href="/user-manual/">
+              <strong>Manual de usuario</strong>
+              <span>Uso, seguridad, batería y garantía del tablero.</span>
+            </a>
+            <a class="doc-link" href="/privacy-policy/">
+              <strong>Política de privacidad</strong>
+              <span>Qué datos maneja AtlasHub y cómo pedir su baja.</span>
+            </a>
+        </nav>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <svg class="footer-deco footer-deco--left" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <g fill="#f9b606">
+          <rect x="60" y="4" width="34" height="7" /><rect x="60" y="4" width="7" height="34" />
+          <rect x="87" y="4" width="7" height="34" /><rect x="60" y="45" width="34" height="7" />
+          <rect x="20" y="60" width="34" height="7" /><rect x="20" y="60" width="7" height="34" />
+          <rect x="47" y="60" width="7" height="34" /><rect x="20" y="101" width="34" height="7" />
+          <rect x="0" y="120" width="34" height="7" /><rect x="0" y="120" width="7" height="34" />
+          <rect x="27" y="120" width="7" height="34" /><rect x="0" y="161" width="34" height="7" />
+        </g>
+      </svg>
+      <svg class="footer-deco footer-deco--right" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <g fill="#f9b606">
+          <rect x="120" y="0" width="34" height="7" /><rect x="120" y="0" width="7" height="34" />
+          <rect x="147" y="0" width="7" height="34" /><rect x="120" y="41" width="34" height="7" />
+          <rect x="150" y="60" width="34" height="7" /><rect x="150" y="60" width="7" height="34" />
+          <rect x="177" y="60" width="7" height="34" /><rect x="150" y="101" width="34" height="7" />
+          <rect x="90" y="120" width="34" height="7" /><rect x="90" y="120" width="7" height="34" />
+          <rect x="117" y="120" width="7" height="34" /><rect x="90" y="161" width="34" height="7" />
+        </g>
+      </svg>
+
+      <div class="wrap site-footer__inner">
+        <div class="site-footer__brand">
+          <img src="/assets/wordmark-atlas-dark.png" alt="Atlas" width="1200" height="326" loading="lazy" />
+          <p class="footer-tagline">El mapa de mundos</p>
+        </div>
+
+        <div class="site-footer__links">
+          <div>
+            <h3>Redes</h3>
+            <ul>
+              <li><a href="https://www.instagram.com/atlas64_/" rel="noopener">Instagram</a></li>
+              <!-- PENDIENTE: agregar las URLs de Discord, TikTok, X y LinkedIn. -->
+              <li>Discord</li>
+              <li>TikTok</li>
+              <li>X</li>
+              <li>LinkedIn</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Soporte</h3>
+            <ul>
+              <li><a href="/user-manual/">Manual de usuario</a></li>
+              <li><a href="/#faq">Preguntas frecuentes</a></li>
+              <li><a href="mailto:admin@wololabs.com">Contacto</a></li>
+              <li>
+                <a href="https://play.google.com/store/apps/details?id=com.wololabs.atlas" rel="noopener">
+                  Descargar la app
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="/privacy-policy/">Política de privacidad</a></li>
+              <li><a href="/delete-account-guide/">Eliminar la cuenta</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="site-footer__legal">© Atlas — Desarrollado por WOLO Labs. Made in Argentina.</p>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+
   </body>
 </html>

@@ -3,171 +3,490 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atlas 64 | Juega tu mesa en la palma de tu mano</title>
+    <title>Atlas — El mapa hacia infinitos mundos</title>
     <meta
       name="description"
-      content="Landing page placeholder de Atlas 64 para la web de la app. Política de privacidad y guía para eliminar la cuenta disponibles."
+      content="Atlas es la primera consola de juegos de mesa: un único tablero que da vida a cientos de juegos y una tecnología que se encarga del resto."
     />
+    <link rel="canonical" href="https://www.atlas-64.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Atlas — El mapa hacia infinitos mundos" />
+    <meta
+      property="og:description"
+      content="La primera consola de juegos de mesa. Un tablero, infinitos juegos."
+    />
+    <meta property="og:image" content="https://www.atlas-64.com/assets/hero-billboard.jpg" />
+    <meta property="og:url" content="https://www.atlas-64.com/" />
+    <meta name="theme-color" content="#f9b606" />
+    <link rel="icon" href="/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
+
+    <!-- ================= TOPBAR ================= -->
     <header class="topbar">
-      <div class="container nav">
-        <div class="brand" aria-label="Atlas 64 logo">
-          <span class="brand-mark">A64</span>
-          <span class="brand-name">Atlas 64</span>
-        </div>
-        <nav class="nav-links" aria-label="Navegación principal">
-          <a href="#about">Sobre la app</a>
-          <a href="#features">Funciones</a>
-          <a href="/user-manual/">Manual</a>
-          <a href="/privacy-policy/">Privacidad</a>
-          <a href="/delete-account-guide/">Eliminar cuenta</a>
+      <div class="wrap topbar__inner">
+        <a class="brand" href="/" aria-label="Atlas — inicio">
+          <img class="brand-mark" src="/assets/icon-atlas-dark.png" alt="" width="26" height="26" />
+          <span class="brand-name">Atlas</span>
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-principal">
+          Menú
+        </button>
+        <nav class="topbar__nav" id="nav-principal" data-nav aria-label="Navegación principal">
+          <a href="/" aria-current="page">Producto</a>
+          <a href="/ecosistema/">Ecosistema</a>
+          <a href="/sobre-nosotros/">Sobre nosotros</a>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="contenido">
+      <!-- ================= HERO ================= -->
       <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Próximamente</p>
-            <h1>La experiencia de juego de mesa que conecta tu tablero físico con la app.</h1>
-            <p class="lead">
-              Atlas 64 está preparando una experiencia para jugar de forma más rápida,
-              intuitiva y conectada. Mientras termina la landing definitiva, dejamos esta
-              versión placeholder con los enlaces que Google Play Console exige.
+        <div class="wrap">
+          <h1 class="display display--xl hero__title">El mapa hacia infinitos mundos</h1>
+
+          <!-- PENDIENTE: el diseño prevé un video en este bloque. Reemplazar el
+               <img> por un <video autoplay muted loop playsinline poster="..."> -->
+          <div class="hero__media hero__media--product">
+            <span class="hero__grid-bg" aria-hidden="true"></span>
+            <img
+              src="/assets/tablero.webp"
+              alt="Tablero Atlas visto en perspectiva, con su cuadrícula de celdas iluminadas"
+              width="1400"
+              height="754"
+            />
+          </div>
+
+          <div class="hero__foot">
+            <p class="lede">
+              La primera consola de juegos de mesa. Combina lo mejor de los juegos de mesa con lo
+              mejor de los videojuegos. El tablero diseñado para dar vida a cientos de juegos en un
+              mismo lugar, sin perder la esencia de lo que nos une alrededor de una mesa.
             </p>
-            <div class="cta-row">
-              <a class="button primary" href="#download">Descargar</a>
-              <a class="button secondary" href="/privacy-policy/">Política de privacidad</a>
+            <div class="btn-row">
+              <!-- PENDIENTE: reemplazar por la URL de la tienda cuando exista. -->
+              <a class="btn btn--ink" href="mailto:admin@wololabs.com?subject=Quiero%20comprar%20Atlas">Comprar Atlas</a>
+              <a class="btn" href="#como-funciona">Ver cómo funciona</a>
             </div>
-            <ul class="meta-list" aria-label="Requisitos de la web">
-              <li>Política de privacidad disponible</li>
-              <li>Guía de eliminación de cuenta publicada</li>
-              <li>Preparado para dominio atlas-64.com</li>
-            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ¿QUÉ ES ATLAS? ================= -->
+      <section class="band band--yellow" id="que-es">
+        <div class="wrap showcase reveal">
+          <p class="eyebrow">¿Qué es Atlas?</p>
+          <h2 class="display display--lg">Mucho más que un tablero.</h2>
+
+          <div class="showcase__stage">
+            <img
+              class="float-mini float-mini--tl"
+              src="/assets/mini-roja.webp"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <img
+              class="float-mini float-mini--tr"
+              src="/assets/mini-blanca.webp"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <img
+              class="float-mini float-mini--br"
+              src="/assets/mini-negra.webp"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+            />
+            <img
+              class="showcase__hero-img"
+              src="/assets/tablero.webp"
+              alt="Tablero Atlas con miniaturas alrededor"
+              width="1400"
+              height="754"
+              loading="lazy"
+            />
           </div>
 
-          <div class="hero-art" aria-label="Mockup de la aplicación Atlas 64">
-            <div class="phone-frame">
-              <div class="phone-notch"></div>
-              <div class="screen">
-                <div class="status-row">
-                  <span>9:41</span>
-                  <span>◉◉◉</span>
-                </div>
-                <div class="app-card hero-card">
-                  <p class="mini-label">Atlas 64</p>
-                  <h2>Partida en curso</h2>
-                  <div class="progress-block">
-                    <div class="progress-line short"></div>
-                    <div class="progress-line"></div>
-                  </div>
-                  <div class="pill-row">
-                    <span>Tablero</span>
-                    <span>Bluetooth</span>
-                  </div>
-                </div>
-                <div class="mini-grid">
-                  <div class="mini-box">
-                    <small>Jugadores</small>
-                    <strong>2</strong>
-                  </div>
-                  <div class="mini-box highlight">
-                    <small>Estado</small>
-                    <strong>Listo</strong>
-                  </div>
-                </div>
+          <p class="showcase__note">
+            Atlas es la primera consola de juegos de mesa: una plataforma donde un único tablero da
+            vida a múltiples juegos y la tecnología se encarga del resto.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= CÓMO FUNCIONA ================= -->
+      <section class="band band--ink" id="como-funciona">
+        <div class="wrap">
+          <div class="steps-head reveal">
+            <div>
+              <p class="eyebrow">Cómo funciona</p>
+              <h2 class="display display--md">Empezar a jugar nunca fue tan fácil.</h2>
+            </div>
+            <p class="tag-pill"><span>Un tablero</span><span>infinitos juegos.</span></p>
+          </div>
+
+          <ol class="steps reveal">
+            <li class="step">
+              <span class="step__num">1</span>
+              <h3 class="step__title">Elegí<br />un juego</h3>
+              <p class="step__text">
+                Elegí un juego desde la app y el tablero se configura automáticamente para empezar a
+                jugar.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__num">2</span>
+              <h3 class="step__title">Colocá las<br />miniaturas</h3>
+              <p class="step__text">
+                Atlas reconoce automáticamente cada ficha inteligente, identificando personajes y
+                piezas sin configuraciones ni calibraciones.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__num">3</span>
+              <h3 class="step__title">El tablero<br />hace el resto</h3>
+              <p class="step__text">
+                Expandí el tablero acercando un módulo de expansión. Atlas lo conecta automáticamente
+                por radiofrecuencia.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__num">4</span>
+              <h3 class="step__title">Jugá</h3>
+              <p class="step__text">
+                Atlas detecta cada movimiento y guía la partida con iluminación inteligente para que
+                solo te concentres en jugar.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= TECNOLOGÍA ================= -->
+      <section class="band band--ink band--tight" id="tecnologia">
+        <div class="wrap text-center reveal">
+          <p class="eyebrow eyebrow--center">04. Tecnología</p>
+          <h2 class="display display--md">La mejor tecnología es la que desaparece</h2>
+
+          <div class="tech-grid">
+            <article class="tech-item">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <path d="M20 26h74M20 26v56M56 26v34M94 26v34" stroke="#f2f2f2" stroke-width="1.5" />
+                <g fill="#f2f2f2">
+                  <rect x="13" y="19" width="14" height="14" />
+                  <rect x="49" y="19" width="14" height="14" />
+                  <rect x="87" y="19" width="14" height="14" />
+                  <rect x="49" y="53" width="14" height="14" />
+                  <rect x="87" y="53" width="14" height="14" />
+                  <rect x="13" y="75" width="14" height="14" />
+                </g>
+              </svg>
+              <div>
+                <h3>LEDs Inteligentes</h3>
+                <p>El tablero guía visualmente cada partida mostrando únicamente la información necesaria.</p>
               </div>
-            </div>
+            </article>
+
+            <article class="tech-item">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <path
+                  d="M60 60 20 40M60 60l40-18M60 60 26 82M60 60l38 26M60 60V20M60 60v42M60 60 96 60M60 60H24"
+                  stroke="#f2f2f2"
+                  stroke-width="1.5"
+                />
+                <g fill="#f2f2f2">
+                  <rect x="53" y="53" width="14" height="14" />
+                  <rect x="53" y="13" width="12" height="12" />
+                  <rect x="53" y="96" width="12" height="12" />
+                  <rect x="14" y="34" width="12" height="12" />
+                  <rect x="94" y="36" width="12" height="12" />
+                  <rect x="20" y="76" width="12" height="12" />
+                  <rect x="92" y="80" width="12" height="12" />
+                  <rect x="90" y="54" width="12" height="12" />
+                  <rect x="18" y="54" width="12" height="12" />
+                </g>
+              </svg>
+              <div>
+                <h3>Atlas Core</h3>
+                <p>Solo apoyá las fichas sobre el módulo y Atlas reconocerá cada personaje o pieza en segundos.</p>
+              </div>
+            </article>
+
+            <article class="tech-item">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <path d="M60 22v76M22 60h76M40 40v40M80 40v40" stroke="#f2f2f2" stroke-width="1.5" />
+                <g fill="#f2f2f2">
+                  <rect x="53" y="53" width="14" height="14" />
+                  <rect x="33" y="14" width="13" height="13" />
+                  <rect x="73" y="14" width="13" height="13" />
+                  <rect x="33" y="92" width="13" height="13" />
+                  <rect x="73" y="92" width="13" height="13" />
+                  <rect x="14" y="53" width="13" height="13" />
+                  <rect x="92" y="53" width="13" height="13" />
+                </g>
+              </svg>
+              <div>
+                <h3>Diseño del tablero</h3>
+                <p>Minimalista. Resistente. Pensado para durar miles de partidas.</p>
+              </div>
+            </article>
+
+            <article class="tech-item">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <path
+                  d="M30 24v34h34v30h30M94 24v34M30 92h34"
+                  stroke="#f2f2f2"
+                  stroke-width="1.5"
+                />
+                <path d="M94 30V16m0 0-6 7m6-7 6 7M28 92H16m0 0 7-6m-7 6 7 6" stroke="#f2f2f2" stroke-width="1.5" />
+                <g fill="#f2f2f2">
+                  <rect x="24" y="18" width="13" height="13" />
+                  <rect x="57" y="51" width="13" height="13" />
+                  <rect x="88" y="82" width="13" height="13" />
+                </g>
+              </svg>
+              <div>
+                <h3>Sistema inteligente</h3>
+                <p>El tablero reconoce cada movimiento y se sincroniza automáticamente con la aplicación.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="about" class="info-band">
-        <div class="container">
-          <p class="section-tag">Atlas 64</p>
-          <h2>Una presentación provisional mientras finaliza el diseño de la landing oficial.</h2>
+      <!-- ================= ¿QUÉ INCLUYE LA CAJA? ================= -->
+      <section class="band band--fade-yellow" id="caja">
+        <div class="wrap reveal">
+          <p class="eyebrow eyebrow--center">05. ¿Qué incluye la caja?</p>
+          <h2 class="display display--lg text-center">Todo listo para empezar a jugar</h2>
+
+          <ul class="box-grid" role="list">
+            <li class="box-item box-item--wide">
+              <div class="box-item__img">
+                <img src="/assets/tablero.webp" alt="Tablero Atlas" loading="lazy" />
+              </div>
+              <p class="box-item__label">Tablero Atlas</p>
+            </li>
+            <li class="box-item">
+              <div class="box-item__img">
+                <img src="/assets/base-inteligente.webp" alt="Base inteligente de Atlas" loading="lazy" />
+              </div>
+              <p class="box-item__label">Bases inteligentes</p>
+            </li>
+            <li class="box-item">
+              <div class="box-item__img">
+                <img src="/assets/mini-dorada.webp" alt="Miniaturas intercambiables de Atlas" loading="lazy" />
+              </div>
+              <p class="box-item__label">Miniaturas</p>
+            </li>
+            <li class="box-item">
+              <div class="box-item__img">
+                <img src="/assets/modulo-nfc.webp" alt="Módulo NFC Atlas Core" loading="lazy" />
+              </div>
+              <p class="box-item__label">Módulo NFC</p>
+            </li>
+            <li class="box-item">
+              <div class="box-item__img">
+                <img src="/assets/cable-usbc.webp" alt="Cable USB-C de carga" loading="lazy" />
+              </div>
+              <p class="box-item__label">Cable USB-C</p>
+            </li>
+            <li class="box-item">
+              <div class="box-item__img">
+                <img src="/assets/porta-celular.webp" alt="Porta celular plegable" loading="lazy" />
+              </div>
+              <p class="box-item__label">Porta celular</p>
+            </li>
+            <li class="box-item">
+              <div class="box-item__img">
+                <!-- PENDIENTE: falta la foto de la guía rápida; mientras tanto se
+                     muestra la marca sobre un plano de la guía. -->
+                <span class="box-item__placeholder">
+                  <img src="/assets/icon-atlas-dark.png" alt="Guía rápida impresa" loading="lazy" />
+                </span>
+              </div>
+              <p class="box-item__label">Guía rápida</p>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section id="features" class="features">
-        <div class="container features-grid">
-          <article class="feature-card">
-            <span class="feature-icon">01</span>
-            <h3>Conexión física</h3>
-            <p>La app está diseñada para desembarcar en la experiencia del tablero físico sin romper la fluidez de la partida.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon">02</span>
-            <h3>Control simple</h3>
-            <p>Interfaz enfocada en reglas, turnos y estado del juego para que cada jugada sea rápida y clara.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon">03</span>
-            <h3>Google Play ready</h3>
-            <p>La web incluye los enlaces y documentación que el equipo de distribución necesita para dejar la aplicación publicada.</p>
-          </article>
+      <!-- ================= FAQ ================= -->
+      <section class="band band--yellow band--tight" id="faq">
+        <div class="wrap reveal">
+          <p class="eyebrow eyebrow--center">06. Preguntas frecuentes</p>
+
+          <div class="faq">
+            <details>
+              <summary>¿Necesito Internet para jugar?</summary>
+              <p class="faq__answer">
+                No. El tablero y la app se comunican directamente entre sí, así que podés jugar sin
+                conexión. Internet solo hace falta para descargar juegos nuevos, sincronizar tu
+                perfil y recibir actualizaciones.
+              </p>
+            </details>
+            <details>
+              <summary>¿Qué juegos incluye Atlas?</summary>
+              <p class="faq__answer">
+                Atlas viene con una biblioteca de juegos nativos: Maze, Ajedrez, La Luz Mala, Role
+                Mapper, Pongol, Pixel Blaster, Amazonas y Plagio en la Academia. La biblioteca crece
+                con cada actualización.
+              </p>
+            </details>
+            <details>
+              <summary>¿Necesito un tablero diferente para cada juego?</summary>
+              <p class="faq__answer">
+                No. Ese es el punto de Atlas: un único tablero se reconfigura para cada juego. Elegís
+                el título desde la app y el tablero se prepara solo.
+              </p>
+            </details>
+            <details>
+              <summary>¿Puedo comprar nuevos juegos más adelante?</summary>
+              <p class="faq__answer">
+                Sí. Los juegos nuevos, las expansiones y los accesorios se suman desde la app, sin
+                cambiar de hardware.
+              </p>
+            </details>
+            <details>
+              <summary>¿Las miniaturas son intercambiables?</summary>
+              <p class="faq__answer">
+                Sí. Las piezas usan bases inteligentes intercambiables: cambiás la figura y el
+                tablero sigue reconociendo el personaje que le asignaste.
+              </p>
+            </details>
+            <details>
+              <summary>¿Puedo imprimir mis propias miniaturas?</summary>
+              <p class="faq__answer">
+                Sí. Podés montar tus propias figuras sobre las bases inteligentes de Atlas y usarlas
+                en cualquier partida.
+              </p>
+            </details>
+            <details>
+              <summary>¿La aplicación tiene costo?</summary>
+              <p class="faq__answer">
+                La app es gratuita y viene incluida con el tablero. Algunos juegos y expansiones
+                pueden venderse por separado.
+              </p>
+            </details>
+            <details>
+              <summary>¿Necesito conocimientos técnicos para usar Atlas?</summary>
+              <p class="faq__answer">
+                No. No hay que calibrar ni configurar nada: encendés el tablero, elegís un juego en
+                la app y Atlas se ocupa del resto.
+              </p>
+            </details>
+            <details>
+              <summary>¿Es seguro para los niños?</summary>
+              <p class="faq__answer">
+                Atlas está recomendado a partir de los 13 años y no es apto para menores de 3 años
+                porque contiene piezas pequeñas. Antes de usarlo, leé el
+                <a href="/user-manual/">manual de usuario y sus advertencias de seguridad</a>.
+              </p>
+            </details>
+          </div>
         </div>
       </section>
 
-      <section id="manual" class="manual-band">
-        <div class="container manual-card">
-          <div>
-            <p class="section-tag">Manual de usuario</p>
-            <h2>Antes de jugar con el tablero, leé el manual y sus advertencias de seguridad.</h2>
-            <p>El tablero Atlas es un dispositivo electrónico con batería recargable que emite señales de radiofrecuencia y contiene piezas pequeñas. El manual reúne las instrucciones de uso, el cuidado de la batería, la garantía limitada y las condiciones legales del producto.</p>
-          </div>
-          <div>
-            <ul class="safety-list">
-              <li>Edad recomendada: 13 años o más. No apto para menores de 3 años.</li>
-              <li>Contiene piezas pequeñas: peligro de asfixia.</li>
-              <li>Batería recargable no removible: no perforar, no exponer al calor, cargar entre 5 °C y 35 °C bajo supervisión.</li>
-              <li>Emite señales de radio: mantener a 15 cm de dispositivos médicos implantados.</li>
-            </ul>
-            <div class="download-links">
-              <a class="button primary" href="/user-manual/">Leer el manual completo</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="download" class="download">
-        <div class="container download-box">
-          <div>
-            <p class="section-tag">Google Play</p>
-            <h2>La versión de producción estará disponible en la tienda próximamente.</h2>
-          </div>
-          <div class="download-links">
-            <a class="button primary" href="#">Google Play (próximamente)</a>
-            <a class="button secondary" href="/privacy-policy/">Ver política de privacidad</a>
-          </div>
+      <!-- ================= CTA ================= -->
+      <section class="cta-band" id="comprar">
+        <img
+          class="cta-band__bg"
+          src="/assets/hero-billboard.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        />
+        <div class="wrap cta-band__inner">
+          <p class="overline">Un único tablero. Infinitas posibilidades.</p>
+          <h2 class="display display--lg">Hay mundos que esperan ser descubiertos</h2>
+          <!-- PENDIENTE: reemplazar por la URL de la tienda cuando exista. -->
+          <a class="btn btn--solid" href="mailto:admin@wololabs.com?subject=Quiero%20comprar%20Atlas">Comprar Atlas</a>
         </div>
       </section>
     </main>
 
+    <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <div class="brand footer-brand" aria-label="Atlas 64 logo">
-            <span class="brand-mark">A64</span>
-            <span class="brand-name">Atlas 64</span>
+      <svg class="footer-deco footer-deco--left" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <g fill="#f9b606">
+          <rect x="60" y="4" width="34" height="7" /><rect x="60" y="4" width="7" height="34" />
+          <rect x="87" y="4" width="7" height="34" /><rect x="60" y="45" width="34" height="7" />
+          <rect x="20" y="60" width="34" height="7" /><rect x="20" y="60" width="7" height="34" />
+          <rect x="47" y="60" width="7" height="34" /><rect x="20" y="101" width="34" height="7" />
+          <rect x="0" y="120" width="34" height="7" /><rect x="0" y="120" width="7" height="34" />
+          <rect x="27" y="120" width="7" height="34" /><rect x="0" y="161" width="34" height="7" />
+        </g>
+      </svg>
+      <svg class="footer-deco footer-deco--right" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <g fill="#f9b606">
+          <rect x="120" y="0" width="34" height="7" /><rect x="120" y="0" width="7" height="34" />
+          <rect x="147" y="0" width="7" height="34" /><rect x="120" y="41" width="34" height="7" />
+          <rect x="150" y="60" width="34" height="7" /><rect x="150" y="60" width="7" height="34" />
+          <rect x="177" y="60" width="7" height="34" /><rect x="150" y="101" width="34" height="7" />
+          <rect x="90" y="120" width="34" height="7" /><rect x="90" y="120" width="7" height="34" />
+          <rect x="117" y="120" width="7" height="34" /><rect x="90" y="161" width="34" height="7" />
+        </g>
+      </svg>
+
+      <div class="wrap site-footer__inner">
+        <div class="site-footer__brand">
+          <img src="/assets/wordmark-atlas-dark.png" alt="Atlas" width="1200" height="326" loading="lazy" />
+          <p class="footer-tagline">El mapa de mundos</p>
+        </div>
+
+        <div class="site-footer__links">
+          <div>
+            <h3>Redes</h3>
+            <ul>
+              <li><a href="https://www.instagram.com/atlas64_/" rel="noopener">Instagram</a></li>
+              <!-- PENDIENTE: agregar las URLs de Discord, TikTok, X y LinkedIn. -->
+              <li>Discord</li>
+              <li>TikTok</li>
+              <li>X</li>
+              <li>LinkedIn</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Soporte</h3>
+            <ul>
+              <li><a href="/user-manual/">Manual de usuario</a></li>
+              <li><a href="/#faq">Preguntas frecuentes</a></li>
+              <li><a href="mailto:admin@wololabs.com">Contacto</a></li>
+              <li>
+                <a href="https://play.google.com/store/apps/details?id=com.wololabs.atlas" rel="noopener">
+                  Descargar la app
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="/privacy-policy/">Política de privacidad</a></li>
+              <li><a href="/delete-account-guide/">Eliminar la cuenta</a></li>
+            </ul>
           </div>
         </div>
-        <div class="footer-links">
-          <a href="/user-manual/">Manual y seguridad</a>
-          <a href="/privacy-policy/">Política de privacidad</a>
-          <a href="/delete-account-guide/">Guía de baja de cuenta</a>
-          <a href="mailto:admin@wololabs.com">admin@wololabs.com</a>
-        </div>
+
+        <p class="site-footer__legal">
+          © Atlas — Desarrollado por WOLO Labs. Made in Argentina.
+        </p>
       </div>
     </footer>
+
+    <script src="/script.js" defer></script>
   </body>
 </html>
