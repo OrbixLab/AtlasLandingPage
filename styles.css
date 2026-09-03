@@ -1324,55 +1324,90 @@ h3 {
 
 /* --------------------------------------------------------------------------
    Footer
+   Proporciones medidas sobre el diseño (caja de 1920 × 528):
+   logotipo x 181..1060 · bajada x 181..690 · divisor x 1158 · enlaces x 1272 y 1515.
+   Las celdas amarillas son los vectores originales extraídos del PDF.
    -------------------------------------------------------------------------- */
 
 .site-footer {
+  --pad-top: clamp(2.5rem, 5.15vw, 6.2rem);
+  --pad-bottom: clamp(3rem, 6.4vw, 7.7rem);
+
   position: relative;
   background: var(--white);
   color: var(--ink);
-  padding-block: clamp(3rem, 6vw, 5rem);
-  overflow: hidden;
+  padding-top: var(--pad-top);
+  padding-bottom: var(--pad-bottom);
+  /* deja sangrar las celdas sobre la sección anterior y recorta el resto */
+  overflow: visible;
+  clip-path: inset(-3.1vw 0 0 0);
+}
+
+.wrap-wide {
+  width: 100%;
+  max-width: 1760px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 6rem);
 }
 
 .site-footer__inner {
   position: relative;
-  z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+  grid-template-columns: 62.6% 1fr;
+  align-items: start;
 }
 
-.site-footer__brand {
-  border-right: 1.5px solid var(--ink);
-  padding-right: clamp(1.5rem, 4vw, 3rem);
+.site-footer__rule {
+  position: absolute;
+  left: 61.23%;
+  top: calc(-1 * var(--pad-top) - 0.5vw);
+  bottom: calc(-1 * var(--pad-bottom));
+  width: clamp(3px, 0.43vw, 8px);
+  background: var(--ink);
 }
 
 .site-footer__brand img {
-  width: min(100%, 460px);
+  width: 89.6%;
+}
+
+.footer-tagline {
+  margin: clamp(0.4rem, 1.9vw, 2.2rem) 0 0;
+  font-size: clamp(0.78rem, 2.3vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.078em;
+  text-transform: uppercase;
 }
 
 .site-footer__links {
+  padding-left: 19%;
+  font-size: clamp(0.78rem, 1.146vw, 1.375rem);
+  line-height: 1.2;
+}
+
+.site-footer__cols {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .site-footer__links h3 {
   font-family: var(--font-text);
-  font-size: 0.85rem;
+  font-size: inherit;
   font-weight: 700;
   letter-spacing: 0;
-  margin: 0 0 0.5rem;
+  line-height: inherit;
+  margin: 0;
 }
 
 .site-footer__links ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0.3rem;
-  font-size: 0.85rem;
+}
+
+.site-footer__links li {
+  line-height: inherit;
 }
 
 .site-footer__links a:hover {
@@ -1380,45 +1415,109 @@ h3 {
   text-underline-offset: 3px;
 }
 
+.site-footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em 1.2em;
+  margin: clamp(1.5rem, 3.4vw, 4.1rem) 0 0;
+}
+
+.site-footer__legal-links a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(29, 29, 29, 0.35);
+}
+
+.site-footer__legal-links a:hover {
+  text-decoration-color: currentColor;
+}
+
 .site-footer__legal {
-  grid-column: 1 / -1;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin: 0;
+  margin: 0.55em 0 0;
+  line-height: 1.2;
 }
 
 .footer-deco {
   position: absolute;
-  width: clamp(140px, 16vw, 260px);
-  opacity: 0.85;
   pointer-events: none;
+  height: auto;
 }
 
-.footer-deco--left {
-  left: 0.5%;
-  top: 4%;
+.footer-deco--left-top {
+  left: -1.01%;
+  top: 0;
+  width: min(24.58%, 472px);
+  transform: translateY(-17.71%);
+}
+
+.footer-deco--left-bottom {
+  left: -1.01%;
+  bottom: 0;
+  width: min(5.96%, 115px);
+  transform: translateY(18.34%);
 }
 
 .footer-deco--right {
-  right: 0.5%;
-  bottom: 2%;
+  right: 1.885%;
+  top: 0;
+  width: min(31.64%, 608px);
+  transform: translateY(18.05%);
+}
+
+@media (max-width: 1000px) {
+  .site-footer__links {
+    padding-left: 12%;
+  }
 }
 
 @media (max-width: 860px) {
+  .site-footer {
+    clip-path: none;
+  }
+
   .site-footer__inner {
     grid-template-columns: 1fr;
   }
+
   .site-footer__brand {
-    border-right: 0;
-    border-bottom: 1.5px solid var(--ink);
-    padding-right: 0;
-    padding-bottom: 1.75rem;
+    order: 1;
   }
+
+  .site-footer__rule {
+    position: static;
+    order: 2;
+    width: 100%;
+    height: 2px;
+    margin: 2rem 0;
+  }
+
+  .site-footer__brand img {
+    width: 100%;
+  }
+
+  .footer-tagline {
+    font-size: clamp(0.8rem, 3.4vw, 1.5rem);
+  }
+
+  .site-footer__links {
+    order: 3;
+    padding-left: 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .site-footer__cols {
+    gap: 2rem;
+  }
+
+  .site-footer__legal-links {
+    margin-top: 2rem;
+  }
+
   .footer-deco {
     display: none;
   }
 }
-
 /* --------------------------------------------------------------------------
    Páginas de documentación (manual, privacidad, baja de cuenta)
    -------------------------------------------------------------------------- */
@@ -1748,19 +1847,6 @@ h3 {
   list-style: none;
   padding-left: 0;
   margin-block: 0;
-}
-
-.footer-tagline {
-  margin: 0.9rem 0 0;
-  font-size: clamp(0.85rem, 1.6vw, 1.3rem);
-  font-weight: 500;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-}
-
-.site-footer__links li {
-  line-height: 1.8;
-  color: var(--text);
 }
 
 @media (min-width: 900px) {
