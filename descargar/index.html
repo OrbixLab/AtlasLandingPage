@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guía para eliminar la cuenta | Atlas</title>
-    <meta name="description" content="Guía detallada para eliminar la cuenta de Atlas 64 desde la app o por email." />
+    <title>Descargar AtlasHub para Android | Atlas</title>
+    <meta
+      name="description"
+      content="Descargá AtlasHub, la aplicación del tablero Atlas, en formato APK para Android 10 o superior. Incluye los pasos de instalación y la verificación del archivo."
+    />
+    <link rel="canonical" href="https://www.atlas-64.com/descargar/" />
+    <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#f9b606" />
     <link rel="icon" href="/favicon.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -40,57 +45,105 @@
       <section class="doc-hero">
         <div class="wrap">
           <a class="back-link" href="/">← Volver al inicio</a>
-          <p class="eyebrow">Soporte</p>
-          <h1 class="display display--lg">Guía para eliminar la cuenta</h1>
-          <p class="lede">Cómo eliminar tu cuenta de Atlas desde la aplicación o por correo, y qué datos se borran en cada caso.</p>
+          <p class="eyebrow">Descargar</p>
+          <h1 class="display display--lg">AtlasHub para Android</h1>
+          <p class="lede">
+            La aplicación que da vida al tablero Atlas. Todavía no está publicada en Google Play, así
+            que por ahora se instala desde este archivo.
+          </p>
         </div>
       </section>
 
       <section class="page-shell">
         <div class="wrap">
-        <article class="article-card">
-          <p>Si quieres dejar de usar Atlas 64 o cerrar tu cuenta, podés hacerlo de dos formas: directamente desde la app o enviándonos un correo con la dirección con la que te registraste.</p>
+          <!-- El APK pesa 239 MB y no puede vivir en este repositorio (GitHub
+               rechaza archivos de más de 100 MB), así que se sirve desde Google
+               Drive. La URL es el endpoint de descarga directa: el parámetro
+               confirm=t saltea la pantalla de «no se puede analizar en busca de
+               virus» que Drive interpone en archivos de más de 100 MB.
 
-          <h2>Opción 1: Eliminar la cuenta desde la aplicación</h2>
-          <ol>
-            <li>Abre Atlas 64 en tu teléfono.</li>
-            <li>Ingresá a <strong>Configuración</strong>.</li>
-            <li>Buscá la opción <strong>Eliminar mi cuenta</strong> o <strong>Cuenta</strong> y luego <strong>Eliminar cuenta</strong>.</li>
-            <li>Confirmá la acción cuando el sistema te pida la confirmación.</li>
-            <li>La baja se procesa de forma inmediata.</li>
-          </ol>
+               Para publicar una versión nueva: subir el archivo a Drive, copiar
+               su ID y reemplazarlo aquí, en el SHA-256 de más abajo y en los
+               datos de versión y tamaño de la tarjeta. -->
+          <div class="dl-card">
+            <span class="dl-card__icon" aria-hidden="true">
+              <img src="/assets/icon-atlas-light.png" alt="" />
+            </span>
 
-          <p>Importante: una vez confirmada, se eliminan los datos asociados a la cuenta y no se puede recuperar la cuenta después.</p>
+            <div class="dl-card__body">
+              <h2 class="display display--sm">AtlasHub</h2>
+              <dl class="dl-meta">
+                <div><dt>Versión</dt><dd>1.0.0</dd></div>
+                <div><dt>Tamaño</dt><dd>239 MB</dd></div>
+                <div><dt>Requiere</dt><dd>Android 10 o superior</dd></div>
+                <div><dt>Formato</dt><dd>APK (com.wololabs.atlas)</dd></div>
+              </dl>
+            </div>
 
-          <h2>Opción 2: Solicitar la eliminación por correo</h2>
-          <p>Si no tenés la aplicación instalada o no podés acceder a la pantalla de configuración, enviá un mail desde la dirección con la que te registraste a:</p>
-          <p><a href="mailto:admin@wololabs.com">admin@wololabs.com</a></p>
-          <p>En el asunto escribí: <strong>Baja de cuenta</strong>.</p>
-          <p>Te responderemos según lo establecido en la política de privacidad y la eliminación se procesa dentro de los <strong>30 días</strong>.</p>
+            <a
+              class="btn btn--solid dl-card__cta"
+              href="https://drive.usercontent.google.com/download?id=1TjK2LzTYi1F3Jo_MjzXB8Y7ykZ22AEQL&amp;export=download&amp;confirm=t"
+              download
+            >Descargar el APK</a>
+          </div>
 
-          <h2>Qué se elimina</h2>
-          <p>Al borrar la cuenta se eliminan, entre otros, estos datos:</p>
-          <ul>
-            <li>Correo electrónico</li>
-            <li>Nombre de usuario</li>
-            <li>Hash de contraseña</li>
-            <li>País y avatar</li>
-            <li>Identificador de dispositivo</li>
-            <li>Juegos habilitados asociados a la cuenta</li>
-          </ul>
+          <article class="article-card">
+            <div class="callout">
+              <p class="callout-title">Por qué no está en Google Play</p>
+              <p>
+                AtlasHub está en proceso de revisión por parte de Google. Mientras tanto podés
+                instalarla directamente con el archivo de arriba. Cuando la aplicación esté aprobada,
+                esta página va a enlazar a la tienda y la app se actualizará sola.
+              </p>
+            </div>
 
-          <h2>Datos que se borran del teléfono</h2>
-          <p>Si desinstalás la aplicación, los datos que quedan solo en el dispositivo se eliminan junto con la instalación. Esto incluye:</p>
-          <ul>
-            <li>Estadísticas y tiempo de juego</li>
-            <li>Último juego abierto</li>
-            <li>Sesión iniciada</li>
-          </ul>
+            <h2>Cómo instalarla</h2>
+            <p>
+              Android bloquea por defecto la instalación de aplicaciones que no vienen de una tienda.
+              Es una protección normal: hay que autorizarla una sola vez.
+            </p>
+            <ol>
+              <li>Descargá el archivo desde el botón de arriba, con el teléfono.</li>
+              <li>Abrí el archivo descargado (desde la notificación de descarga o desde la app de <strong>Archivos</strong>, carpeta <em>Descargas</em>).</li>
+              <li>
+                Android va a avisar que esta fuente no está permitida. Tocá
+                <strong>Configuración</strong> y activá <strong>Permitir de esta fuente</strong>.
+                Según la marca del teléfono la opción aparece como <em>Instalar apps desconocidas</em>
+                o <em>Fuentes desconocidas</em>.
+              </li>
+              <li>Volvé atrás y tocá <strong>Instalar</strong>.</li>
+              <li>
+                Si aparece un aviso de Play Protect, elegí <strong>Instalar de todas formas</strong>.
+                Es el mensaje habitual para cualquier aplicación que todavía no está en la tienda.
+              </li>
+            </ol>
 
-          <h2>¿Necesitás ayuda?</h2>
-          <p>Si tenés dudas o la solicitud no se completó, escribinos a <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> y te ayudamos a resolverlo.</p>
-        </article>
-        <nav class="doc-links" aria-label="Otros documentos">
+            <h2>Verificar el archivo</h2>
+            <p>
+              Descargá AtlasHub únicamente desde este sitio. Si querés confirmar que el archivo llegó
+              íntegro y sin modificar, su huella SHA-256 es:
+            </p>
+            <p class="hash">a311993828888a054cdc17b836070ad944b7f8b1f5975fab6a18a5fbcd02c2b7</p>
+            <p class="fine-print">
+              La aplicación está firmada digitalmente por WOLOLO STUDIO S.A.S. Android verifica esa
+              firma al instalar y volverá a verificarla en cada actualización.
+            </p>
+
+            <h2>Actualizaciones</h2>
+            <p>
+              Al instalarse fuera de Google Play, la aplicación no se actualiza sola. Cuando haya una
+              versión nueva la vas a encontrar en esta misma página; se instala encima de la anterior
+              sin perder tus datos.
+            </p>
+
+            <h2>¿Problemas para instalar?</h2>
+            <p>
+              Escribinos a <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> contándonos qué
+              teléfono usás y qué mensaje te aparece, y te ayudamos.
+            </p>
+          </article>
+
+          <nav class="doc-links" aria-label="Otros documentos">
             <a class="doc-link" href="/user-manual/">
               <strong>Manual de usuario</strong>
               <span>Uso, seguridad, batería y garantía del tablero.</span>
@@ -99,7 +152,11 @@
               <strong>Política de privacidad</strong>
               <span>Qué datos maneja AtlasHub y cómo pedir su baja.</span>
             </a>
-        </nav>
+            <a class="doc-link" href="/delete-account-guide/">
+              <strong>Eliminar la cuenta</strong>
+              <span>Cómo borrar tu cuenta desde la app o por correo.</span>
+            </a>
+          </nav>
         </div>
       </section>
     </main>
@@ -158,6 +215,5 @@
     </footer>
 
     <script src="/script.js" defer></script>
-
   </body>
 </html>

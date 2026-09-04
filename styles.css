@@ -1866,3 +1866,80 @@ h3 {
     z-index: 2;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Página de descarga del APK
+   -------------------------------------------------------------------------- */
+
+.dl-card {
+  max-width: 78ch;
+  margin: 0 auto clamp(1.25rem, 3vw, 2rem);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.dl-card__icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  background: var(--red);
+  border-radius: 16px;
+}
+
+.dl-card__icon img {
+  width: 55%;
+}
+
+.dl-card__body h2 {
+  margin: 0 0 0.55rem;
+}
+
+.dl-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.dl-meta div {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.dl-meta dt {
+  color: var(--text-muted);
+}
+
+.dl-meta dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .dl-card {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .dl-card__cta {
+    grid-column: 1 / -1;
+  }
+}
+
+.hash {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  word-break: break-all;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+}
