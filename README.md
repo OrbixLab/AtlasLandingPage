@@ -33,10 +33,12 @@ done
 
 - **Color**: amarillo `#F9B606`, tinta `#1D1D1D`, papel `#F1F1F1` / `#E4E4E4`,
   rojo `#CD3F21`.
-- **Tipografía**: el diseño original usa *Brillante* (display) y *Neue Haas
-  Grotesk* (texto). Como ninguna de las dos es libre, el sitio usa **Playfair
-  Display** y **Inter** desde Google Fonts. Si se compran las licencias, basta con
-  cambiar `--font-display` y `--font-text` en `styles.css` y servir los `@font-face`.
+- **Tipografía**: el diseño usa *Brillante Var* (titulares), *Neue Haas Grotesk
+  Text Pro* (cuerpo) y *Neue Haas Grotesk Display Pro 35 XLight* (los números
+  gigantes). Las pilas de `styles.css` ya las nombran y caen en **Playfair
+  Display** e **Inter** mientras no estén los archivos. Para activarlas hay que
+  dejar los `.woff2` en `assets/fonts/` y añadir el bloque `@font-face`:
+  instrucciones completas en [`assets/fonts/README.md`](assets/fonts/README.md).
 - **Marca**: `assets/icon-atlas-*.png` (isotipo), `assets/wordmark-atlas-*.png`
   (logotipo ATLAS) y `assets/logo-atlas64-*.png` (lockup completo con «64 · el mapa
   de mundos»), en versión oscura, clara y amarilla.

@@ -26,8 +26,16 @@
   --line: rgba(29, 29, 29, 0.16);
   --line-on-dark: rgba(242, 242, 242, 0.18);
 
-  --font-display: "Playfair Display", "Times New Roman", Georgia, serif;
-  --font-text: "Inter", "Helvetica Neue", Arial, sans-serif;
+  /* Tipografías del diseño. Mientras no estén los archivos en assets/fonts/
+     cada pila cae en su sustituto de Google Fonts (ver assets/fonts/README.md).
+       --font-display      → Brillante Var: titulares, antetítulos y botones
+       --font-text         → NHG Text Pro 55/75: cuerpo, enlaces y etiquetas
+       --font-display-sans → NHG Display Pro 35 XLight: los números gigantes */
+  --font-display: "Brillante Var", "Brillante", "Playfair Display", "Times New Roman", Georgia,
+    serif;
+  --font-text: "Neue Haas Grotesk Text Pro", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display-sans: "Neue Haas Grotesk Display Pro", "Inter", "Helvetica Neue", Arial,
+    sans-serif;
 
   --wrap: 1400px;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
@@ -1205,8 +1213,8 @@ h3 {
   position: absolute;
   right: 0.35rem;
   bottom: -0.35rem;
-  font-family: var(--font-display);
-  font-weight: 400;
+  font-family: var(--font-display-sans);
+  font-weight: 200;
   font-size: clamp(7rem, 11vw, 11rem);
   line-height: 0.8;
   color: rgba(255, 255, 255, 0.55);
