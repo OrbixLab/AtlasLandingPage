@@ -1,9 +1,34 @@
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/assets/fonts/hn-55-roman.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/assets/fonts/hn-75-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/assets/fonts/hn-35-thin.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================================================================
    Atlas — sistema de diseño
    Basado en el diseño final ATL_Web (WOLO Labs).
    Paleta: amarillo #F9B606 · tinta #1D1D1D · papel #F1F1F1 · rojo #CD3F21
-   Tipografía: display serif de alto contraste (Playfair Display, sustituto
-   de Brillante) + grotesca de texto (Inter, sustituto de Neue Haas Grotesk).
+   Tipografía: Helvetica Neue LT Std (35 Thin / 55 Roman / 75 Bold) para el
+   cuerpo, entregada por el estudio. Los titulares display van como SVG
+   vectorizados desde Brillante (ver assets/titulos/).
    ========================================================================== */
 
 :root {
@@ -31,17 +56,15 @@
        --font-display      → Brillante Var: titulares, antetítulos y botones
        --font-text         → NHG Text Pro 55/75: cuerpo, enlaces y etiquetas
        --font-display-sans → NHG Display Pro 35 XLight: los números gigantes */
-  --font-display: "Brillante Var", "Brillante", "Playfair Display", "Times New Roman", Georgia,
-    serif;
-  --font-text: "Neue Haas Grotesk Text Pro", "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-display-sans: "Neue Haas Grotesk Display Pro", "Inter", "Helvetica Neue", Arial,
-    sans-serif;
+  --font-display: "Brillante Var", "Playfair Display", "Times New Roman", Georgia, serif;
+  --font-text: "Helvetica Neue LT Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display-sans: "Helvetica Neue LT Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --wrap: 1400px;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
   --band-y: clamp(4.5rem, 9vw, 9.5rem);
   --radius: 18px;
-  --topbar-h: 68px;
+  --topbar-h: clamp(52px, 4.19vw, 80px);
 }
 
 *,
@@ -309,11 +332,18 @@ h3 {
    -------------------------------------------------------------------------- */
 
 .topbar {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: clamp(0.6rem, 2.08vw, 2.5rem);
+  left: clamp(0.6rem, 4.34vw, 5.2rem);
+  right: clamp(0.6rem, 4.34vw, 5.2rem);
   z-index: 60;
   background: var(--yellow);
   color: var(--ink);
+}
+
+.topbar .wrap {
+  max-width: none;
+  padding-inline: clamp(0.9rem, 1.5vw, 1.8rem);
 }
 
 .topbar__inner {
@@ -517,7 +547,7 @@ h3 {
 .hero--overlay {
   position: relative;
   display: grid;
-  min-height: max(560px, calc(100svh - var(--topbar-h)));
+  min-height: max(600px, 100svh);
   padding: 0;
   overflow: hidden;
   isolation: isolate;
@@ -537,10 +567,9 @@ h3 {
   display: block;
 }
 
-/* Velo calculado sobre los fotogramas reales: en las bandas del titular y del
-   pie el video llega a negro puro, y el texto del diseño es #1e1e1e. Con estas
-   opacidades el contraste se mantiene por encima de 4,5:1 en todo el bucle,
-   dejando la franja central sin apenas velo. */
+/* Velo oscuro: en el diseño final el titular del hero es #e4e4e4, es decir,
+   texto claro sobre el medio. Calculado sobre los fotogramas reales para que el
+   texto blanco mantenga 4,5:1 incluso en el plano más luminoso del bucle. */
 .hero--overlay .hero__scrim {
   position: absolute;
   inset: 0;
@@ -548,12 +577,12 @@ h3 {
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(241, 241, 241, 0.66) 0%,
-    rgba(241, 241, 241, 0.58) 38%,
-    rgba(241, 241, 241, 0.14) 52%,
-    rgba(241, 241, 241, 0.14) 68%,
-    rgba(241, 241, 241, 0.6) 80%,
-    rgba(241, 241, 241, 0.7) 100%
+    rgba(12, 12, 12, 0.62) 0%,
+    rgba(12, 12, 12, 0.52) 34%,
+    rgba(12, 12, 12, 0.24) 50%,
+    rgba(12, 12, 12, 0.3) 62%,
+    rgba(12, 12, 12, 0.62) 80%,
+    rgba(12, 12, 12, 0.72) 100%
   );
 }
 
@@ -564,7 +593,9 @@ h3 {
   grid-template-rows: auto 1fr auto;
   width: 100%;
   padding-inline: clamp(1.25rem, 6vw, 7.2rem);
-  padding-top: clamp(2rem, 12vh, 8.5rem);
+  padding-top: calc(
+    clamp(0.6rem, 2.08vw, 2.5rem) + var(--topbar-h) + clamp(1rem, 6.1vh, 4.1rem)
+  );
   padding-bottom: clamp(1.5rem, 6.5vh, 4.5rem);
 }
 
@@ -584,6 +615,58 @@ h3 {
 .hero--overlay .hero__foot {
   grid-row: 3;
   margin-top: 0;
+}
+
+
+.hero--overlay .hero__inner {
+  color: var(--text-on-dark);
+}
+
+.hero--overlay .hero__title img {
+  width: 100%;
+  height: auto;
+}
+
+.hero--overlay .hero__title--split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(1rem, 4vw, 5rem);
+}
+
+.hero--overlay .hero__title--split img:last-child {
+  justify-self: end;
+  margin-top: clamp(1rem, 6vw, 7rem);
+}
+
+.hero--overlay .btn {
+  border-color: rgba(242, 242, 242, 0.75);
+  color: var(--text-on-dark);
+}
+
+.hero--overlay .btn:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+.hero--overlay .btn--ink {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+.hero--overlay .btn--ink:hover {
+  background: transparent;
+  color: var(--text-on-dark);
+  border-color: rgba(242, 242, 242, 0.75);
+}
+
+/* Hero de Sobre nosotros: sin párrafo, sólo los dos botones en los extremos */
+.hero--overlay .hero__foot--split {
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: end;
 }
 
 /* --------------------------------------------------------------------------
@@ -1651,7 +1734,8 @@ h3 {
 .doc-hero {
   background: var(--ink);
   color: var(--text-on-dark);
-  padding-block: clamp(3rem, 6vw, 5.5rem);
+  padding-top: calc(clamp(0.6rem, 2.08vw, 2.5rem) + var(--topbar-h) + clamp(1.5rem, 4vw, 3.5rem));
+  padding-bottom: clamp(3rem, 6vw, 5.5rem);
 }
 
 .doc-hero .back-link {
@@ -1978,7 +2062,7 @@ h3 {
 @media (min-width: 900px) {
   .showcase__note {
     position: absolute;
-    left: 0;
+    left: var(--gutter);
     bottom: 6%;
     margin: 0;
     z-index: 2;
@@ -2060,4 +2144,164 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 0.75rem 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Titulares vectorizados
+   El display del diseño es Brillante, que no tenemos como webfont. El estudio
+   entregó cada titular en SVG, así que se usan como imagen: escalan sin pérdida
+   y el texto queda en el alt. `max-width` es el ancho de la caja original.
+   -------------------------------------------------------------------------- */
+
+.svg-title {
+  margin: 0;
+  line-height: 0;
+}
+
+.svg-title img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.svg-title--center img {
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Pasos: el estudio entregó las cuatro tarjetas ya compuestas (foto + texto)
+   -------------------------------------------------------------------------- */
+
+.step-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.6rem, 1.2vw, 1.1rem);
+  list-style: none;
+  margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+  padding: 0;
+}
+
+.step-cards img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .step-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .step-cards {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
+
+/* Iconos de tecnología y equipo, entregados en SVG */
+.tech-item img,
+.team img {
+  width: clamp(84px, 8vw, 116px);
+  height: auto;
+  margin-inline: auto;
+}
+
+.team img {
+  width: clamp(150px, 15vw, 230px);
+}
+
+/* --------------------------------------------------------------------------
+   Ecosistema creativo: panel a sangre con la foto de la caja
+   -------------------------------------------------------------------------- */
+
+.creative {
+  position: relative;
+  border: 3px solid var(--yellow);
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 340px;
+  color: var(--text-on-dark);
+  padding: 0;
+  background: var(--ink);
+}
+
+.creative__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creative__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  padding: clamp(1.1rem, 2.4vw, 2.6rem);
+}
+
+.creative__inner .eyebrow {
+  margin: 0;
+  color: var(--text-on-dark);
+}
+
+.creative__inner .svg-title {
+  justify-self: end;
+  width: min(100%, 600px);
+  margin-top: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.creative__tags {
+  grid-row: 3;
+  align-self: end;
+}
+
+@media (max-width: 760px) {
+  .creative {
+    aspect-ratio: 3 / 4;
+  }
+
+  .creative__inner .svg-title {
+    justify-self: start;
+  }
+
+  .creative__tags {
+    gap: 0.35rem 1rem;
+    font-size: 0.62rem;
+  }
+}
+
+/* El icono de la app llega ya renderizado en 3D: no necesita el cuadro rojo */
+.app-map__icon--art {
+  width: clamp(58px, 5vw, 84px);
+  height: auto;
+  background: none;
+  border-radius: 0;
+}
+
+.app-map__icon--art img {
+  width: 100%;
+}
+
+/* Los teléfonos vienen recortados: sin caja detrás */
+.app-media--cutout {
+  background: none;
+  border-radius: 0;
+}
+
+/* El hero de Sobre nosotros va sobre una foto clara: velo más suave */
+.hero__scrim--soft {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 12, 12, 0.34) 0%,
+    rgba(12, 12, 12, 0.12) 40%,
+    rgba(12, 12, 12, 0.12) 62%,
+    rgba(12, 12, 12, 0.42) 100%
+  );
 }

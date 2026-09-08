@@ -15,7 +15,7 @@
       property="og:description"
       content="La primera consola de juegos de mesa. Un tablero, infinitos juegos."
     />
-    <meta property="og:image" content="https://www.atlas-64.com/assets/hero-atlas-poster.jpg" />
+    <meta property="og:image" content="https://www.atlas-64.com/assets/cta-tablero.jpg" />
     <meta property="og:url" content="https://www.atlas-64.com/" />
     <meta name="theme-color" content="#f9b606" />
     <link rel="icon" href="/favicon.png" sizes="32x32" />
@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
@@ -51,8 +51,8 @@
 
     <main id="contenido">
       <!-- ================= HERO ================= -->
-      <!-- El diseño usa toda la primera pantalla como área del video: el
-           título, el párrafo y los botones van superpuestos sobre él. -->
+      <!-- Hero: el diseño reserva toda la primera pantalla para el video, con el
+           titular (#e4e4e4), el párrafo y los botones superpuestos. -->
       <section class="hero hero--overlay">
         <div class="hero__bg">
           <video
@@ -74,7 +74,15 @@
         <span class="hero__scrim" aria-hidden="true"></span>
 
         <div class="hero__inner">
-          <h1 class="display display--xl hero__title">El mapa hacia infinitos mundos</h1>
+          <h1 class="svg-title svg-title--center hero__title">
+            <img
+              src="/assets/titulos/hero-producto.svg"
+              alt="El mapa hacia infinitos mundos"
+              style="max-width: 1493px"
+              width="1493"
+              height="116"
+            />
+          </h1>
 
           <button class="hero__video-toggle" type="button" data-video-toggle aria-pressed="false">
             <span class="visually-hidden">Pausar el video</span>
@@ -91,8 +99,7 @@
               mismo lugar, sin perder la esencia de lo que nos une alrededor de una mesa.
             </p>
             <div class="btn-row">
-              <!-- PENDIENTE: reemplazar por la URL de la tienda cuando exista. -->
-              <a class="btn btn--ink" href="mailto:admin@wololabs.com?subject=Quiero%20comprar%20Atlas">Comprar Atlas</a>
+              <a class="btn btn--ink" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
               <a class="btn" href="#como-funciona">Ver cómo funciona</a>
             </div>
           </div>
@@ -103,36 +110,23 @@
       <section class="band band--yellow" id="que-es">
         <div class="wrap showcase reveal">
           <p class="eyebrow">¿Qué es Atlas?</p>
-          <h2 class="display display--lg">Mucho más que un tablero.</h2>
+          <h2 class="svg-title svg-title--center">
+            <img
+              src="/assets/titulos/mucho-mas.svg"
+              alt="Mucho más que un tablero."
+              style="max-width: 1281px"
+              width="1281"
+              height="116"
+            />
+          </h2>
 
           <div class="showcase__stage">
             <img
-              class="float-mini float-mini--tl"
-              src="/assets/mini-roja.webp"
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-            />
-            <img
-              class="float-mini float-mini--tr"
-              src="/assets/mini-blanca.webp"
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-            />
-            <img
-              class="float-mini float-mini--br"
-              src="/assets/mini-negra.webp"
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-            />
-            <img
               class="showcase__hero-img"
-              src="/assets/tablero.webp"
-              alt="Tablero Atlas con miniaturas alrededor"
-              width="1400"
-              height="754"
+              src="/assets/tablero-minis.webp"
+              alt="Tablero Atlas en perspectiva, con dos miniaturas flotando a los lados"
+              width="1800"
+              height="1049"
               loading="lazy"
             />
           </div>
@@ -150,43 +144,57 @@
           <div class="steps-head reveal">
             <div>
               <p class="eyebrow">Cómo funciona</p>
-              <h2 class="display display--md">Empezar a jugar nunca fue tan fácil.</h2>
+              <h2 class="svg-title">
+                <img
+                  src="/assets/titulos/empezar-a-jugar.svg"
+                  alt="Empezar a jugar nunca fue tan fácil."
+                  style="max-width: 837px"
+                  width="837"
+                  height="59"
+                />
+              </h2>
             </div>
             <p class="tag-pill"><span>Un tablero</span><span>infinitos juegos.</span></p>
           </div>
 
-          <ol class="steps reveal">
-            <li class="step">
-              <span class="step__num">1</span>
-              <h3 class="step__title">Elegí<br />un juego</h3>
-              <p class="step__text">
-                Elegí un juego desde la app y el tablero se configura automáticamente para empezar a
-                jugar.
-              </p>
+          <!-- Las cuatro tarjetas vienen compuestas del estudio: foto, número,
+               título y descripción en una sola pieza. El texto va en el alt. -->
+          <ol class="step-cards reveal">
+            <li>
+              <img
+                src="/assets/paso-1.webp"
+                alt="Paso 1, Elegí un juego: elegí un juego desde la app y el tablero se configura automáticamente para empezar a jugar."
+                width="755"
+                height="1330"
+                loading="lazy"
+              />
             </li>
-            <li class="step">
-              <span class="step__num">2</span>
-              <h3 class="step__title">Colocá las<br />miniaturas</h3>
-              <p class="step__text">
-                Atlas reconoce automáticamente cada ficha inteligente, identificando personajes y
-                piezas sin configuraciones ni calibraciones.
-              </p>
+            <li>
+              <img
+                src="/assets/paso-2.webp"
+                alt="Paso 2, Colocá las miniaturas: Atlas reconoce automáticamente cada ficha inteligente, identificando personajes y piezas sin configuraciones ni calibraciones."
+                width="755"
+                height="1330"
+                loading="lazy"
+              />
             </li>
-            <li class="step">
-              <span class="step__num">3</span>
-              <h3 class="step__title">El tablero<br />hace el resto</h3>
-              <p class="step__text">
-                Expandí el tablero acercando un módulo de expansión. Atlas lo conecta automáticamente
-                por radiofrecuencia.
-              </p>
+            <li>
+              <img
+                src="/assets/paso-3.webp"
+                alt="Paso 3, El tablero hace el resto: expandí el tablero acercando un módulo de expansión. Atlas lo conecta automáticamente por radiofrecuencia."
+                width="755"
+                height="1326"
+                loading="lazy"
+              />
             </li>
-            <li class="step">
-              <span class="step__num">4</span>
-              <h3 class="step__title">Jugá</h3>
-              <p class="step__text">
-                Atlas detecta cada movimiento y guía la partida con iluminación inteligente para que
-                solo te concentres en jugar.
-              </p>
+            <li>
+              <img
+                src="/assets/paso-4.webp"
+                alt="Paso 4, Jugá: Atlas detecta cada movimiento y guía la partida con iluminación inteligente para que solo te concentres en jugar."
+                width="755"
+                height="1328"
+                loading="lazy"
+              />
             </li>
           </ol>
         </div>
@@ -196,85 +204,40 @@
       <section class="band band--ink band--tight" id="tecnologia">
         <div class="wrap text-center reveal">
           <p class="eyebrow eyebrow--center">04. Tecnología</p>
-          <h2 class="display display--md">La mejor tecnología es la que desaparece</h2>
+          <h2 class="svg-title svg-title--center">
+            <img
+              src="/assets/titulos/mejor-tecnologia.svg"
+              alt="La mejor tecnología es la que desaparece"
+              style="max-width: 954px"
+              width="954"
+              height="59"
+            />
+          </h2>
 
           <div class="tech-grid">
             <article class="tech-item">
-              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                <path d="M20 26h74M20 26v56M56 26v34M94 26v34" stroke="#f2f2f2" stroke-width="1.5" />
-                <g fill="#f2f2f2">
-                  <rect x="13" y="19" width="14" height="14" />
-                  <rect x="49" y="19" width="14" height="14" />
-                  <rect x="87" y="19" width="14" height="14" />
-                  <rect x="49" y="53" width="14" height="14" />
-                  <rect x="87" y="53" width="14" height="14" />
-                  <rect x="13" y="75" width="14" height="14" />
-                </g>
-              </svg>
+              <img src="/assets/graficos/tec-leds.svg" alt="" aria-hidden="true" loading="lazy" />
               <div>
                 <h3>LEDs Inteligentes</h3>
                 <p>El tablero guía visualmente cada partida mostrando únicamente la información necesaria.</p>
               </div>
             </article>
-
             <article class="tech-item">
-              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                <path
-                  d="M60 60 20 40M60 60l40-18M60 60 26 82M60 60l38 26M60 60V20M60 60v42M60 60 96 60M60 60H24"
-                  stroke="#f2f2f2"
-                  stroke-width="1.5"
-                />
-                <g fill="#f2f2f2">
-                  <rect x="53" y="53" width="14" height="14" />
-                  <rect x="53" y="13" width="12" height="12" />
-                  <rect x="53" y="96" width="12" height="12" />
-                  <rect x="14" y="34" width="12" height="12" />
-                  <rect x="94" y="36" width="12" height="12" />
-                  <rect x="20" y="76" width="12" height="12" />
-                  <rect x="92" y="80" width="12" height="12" />
-                  <rect x="90" y="54" width="12" height="12" />
-                  <rect x="18" y="54" width="12" height="12" />
-                </g>
-              </svg>
+              <img src="/assets/graficos/tec-core.svg" alt="" aria-hidden="true" loading="lazy" />
               <div>
                 <h3>Atlas Core</h3>
                 <p>Solo apoyá las fichas sobre el módulo y Atlas reconocerá cada personaje o pieza en segundos.</p>
               </div>
             </article>
-
             <article class="tech-item">
-              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                <path d="M60 22v76M22 60h76M40 40v40M80 40v40" stroke="#f2f2f2" stroke-width="1.5" />
-                <g fill="#f2f2f2">
-                  <rect x="53" y="53" width="14" height="14" />
-                  <rect x="33" y="14" width="13" height="13" />
-                  <rect x="73" y="14" width="13" height="13" />
-                  <rect x="33" y="92" width="13" height="13" />
-                  <rect x="73" y="92" width="13" height="13" />
-                  <rect x="14" y="53" width="13" height="13" />
-                  <rect x="92" y="53" width="13" height="13" />
-                </g>
-              </svg>
+              <img src="/assets/graficos/tec-tablero.svg" alt="" aria-hidden="true" loading="lazy" />
               <div>
                 <h3>Diseño del tablero</h3>
                 <p>Minimalista. Resistente. Pensado para durar miles de partidas.</p>
               </div>
             </article>
-
             <article class="tech-item">
-              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                <path
-                  d="M30 24v34h34v30h30M94 24v34M30 92h34"
-                  stroke="#f2f2f2"
-                  stroke-width="1.5"
-                />
-                <path d="M94 30V16m0 0-6 7m6-7 6 7M28 92H16m0 0 7-6m-7 6 7 6" stroke="#f2f2f2" stroke-width="1.5" />
-                <g fill="#f2f2f2">
-                  <rect x="24" y="18" width="13" height="13" />
-                  <rect x="57" y="51" width="13" height="13" />
-                  <rect x="88" y="82" width="13" height="13" />
-                </g>
-              </svg>
+              <img src="/assets/graficos/tec-sistema.svg" alt="" aria-hidden="true" loading="lazy" />
               <div>
                 <h3>Sistema inteligente</h3>
                 <p>El tablero reconoce cada movimiento y se sincroniza automáticamente con la aplicación.</p>
@@ -288,52 +251,56 @@
       <section class="band band--fade-yellow" id="caja">
         <div class="wrap reveal">
           <p class="eyebrow eyebrow--center">05. ¿Qué incluye la caja?</p>
-          <h2 class="display display--lg text-center">Todo listo para empezar a jugar</h2>
+          <h2 class="svg-title svg-title--center">
+            <img
+              src="/assets/titulos/todo-listo.svg"
+              alt="Todo listo para empezar a jugar"
+              style="max-width: 1653px"
+              width="1653"
+              height="130"
+            />
+          </h2>
 
           <ul class="box-grid" role="list">
             <li class="box-item box-item--wide">
               <div class="box-item__img">
-                <img src="/assets/tablero.webp" alt="Tablero Atlas" loading="lazy" />
+                <img src="/assets/tablero.webp" alt="Tablero Atlas" width="1228" height="631" loading="lazy" />
               </div>
               <p class="box-item__label">Tablero Atlas</p>
             </li>
             <li class="box-item">
               <div class="box-item__img">
-                <img src="/assets/base-inteligente.webp" alt="Base inteligente de Atlas" loading="lazy" />
+                <img src="/assets/base-inteligente.webp" alt="Base inteligente de Atlas" width="464" height="360" loading="lazy" />
               </div>
               <p class="box-item__label">Bases inteligentes</p>
             </li>
             <li class="box-item">
               <div class="box-item__img">
-                <img src="/assets/mini-dorada.webp" alt="Miniaturas intercambiables de Atlas" loading="lazy" />
+                <img src="/assets/miniaturas.webp" alt="Las cuatro miniaturas de Atlas" width="595" height="271" loading="lazy" />
               </div>
               <p class="box-item__label">Miniaturas</p>
             </li>
             <li class="box-item">
               <div class="box-item__img">
-                <img src="/assets/modulo-nfc.webp" alt="Módulo NFC Atlas Core" loading="lazy" />
+                <img src="/assets/modulo-nfc.webp" alt="Módulo NFC Atlas Core" width="190" height="142" loading="lazy" />
               </div>
               <p class="box-item__label">Módulo NFC</p>
             </li>
             <li class="box-item">
               <div class="box-item__img">
-                <img src="/assets/cable-usbc.webp" alt="Cable USB-C de carga" loading="lazy" />
+                <img src="/assets/cable-usbc.webp" alt="Cable USB-C de carga" width="413" height="404" loading="lazy" />
               </div>
               <p class="box-item__label">Cable USB-C</p>
             </li>
             <li class="box-item">
               <div class="box-item__img">
-                <img src="/assets/porta-celular.webp" alt="Porta celular plegable" loading="lazy" />
+                <img src="/assets/porta-celular.webp" alt="Porta celular plegable" width="518" height="373" loading="lazy" />
               </div>
               <p class="box-item__label">Porta celular</p>
             </li>
             <li class="box-item">
               <div class="box-item__img">
-                <!-- PENDIENTE: falta la foto de la guía rápida; mientras tanto se
-                     muestra la marca sobre un plano de la guía. -->
-                <span class="box-item__placeholder">
-                  <img src="/assets/icon-atlas-dark.png" alt="Guía rápida impresa" loading="lazy" />
-                </span>
+                <img src="/assets/guia-rapida.webp" alt="Guía rápida impresa de Atlas" width="306" height="434" loading="lazy" />
               </div>
               <p class="box-item__label">Guía rápida</p>
             </li>
@@ -421,16 +388,18 @@
       <section class="cta-band" id="comprar">
         <img
           class="cta-band__bg"
-          src="/assets/hero-billboard.jpg"
+          src="/assets/cta-tablero.jpg"
           alt=""
           aria-hidden="true"
+          width="1920"
+          height="1080"
           loading="lazy"
         />
         <div class="wrap cta-band__inner">
           <p class="overline">Un único tablero. Infinitas posibilidades.</p>
           <h2 class="display display--lg">Hay mundos que esperan ser descubiertos</h2>
           <!-- PENDIENTE: reemplazar por la URL de la tienda cuando exista. -->
-          <a class="btn btn--solid" href="mailto:admin@wololabs.com?subject=Quiero%20comprar%20Atlas">Comprar Atlas</a>
+          <a class="btn btn--solid" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
         </div>
       </section>
     </main>

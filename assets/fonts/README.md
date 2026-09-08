@@ -1,83 +1,45 @@
 # Tipografías
 
-El sitio está preparado para las tres familias del diseño original. Hoy no están
-los archivos, así que cada pila de `styles.css` cae en su sustituto de Google
-Fonts. **Al dejar los `.woff2` en esta carpeta y añadir el bloque `@font-face` de
-abajo, el cambio es automático**: no hay que tocar ninguna otra regla.
+## Lo que se usa hoy
 
-## Dónde usa cada familia el diseño
+El estudio entregó **Helvetica Neue LT Std** en tres pesos, que es lo que sirve el
+sitio. Están subseteadas a latín y convertidas a `woff2` (9 KB cada una, desde
+~27 KB del `.otf` original):
 
-Medido sobre `ATL_Webfinal.pdf` (número de apariciones entre paréntesis):
+| Archivo | Peso CSS | Uso |
+| --- | --- | --- |
+| `hn-55-roman.woff2` | 400 | Cuerpo de texto, navegación, etiquetas, enlaces |
+| `hn-75-bold.woff2` | 700 | Párrafo destacado, títulos de tecnología, «Redes» |
+| `hn-35-thin.woff2` | 200 | Los números gigantes de las tarjetas de principios |
 
-| Familia | Uso en el diseño | Variable CSS | Sustituto actual |
-| --- | --- | --- | --- |
-| **Brillante Var** (148) | Titulares, antetítulos («04. TECNOLOGÍA»), botones, números de los pasos | `--font-display` | Playfair Display |
-| **NHG Text Pro 55 Roman** (193) | Cuerpo de texto, navegación, etiquetas, preguntas del FAQ, enlaces del pie | `--font-text` (400) | Inter 400 |
-| **NHG Text Pro 75 Bold** (39) | Párrafo destacado, títulos de los pasos, títulos de tecnología, «Redes» | `--font-text` (700) | Inter 700 |
-| **NHG Display Pro 35 XLight** (4) | Los números 1–4 gigantes de las tarjetas de principios | `--font-display-sans` (200) | Inter 200 |
-| **NHG Display Pro 75 Bold** (2) | Dos palabras sueltas; probablemente un desliz del archivo de diseño | — | — |
+Se declaran con `@font-face` al principio de `styles.css` bajo la familia
+`"Helvetica Neue LT Std"`, y `--font-text` / `--font-display-sans` apuntan a ella.
 
-## Archivos que hacen falta
+Para regenerarlas desde los `.otf`:
 
-```
-assets/fonts/
-  brillante-var.woff2          Brillante Var (fuente variable)
-  nhg-text-pro-55-roman.woff2  Neue Haas Grotesk Text Pro 55 Roman
-  nhg-text-pro-75-bold.woff2   Neue Haas Grotesk Text Pro 75 Bold
-  nhg-display-pro-35-xlight.woff2   Neue Haas Grotesk Display Pro 35 XLight
+```sh
+python -m fontTools.subset "Helvetica Neue LT Std 55 Roman.otf" \
+  --unicodes="U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+2190-2193,U+2022" \
+  --layout-features=kern,liga,ccmp,locl --flavor=woff2 \
+  --output-file=assets/fonts/hn-55-roman.woff2 --desubroutinize --no-hinting
 ```
 
-Si sólo hay `.otf` o `.ttf` de escritorio, sirven igual: se convierten a `.woff2`
-con `fonttools` (reduce el peso a menos de la mitad).
+## El display: Brillante
 
-## Bloque a añadir al principio de `styles.css`
+El titular del diseño es **Brillante Var**, que no llegó como archivo. No hace
+falta: el estudio entregó cada titular **vectorizado en SVG** (`assets/titulos/`),
+así que los titulares grandes son exactamente los del diseño. Escalan sin pérdida
+y el texto va en el `alt`.
 
-```css
-@font-face {
-  font-family: "Brillante Var";
-  src: url("/assets/fonts/brillante-var.woff2") format("woff2-variations");
-  font-weight: 100 900; /* ajustar al eje real del archivo */
-  font-display: swap;
-}
+Lo que sí sigue con sustituto es el display pequeño —antetítulos («04. TECNOLOGÍA»),
+botones y los números de los pasos—, que usa **Playfair Display** desde Google
+Fonts a través de `--font-display`. Si algún día llega el archivo de Brillante,
+basta con añadir su `@font-face` y ponerla primera en esa variable.
 
-@font-face {
-  font-family: "Neue Haas Grotesk Text Pro";
-  src: url("/assets/fonts/nhg-text-pro-55-roman.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
+## Nota de licencia
 
-@font-face {
-  font-family: "Neue Haas Grotesk Text Pro";
-  src: url("/assets/fonts/nhg-text-pro-75-bold.woff2") format("woff2");
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Neue Haas Grotesk Display Pro";
-  src: url("/assets/fonts/nhg-display-pro-35-xlight.woff2") format("woff2");
-  font-weight: 200;
-  font-display: swap;
-}
-```
-
-Al activarlo hay que **quitar el `<link>` de Google Fonts** de las seis páginas
-(`index`, `ecosistema`, `sobre-nosotros`, `user-manual`, `privacy-policy`,
-`delete-account-guide`) y añadir en su lugar el precargado de las dos fuentes del
-primer pantallazo:
-
-```html
-<link rel="preload" href="/assets/fonts/brillante-var.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/assets/fonts/nhg-text-pro-55-roman.woff2" as="font" type="font/woff2" crossorigin />
-```
-
-## Dos advertencias
-
-1. **Licencia**: Neue Haas Grotesk y Brillante son comerciales, y la licencia de
-   escritorio no cubre servir los archivos desde una web pública. Para publicarlos
-   en `atlas-64.com` hace falta la licencia de uso web de cada una.
-2. **Vista previa engañosa**: como los nombres de familia están en las pilas CSS,
-   cualquiera que tenga las fuentes instaladas en su equipo las verá aunque no se
-   hayan subido los archivos. El resto del mundo seguirá viendo los sustitutos.
-   No juzgar el resultado desde una máquina con las fuentes instaladas.
+Helvetica Neue LT Std es comercial (Monotype). La licencia de escritorio no cubre
+servir los archivos desde una web pública: para `atlas-64.com` hace falta la
+licencia de uso web. Los `.woff2` de esta carpeta se generaron a partir de los
+`.otf` entregados por el estudio, dando por hecho que esa licencia existe o se
+tramitará.

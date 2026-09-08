@@ -15,7 +15,7 @@
       property="og:description"
       content="Un tablero, muchos mundos. Juegos, expansiones, creadores y comunidad."
     />
-    <meta property="og:image" content="https://www.atlas-64.com/assets/hero-billboard.jpg" />
+    <meta property="og:image" content="https://www.atlas-64.com/assets/hero-ecosistema.jpg" />
     <meta property="og:url" content="https://www.atlas-64.com/ecosistema/" />
     <meta name="theme-color" content="#f9b606" />
     <link rel="icon" href="/favicon.png" sizes="32x32" />
@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
@@ -50,21 +50,27 @@
 
     <main id="contenido">
       <!-- ================= HERO ================= -->
-      <section class="hero">
-        <div class="wrap">
-          <h1 class="display display--xl hero__title">
-            Un solo Atlas.<br />Infinitos caminos por descubrir
-          </h1>
+      <section class="hero hero--overlay">
+        <div class="hero__bg">
+          <img
+            src="/assets/hero-ecosistema.jpg"
+            alt="La caja de Atlas iluminada sobre un fondo oscuro"
+            width="1920"
+            height="1166"
+          />
+        </div>
+        <span class="hero__scrim" aria-hidden="true"></span>
 
-          <!-- PENDIENTE: el diseño prevé un video en este bloque. -->
-          <div class="hero__media">
+        <div class="hero__inner">
+          <h1 class="svg-title svg-title--center hero__title">
             <img
-              src="/assets/tablero-luz.jpg"
-              alt="Tablero Atlas iluminado con celdas de colores durante una partida"
-              width="1600"
-              height="600"
+              src="/assets/titulos/hero-ecosistema.svg"
+              alt="Un solo Atlas. Infinitos caminos por descubrir"
+              style="max-width: 1497px"
+              width="1497"
+              height="116"
             />
-          </div>
+          </h1>
 
           <div class="hero__foot">
             <p class="lede">
@@ -95,7 +101,9 @@
               <span>Próximas expansiones</span>
             </div>
 
-            <p class="display display--xl orbit__word">Un tablero,</p>
+            <p class="svg-title orbit__word">
+              <img src="/assets/titulos/un-tablero.svg" alt="Un tablero," style="max-width: 756px" width="756" height="166" />
+            </p>
             <img
               class="orbit__sphere"
               src="/assets/esfera.webp"
@@ -105,7 +113,9 @@
               height="900"
               loading="lazy"
             />
-            <p class="display display--xl orbit__word">muchos mundos</p>
+            <p class="svg-title orbit__word">
+              <img src="/assets/titulos/muchos-mundos.svg" alt="muchos mundos" style="max-width: 1160px" width="1160" height="137" />
+            </p>
 
             <ul class="orbit__list">
               <li>Juegos clásicos</li>
@@ -139,11 +149,19 @@
           <div class="app-split reveal">
             <div>
               <p class="eyebrow">03. La app</p>
-              <h2 class="display display--md">Todo lo que necesitás.<br />Nada que distraiga.</h2>
+              <h2 class="svg-title">
+                <img
+                  src="/assets/titulos/todo-lo-que-necesitas.svg"
+                  alt="Todo lo que necesitás. Nada que distraiga."
+                  style="max-width: 869px"
+                  width="869"
+                  height="216"
+                />
+              </h2>
 
               <div class="app-map">
-                <span class="app-map__icon">
-                  <img src="/assets/icon-atlas-light.png" alt="" aria-hidden="true" loading="lazy" />
+                <span class="app-map__icon app-map__icon--art">
+                  <img src="/assets/app-icono.webp" alt="" aria-hidden="true" width="500" height="499" loading="lazy" />
                 </span>
                 <span class="app-map__line" aria-hidden="true"></span>
                 <div class="app-map__pair">
@@ -160,12 +178,12 @@
             </div>
 
             <!-- PENDIENTE: el diseño prevé un video de alguien usando la app. -->
-            <figure class="app-media">
+            <figure class="app-media app-media--cutout">
               <img
-                src="/assets/app-mockup.webp"
-                alt="La aplicación de Atlas funcionando en un teléfono"
-                width="1400"
-                height="788"
+                src="/assets/app-telefonos.webp"
+                alt="Dos teléfonos mostrando la biblioteca de juegos y el inicio de sesión de AtlasHub"
+                width="1600"
+                height="1200"
                 loading="lazy"
               />
             </figure>
@@ -183,48 +201,53 @@
       <section class="band band--paper-2" id="creadores">
         <div class="wrap reveal">
           <div class="creative">
-            <div class="creative__head">
+            <img
+              class="creative__bg"
+              src="/assets/creativo-caja.jpg"
+              alt="Detalle de la caja de Atlas 64 de WOLO Labs"
+              width="1920"
+              height="1071"
+              loading="lazy"
+            />
+            <div class="creative__inner">
               <p class="eyebrow">04. Ecosistema creativo</p>
-              <h2 class="display display--md">La imaginación también forma parte del juego.</h2>
+              <h2 class="svg-title">
+                <img
+                  src="/assets/titulos/la-imaginacion.svg"
+                  alt="La imaginación también forma parte del juego."
+                  style="max-width: 600px"
+                  width="600"
+                  height="335"
+                />
+              </h2>
+              <ul class="creative__tags">
+                <li>Sistema modular</li>
+                <li>Marketplace</li>
+                <li>Archivos STL</li>
+                <li>Miniaturas intercambiables</li>
+                <li>Comunidad</li>
+              </ul>
             </div>
-
-            <div class="rail" tabindex="0" role="region" aria-label="Galería del ecosistema creativo">
-              <figure>
-                <img src="/assets/impresion-3d.jpg" alt="Impresora 3D fabricando una miniatura de Atlas" loading="lazy" />
-              </figure>
-              <figure>
-                <img src="/assets/tablero-luz.jpg" alt="Tablero Atlas iluminado durante una partida" loading="lazy" />
-              </figure>
-              <figure>
-                <img src="/assets/marca-render-1.jpg" alt="Detalle del isotipo de Atlas" loading="lazy" />
-              </figure>
-              <figure>
-                <img src="/assets/marca-render-2.jpg" alt="Detalle del logotipo Atlas 64" loading="lazy" />
-              </figure>
-              <figure>
-                <img src="/assets/app-bolsillo.jpg" alt="La app de Atlas en el teléfono de una jugadora" loading="lazy" />
-              </figure>
-            </div>
-
-            <ul class="creative__tags">
-              <li>Sistema modular</li>
-              <li>Marketplace</li>
-              <li>Archivos</li>
-              <li>Miniaturas intercambiables</li>
-              <li>Comunidad</li>
-            </ul>
           </div>
         </div>
       </section>
 
       <!-- ================= CTA ================= -->
       <section class="cta-band" id="comprar">
-        <img class="cta-band__bg" src="/assets/hero-billboard.jpg" alt="" aria-hidden="true" loading="lazy" />
+        <img class="cta-band__bg" src="/assets/cta-billboard.jpg" alt="" aria-hidden="true" width="1920" height="1080" loading="lazy" />
         <div class="wrap cta-band__inner">
           <p class="overline">05. La experiencia Atlas</p>
-          <h2 class="display display--lg display--yellow">No se trata solamente de jugar.</h2>
+          <h2 class="svg-title svg-title--center">
+            <img
+              src="/assets/titulos/no-se-trata.svg"
+              alt="No se trata solamente de jugar."
+              style="max-width: 532px"
+              width="532"
+              height="388"
+            />
+          </h2>
           <!-- PENDIENTE: reemplazar por la URL de la tienda cuando exista. -->
-          <a class="btn btn--solid" href="mailto:admin@wololabs.com?subject=Quiero%20comprar%20Atlas">Comprar Atlas</a>
+          <a class="btn btn--solid" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
         </div>
       </section>
     </main>
