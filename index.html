@@ -15,7 +15,7 @@
       property="og:description"
       content="La primera consola de juegos de mesa. Un tablero, infinitos juegos."
     />
-    <meta property="og:image" content="https://www.atlas-64.com/assets/hero-billboard.jpg" />
+    <meta property="og:image" content="https://www.atlas-64.com/assets/hero-atlas-poster.jpg" />
     <meta property="og:url" content="https://www.atlas-64.com/" />
     <meta name="theme-color" content="#f9b606" />
     <link rel="icon" href="/favicon.png" sizes="32x32" />
@@ -51,21 +51,38 @@
 
     <main id="contenido">
       <!-- ================= HERO ================= -->
-      <section class="hero">
-        <div class="wrap">
+      <!-- El diseño usa toda la primera pantalla como área del video: el
+           título, el párrafo y los botones van superpuestos sobre él. -->
+      <section class="hero hero--overlay">
+        <div class="hero__bg">
+          <video
+            class="hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/assets/hero-atlas-poster.jpg"
+            width="1600"
+            height="750"
+            aria-label="Recorrido por la caja de Atlas, el tablero iluminado y sus miniaturas"
+          >
+            <source src="/assets/hero-atlas.webm" type="video/webm" />
+            <source src="/assets/hero-atlas.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <span class="hero__scrim" aria-hidden="true"></span>
+
+        <div class="hero__inner">
           <h1 class="display display--xl hero__title">El mapa hacia infinitos mundos</h1>
 
-          <!-- PENDIENTE: el diseño prevé un video en este bloque. Reemplazar el
-               <img> por un <video autoplay muted loop playsinline poster="..."> -->
-          <div class="hero__media hero__media--product">
-            <span class="hero__grid-bg" aria-hidden="true"></span>
-            <img
-              src="/assets/tablero.webp"
-              alt="Tablero Atlas visto en perspectiva, con su cuadrícula de celdas iluminadas"
-              width="1400"
-              height="754"
-            />
-          </div>
+          <button class="hero__video-toggle" type="button" data-video-toggle aria-pressed="false">
+            <span class="visually-hidden">Pausar el video</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <g data-icon="pause"><rect x="7" y="5" width="3.5" height="14" /><rect x="13.5" y="5" width="3.5" height="14" /></g>
+              <g data-icon="play"><path d="M8 5.5v13l11-6.5z" /></g>
+            </svg>
+          </button>
 
           <div class="hero__foot">
             <p class="lede">

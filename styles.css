@@ -148,7 +148,7 @@ h3 {
 }
 
 .display--xl {
-  font-size: clamp(2.6rem, 7.4vw, 6.4rem);
+  font-size: clamp(2.4rem, 6.25vw, 7.5rem);
 }
 .display--lg {
   font-size: clamp(2.2rem, 5.4vw, 4.6rem);
@@ -424,27 +424,66 @@ h3 {
   object-fit: cover;
 }
 
-.hero__media--product {
-  background: radial-gradient(circle at 50% 42%, #333 0%, var(--ink-deep) 68%);
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.hero__media--product img {
-  width: min(72%, 820px);
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.55));
-}
-
-.hero__grid-bg {
+/* WCAG 2.2.2: todo movimiento automático de más de 5 s necesita una forma de
+   pausarlo. También sirve a quien pide menos movimiento en el sistema. */
+.hero__video-toggle {
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: linear-gradient(rgba(249, 182, 6, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249, 182, 6, 0.12) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(circle at 50% 50%, #000 20%, transparent 78%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 20%, transparent 78%);
+  z-index: 2;
+  right: clamp(0.7rem, 1.4vw, 1.15rem);
+  bottom: clamp(0.7rem, 1.4vw, 1.15rem);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(20, 20, 20, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--white);
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
+
+.hero__video-toggle:hover,
+.hero__video-toggle:focus-visible {
+  opacity: 1;
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
+
+.hero__video-toggle svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+/* El estado lo marca la clase del botón: `display` explícito en cada grupo.
+   No se usa el atributo hidden porque <g> es SVGElement y no expone .hidden. */
+.hero__video-toggle [data-icon] {
+  display: none;
+}
+
+.hero__video-toggle [data-icon="pause"],
+.hero__video-toggle.is-paused [data-icon="play"] {
+  display: block;
+}
+
+.hero__video-toggle.is-paused [data-icon="pause"] {
+  display: none;
+}
+
 
 .hero__foot {
   display: grid;
@@ -466,6 +505,85 @@ h3 {
   .hero__foot .btn-row {
     flex-direction: row;
   }
+}
+
+/* --------------------------------------------------------------------------
+   Hero con medio a pantalla completa
+   El diseño reserva la primera pantalla entera (1920x1080) para el video y
+   superpone el contenido: titular al 18,4 % de la altura, párrafo y botones
+   apoyados abajo (terminan al 93,4 %), márgenes laterales del 6 %.
+   -------------------------------------------------------------------------- */
+
+.hero--overlay {
+  position: relative;
+  display: grid;
+  min-height: max(560px, calc(100svh - var(--topbar-h)));
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink);
+}
+
+.hero--overlay .hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero--overlay .hero__bg > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Velo calculado sobre los fotogramas reales: en las bandas del titular y del
+   pie el video llega a negro puro, y el texto del diseño es #1e1e1e. Con estas
+   opacidades el contraste se mantiene por encima de 4,5:1 en todo el bucle,
+   dejando la franja central sin apenas velo. */
+.hero--overlay .hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 241, 241, 0.66) 0%,
+    rgba(241, 241, 241, 0.58) 38%,
+    rgba(241, 241, 241, 0.14) 52%,
+    rgba(241, 241, 241, 0.14) 68%,
+    rgba(241, 241, 241, 0.6) 80%,
+    rgba(241, 241, 241, 0.7) 100%
+  );
+}
+
+.hero--overlay .hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  padding-inline: clamp(1.25rem, 6vw, 7.2rem);
+  padding-top: clamp(2rem, 12vh, 8.5rem);
+  padding-bottom: clamp(1.5rem, 6.5vh, 4.5rem);
+}
+
+.hero--overlay .hero__title {
+  margin: 0;
+}
+
+/* El control queda en la fila intermedia, que en el diseño está vacía: así no
+   puede solaparse con el titular, el párrafo ni los botones. */
+.hero--overlay .hero__video-toggle {
+  position: static;
+  grid-row: 2;
+  justify-self: end;
+  align-self: center;
+}
+
+.hero--overlay .hero__foot {
+  grid-row: 3;
+  margin-top: 0;
 }
 
 /* --------------------------------------------------------------------------

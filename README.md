@@ -48,9 +48,12 @@ done
 
 Buscar `PENDIENTE` en los `.html`:
 
-1. **Videos**: el diseño prevé video en los héroes de Producto y Ecosistema y en la
-   sección de la app. Hoy hay fotos; se reemplaza el `<img>` por un `<video autoplay
-   muted loop playsinline poster="…">`.
+1. **Heros de Ecosistema y Sobre nosotros**: en el diseño, los tres heros ocupan
+   la primera pantalla entera con el medio de fondo y el contenido superpuesto
+   (ver «Estructura del hero»). Sólo Producto está así; los otros dos siguen con
+   el título arriba y la foto en un panel aparte. Convertirlos requiere imágenes
+   con resolución suficiente para fondo a pantalla completa. La sección de la app
+   en Ecosistema también prevé video en el diseño.
 2. **URL de compra**: los botones «Comprar Atlas» apuntan a
    `mailto:admin@wololabs.com`. Cambiar por la tienda cuando exista.
 3. **Redes**: sólo Instagram tiene enlace; faltan Discord, TikTok, X y LinkedIn.
@@ -60,6 +63,49 @@ Buscar `PENDIENTE` en los `.html`:
 
 `user-manual.html` tiene además su propia lista de datos pendientes en un comentario
 al inicio del archivo.
+
+## Estructura del hero
+
+Medido sobre el diseño, la primera pantalla es una caja de 1920×1080 con el medio
+al fondo y **el contenido encima**: titular al 18,4 % de la altura, párrafo y
+botones apoyados abajo (terminan al 93,4 %) y márgenes laterales del 6 %. Eso es
+`.hero--overlay` en `styles.css`; las otras dos páginas todavía usan la variante
+antigua, con el medio en un panel aparte.
+
+El control de pausa vive en la fila intermedia de la retícula —vacía en el
+diseño—, así que no puede solaparse con el titular, el párrafo ni los botones sea
+cual sea el tamaño de pantalla.
+
+El velo (`.hero__scrim`) no es decorativo: el texto del diseño es `#1e1e1e` y el
+video llega a negro puro en las bandas del titular y del pie, así que hace falta
+un 53 % de blanco para alcanzar 4,5:1. El degradado aplica 0,58–0,70 en esas dos
+bandas y baja a 0,14 en la franja central, donde no hay texto y el video se ve
+casi limpio.
+
+Nota: el diseño dibuja la barra de navegación flotando **dentro** de la primera
+pantalla (x 83..1836, y 40..121), no como barra a sangre. Aquí es una barra fija a
+todo el ancho, que funciona mejor en las cuatro páginas sin hero.
+
+## Video del hero
+
+`index.html` abre con `assets/hero-atlas.*`, recomprimido desde el original de
+54 MB (1920×1080, 21,8 Mb/s) a **1,8 MB en MP4 y 1,2 MB en WebM**: recorte central
+a 16:7,5 —la proporción del panel del diseño—, escala a 1600×750, sin pista de
+audio. Cada visita descarga sólo uno de los dos (WebM en casi todos los
+navegadores), así que son unos 1,2 MB por visita.
+
+Para regenerarlo desde un original nuevo:
+
+```sh
+ffmpeg -i ORIGINAL.mp4 -vf "crop=1920:900:0:90,scale=1600:750:flags=lanczos" -an   -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 26 -preset slow -g 50   -movflags +faststart assets/hero-atlas.mp4
+ffmpeg -i ORIGINAL.mp4 -vf "crop=1920:900:0:90,scale=1600:750:flags=lanczos" -an   -c:v libvpx-vp9 -crf 36 -b:v 0 -row-mt 1 -deadline good -cpu-used 2 -g 50   assets/hero-atlas.webm
+ffmpeg -ss 0 -i ORIGINAL.mp4 -vf "crop=1920:900:0:90,scale=1600:750" -frames:v 1   assets/hero-atlas-poster.jpg
+```
+
+El video se reproduce en bucle y sin sonido. El botón de la esquina lo pausa
+(WCAG 2.2.2: todo movimiento automático de más de 5 s necesita una forma de
+detenerlo) y, si el sistema pide reducir movimiento, arranca pausado mostrando
+el póster.
 
 ## Descarga del APK
 
