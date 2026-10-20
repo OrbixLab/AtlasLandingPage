@@ -2803,6 +2803,13 @@ h3 {
   margin: 0.3rem 0 0;
   color: var(--text-on-dark-muted);
 }
+/* El paso que la animación de las fichas está mostrando */
+.mini-steps li {
+  transition: opacity 0.4s ease;
+}
+.mini-steps:has(.is-active) li:not(.is-active):not(:last-child) {
+  opacity: 0.5;
+}
 
 .spec-list li {
   display: grid;

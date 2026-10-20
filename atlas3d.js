@@ -2,8 +2,8 @@
    Cada bloque con [data-atlas3d] arma su escena cuando se acerca a la pantalla:
      maze   → la ficha recorre el Maze y enciende las casillas
      mesa   → de 1 a 6 módulos que arman un mapa de rol (botones + y −)
-     modulo → un módulo solo, con una ola de luz suave
-     ficha  → la ficha roja junto a la base con rosca
+     modulo → un módulo con Atlas Core acoplado: una ficha se apoya, se lee y el tablero responde
+     ficha  → la ficha se enrosca en la base, se desenrosca, sale y entra otra de otro color
    Three.js y el modelo se descargan una sola vez y sólo si hay una escena a la vista.
    Todas usan la misma vista isométrica fija. */
 (function () {
@@ -18,6 +18,7 @@
   var MODEL_URL = "/assets/3d/atlas64_modulo.glb";
   var FICHA_URL = "/assets/3d/ficha_roja.glb"; // comprimido con meshopt
   var BASE_URL = "/assets/3d/base_con_rosca.glb";
+  var NFC_URL = "/assets/Models3D/modulo_nfc.glb"; // Atlas Core, mismo origen que el módulo
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -90,6 +91,17 @@
     return fichaPromise || (fichaPromise = loadGLB(FICHA_URL));
   }
 
+  function recolor(root) {
+    root.traverse(function (o) {
+      var r = o.isMesh && o.material && RECOLOR[o.material.name];
+      if (r) {
+        o.material.color.setHex(r[0]);
+        o.material.metalness = r[1];
+        o.material.roughness = r[2];
+      }
+    });
+  }
+
   var modelPromise = null;
   function model() {
     return (
@@ -102,14 +114,7 @@
               var root = g.scene;
               root.scale.setScalar(100); // metros → centímetros
               root.rotation.y = Math.PI; // el borde del botón y el USB-C, hacia la cámara
-              root.traverse(function (o) {
-                var r = o.isMesh && o.material && RECOLOR[o.material.name];
-                if (r) {
-                  o.material.color.setHex(r[0]);
-                  o.material.metalness = r[1];
-                  o.material.roughness = r[2];
-                }
-              });
+              recolor(root);
               root.updateMatrixWorld(true);
               resolve(root);
             },
@@ -560,14 +565,66 @@
     var mod = placeModule(src, view.scene);
     var OFF = color(CELL_OFF), ON = color(CELL_ON);
     view.ground.position.y = new THREE.Box3().setFromObject(mod.root).min.y - 0.01;
-    view.half = view.fit(21.6, 21.6, 4);
-    var t = reduce ? 1.5 : 0;
+    // Encuadre del módulo más Atlas Core, que sobresale 5,4 cm del borde del USB-C.
+    view.center.set(0, 0, 2.7);
+    view.half = view.fit(21.6, 27, 6);
+    var front = 10.8;
+    var dist = mod.cells.map(function (c) {
+      var p = new THREE.Vector3();
+      c.obj.getWorldPosition(p);
+      return (front - p.z) / 2.65; // en casillas, desde el borde de Atlas Core
+    });
+
+    var core = null, lamina = null, piece = null, ring = glowMesh(7);
+    var PINK = color(CELL_ON);
+    ring.position.set(0, 0.3, 13.4);
+    view.scene.add(ring);
+    Promise.all([loadGLB(NFC_URL), ficha(), loadGLB(BASE_URL)])
+      .then(function (r) {
+        core = r[0];
+        core.rotation.y = Math.PI; // igual que el módulo
+        recolor(core);
+        view.scene.add(core);
+        lamina = core.getObjectByName("Lamina");
+        if (lamina && lamina.isMesh) {
+          lamina.material = lamina.material.clone();
+          lamina.material.emissive = new THREE.Color(0);
+        }
+        var lt = lamina ? new THREE.Box3().setFromObject(lamina).max.y : 0.24;
+        piece = new THREE.Group();
+        var f = r[1].clone(true);
+        f.position.y = SEAT;
+        piece.add(r[2].clone(true));
+        piece.add(f);
+        piece.position.set(0, lt, 13.4);
+        piece.userData.rest = lt;
+        view.scene.add(piece);
+      })
+      .catch(function (e) {
+        if (window.console) console.warn("Atlas 3D (Atlas Core):", e);
+      });
+
+    // Guion de 7 s: baja la ficha, Atlas Core la lee, el tablero responde y la ficha se va.
+    var T = 7;
+    var t = reduce ? 2.2 : 0;
     view.frame = function (dt) {
       if (!reduce) t += dt;
-      var r = (t * 4) % 22 - 3; // ola diagonal que recorre el tablero
+      var k = t % T;
+      var drop = 0, scan = 0, wave = -9;
+      if (k < 1.2) drop = 1 - ease(k / 1.2);
+      else if (k > 5.6) drop = ease((k - 5.6) / 1.4);
+      if (k > 1.2 && k < 2.6) scan = Math.sin(((k - 1.2) / 1.4) * Math.PI);
+      if (k > 2) wave = (k - 2) * 4.5 - 1;
+      if (piece) {
+        piece.position.y = piece.userData.rest + drop * 30;
+        piece.visible = drop < 0.99;
+      }
+      if (lamina && lamina.material.emissive) lamina.material.emissive.copy(PINK).multiplyScalar(scan * 0.9);
+      ring.material.opacity = scan * 0.8;
+      ring.material.color.copy(PINK);
+      ring.scale.setScalar(0.6 + 0.6 * (k > 1.2 && k < 2.6 ? (k - 1.2) / 1.4 : 0));
       mod.cells.forEach(function (c, i) {
-        var d = (i % 8) + Math.floor(i / 8);
-        var a = Math.max(0, 1 - Math.abs(d - r) / 2) * 0.8;
+        var a = Math.max(0, 1 - Math.abs(dist[i] - wave) / 1.8) * 0.8;
         c.mat.color.copy(OFF).lerp(ON, a * 0.9);
         c.mat.emissive.copy(ON).multiplyScalar(a * 0.6);
       });
@@ -576,25 +633,67 @@
 
   // ---------- Escena: la ficha ----------
 
+  // Altura de la ficha enroscada: su anillo con rosca entra 0,45 cm en la base.
+  var SEAT = 0.12;
+  var THREAD = 0.45;
+  var FICHA_COLORS = [null, 0x2f6fdb, 0xf2c230, 0x2e9e5b]; // null = la roja original
+
+  function tinted(src, hex) {
+    var f = src.clone(true);
+    if (hex == null) return f;
+    f.traverse(function (o) {
+      if (o.isMesh && o.name === "Ficha_cuerpo") {
+        o.material = o.material.clone();
+        o.material.color.setHex(hex).convertSRGBToLinear();
+      }
+    });
+    return f;
+  }
+
   function sceneFicha(host) {
     return Promise.all([ficha(), loadGLB(BASE_URL)]).then(function (r) {
       var view = makeView(host);
-      var f = r[0].clone(true), base = r[1];
-      // Una al lado de la otra sobre la diagonal que la cámara ve de frente.
-      var side = new THREE.Vector3(Math.SQRT1_2, 0, -Math.SQRT1_2);
-      base.position.copy(side).multiplyScalar(-2.2);
-      f.position.copy(side).multiplyScalar(2.2);
+      var base = r[1];
       view.scene.add(base);
-      view.scene.add(f);
+      var fichas = FICHA_COLORS.map(function (hex) {
+        var f = tinted(r[0], hex);
+        f.visible = false;
+        view.scene.add(f);
+        return f;
+      });
       view.ground.position.y = -0.01;
-      view.center.set(0, 1.4, 0);
-      view.half = 3.4;
-      var t = 0;
+      view.center.set(0, 1.6, 0);
+      view.half = 3.2;
+
+      var steps = host.parentNode.querySelectorAll(".mini-steps li");
+      var lastStep = -1;
+      function step(n) {
+        if (n === lastStep) return;
+        lastStep = n;
+        Array.prototype.forEach.call(steps, function (li, i) {
+          li.classList.toggle("is-active", i === n);
+        });
+      }
+
+      // Guion de 8 s por ficha: entra, se enrosca, queda, se desenrosca y sale.
+      var T = 8, TURNS = 2.5, HIGH = 10;
+      var t = reduce ? 3.5 : 0;
       view.frame = function (dt) {
-        if (reduce) return;
-        t += dt;
-        f.position.y = 0.35 + Math.sin(t * 1.6) * 0.35; // flota apenas
-        f.rotation.y = t * 0.4;
+        if (!reduce) t += dt;
+        var n = Math.floor(t / T) % fichas.length, k = t % T;
+        var y, turn = 0; // turn: 0 = enroscada, 1 = suelta
+        if (k < 1.3) { y = SEAT + THREAD + (1 - ease(k / 1.3)) * HIGH; turn = 1; }
+        else if (k < 3) { turn = 1 - ease((k - 1.3) / 1.7); y = SEAT + THREAD * turn; }
+        else if (k < 4.4) { y = SEAT; }
+        else if (k < 6.1) { turn = ease((k - 4.4) / 1.7); y = SEAT + THREAD * turn; }
+        else { y = SEAT + THREAD + ease((k - 6.1) / 1.3) * HIGH; turn = 1; }
+        fichas.forEach(function (f, i) {
+          f.visible = i === n;
+        });
+        var f = fichas[n];
+        f.position.y = y;
+        f.rotation.y = turn * TURNS * Math.PI * 2; // rosca derecha: gira en sentido horario al bajar
+        step(k < 4.4 ? 0 : 1);
       };
     });
   }
