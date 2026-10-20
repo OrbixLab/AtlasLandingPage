@@ -243,8 +243,7 @@
       </section>
 
       <!-- ================= FICHAS ================= -->
-      <!-- PENDIENTE: sección preparada. Falta el modelo 3D de la ficha
-           (miniatura + base inteligente); mientras tanto, la foto de la base. -->
+      <!-- Escena 3D de la ficha roja y la base con rosca (atlas3d.js). -->
       <section class="band band--ink" id="fichas">
         <div class="wrap reveal">
           <div class="section-head">
@@ -253,8 +252,8 @@
             <p class="lede">El tablero siente cada ficha. Atlas Core sabe cuál es.</p>
           </div>
           <div class="split">
-            <div class="split__media">
-              <img src="/assets/base-inteligente.webp" alt="Base inteligente de Atlas" width="464" height="360" loading="lazy" />
+            <div class="stage3d split__media" data-atlas3d="ficha" role="img" aria-label="Una ficha de Atlas junto a una base con rosca">
+              <img class="stage3d__fallback" src="/assets/base-inteligente.webp" alt="" width="464" height="360" loading="lazy" />
             </div>
             <ol class="mini-steps">
               <li><h3>Apoyala en una casilla</h3><p>Un imán en la base avisa que llegó una ficha.</p></li>

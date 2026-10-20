@@ -3,6 +3,7 @@
      maze   → la ficha recorre el Maze y enciende las casillas
      mesa   → de 1 a 6 módulos que arman un mapa de rol (botones + y −)
      modulo → un módulo solo, con una ola de luz suave
+     ficha  → la ficha roja junto a la base con rosca
    Three.js y el modelo se descargan una sola vez y sólo si hay una escena a la vista.
    Todas usan la misma vista isométrica fija. */
 (function () {
@@ -13,7 +14,10 @@
 
   var THREE_URL = "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js";
   var GLTF_URL = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js";
+  var MESHOPT_URL = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/meshopt_decoder.js";
   var MODEL_URL = "/assets/3d/atlas64_modulo.glb";
+  var FICHA_URL = "/assets/3d/ficha_roja.glb"; // comprimido con meshopt
+  var BASE_URL = "/assets/3d/base_con_rosca.glb";
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -45,10 +49,45 @@
   function lib() {
     return (
       libPromise ||
-      (libPromise = loadScript(THREE_URL).then(function () {
-        return loadScript(GLTF_URL);
-      }))
+      (libPromise = loadScript(THREE_URL)
+        .then(function () {
+          return loadScript(GLTF_URL);
+        })
+        .then(function () {
+          return loadScript(MESHOPT_URL);
+        }))
     );
+  }
+
+  // Carga un .glb en centímetros (los modelos vienen en metros) con sombras.
+  function loadGLB(url) {
+    return lib().then(function () {
+      return new Promise(function (resolve, reject) {
+        var loader = new THREE.GLTFLoader();
+        if (window.MeshoptDecoder) loader.setMeshoptDecoder(window.MeshoptDecoder);
+        loader.load(
+          url,
+          function (g) {
+            var root = g.scene;
+            root.scale.setScalar(100);
+            root.traverse(function (o) {
+              if (o.isMesh) {
+                o.castShadow = true;
+                o.receiveShadow = true;
+              }
+            });
+            resolve(root);
+          },
+          undefined,
+          reject
+        );
+      });
+    });
+  }
+
+  var fichaPromise = null;
+  function ficha() {
+    return fichaPromise || (fichaPromise = loadGLB(FICHA_URL));
   }
 
   var modelPromise = null;
@@ -296,8 +335,16 @@
       view.scene.add(c.glow);
     });
 
-    var piece = makePiece();
+    // La ficha roja real; si no carga, queda la genérica.
+    var piece = new THREE.Group();
     view.scene.add(piece);
+    ficha()
+      .then(function (f) {
+        piece.add(f.clone(true));
+      })
+      .catch(function () {
+        piece.add(makePiece());
+      });
 
     var cap = host.parentNode.querySelector("[data-atlas3d-cap]");
     var lastCap = "";
@@ -527,21 +574,57 @@
     };
   }
 
+  // ---------- Escena: la ficha ----------
+
+  function sceneFicha(host) {
+    return Promise.all([ficha(), loadGLB(BASE_URL)]).then(function (r) {
+      var view = makeView(host);
+      var f = r[0].clone(true), base = r[1];
+      // Una al lado de la otra sobre la diagonal que la cámara ve de frente.
+      var side = new THREE.Vector3(Math.SQRT1_2, 0, -Math.SQRT1_2);
+      base.position.copy(side).multiplyScalar(-2.2);
+      f.position.copy(side).multiplyScalar(2.2);
+      view.scene.add(base);
+      view.scene.add(f);
+      view.ground.position.y = -0.01;
+      view.center.set(0, 1.4, 0);
+      view.half = 3.4;
+      var t = 0;
+      view.frame = function (dt) {
+        if (reduce) return;
+        t += dt;
+        f.position.y = 0.35 + Math.sin(t * 1.6) * 0.35; // flota apenas
+        f.rotation.y = t * 0.4;
+      };
+    });
+  }
+
   // ---------- Arranque ----------
 
   var SCENES = { maze: sceneMaze, mesa: sceneMesa, modulo: sceneModulo };
 
+  function fallback(host, e) {
+    // Sin WebGL o sin red: queda la imagen de respaldo que trae el HTML.
+    host.classList.add("is-fallback");
+    if (window.console) console.warn("Atlas 3D:", e);
+  }
+
   function start(host) {
-    var make = SCENES[host.getAttribute("data-atlas3d")];
+    var kind = host.getAttribute("data-atlas3d");
+    if (kind === "ficha") {
+      sceneFicha(host).catch(function (e) {
+        fallback(host, e);
+      });
+      return;
+    }
+    var make = SCENES[kind];
     if (!make) return;
     model()
       .then(function (src) {
         make(host, src);
       })
       .catch(function (e) {
-        // Sin WebGL o sin red: queda la imagen de respaldo que trae el HTML.
-        host.classList.add("is-fallback");
-        if (window.console) console.warn("Atlas 3D:", e);
+        fallback(host, e);
       });
   }
 

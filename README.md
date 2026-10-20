@@ -172,6 +172,7 @@ Cada una es un bloque con `data-atlas3d`:
 | `maze` | En juego | Una ficha recorre el Maze y enciende las casillas |
 | `mesa` | Armá tu mesa | De 1 a 6 módulos (botones + y −) que arman un mapa de rol de ejemplo |
 | `modulo` | El módulo | Un módulo solo, con una ola de luz |
+| `ficha` | Fichas | La ficha roja junto a la base con rosca |
 
 - El modelo es `assets/3d/atlas64_modulo.glb`, exportado de Fusion 360 (1,4 MB, en
   metros, Y arriba). Cada casilla es un nodo `celda_x_y` con su propio material: x es
@@ -179,8 +180,9 @@ Cada una es un bloque con `data-atlas3d`:
 - Los colores del pogo pin, los contactos y el botón se cambian en el código
   (`RECOLOR`), no en el `.glb`. Las casillas apagadas son `#a9cbf9` y las encendidas,
   rosa `#ff4fa3`.
-- La ficha es una figura genérica hecha en código (`makePiece`) hasta que esté su
-  modelo.
+- La ficha es `assets/3d/ficha_roja.glb` (comprimida con meshopt, por eso se carga
+  también `meshopt_decoder.js`) y la base, `assets/3d/base_con_rosca.glb`. Si la ficha
+  no carga, el Maze usa una figura genérica hecha en código (`makePiece`).
 - Three.js y el modelo se descargan sólo cuando una escena se acerca a la pantalla.
   Sin WebGL queda la imagen de respaldo que trae cada bloque.
 - Todas usan una vista isométrica fija, sin giro.
