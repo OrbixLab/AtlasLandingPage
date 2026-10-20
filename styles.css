@@ -2641,3 +2641,184 @@ h3 {
     rgba(12, 12, 12, 0.42) 100%
   );
 }
+
+/* --------------------------------------------------------------------------
+   Escenas 3D (atlas3d.js): En juego, Armá tu mesa y El módulo
+   -------------------------------------------------------------------------- */
+
+.section-head {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+.section-head .eyebrow {
+  margin: 0;
+}
+.section-head .lede {
+  margin-inline: auto;
+}
+.band--ink .section-head .lede {
+  color: var(--text-on-dark-muted);
+}
+
+.stage3d-wrap {
+  margin: 0;
+}
+
+/* El lienzo es transparente: la escena se apoya sobre el color de la banda. */
+.stage3d {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  aspect-ratio: 16 / 10;
+}
+.stage3d--wide {
+  max-width: 1200px;
+}
+.stage3d canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+.stage3d__fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.stage3d.is-ready .stage3d__fallback {
+  display: none;
+}
+
+.stage3d__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 1rem auto 0;
+}
+.stage3d__foot--center {
+  justify-content: center;
+}
+.stage3d__cap {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  min-height: 1.5em;
+}
+.stage3d__toggle {
+  padding: 0.45rem 1.1rem;
+}
+
+/* Botones + y − de Armá tu mesa */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.stepper__btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+  font: 700 1.6rem/1 var(--font-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.stepper__btn:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--yellow);
+  transform: translateY(-2px);
+}
+.stepper__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.stepper__count {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1;
+  min-width: 2ch;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fichas y El módulo: medio + texto corto */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+.split__media {
+  min-width: 0;
+}
+.split__media img {
+  width: 100%;
+  height: auto;
+}
+.split .stage3d {
+  aspect-ratio: 4 / 3;
+}
+
+.mini-steps,
+.spec-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+.mini-steps {
+  counter-reset: paso;
+}
+.mini-steps li {
+  counter-increment: paso;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  column-gap: 0.75rem;
+}
+.mini-steps li::before {
+  content: counter(paso);
+  grid-row: span 2;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--yellow);
+}
+.mini-steps h3 {
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+}
+.mini-steps p {
+  margin: 0.3rem 0 0;
+  color: var(--text-on-dark-muted);
+}
+
+.spec-list li {
+  display: grid;
+  gap: 0.15rem;
+  border-top: 1.5px solid var(--line);
+  padding-top: 0.9rem;
+}
+.spec-list strong {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1;
+}
+
+@media (max-width: 760px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}

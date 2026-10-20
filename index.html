@@ -93,9 +93,7 @@
 
           <div class="hero__foot">
             <p class="lede">
-              La primera consola de juegos de mesa. Combina lo mejor de los juegos de mesa con lo
-              mejor de los videojuegos. El tablero diseñado para dar vida a cientos de juegos en un
-              mismo lugar, sin perder la esencia de lo que nos une alrededor de una mesa.
+              La primera consola de juegos de mesa. Un tablero, cientos de juegos.
             </p>
             <div class="btn-row">
               <a class="btn btn--ink" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
@@ -131,8 +129,7 @@
           </div>
 
           <p class="showcase__note">
-            Atlas es la primera consola de juegos de mesa: una plataforma donde un único tablero da
-            vida a múltiples juegos y la tecnología se encarga del resto.
+            Un único tablero, muchos juegos. La tecnología se encarga del resto.
           </p>
         </div>
       </section>
@@ -199,10 +196,102 @@
         </div>
       </section>
 
+      <!-- ================= EN JUEGO (3D) ================= -->
+      <!-- Escena 3D del Maze (atlas3d.js). La imagen es el respaldo sin WebGL. -->
+      <section class="band band--ink" id="en-juego">
+        <div class="wrap reveal">
+          <div class="section-head">
+            <p class="eyebrow eyebrow--center">En juego</p>
+            <h2 class="display display--lg">Apoyá una ficha. El tablero hace el resto.</h2>
+            <p class="lede">Las casillas se iluminan para guiarte en cada jugada.</p>
+          </div>
+          <figure class="stage3d-wrap">
+            <div class="stage3d" data-atlas3d="maze" role="img" aria-label="Una ficha recorre el juego Maze sobre el tablero Atlas y enciende cada casilla del camino">
+              <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
+            </div>
+            <figcaption class="stage3d__foot">
+              <span class="stage3d__cap" data-atlas3d-cap aria-live="polite">Maze: encontrá la salida recordando el camino.</span>
+              <button class="btn btn--light stage3d__toggle" type="button" data-atlas3d-toggle>Pausar</button>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================= ARMÁ TU MESA (3D) ================= -->
+      <!-- PENDIENTE: el mapa es de ejemplo. Confirmar el máximo de módulos (el equipo dice 6). -->
+      <section class="band band--paper" id="arma-tu-mesa">
+        <div class="wrap reveal" data-mesa="2">
+          <div class="section-head">
+            <p class="eyebrow eyebrow--center">Módulos</p>
+            <h2 class="display display--lg">Armá tu mesa</h2>
+            <p class="lede">Sumá hasta 6 tableros y el mundo crece con vos.</p>
+          </div>
+          <div class="stepper" role="group" aria-label="Cantidad de módulos">
+            <button class="stepper__btn" type="button" data-mesa-step="-1" aria-label="Quitar un módulo">−</button>
+            <output class="stepper__count" data-mesa-count aria-live="polite">2</output>
+            <button class="stepper__btn" type="button" data-mesa-step="1" aria-label="Sumar un módulo">+</button>
+          </div>
+          <figure class="stage3d-wrap">
+            <div class="stage3d stage3d--wide" data-atlas3d="mesa" role="img" aria-label="Varios módulos Atlas unidos forman un mapa de rol con bosque, río y una villa">
+              <img class="stage3d__fallback" src="/assets/tablero-piezas.jpg" alt="" loading="lazy" />
+            </div>
+            <figcaption class="stage3d__foot stage3d__foot--center">
+              <span class="stage3d__cap" data-atlas3d-cap aria-live="polite">Aparece el río.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================= FICHAS ================= -->
+      <!-- PENDIENTE: sección preparada. Falta el modelo 3D de la ficha
+           (miniatura + base inteligente); mientras tanto, la foto de la base. -->
+      <section class="band band--ink" id="fichas">
+        <div class="wrap reveal">
+          <div class="section-head">
+            <p class="eyebrow eyebrow--center">Fichas</p>
+            <h2 class="display display--lg">Cada ficha, en su lugar</h2>
+            <p class="lede">El tablero siente cada ficha. Atlas Core sabe cuál es.</p>
+          </div>
+          <div class="split">
+            <div class="split__media">
+              <img src="/assets/base-inteligente.webp" alt="Base inteligente de Atlas" width="464" height="360" loading="lazy" />
+            </div>
+            <ol class="mini-steps">
+              <li><h3>Apoyala en una casilla</h3><p>Un imán en la base avisa que llegó una ficha.</p></li>
+              <li><h3>Pasala por Atlas Core</h3><p>Lee su etiqueta y el juego sabe qué personaje es.</p></li>
+              <li><h3>Usá tus propias figuras</h3><p>Montalas sobre una base inteligente.</p></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= EL MÓDULO (3D) ================= -->
+      <!-- PENDIENTE: sección preparada. Revisar los datos técnicos antes de publicar. -->
+      <section class="band band--fade-yellow-up" id="modulo">
+        <div class="wrap reveal">
+          <div class="section-head">
+            <p class="eyebrow eyebrow--center">El módulo</p>
+            <h2 class="display display--lg">64 casillas que se iluminan</h2>
+            <p class="lede">Luz, sensores y batería en cada tablero.</p>
+          </div>
+          <div class="split">
+            <div class="stage3d split__media" data-atlas3d="modulo" role="img" aria-label="Un módulo Atlas con una ola de luz que recorre sus 64 casillas">
+              <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
+            </div>
+            <ul class="spec-list">
+              <li><strong>8 × 8</strong><span>casillas con luz de color</span></li>
+              <li><strong>22 × 22 cm</strong><span>por módulo</span></li>
+              <li><strong>Batería</strong><span>propia, carga por USB-C</span></li>
+              <li><strong>Inalámbrico</strong><span>se conecta con los otros módulos</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <!-- ================= TECNOLOGÍA ================= -->
       <section class="band band--ink band--tight" id="tecnologia">
         <div class="wrap text-center reveal">
-          <p class="eyebrow eyebrow--center">04. Tecnología</p>
+          <p class="eyebrow eyebrow--center">Tecnología</p>
           <h2 class="svg-title svg-title--center">
             <img
               src="/assets/titulos/mejor-tecnologia.svg"
@@ -218,28 +307,28 @@
               <img src="/assets/graficos/tec-leds.svg" alt="" aria-hidden="true" loading="lazy" />
               <div>
                 <h3>LEDs Inteligentes</h3>
-                <p>El tablero guía visualmente cada partida mostrando únicamente la información necesaria.</p>
+                <p>Muestran sólo lo que necesitás ver.</p>
               </div>
             </article>
             <article class="tech-item">
               <img src="/assets/graficos/tec-core.svg" alt="" aria-hidden="true" loading="lazy" />
               <div>
                 <h3>Atlas Core</h3>
-                <p>Solo apoyá las fichas sobre el módulo y Atlas reconocerá cada personaje o pieza en segundos.</p>
+                <p>Apoyá una ficha y Atlas sabe quién es.</p>
               </div>
             </article>
             <article class="tech-item">
               <img src="/assets/graficos/tec-tablero.svg" alt="" aria-hidden="true" loading="lazy" />
               <div>
                 <h3>Diseño del tablero</h3>
-                <p>Minimalista. Resistente. Pensado para durar miles de partidas.</p>
+                <p>Minimalista y resistente.</p>
               </div>
             </article>
             <article class="tech-item">
               <img src="/assets/graficos/tec-sistema.svg" alt="" aria-hidden="true" loading="lazy" />
               <div>
                 <h3>Sistema inteligente</h3>
-                <p>El tablero reconoce cada movimiento y se sincroniza automáticamente con la aplicación.</p>
+                <p>Detecta cada movimiento y se sincroniza con la app.</p>
               </div>
             </article>
           </div>
@@ -249,7 +338,7 @@
       <!-- ================= ¿QUÉ INCLUYE LA CAJA? ================= -->
       <section class="band band--fade-yellow" id="caja">
         <div class="wrap reveal">
-          <p class="eyebrow eyebrow--center">05. ¿Qué incluye la caja?</p>
+          <p class="eyebrow eyebrow--center">¿Qué incluye la caja?</p>
           <h2 class="svg-title svg-title--center">
             <img
               src="/assets/titulos/todo-listo.svg"
@@ -310,7 +399,7 @@
       <!-- ================= FAQ ================= -->
       <section class="band band--yellow band--tight" id="faq">
         <div class="wrap reveal">
-          <p class="eyebrow eyebrow--center">06. Preguntas frecuentes</p>
+          <p class="eyebrow eyebrow--center">Preguntas frecuentes</p>
 
           <div class="faq">
             <details>
@@ -459,5 +548,6 @@
     </footer>
 
     <script src="/script.js" defer></script>
+    <script src="/atlas3d.js" defer></script>
   </body>
 </html>

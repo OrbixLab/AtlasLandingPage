@@ -162,6 +162,29 @@ enlace, el SHA-256 y los datos de versión y tamaño de la tarjeta.
 superar su cuota diaria, y devuelve un error a todo el mundo. Si el volumen
 crece, conviene mover el archivo a un alojamiento sin esa restricción.
 
+## Escenas 3D del tablero
+
+`atlas3d.js` arma con Three.js (r128, desde jsDelivr) tres escenas en `index.html`.
+Cada una es un bloque con `data-atlas3d`:
+
+| Valor | Sección | Qué muestra |
+| --- | --- | --- |
+| `maze` | En juego | Una ficha recorre el Maze y enciende las casillas |
+| `mesa` | Armá tu mesa | De 1 a 6 módulos (botones + y −) que arman un mapa de rol de ejemplo |
+| `modulo` | El módulo | Un módulo solo, con una ola de luz |
+
+- El modelo es `assets/3d/atlas64_modulo.glb`, exportado de Fusion 360 (1,4 MB, en
+  metros, Y arriba). Cada casilla es un nodo `celda_x_y` con su propio material: x es
+  la columna y y la fila desde el borde opuesto al botón y al USB-C.
+- Los colores del pogo pin, los contactos y el botón se cambian en el código
+  (`RECOLOR`), no en el `.glb`. Las casillas apagadas son `#a9cbf9` y las encendidas,
+  rosa `#ff4fa3`.
+- La ficha es una figura genérica hecha en código (`makePiece`) hasta que esté su
+  modelo.
+- Three.js y el modelo se descargan sólo cuando una escena se acerca a la pantalla.
+  Sin WebGL queda la imagen de respaldo que trae cada bloque.
+- Todas usan una vista isométrica fija, sin giro.
+
 ## Ver el sitio en local
 
 ```sh
