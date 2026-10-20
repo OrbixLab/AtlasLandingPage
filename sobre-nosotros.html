@@ -15,7 +15,7 @@
       property="og:description"
       content="Creemos que las mejores historias suceden alrededor de la mesa."
     />
-    <meta property="og:image" content="https://www.atlas-64.com/assets/hero-nosotros.jpg" />
+    <meta property="og:image" content="https://www.atlas-64.com/assets/hero-nosotros-mesa.jpg" />
     <meta property="og:url" content="https://www.atlas-64.com/sobre-nosotros/" />
     <meta name="theme-color" content="#f9b606" />
     <link rel="icon" href="/favicon.png" sizes="32x32" />
@@ -34,8 +34,7 @@
     <header class="topbar">
       <div class="wrap topbar__inner">
         <a class="brand" href="/" aria-label="Atlas — inicio">
-          <img class="brand-mark" src="/assets/icon-atlas-dark.png" alt="" width="26" height="26" />
-          <span class="brand-name">Atlas</span>
+          <img class="brand-logo" src="/assets/logo-lockup-dark.png" alt="" width="900" height="185" />
         </a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-principal">
           Menú
@@ -53,10 +52,11 @@
       <section class="hero hero--overlay">
         <div class="hero__bg">
           <img
-            src="/assets/hero-nosotros.jpg"
-            alt="La caja de Atlas abierta sobre una mesa de madera"
+            src="/assets/hero-nosotros-mesa.jpg"
+            alt="Una mano coloca una miniatura sobre el tablero Atlas mientras dos personas juegan"
             width="1920"
-            height="1088"
+            height="1280"
+            style="object-position: 50% 78%"
           />
         </div>
         <span class="hero__scrim hero__scrim--soft" aria-hidden="true"></span>
@@ -66,16 +66,14 @@
             <img
               src="/assets/titulos/las-mejores-historias.svg"
               alt="Las mejores historias,"
-              style="max-width: 591px"
-              width="591"
-              height="246"
+              width="574"
+              height="229"
             />
             <img
               src="/assets/titulos/alrededor-de-tu-mesa.svg"
               alt="alrededor de tu mesa"
-              style="max-width: 621px"
-              width="621"
-              height="227"
+              width="604"
+              height="210"
             />
           </h1>
 
@@ -88,8 +86,8 @@
 
       <!-- ================= NUESTRA HISTORIA ================= -->
       <section class="band band--ink" id="historia">
-        <div class="wrap split reveal">
-          <div class="split__copy">
+        <div class="wrap-frame story reveal">
+          <div class="story__copy">
             <p class="eyebrow">02. Nuestra historia</p>
             <h2 class="svg-title">
               <img src="/assets/titulos/nuestros-comienzos.svg" alt="Nuestros comienzos" style="max-width: 522px" width="522" height="207" />
@@ -105,18 +103,16 @@
               </strong>
             </p>
             <p class="body-copy">Un único tablero capaz de dar vida a cientos de mundos diferentes.</p>
-            <p>
-              <img
-                src="/assets/logo-lockup-light.png"
-                alt="Atlas"
-                width="900"
-                height="185"
-                style="width: min(190px, 60%); margin-top: 1.5rem"
-                loading="lazy"
-              />
-            </p>
+            <img
+              class="story__logo"
+              src="/assets/logo-lockup-light.png"
+              alt="Atlas"
+              width="900"
+              height="185"
+              loading="lazy"
+            />
           </div>
-          <div class="split__media">
+          <div class="story__media">
             <img
               src="/assets/impresion-3d.jpg"
               alt="Impresora 3D fabricando una miniatura amarilla de Atlas"
@@ -130,19 +126,10 @@
 
       <!-- ================= NUESTRA MISIÓN ================= -->
       <section class="band band--ink band--tight" id="mision">
-        <div class="wrap split split--reverse reveal">
-          <div class="split__media">
-            <img
-              src="/assets/packaging.jpg"
-              alt="La caja de Atlas 64 desarrollada por WOLO Labs"
-              width="1390"
-              height="854"
-              loading="lazy"
-            />
-          </div>
-          <div class="split__copy">
-            <p class="eyebrow">03. Nuestra misión</p>
-            <h2 class="svg-title">
+        <div class="wrap-frame mission reveal">
+          <p class="eyebrow">03. Nuestra misión</p>
+          <div class="mission__col mission__col--right">
+            <h2 class="svg-title mission__title">
               <img
                 src="/assets/titulos/modernizar.svg"
                 alt="Modernizar la forma de jugar sin perder aquello que hace especiales a los juegos de mesa"
@@ -151,32 +138,44 @@
                 height="203"
               />
             </h2>
-            <p class="body-copy">
-              La tecnología de Atlas trabaja en silencio: simplifica las reglas, agiliza la
-              preparación y profundiza la inmersión sin convertirse en protagonista.
-            </p>
-            <p class="body-copy">
-              <strong>Todo parte de una misma idea: que jugar vuelva a ser lo único importante.</strong>
-            </p>
-            <p class="body-copy">
-              Nuestra visión es crear una nueva categoría de juegos híbridos y un ecosistema donde
-              jugadores y creadores puedan descubrir y desarrollar nuevas experiencias.
-            </p>
             <img
-              src="/assets/tablero-piezas.jpg"
-              alt="Tablero Atlas con miniaturas colocadas sobre sus casillas"
-              width="1500"
-              height="830"
-              style="margin-top: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius)"
+              class="mission__photo mission__photo--color"
+              src="/assets/mision-mesa.jpg"
+              alt="Los dos fundadores de Atlas sonríen sentados a una mesa"
+              width="1600"
+              height="991"
               loading="lazy"
             />
+          </div>
+          <div class="mission__col mission__col--left">
+            <img
+              class="mission__photo mission__photo--bw"
+              src="/assets/mision-caja.jpg"
+              alt="Los fundadores de Atlas sostienen la caja de Atlas 64, en blanco y negro"
+              width="1400"
+              height="933"
+              loading="lazy"
+            />
+            <div class="mission__copy">
+              <p class="body-copy">
+                La tecnología de Atlas trabaja en silencio: simplifica las reglas, agiliza la
+                preparación y profundiza la inmersión sin convertirse en protagonista.
+              </p>
+              <p class="body-copy">
+                <strong>Todo parte de una misma idea: que jugar vuelva a ser lo único importante.</strong>
+              </p>
+              <p class="body-copy">
+                Nuestra visión es crear una nueva categoría de juegos híbridos y un ecosistema donde
+                jugadores y creadores puedan descubrir y desarrollar nuevas experiencias.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- ================= PRINCIPIOS ================= -->
       <section class="band band--paper-2" id="principios">
-        <div class="wrap reveal">
+        <div class="wrap-frame reveal">
           <div class="steps-head">
             <h2 class="svg-title" style="max-width: 770px">
               <img
@@ -254,18 +253,18 @@
       </section>
 
       <!-- ================= FILOSOFÍA ================= -->
-      <section class="band band--fade-yellow" id="filosofia">
-        <div class="wrap reveal">
+      <section class="band band--fade-sand" id="filosofia">
+        <div class="wrap-frame reveal">
           <p class="eyebrow">4.0 Nuestra filosofía</p>
           <div class="values-split">
             <div>
-              <h2 class="display display--md">Diseñamos experiencias,<br />no solamente productos.</h2>
+              <h2 class="display values-split__title">Diseñamos experiencias,<br />no solamente productos.</h2>
               <img
-                src="/assets/jugando-mesa.jpg"
-                alt="Un grupo de personas jugando a Atlas alrededor de una mesa"
+                class="values-split__photo"
+                src="/assets/filosofia-equipo.jpg"
+                alt="Los fundadores de Atlas prueban piezas junto a un tablero de ajedrez y el tablero Atlas"
                 width="1600"
-                height="757"
-                style="margin-top: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius); aspect-ratio: 16 / 10; object-fit: cover; width: 100%"
+                height="1067"
                 loading="lazy"
               />
             </div>

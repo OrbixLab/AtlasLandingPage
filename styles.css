@@ -125,6 +125,15 @@ button {
   padding-inline: var(--gutter);
 }
 
+/* Retícula del diseño: márgenes laterales del 6 % sobre el cuadro de 1920,
+   los mismos del hero. La usan las secciones compuestas a ancho completo. */
+.wrap-frame {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 6vw, 7.2rem);
+}
+
 .band {
   position: relative;
   padding-block: var(--band-y);
@@ -165,7 +174,7 @@ h3 {
   font-family: var(--font-display);
   font-weight: 900;
   line-height: 0.98;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.03em;
   margin: 0;
   text-wrap: balance;
 }
@@ -191,11 +200,15 @@ h3 {
   color: var(--yellow);
 }
 
+/* Antetítulos: el diseño los compone en Brillante sin espaciado extra. Con
+   Playfair como sustituto se cierra un poco para acercarse a su mancha. */
 .eyebrow {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(0.72rem, 1vw, 0.86rem);
-  letter-spacing: 0.14em;
+  font-weight: 800;
+  font-size: clamp(0.8rem, 0.95vw, 1.15rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums;
   text-transform: uppercase;
   margin: 0 0 clamp(1.25rem, 2.5vw, 2.25rem);
 }
@@ -223,6 +236,7 @@ h3 {
   max-width: 62ch;
   margin: 0;
   color: inherit;
+  letter-spacing: -0.015em;
 }
 
 .body-copy + .body-copy {
@@ -246,10 +260,10 @@ h3 {
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.01em;
-  padding: 0.72rem 1.6rem;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 0.9vw, 1.0625rem);
+  letter-spacing: -0.025em;
+  padding: 0.7rem 1.5rem;
   border-radius: 999px;
   border: 1.5px solid var(--ink);
   background: transparent;
@@ -310,21 +324,13 @@ h3 {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
 }
 
-.brand-mark {
-  width: 26px;
-  height: 26px;
+/* Isotipo + logotipo ATLAS en una sola pieza: 34 px de alto sobre 1920 */
+.brand-logo {
+  height: clamp(22px, 1.8vw, 34px);
+  width: auto;
   flex: none;
-}
-
-.brand-name {
-  font-family: var(--font-text);
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
 }
 
 /* --------------------------------------------------------------------------
@@ -361,9 +367,9 @@ h3 {
 }
 
 .topbar__nav a {
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-size: clamp(0.78rem, 0.9vw, 1.08rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding-block: 0.35rem;
   border-bottom: 2px solid transparent;
@@ -375,7 +381,7 @@ h3 {
 }
 
 .topbar__nav a[aria-current="page"] {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .nav-toggle {
@@ -627,16 +633,25 @@ h3 {
   height: auto;
 }
 
+/* Sobre nosotros: los dos titulares a la misma altura, en el medio de la
+   pantalla (del 41 % al 62 % en el diseño), con el ancho original de cada SVG
+   sobre 1920: 30 % y 31,5 % del ancho. */
 .hero--overlay .hero__title--split {
+  grid-row: 2;
+  align-self: center;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: center;
+  align-items: start;
   gap: clamp(1rem, 4vw, 5rem);
+}
+
+.hero--overlay .hero__title--split img {
+  width: clamp(9rem, 29.9vw, 574px);
 }
 
 .hero--overlay .hero__title--split img:last-child {
   justify-self: end;
-  margin-top: clamp(1rem, 6vw, 7rem);
+  width: clamp(9rem, 31.5vw, 604px);
 }
 
 .hero--overlay .btn {
@@ -1026,45 +1041,87 @@ h3 {
   max-width: 16ch;
 }
 
+/* CTA del producto: la foto ya llega oscurecida, así que el velo es leve y el
+   tablero se lee detrás del titular. */
+.cta-band--soft::after {
+  background: rgba(10, 10, 10, 0.2);
+}
+
+.cta-band__lede {
+  margin: 0;
+  font-size: clamp(1rem, 1.35vw, 1.6rem);
+  letter-spacing: -0.015em;
+}
+
+/* En el diseño el titular mide 1,84 veces el ancho de la bajada */
+.cta-band .display--cta {
+  max-width: none;
+  font-size: clamp(2.6rem, 6.25vw, 7.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.cta-band--soft .btn {
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  padding: 0.8em 2.1em;
+}
+
 /* --------------------------------------------------------------------------
    Plataforma (esfera)
    -------------------------------------------------------------------------- */
 
+/* Medido sobre el diseño (cuadro de 1920): «Un tablero,» ocupa el 39,4 % del
+   ancho, la esfera el 25,5 % y «muchos mundos» el 60,3 %. La esfera va por
+   delante y tapa parte de los dos titulares. Todo se expresa en cqi (ancho del
+   bloque) para que la composición escale entera; --k la agranda en móvil. */
 .orbit {
+  --k: 1;
+  container-type: inline-size;
   position: relative;
   display: grid;
-  place-items: center;
+  justify-items: center;
+  max-width: 1920px;
+  margin-inline: auto;
   text-align: center;
-  padding-block: clamp(1rem, 3vw, 2rem);
-}
-
-.orbit__sphere {
-  width: min(46%, 380px);
-  margin-block: clamp(-1.5rem, -2vw, -0.5rem);
-  position: relative;
-  z-index: 1;
 }
 
 .orbit__word {
   position: relative;
-  z-index: 2;
-  font-size: clamp(2.6rem, 8vw, 6.5rem);
+  z-index: 1;
   color: var(--yellow);
+}
+
+.orbit__word--top {
+  width: calc(39.4cqi * var(--k));
+}
+
+.orbit__word--bottom {
+  width: calc(60.3cqi * var(--k));
+  margin-top: calc(-4.5cqi * var(--k));
+}
+
+.orbit__sphere {
+  position: relative;
+  z-index: 2;
+  width: calc(25.5cqi * var(--k));
+  margin-top: calc(-2.9cqi * var(--k));
 }
 
 .orbit__labels {
   position: absolute;
   inset: 0;
+  z-index: 3;
   display: none;
   pointer-events: none;
 }
 
 .orbit__labels span {
   position: absolute;
+  transform: translateY(-50%);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(0.62rem, 0.78vw, 0.78rem);
-  letter-spacing: 0.16em;
+  font-size: max(0.62rem, 0.8cqi);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--text-on-dark);
@@ -1072,37 +1129,49 @@ h3 {
 
 .orbit__labels span::before {
   content: "+";
-  margin-right: 0.5rem;
-  color: var(--yellow);
+  margin-right: 0.45em;
+  font-family: var(--font-text);
+  font-weight: 200;
+  font-size: 1.5em;
+  line-height: 0;
+  vertical-align: -0.12em;
 }
 
+/* Posiciones del diseño: x desde el borde izquierdo, y desde el tope de
+   «Un tablero,», ambos en % del ancho */
 @media (min-width: 1000px) {
   .orbit__labels {
     display: block;
   }
   .orbit__labels span:nth-child(1) {
-    top: 40%;
-    left: 14%;
+    left: 25.1cqi;
+    top: 10.4cqi;
   }
   .orbit__labels span:nth-child(2) {
-    top: 33%;
-    left: 6%;
+    left: 11.8cqi;
+    top: 15.25cqi;
   }
   .orbit__labels span:nth-child(3) {
-    top: 52%;
-    left: 11%;
+    left: 21.5cqi;
+    top: 21.05cqi;
   }
   .orbit__labels span:nth-child(4) {
-    top: 36%;
-    right: 12%;
+    left: 67.3cqi;
+    top: 12.5cqi;
   }
   .orbit__labels span:nth-child(5) {
-    top: 46%;
-    right: 4%;
+    left: 78cqi;
+    top: 17.6cqi;
   }
   .orbit__labels span:nth-child(6) {
-    top: 58%;
-    right: 14%;
+    left: 65.4cqi;
+    top: 22.2cqi;
+  }
+}
+
+@media (max-width: 999px) {
+  .orbit {
+    --k: 1.5;
   }
 }
 
@@ -1112,6 +1181,7 @@ h3 {
   justify-content: center;
   gap: 0.55rem;
   margin: clamp(1.75rem, 3vw, 2.5rem) auto 0;
+  width: calc(100% - 2 * var(--gutter));
   max-width: 780px;
   padding: 0;
   list-style: none;
@@ -1179,69 +1249,180 @@ h3 {
    App
    -------------------------------------------------------------------------- */
 
+/* Fondo de la sección: tinta arriba que se funde en amarillo al pie,
+   muestreado del diseño */
+.band--ink-to-yellow {
+  background: linear-gradient(
+    180deg,
+    #1e1e1e 0%,
+    #23221e 20%,
+    #39311b 40%,
+    #644f17 60%,
+    #a37a10 80%,
+    var(--yellow) 100%
+  );
+  color: var(--text-on-dark);
+}
+
+/* Titular y mapa a la izquierda (47 % del cuadro), teléfonos a la derecha */
 .app-split {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 3vw, 3.5rem);
   align-items: center;
 }
 
+/* Mapa de la app: el icono reparte tres ramas («/ | \») hacia Perfil,
+   Biblioteca y Tutoriales; de Biblioteca baja el tronco. */
 .app-map {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+    ".    icon  .   "
+    "bl   trunk br  "
+    "left trunk right"
+    ".    lib   .   "
+    ".    l1    .   "
+    ".    upd   .   "
+    ".    l2    .   "
+    ".    disc  .   ";
+  justify-items: center;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: clamp(2rem, 4vw, 3.5rem);
+  row-gap: 0.55rem;
+  width: min(100%, 34rem);
+  margin: clamp(2rem, 4vw, 4rem) auto 0;
 }
 
+/* El cubo visible mide el 10,25 % del cuadro; la imagen suma su sombra */
 .app-map__icon {
-  width: 74px;
-  height: 74px;
-  display: grid;
-  place-items: center;
-  background: var(--red);
-  border-radius: 16px;
+  grid-area: icon;
+  width: clamp(100px, 11.5vw, 220px);
 }
 
 .app-map__icon img {
-  width: 55%;
+  width: 100%;
 }
 
 .app-map__line {
   width: 1px;
-  height: 26px;
-  background: var(--line-on-dark);
+  height: clamp(1.2rem, 1.3vw, 1.6rem);
+  background: currentColor;
 }
 
+.app-map__line--trunk {
+  grid-area: trunk;
+  height: 100%;
+}
+
+.app-map__line--1 {
+  grid-area: l1;
+}
+
+.app-map__line--2 {
+  grid-area: l2;
+}
+
+.app-map__branch {
+  width: clamp(1.6rem, 1.8vw, 2.2rem);
+  height: clamp(1.6rem, 1.8vw, 2.2rem);
+}
+
+.app-map__branch--left {
+  grid-area: bl;
+  justify-self: end;
+  margin-right: 30%;
+  background: linear-gradient(
+    to bottom right,
+    transparent calc(50% - 0.6px),
+    currentColor,
+    transparent calc(50% + 0.6px)
+  );
+}
+
+.app-map__branch--right {
+  grid-area: br;
+  justify-self: start;
+  margin-left: 30%;
+  background: linear-gradient(
+    to top right,
+    transparent calc(50% - 0.6px),
+    currentColor,
+    transparent calc(50% + 0.6px)
+  );
+}
+
+/* Etiquetas: óvalos de trazo fino, como en el diseño */
 .app-map__node {
-  border: 1px solid var(--line-on-dark);
-  border-radius: 999px;
-  padding: 0.4rem 1.1rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  padding: 0.75em 1.15em;
+  font-size: clamp(0.74rem, 0.78vw, 0.95rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
-.app-map__pair {
-  display: flex;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: center;
+.app-map__node--left {
+  grid-area: left;
+  justify-self: start;
 }
 
+.app-map__node--right {
+  grid-area: right;
+  justify-self: end;
+}
+
+.app-map__node--lib {
+  grid-area: lib;
+}
+
+.app-map__node--upd {
+  grid-area: upd;
+}
+
+.app-map__node--disc {
+  grid-area: disc;
+}
+
+@media (max-width: 560px) {
+  .app-map {
+    grid-template-columns: 1fr;
+    grid-template-areas: "icon" "trunk" "left" "right" "lib" "l1" "upd" "l2" "disc";
+  }
+
+  .app-map__branch {
+    display: none;
+  }
+
+  .app-map__line--trunk {
+    height: clamp(1.2rem, 1.3vw, 1.6rem);
+  }
+
+  .app-map__node--left,
+  .app-map__node--right {
+    justify-self: center;
+  }
+}
+
+/* Los teléfonos vienen recortados, sin caja detrás: 34 % del cuadro */
 .app-media {
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--paper-2);
+  margin: 0;
+  justify-self: center;
+  width: 100%;
 }
 
 .app-media img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 @media (max-width: 900px) {
   .app-split {
     grid-template-columns: 1fr;
+  }
+
+  .app-media {
+    width: min(100%, 560px);
   }
 }
 
@@ -1366,24 +1547,175 @@ h3 {
   }
 }
 
+/* Texto de las secciones editoriales de Sobre nosotros: 21 px sobre 1920 */
+.story .body-copy,
+.mission .body-copy {
+  font-size: clamp(1rem, 1.1vw, 1.32rem);
+  line-height: 1.3;
+}
+
+.story .body-copy + .body-copy,
+.mission .body-copy + .body-copy {
+  margin-top: 1.3em;
+}
+
+/* Nuestros comienzos: columna de texto angosta (31 % del contenido) y foto
+   casi cuadrada (47,5 %), arriba alineada con el antetítulo y abajo con el logo */
+.story {
+  display: grid;
+  grid-template-columns: 31% 47.5%;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.story__copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.story__copy .eyebrow {
+  margin-bottom: clamp(1.5rem, 3.6vw, 4.3rem);
+}
+
+.story__copy .svg-title {
+  margin-bottom: clamp(1.5rem, 3.9vw, 4.7rem);
+}
+
+.story__copy .body-copy {
+  max-width: 24em;
+}
+
+.story__logo {
+  width: clamp(140px, 11.25vw, 216px);
+  margin-top: auto;
+  padding-top: clamp(2rem, 4vw, 4rem);
+}
+
+.story__media img {
+  width: 100%;
+}
+
+@media (max-width: 880px) {
+  .story {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Nuestra misión: a la izquierda la foto con la caja y el texto apoyado abajo;
+   a la derecha el titular alineado a la derecha y la foto en la mesa. En el
+   código el titular va primero para que se lea antes que el texto. */
+.mission {
+  display: grid;
+  grid-template-columns: 41.5% 47.3%;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.mission > .eyebrow {
+  grid-column: 1 / -1;
+  margin-bottom: clamp(1.75rem, 4.5vw, 5.4rem);
+}
+
+.mission__col--right {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(1.5rem, 3.5vw, 4.2rem);
+}
+
+.mission__col--left {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(2rem, 4vw, 5rem);
+}
+
+.mission__title {
+  width: 100%;
+}
+
+.mission .body-copy {
+  max-width: none;
+}
+
+.mission__title img {
+  margin-left: auto;
+}
+
+.mission__photo {
+  width: 100%;
+  object-fit: cover;
+}
+
+.mission__photo--bw {
+  aspect-ratio: 1.63;
+}
+
+.mission__photo--color {
+  aspect-ratio: 1.615;
+}
+
+@media (max-width: 880px) {
+  .mission {
+    grid-template-columns: 1fr;
+    row-gap: 1.75rem;
+  }
+
+  .mission__col--left,
+  .mission__col--right {
+    display: contents;
+  }
+
+  .mission > .eyebrow {
+    margin-bottom: 0;
+  }
+
+  .mission__title img {
+    margin-left: 0;
+  }
+
+  .mission__photo--bw {
+    order: 1;
+  }
+
+  .mission__copy {
+    order: 2;
+  }
+
+  .mission__photo--color {
+    order: 3;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Principios (tarjetas numeradas)
    -------------------------------------------------------------------------- */
 
+/* Tarjetas altas y angostas (17,2 % del cuadro, 343 × 616 sobre 2000) con
+   calles anchas (6,4 %). El número es gigante, del color del fondo de la
+   banda, y se sale por el borde derecho: la tarjeta lo recorta. Las medidas
+   internas van en cqi, que se mide contra la caja de contenido de la tarjeta
+   (el 72 % de su ancho, descontado el padding). */
 .principles {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.75rem);
+  gap: clamp(1rem, 6.4vw, 7.7rem);
   margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding: 0;
+  list-style: none;
 }
 
 .principle {
+  container-type: inline-size;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: clamp(320px, 30vw, 400px);
-  padding: clamp(1.25rem, 2vw, 1.75rem);
-  border-radius: var(--radius);
+  aspect-ratio: 343 / 616;
+  padding: 11% 14% 0;
+  border-radius: clamp(14px, 1.5vw, 30px);
   overflow: hidden;
   background: var(--yellow);
   color: var(--ink);
@@ -1397,41 +1729,37 @@ h3 {
 .principle h3 {
   font-family: var(--font-text);
   font-weight: 700;
-  font-size: 0.95rem;
-  line-height: 1.3;
-  letter-spacing: 0;
-  margin: 0 0 0.85rem;
+  font-size: max(0.8rem, 6.2cqi);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25em;
 }
 
 .principle p {
   margin: 0;
-  font-size: 0.84rem;
-  line-height: 1.5;
-  max-width: 30ch;
+  font-size: max(0.8rem, 6.2cqi);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .principle__num {
   position: absolute;
-  right: 0.35rem;
-  bottom: -0.35rem;
+  right: -0.07em;
+  bottom: -0.035em;
   font-family: var(--font-display-sans);
   font-weight: 200;
-  font-size: clamp(7rem, 11vw, 11rem);
-  line-height: 0.8;
-  color: rgba(255, 255, 255, 0.55);
+  font-size: 125cqi;
+  line-height: 0.72;
+  color: var(--paper-2);
   pointer-events: none;
 }
 
-.principle:nth-child(even) .principle__num {
-  color: rgba(242, 242, 242, 0.5);
-}
-
 .principle__mark {
-  margin-top: auto;
-  width: 22px;
-  opacity: 0.9;
-  position: relative;
+  position: absolute;
+  left: 20%;
+  bottom: 5.5%;
   z-index: 1;
+  width: 12%;
 }
 
 @media (max-width: 980px) {
@@ -1445,7 +1773,12 @@ h3 {
     grid-template-columns: 1fr;
   }
   .principle {
-    min-height: 240px;
+    aspect-ratio: auto;
+    min-height: 360px;
+    padding-bottom: 10rem;
+  }
+  .principle__num {
+    font-size: 85cqi;
   }
 }
 
@@ -1453,34 +1786,54 @@ h3 {
    Valores
    -------------------------------------------------------------------------- */
 
+/* Fondo de Filosofía: gris claro que se entibia hacia un arena dorado */
+.band--fade-sand {
+  background: linear-gradient(180deg, var(--paper-2) 0%, #e6e0d0 40%, #ecd495 100%);
+}
+
+/* Filosofía: titular y foto en el 49 % izquierdo; la lista de valores, angosta
+   (21 %), arranca al 74 % y deja aire a la derecha */
 .values-split {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-columns: minmax(0, 49%) minmax(14rem, 21%);
+  justify-content: space-between;
   gap: clamp(2rem, 5vw, 4.5rem);
+  padding-right: 5%;
   align-items: start;
+}
+
+.values-split__title {
+  font-size: clamp(1.75rem, 2.9vw, 3.5rem);
+}
+
+.values-split__photo {
+  width: 100%;
+  aspect-ratio: 1.447;
+  object-fit: cover;
+  margin-top: clamp(1.5rem, 3.2vw, 3.85rem);
 }
 
 .values {
   display: grid;
-  gap: 1.5rem;
-  margin: 0;
+  gap: 1.3em;
+  margin: clamp(0rem, 2.3vw, 2.75rem) 0 0;
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .values dt {
   font-weight: 700;
-  font-size: 0.98rem;
 }
 
 .values dd {
-  margin: 0.15rem 0 0;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  max-width: 34ch;
+  margin: 0;
 }
 
 @media (max-width: 880px) {
   .values-split {
     grid-template-columns: 1fr;
+    padding-right: 0;
   }
 }
 
@@ -2277,31 +2630,14 @@ h3 {
   }
 }
 
-/* El icono de la app llega ya renderizado en 3D: no necesita el cuadro rojo */
-.app-map__icon--art {
-  width: clamp(58px, 5vw, 84px);
-  height: auto;
-  background: none;
-  border-radius: 0;
-}
-
-.app-map__icon--art img {
-  width: 100%;
-}
-
-/* Los teléfonos vienen recortados: sin caja detrás */
-.app-media--cutout {
-  background: none;
-  border-radius: 0;
-}
-
-/* El hero de Sobre nosotros va sobre una foto clara: velo más suave */
-.hero__scrim--soft {
+/* El hero de Sobre nosotros: velo parejo y liviano. Los titulares caen sobre
+   la remera negra y el buzo claro; con este velo el texto claro mantiene 4,5:1
+   también sobre el buzo. */
+.hero--overlay .hero__scrim--soft {
   background: linear-gradient(
     180deg,
-    rgba(12, 12, 12, 0.34) 0%,
-    rgba(12, 12, 12, 0.12) 40%,
-    rgba(12, 12, 12, 0.12) 62%,
+    rgba(12, 12, 12, 0.3) 0%,
+    rgba(12, 12, 12, 0.34) 50%,
     rgba(12, 12, 12, 0.42) 100%
   );
 }

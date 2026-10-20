@@ -34,8 +34,7 @@
     <header class="topbar">
       <div class="wrap topbar__inner">
         <a class="brand" href="/" aria-label="Atlas — inicio">
-          <img class="brand-mark" src="/assets/icon-atlas-dark.png" alt="" width="26" height="26" />
-          <span class="brand-name">Atlas</span>
+          <img class="brand-logo" src="/assets/logo-lockup-dark.png" alt="" width="900" height="185" />
         </a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-principal">
           Menú
@@ -88,7 +87,8 @@
 
       <!-- ================= LA PLATAFORMA ================= -->
       <section class="band band--ink" id="plataforma">
-        <div class="wrap reveal">
+        <!-- Sin .wrap: la composición ocupa el ancho completo, como en el diseño -->
+        <div class="reveal">
           <p class="eyebrow eyebrow--center">02. La plataforma</p>
 
           <div class="orbit">
@@ -101,20 +101,20 @@
               <span>Próximas expansiones</span>
             </div>
 
-            <p class="svg-title orbit__word">
-              <img src="/assets/titulos/un-tablero.svg" alt="Un tablero," style="max-width: 756px" width="756" height="166" />
+            <p class="svg-title orbit__word orbit__word--top">
+              <img src="/assets/titulos/un-tablero.svg" alt="Un tablero," width="756" height="166" />
             </p>
             <img
               class="orbit__sphere"
               src="/assets/esfera.webp"
               alt=""
               aria-hidden="true"
-              width="894"
-              height="900"
+              width="661"
+              height="663"
               loading="lazy"
             />
-            <p class="svg-title orbit__word">
-              <img src="/assets/titulos/muchos-mundos.svg" alt="muchos mundos" style="max-width: 1160px" width="1160" height="137" />
+            <p class="svg-title orbit__word orbit__word--bottom">
+              <img src="/assets/titulos/muchos-mundos.svg" alt="muchos mundos" width="1160" height="137" />
             </p>
 
             <ul class="orbit__list">
@@ -144,8 +144,8 @@
       </section>
 
       <!-- ================= LA APP ================= -->
-      <section class="band band--ink" id="app">
-        <div class="wrap">
+      <section class="band band--ink-to-yellow" id="app">
+        <div class="wrap-frame">
           <div class="app-split reveal">
             <div>
               <p class="eyebrow">03. La app</p>
@@ -160,37 +160,37 @@
               </h2>
 
               <div class="app-map">
-                <span class="app-map__icon app-map__icon--art">
-                  <img src="/assets/app-icono.webp" alt="" aria-hidden="true" width="500" height="499" loading="lazy" />
+                <span class="app-map__icon">
+                  <img src="/assets/app-icono.webp" alt="" aria-hidden="true" width="270" height="262" loading="lazy" />
                 </span>
-                <span class="app-map__line" aria-hidden="true"></span>
-                <div class="app-map__pair">
-                  <span class="app-map__node">Perfil del jugador</span>
-                  <span class="app-map__node">Tutoriales interactivos</span>
-                </div>
-                <span class="app-map__line" aria-hidden="true"></span>
-                <span class="app-map__node">Biblioteca de juegos</span>
-                <span class="app-map__line" aria-hidden="true"></span>
-                <span class="app-map__node">Actualizaciones automáticas</span>
-                <span class="app-map__line" aria-hidden="true"></span>
-                <span class="app-map__node">Descubrimiento de nuevos juegos</span>
+                <span class="app-map__branch app-map__branch--left" aria-hidden="true"></span>
+                <span class="app-map__line app-map__line--trunk" aria-hidden="true"></span>
+                <span class="app-map__branch app-map__branch--right" aria-hidden="true"></span>
+                <span class="app-map__node app-map__node--left">Perfil del jugador</span>
+                <span class="app-map__node app-map__node--right">Tutoriales interactivos</span>
+                <span class="app-map__node app-map__node--lib">Biblioteca de juegos</span>
+                <span class="app-map__line app-map__line--1" aria-hidden="true"></span>
+                <span class="app-map__node app-map__node--upd">Actualizaciones automáticas</span>
+                <span class="app-map__line app-map__line--2" aria-hidden="true"></span>
+                <span class="app-map__node app-map__node--disc">Descubrimiento de nuevos juegos</span>
               </div>
             </div>
 
             <!-- PENDIENTE: el diseño prevé un video de alguien usando la app. -->
-            <figure class="app-media app-media--cutout">
+            <figure class="app-media">
               <img
                 src="/assets/app-telefonos.webp"
                 alt="Dos teléfonos mostrando la biblioteca de juegos y el inicio de sesión de AtlasHub"
-                width="1600"
-                height="1200"
+                width="790"
+                height="950"
                 loading="lazy"
               />
             </figure>
           </div>
 
+          <!-- El pie de la banda es amarillo: botón oscuro para que contraste -->
           <p class="mt-lg text-center">
-            <a class="btn btn--light" href="/descargar/">
+            <a class="btn btn--ink" href="/descargar/">
               Descargar la app
             </a>
           </p>
@@ -236,7 +236,7 @@
       <section class="cta-band" id="comprar">
         <img class="cta-band__bg" src="/assets/cta-billboard.jpg" alt="" aria-hidden="true" width="1920" height="1080" loading="lazy" />
         <div class="wrap cta-band__inner">
-          <p class="overline">05. La experiencia Atlas</p>
+          <p class="eyebrow">05. La experiencia Atlas</p>
           <h2 class="svg-title svg-title--center">
             <img
               src="/assets/titulos/no-se-trata.svg"

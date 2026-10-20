@@ -41,7 +41,8 @@ done
   antetítulos, botones y números de paso. Detalle en
   [`assets/fonts/README.md`](assets/fonts/README.md).
 - **Marca**: `assets/icon-atlas-*.png` (isotipo), `assets/wordmark-atlas-*.png`
-  (logotipo ATLAS) y `assets/logo-atlas64-*.png` (lockup completo con «64 · el mapa
+  (logotipo ATLAS), `assets/logo-lockup-*.png` (isotipo + logotipo, el de la barra
+  de navegación) y `assets/logo-atlas64-*.png` (lockup completo con «64 · el mapa
   de mundos»), en versión oscura, clara y amarilla.
 
 ## Origen de los assets
@@ -56,6 +57,25 @@ del estudio:
 | `Links/graficos/SVG/` | `assets/graficos/` | Iconos de tecnología y de equipo |
 | `Fonts/` | `assets/fonts/` | Helvetica Neue LT Std, convertida a `woff2` |
 | `ATL_WebProgramadorcurvas.pdf` | — | El diseño final; `…copia.pdf` es la versión con texto vivo, útil para medir |
+
+Las fotos de Sobre nosotros llegaron aparte, en la ronda de correcciones
+(`ATL_Correcciones.pdf`), como JPG de 6000 px. El sitio sirve versiones
+reducidas a 1400–1920 px; los originales no se publican:
+
+| Original | En el sitio | Sección |
+| --- | --- | --- |
+| `LasMejoresHIstoriasBG.jpg` | `hero-nosotros-mesa.jpg` | Hero |
+| `modernizarLaforma_foto2.jpg` | `mision-caja.jpg` | Nuestra misión (blanco y negro) |
+| `modernizarLaforma_foto1.jpg` | `mision-mesa.jpg` | Nuestra misión (color) |
+| `DiseñamosExperienciasFoto.jpg` | `filosofia-equipo.jpg` | Nuestra filosofía |
+
+`modernizarLaforma_foto1.jpg` es vertical y el diseño la pide apaisada
+(1,615:1), así que `mision-mesa.jpg` es un recorte centrado en las caras. Si
+aparece una versión horizontal con los tableros, conviene reemplazarla.
+
+El favicon (`favicon.png`, `assets/apple-touch-icon.png`, `assets/favicon-512.png`)
+es la «A» del logotipo en negro sobre el amarillo, recortada de
+`assets/wordmark-atlas-dark.png`.
 
 Las cuatro tarjetas de «Cómo funciona» (`assets/paso-*.webp`) llegan compuestas
 del estudio, con la foto y el texto en una sola pieza. Se usan tal cual y el
@@ -92,8 +112,17 @@ El velo (`.hero__scrim`) no es decorativo. En el diseño final el titular del he
 es `#e4e4e4`, es decir, texto claro sobre el medio, así que el velo es oscuro y
 está calculado sobre los fotogramas reales para que el texto mantenga 4,5:1 aun
 en el plano más luminoso del bucle. El hero de Sobre nosotros usa
-`.hero__scrim--soft`, más liviano, porque su foto ya es clara y los titulares
-llevan contorno propio.
+`.hero__scrim--soft`, un velo parejo y más liviano: su foto ya es oscura, y los
+titulares claros caen sobre la remera negra y el buzo claro.
+
+## Retícula del diseño
+
+El diseño se compone sobre un cuadro de 1920 px con márgenes laterales del 6 %,
+más ancho que `.wrap` (1400 px). Las secciones rehechas en la ronda de
+correcciones usan `.wrap-frame`, que reproduce ese margen: Nuestra historia,
+Nuestra misión, Principios, Filosofía y La app. «Un tablero, muchos mundos» va a
+ancho completo y mide todo en `cqi` (porcentaje del ancho del bloque) para que la
+esfera, los titulares y las etiquetas mantengan la composición a cualquier ancho.
 
 ## Video del hero
 
