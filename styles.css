@@ -65,6 +65,12 @@
   --band-y: clamp(4.5rem, 9vw, 9.5rem);
   --radius: 18px;
   --topbar-h: clamp(52px, 4.19vw, 80px);
+  /* Hasta dónde llega la barra flotante, contando su margen superior */
+  --topbar-clear: calc(clamp(0.6rem, 2.08vw, 2.5rem) + var(--topbar-h));
+  /* Títulos de sección y el alto de su encabezado; las escenas 3D lo descuentan. */
+  --sec-title-size: clamp(2.25rem, 4vw, 5.5rem);
+  --sec-head-gap: clamp(1.5rem, 4.5vh, 3.5rem);
+  --sec-head-h: calc(var(--sec-title-size) * 1.15 + var(--sec-head-gap));
 }
 
 *,
@@ -685,80 +691,8 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   Sección producto (¿Qué es Atlas?)
-   -------------------------------------------------------------------------- */
-
-.showcase {
-  position: relative;
-  text-align: center;
-}
-
-.showcase__stage {
-  position: relative;
-  margin-top: clamp(1rem, 3vw, 2rem);
-}
-
-.showcase__stage img.showcase__hero-img {
-  width: min(84%, 980px);
-  margin-inline: auto;
-  filter: drop-shadow(0 40px 60px rgba(29, 29, 29, 0.35));
-}
-
-.float-mini {
-  position: absolute;
-  width: clamp(52px, 7vw, 108px);
-  filter: drop-shadow(0 18px 24px rgba(29, 29, 29, 0.35));
-  pointer-events: none;
-}
-
-.float-mini--tl {
-  top: 2%;
-  left: 4%;
-}
-.float-mini--tr {
-  top: -4%;
-  right: 8%;
-}
-.float-mini--br {
-  bottom: 6%;
-  right: 2%;
-}
-
-.showcase__note {
-  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
-  max-width: 42ch;
-  font-weight: 700;
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-  line-height: 1.45;
-  text-align: left;
-}
-
-/* --------------------------------------------------------------------------
    Pasos (cómo funciona)
    -------------------------------------------------------------------------- */
-
-.steps-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
-}
-
-.tag-pill {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1.5px solid currentColor;
-  border-radius: 999px;
-  padding: 0.6rem 1.4rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.82rem;
-  line-height: 1.25;
-  text-align: center;
-}
 
 .steps {
   display: grid;
@@ -817,59 +751,6 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   Tecnología (iconos de nodos)
-   -------------------------------------------------------------------------- */
-
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(2rem, 4vw, 3.5rem);
-  margin-top: clamp(2.5rem, 5vw, 4.5rem);
-  text-align: center;
-}
-
-.tech-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.35rem;
-}
-
-.tech-item:nth-child(even) {
-  margin-top: clamp(1.5rem, 4vw, 4rem);
-}
-
-.tech-item svg {
-  width: clamp(84px, 8vw, 116px);
-  height: auto;
-}
-
-.tech-item h3 {
-  font-family: var(--font-text);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0;
-  margin: 0;
-}
-
-.tech-item p {
-  margin: 0.45rem 0 0;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  max-width: 26ch;
-  color: var(--text-on-dark-muted);
-}
-
-@media (max-width: 860px) {
-  .tech-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .tech-item:nth-child(even) {
-    margin-top: 0;
-  }
-}
-
-/* --------------------------------------------------------------------------
    Caja / contenido
    -------------------------------------------------------------------------- */
 
@@ -907,9 +788,12 @@ h3 {
 }
 
 .box-item__label {
-  margin: 1rem 0 0;
-  font-size: 0.85rem;
-  font-weight: 500;
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1rem, 1.25vw, 1.45rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 .box-item__placeholder {
@@ -933,6 +817,22 @@ h3 {
   }
   .box-item--wide {
     grid-column: span 2;
+  }
+}
+
+/* El tablero ocupa la columna de la izquierda en dos filas; los seis accesorios,
+   una grilla pareja de 3 × 2 a su derecha. */
+@media (min-width: 901px) {
+  .box-grid {
+    grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  }
+  .box-item--wide {
+    grid-column: auto;
+    grid-row: span 2;
+    align-self: center;
+  }
+  .band--fit .box-item--wide .box-item__img img {
+    max-height: min(clamp(180px, 26vw, 380px), 32svh);
   }
 }
 
@@ -1067,142 +967,6 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   Plataforma (esfera)
-   -------------------------------------------------------------------------- */
-
-/* Medido sobre el diseño (cuadro de 1920): «Un tablero,» ocupa el 39,4 % del
-   ancho, la esfera el 25,5 % y «muchos mundos» el 60,3 %. La esfera va por
-   delante y tapa parte de los dos titulares. Todo se expresa en cqi (ancho del
-   bloque) para que la composición escale entera; --k la agranda en móvil. */
-.orbit {
-  --k: 1;
-  container-type: inline-size;
-  position: relative;
-  display: grid;
-  justify-items: center;
-  max-width: 1920px;
-  margin-inline: auto;
-  text-align: center;
-}
-
-.orbit__word {
-  position: relative;
-  z-index: 1;
-  color: var(--yellow);
-}
-
-.orbit__word--top {
-  width: calc(39.4cqi * var(--k));
-}
-
-.orbit__word--bottom {
-  width: calc(60.3cqi * var(--k));
-  margin-top: calc(-4.5cqi * var(--k));
-}
-
-.orbit__sphere {
-  position: relative;
-  z-index: 2;
-  width: calc(25.5cqi * var(--k));
-  margin-top: calc(-2.9cqi * var(--k));
-}
-
-.orbit__labels {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: none;
-  pointer-events: none;
-}
-
-.orbit__labels span {
-  position: absolute;
-  transform: translateY(-50%);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: max(0.62rem, 0.8cqi);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--text-on-dark);
-}
-
-.orbit__labels span::before {
-  content: "+";
-  margin-right: 0.45em;
-  font-family: var(--font-text);
-  font-weight: 200;
-  font-size: 1.5em;
-  line-height: 0;
-  vertical-align: -0.12em;
-}
-
-/* Posiciones del diseño: x desde el borde izquierdo, y desde el tope de
-   «Un tablero,», ambos en % del ancho */
-@media (min-width: 1000px) {
-  .orbit__labels {
-    display: block;
-  }
-  .orbit__labels span:nth-child(1) {
-    left: 25.1cqi;
-    top: 10.4cqi;
-  }
-  .orbit__labels span:nth-child(2) {
-    left: 11.8cqi;
-    top: 15.25cqi;
-  }
-  .orbit__labels span:nth-child(3) {
-    left: 21.5cqi;
-    top: 21.05cqi;
-  }
-  .orbit__labels span:nth-child(4) {
-    left: 67.3cqi;
-    top: 12.5cqi;
-  }
-  .orbit__labels span:nth-child(5) {
-    left: 78cqi;
-    top: 17.6cqi;
-  }
-  .orbit__labels span:nth-child(6) {
-    left: 65.4cqi;
-    top: 22.2cqi;
-  }
-}
-
-@media (max-width: 999px) {
-  .orbit {
-    --k: 1.5;
-  }
-}
-
-.orbit__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.55rem;
-  margin: clamp(1.75rem, 3vw, 2.5rem) auto 0;
-  width: calc(100% - 2 * var(--gutter));
-  max-width: 780px;
-  padding: 0;
-  list-style: none;
-}
-
-.orbit__list li {
-  border: 1px solid var(--line-on-dark);
-  border-radius: 999px;
-  padding: 0.4rem 0.95rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-@media (min-width: 1000px) {
-  .orbit__list {
-    display: none;
-  }
-}
-
-/* --------------------------------------------------------------------------
    Marquesina
    -------------------------------------------------------------------------- */
 
@@ -1272,138 +1036,6 @@ h3 {
   align-items: center;
 }
 
-/* Mapa de la app: el icono reparte tres ramas («/ | \») hacia Perfil,
-   Biblioteca y Tutoriales; de Biblioteca baja el tronco. */
-.app-map {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-areas:
-    ".    icon  .   "
-    "bl   trunk br  "
-    "left trunk right"
-    ".    lib   .   "
-    ".    l1    .   "
-    ".    upd   .   "
-    ".    l2    .   "
-    ".    disc  .   ";
-  justify-items: center;
-  align-items: center;
-  row-gap: 0.55rem;
-  width: min(100%, 34rem);
-  margin: clamp(2rem, 4vw, 4rem) auto 0;
-}
-
-/* El cubo visible mide el 10,25 % del cuadro; la imagen suma su sombra */
-.app-map__icon {
-  grid-area: icon;
-  width: clamp(100px, 11.5vw, 220px);
-}
-
-.app-map__icon img {
-  width: 100%;
-}
-
-.app-map__line {
-  width: 1px;
-  height: clamp(1.2rem, 1.3vw, 1.6rem);
-  background: currentColor;
-}
-
-.app-map__line--trunk {
-  grid-area: trunk;
-  height: 100%;
-}
-
-.app-map__line--1 {
-  grid-area: l1;
-}
-
-.app-map__line--2 {
-  grid-area: l2;
-}
-
-.app-map__branch {
-  width: clamp(1.6rem, 1.8vw, 2.2rem);
-  height: clamp(1.6rem, 1.8vw, 2.2rem);
-}
-
-.app-map__branch--left {
-  grid-area: bl;
-  justify-self: end;
-  margin-right: 30%;
-  background: linear-gradient(
-    to bottom right,
-    transparent calc(50% - 0.6px),
-    currentColor,
-    transparent calc(50% + 0.6px)
-  );
-}
-
-.app-map__branch--right {
-  grid-area: br;
-  justify-self: start;
-  margin-left: 30%;
-  background: linear-gradient(
-    to top right,
-    transparent calc(50% - 0.6px),
-    currentColor,
-    transparent calc(50% + 0.6px)
-  );
-}
-
-/* Etiquetas: óvalos de trazo fino, como en el diseño */
-.app-map__node {
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  padding: 0.75em 1.15em;
-  font-size: clamp(0.74rem, 0.78vw, 0.95rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-
-.app-map__node--left {
-  grid-area: left;
-  justify-self: start;
-}
-
-.app-map__node--right {
-  grid-area: right;
-  justify-self: end;
-}
-
-.app-map__node--lib {
-  grid-area: lib;
-}
-
-.app-map__node--upd {
-  grid-area: upd;
-}
-
-.app-map__node--disc {
-  grid-area: disc;
-}
-
-@media (max-width: 560px) {
-  .app-map {
-    grid-template-columns: 1fr;
-    grid-template-areas: "icon" "trunk" "left" "right" "lib" "l1" "upd" "l2" "disc";
-  }
-
-  .app-map__branch {
-    display: none;
-  }
-
-  .app-map__line--trunk {
-    height: clamp(1.2rem, 1.3vw, 1.6rem);
-  }
-
-  .app-map__node--left,
-  .app-map__node--right {
-    justify-self: center;
-  }
-}
-
 /* Los teléfonos vienen recortados, sin caja detrás: 34 % del cuadro */
 .app-media {
   margin: 0;
@@ -1416,6 +1048,83 @@ h3 {
   height: auto;
 }
 
+/* La app entra en una pantalla: el titular mide dos renglones de título de
+   sección y los teléfonos no pasan del alto libre. */
+.band--fit .app-split .svg-title img {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(var(--sec-title-size) * 2.1);
+}
+.band--fit .app-media img {
+  width: auto;
+  max-width: 100%;
+  max-height: var(--fit-h);
+  margin-inline: auto;
+}
+
+/* Qué es AtlasHub: texto con lo importante en negrita y las tiendas abajo */
+.app-text {
+  max-width: 40ch;
+  margin: clamp(1rem, 2.5vh, 1.75rem) 0 0;
+  font-size: clamp(1.05rem, 1.2vw, 1.45rem);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: rgba(242, 242, 242, 0.68);
+}
+.app-text + .app-text {
+  margin-top: 1em;
+}
+.app-text strong {
+  font-weight: 700;
+  color: var(--text-on-dark);
+}
+
+.store-row {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
+  padding: 0;
+}
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.5rem;
+  padding: 0.55rem 1.4rem 0.55rem 1.1rem;
+  border: 1.5px solid rgba(242, 242, 242, 0.35);
+  border-radius: 12px;
+  background: var(--ink-deep);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.1;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.store-btn:hover {
+  border-color: var(--yellow);
+  transform: translateY(-2px);
+}
+.store-btn svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: none;
+  fill: currentColor;
+}
+.store-btn small {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+@media (prefers-reduced-motion: reduce) {
+  .store-btn:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 900px) {
   .app-split {
     grid-template-columns: 1fr;
@@ -1424,82 +1133,323 @@ h3 {
   .app-media {
     width: min(100%, 560px);
   }
+  .band--fit .app-media img {
+    max-height: 22svh;
+  }
 }
 
-/* --------------------------------------------------------------------------
-   Ecosistema creativo (carrusel)
-   -------------------------------------------------------------------------- */
-
-.creative {
-  border: 3px solid var(--yellow);
-  border-radius: var(--radius);
-  background: var(--paper-2);
-  padding: clamp(1.5rem, 3vw, 3rem);
-}
-
-.creative__head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 1.5rem;
-  align-items: start;
-}
-
-.creative__head h2 {
-  text-align: right;
-  color: var(--yellow-deep);
-}
-
-.rail {
-  display: flex;
-  gap: 1rem;
-  margin-top: clamp(2rem, 4vw, 3.5rem);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 1rem;
-  scrollbar-width: thin;
-}
-
-.rail figure {
-  flex: 0 0 clamp(220px, 26vw, 340px);
-  margin: 0;
-  scroll-snap-align: start;
-}
-
-.rail img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.rail figcaption {
-  margin-top: 0.6rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.creative__tags {
+/* Tus fichas, nuestra base: botón para bajar el STL de la rosca */
+.ficha-download {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem 1.5rem;
-  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 600;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+}
+.ficha-download__meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
-@media (max-width: 800px) {
-  .creative__head {
+/* Atlas Studio: título, qué es y el botón a las guías; la captura del programa
+   al lado. Comparte el estilo de texto de la app (.app-text). */
+.studio-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
+}
+.studio-title {
+  margin: 0;
+  line-height: 0;
+}
+.studio-title img {
+  width: min(100%, 560px);
+  height: auto;
+}
+/* El botón a las guías va centrado, debajo de los pasos */
+.studio-cta {
+  margin: clamp(1.25rem, 3.5vh, 2.25rem) 0 0;
+  text-align: center;
+}
+.studio-shot {
+  margin: 0;
+}
+.studio-shot img {
+  width: 100%;
+  height: auto;
+  max-height: var(--fit-h, none);
+  object-fit: contain;
+  border: 1px solid rgba(242, 242, 242, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 900px) {
+  .studio-split {
     grid-template-columns: 1fr;
   }
-  .creative__head h2 {
-    text-align: left;
+}
+
+/* Ecosistema: Atlas HUB y Atlas Studio contados con poco texto. Los renglones
+   entran de a uno (.rise, ver Juegos), los íconos aparecen con un rebote, la
+   palabra clave se subraya en amarillo y los pasos de Studio se unen con una
+   línea que se dibuja de izquierda a derecha. */
+/* El ícono de Atlas al lado del título, a la misma altura que las letras */
+.hub-title {
+  --h: clamp(2.6rem, 4.6vw, 3.9rem);
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 1.1vw, 1rem);
+  margin: 0;
+  line-height: 0;
+}
+.hub-title img {
+  width: auto;
+  height: var(--h);
+}
+.eco-lede {
+  max-width: 20ch;
+  margin: clamp(0.9rem, 2.2vh, 1.4rem) 0 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.6vw, 2.9rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+/* Aire entre el título de marca y la frase */
+.hub-title + .eco-lede,
+.studio-title + .eco-lede {
+  margin-top: clamp(1.5rem, 4.5vh, 2.75rem);
+}
+.eco-lede--sm {
+  max-width: 24ch;
+  font-size: clamp(1.35rem, 2vw, 2.2rem);
+}
+.hl {
+  color: var(--yellow);
+  background: linear-gradient(var(--yellow), var(--yellow)) no-repeat 0 96% / 100% 0.12em;
+  padding-bottom: 0.06em;
+}
+
+.hub-features {
+  display: grid;
+  gap: clamp(0.55rem, 1.4vh, 0.9rem);
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.hub-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: clamp(1rem, 1.15vw, 1.3rem);
+  line-height: 1.25;
+  color: rgba(242, 242, 242, 0.75);
+}
+.hub-features strong {
+  font-weight: 700;
+  color: var(--white);
+}
+.hub-ico {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: clamp(2.4rem, 2.8vw, 3rem);
+  aspect-ratio: 1;
+  border: 1.5px solid rgba(249, 182, 6, 0.55);
+  border-radius: 12px;
+  background: rgba(249, 182, 6, 0.12);
+  color: var(--yellow);
+}
+.hub-ico svg,
+.studio-step__ico svg {
+  width: 55%;
+  height: 55%;
+}
+
+.studio-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: clamp(1rem, 2.5vh, 1.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.studio-badges li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4rem 0.95rem;
+  border: 1.5px solid rgba(242, 242, 242, 0.28);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+/* Una casilla amarilla, como las del tablero */
+.studio-badges li::before {
+  content: "";
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 2px;
+  background: var(--yellow);
+}
+
+.studio-steps {
+  --step-ico: clamp(3rem, 3.6vw, 4rem);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: clamp(1.5rem, 4vh, 2.75rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.studio-steps::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--step-ico) / 2 - 1px);
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(249, 182, 6, 0.3), var(--yellow));
+  transform-origin: left center;
+}
+.studio-step {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.3rem;
+  text-align: center;
+}
+.studio-step__ico {
+  display: grid;
+  place-items: center;
+  width: var(--step-ico);
+  aspect-ratio: 1;
+  margin-bottom: 0.4rem;
+  border: 2px solid var(--yellow);
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--yellow);
+}
+/* Publicar y compartir: lo que lleva el juego a la tienda, resaltado */
+.studio-step--store .studio-step__ico {
+  background: var(--yellow);
+  color: var(--ink);
+  box-shadow: 0 0 0 6px rgba(249, 182, 6, 0.18);
+}
+.studio-step strong {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 1.3vw, 1.35rem);
+  color: var(--white);
+}
+.studio-step > span:last-child {
+  max-width: 20ch;
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
+  line-height: 1.35;
+  color: rgba(242, 242, 242, 0.7);
+}
+
+@keyframes eco-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+@keyframes eco-float {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-enter] .hl {
+    background-size: 0% 0.12em;
+  }
+  .js [data-enter].is-in .hl {
+    background-size: 100% 0.12em;
+    transition: background-size 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s;
+  }
+  .js [data-enter].is-in .hub-ico,
+  .js [data-enter].is-in .studio-step__ico {
+    animation: eco-pop 0.55s cubic-bezier(0.3, 1.6, 0.5, 1) calc(0.35s + var(--i, 0) * 0.09s) both;
+  }
+  .js [data-enter] .studio-steps::before {
+    transform: scaleX(0);
+  }
+  .js [data-enter].is-in .studio-steps::before {
+    transform: none;
+    transition: transform 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.7s;
+  }
+  /* Los teléfonos flotan apenas */
+  .app-media img {
+    animation: eco-float 6s ease-in-out infinite;
+  }
+}
+
+@media (max-width: 760px) {
+  .eco-lede {
+    font-size: 1.45rem;
+  }
+  .eco-lede--sm {
+    font-size: 1.25rem;
+  }
+  .hub-features {
+    gap: 0.5rem;
+  }
+  .hub-features li {
+    gap: 0.7rem;
+    font-size: 0.95rem;
+  }
+  .hub-ico {
+    width: 2.2rem;
+    border-radius: 10px;
+  }
+  /* Los pasos se deslizan de costado */
+  .studio-steps {
+    display: flex;
+    gap: 0.75rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .studio-steps::-webkit-scrollbar,
+  .studio-steps::before {
+    display: none;
+  }
+  .studio-step {
+    flex: 0 0 42vw;
+    padding: 1rem 0.75rem;
+    border: 1px solid rgba(242, 242, 242, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    scroll-snap-align: start;
+  }
+}
+
+/* En el celular las dos tiendas van lado a lado */
+@media (max-width: 560px) {
+  .store-row {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+  .store-btn {
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.98rem;
+  }
+  .store-btn svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .store-btn small {
+    font-size: 0.6rem;
   }
 }
 
@@ -1884,6 +1834,34 @@ h3 {
   }
 }
 
+/* WOLO Labs: el equipo en tres tarjetas amarillas, como era su sección */
+.wolo-team {
+  display: flex;
+  gap: clamp(0.5rem, 1vw, 0.9rem);
+  margin: clamp(1rem, 2vw, 1.5rem) 0;
+  padding: 0;
+  list-style: none;
+}
+.wolo-team li {
+  flex: 0 1 clamp(5.5rem, 7.2vw, 7.5rem);
+  padding: clamp(0.6rem, 1vw, 0.9rem);
+  border-radius: 14px;
+  background: var(--yellow);
+}
+.split__copy .wolo-team img {
+  width: 100%;
+  height: auto;
+}
+.wolo-cta {
+  margin: clamp(1.25rem, 2.5vw, 2rem) 0 0;
+}
+/* En el celular la moneda no entra junto al texto: queda solo en escritorio */
+@media (max-width: 760px) {
+  .wolo-media {
+    display: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Footer
    Proporciones medidas sobre el diseño (caja de 1920 × 528):
@@ -2078,6 +2056,98 @@ h3 {
 
   .footer-deco {
     display: none;
+  }
+}
+/* Pie compacto (páginas de Juegos): la misma pieza a menor escala, con los
+   enlaces en renglones, para que no le gane protagonismo al contenido. */
+.site-footer--compact {
+  --pad-top: clamp(1.75rem, 2.6vw, 3rem);
+  --pad-bottom: clamp(1.75rem, 2.6vw, 3rem);
+  clip-path: inset(-1.8vw 0 0 0);
+}
+.site-footer--compact .site-footer__inner {
+  grid-template-columns: 38% 1fr;
+  align-items: center;
+}
+.site-footer--compact .site-footer__rule {
+  left: 36.5%;
+  top: calc(-1 * var(--pad-top) - 0.3vw);
+  width: clamp(2px, 0.25vw, 5px);
+}
+.site-footer--compact .site-footer__brand img {
+  width: min(72%, 20rem);
+}
+.site-footer--compact .footer-tagline {
+  margin-top: 0.6rem;
+  font-size: clamp(0.7rem, 0.95vw, 1.05rem);
+}
+.site-footer--compact .site-footer__links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 2.5rem;
+  align-items: start;
+  padding-left: 6%;
+  font-size: clamp(0.78rem, 0.85vw, 0.95rem);
+  line-height: 1.45;
+}
+.site-footer--compact .site-footer__cols {
+  grid-row: 1 / span 2;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.6rem;
+}
+.site-footer--compact .site-footer__links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.9rem;
+}
+.site-footer--compact .site-footer__legal-links {
+  grid-column: 2;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+}
+.site-footer--compact .site-footer__legal {
+  grid-column: 2;
+  margin-top: 0.6rem;
+}
+.site-footer--compact .footer-deco--left-top {
+  width: min(11%, 210px);
+}
+.site-footer--compact .footer-deco--left-bottom,
+.site-footer--compact .footer-deco--right {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .site-footer--compact .site-footer__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-footer--compact .site-footer__brand img {
+    width: min(60%, 16rem);
+  }
+  /* En las páginas de cada juego deja lugar a las flechas fijas */
+  .game ~ .site-footer--compact {
+    --pad-bottom: 4.5rem;
+  }
+  .site-footer--compact .site-footer__rule {
+    width: 100%;
+    margin: 1.25rem 0;
+  }
+  .site-footer--compact .site-footer__links {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 0;
+    font-size: 0.88rem;
+  }
+  .site-footer--compact .site-footer__cols {
+    grid-row: auto;
+  }
+  .site-footer--compact .site-footer__legal-links,
+  .site-footer--compact .site-footer__legal {
+    grid-column: auto;
+  }
+  .site-footer--compact .site-footer__legal-links {
+    flex-direction: row;
+    margin-top: 1.1rem;
   }
 }
 /* --------------------------------------------------------------------------
@@ -2404,99 +2474,10 @@ h3 {
 
 .steps,
 .box-grid,
-.orbit__list,
-.creative__tags,
 .site-footer__links ul {
   list-style: none;
   padding-left: 0;
   margin-block: 0;
-}
-
-@media (min-width: 900px) {
-  .showcase__note {
-    position: absolute;
-    left: var(--gutter);
-    bottom: 6%;
-    margin: 0;
-    z-index: 2;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   Página de descarga del APK
-   -------------------------------------------------------------------------- */
-
-.dl-card {
-  max-width: 78ch;
-  margin: 0 auto clamp(1.25rem, 3vw, 2rem);
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: clamp(1rem, 2.5vw, 2rem);
-  align-items: center;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(1.25rem, 3vw, 2rem);
-}
-
-.dl-card__icon {
-  display: grid;
-  place-items: center;
-  width: 72px;
-  height: 72px;
-  background: var(--red);
-  border-radius: 16px;
-}
-
-.dl-card__icon img {
-  width: 55%;
-}
-
-.dl-card__body h2 {
-  margin: 0 0 0.55rem;
-}
-
-.dl-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.5rem;
-  margin: 0;
-  font-size: 0.85rem;
-}
-
-.dl-meta div {
-  display: flex;
-  gap: 0.4rem;
-}
-
-.dl-meta dt {
-  color: var(--text-muted);
-}
-
-.dl-meta dd {
-  margin: 0;
-  font-weight: 600;
-}
-
-@media (max-width: 700px) {
-  .dl-card {
-    grid-template-columns: auto minmax(0, 1fr);
-  }
-
-  .dl-card__cta {
-    grid-column: 1 / -1;
-  }
-}
-
-.hash {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  word-break: break-all;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 0.75rem 0.9rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -2554,8 +2535,7 @@ h3 {
   }
 }
 
-/* Iconos de tecnología y equipo, entregados en SVG */
-.tech-item img,
+/* Iconos del equipo, entregados en SVG */
 .team img {
   width: clamp(84px, 8vw, 116px);
   height: auto;
@@ -2564,70 +2544,6 @@ h3 {
 
 .team img {
   width: clamp(150px, 15vw, 230px);
-}
-
-/* --------------------------------------------------------------------------
-   Ecosistema creativo: panel a sangre con la foto de la caja
-   -------------------------------------------------------------------------- */
-
-.creative {
-  position: relative;
-  border: 3px solid var(--yellow);
-  border-radius: var(--radius);
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  min-height: 340px;
-  color: var(--text-on-dark);
-  padding: 0;
-  background: var(--ink);
-}
-
-.creative__bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.creative__inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  height: 100%;
-  padding: clamp(1.1rem, 2.4vw, 2.6rem);
-}
-
-.creative__inner .eyebrow {
-  margin: 0;
-  color: var(--text-on-dark);
-}
-
-.creative__inner .svg-title {
-  justify-self: end;
-  width: min(100%, 600px);
-  margin-top: clamp(0.75rem, 2vw, 1.5rem);
-}
-
-.creative__tags {
-  grid-row: 3;
-  align-self: end;
-}
-
-@media (max-width: 760px) {
-  .creative {
-    aspect-ratio: 3 / 4;
-  }
-
-  .creative__inner .svg-title {
-    justify-self: start;
-  }
-
-  .creative__tags {
-    gap: 0.35rem 1rem;
-    font-size: 0.62rem;
-  }
 }
 
 /* El hero de Sobre nosotros: velo parejo y liviano. Los titulares caen sobre
@@ -2643,25 +2559,65 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   Escenas 3D (atlas3d.js): En juego, Armá tu mesa y El módulo
+   Secciones a pantalla completa (Producto)
+   Cada .band--fit ocupa al menos una pantalla y su contenido entra entero
+   debajo de la barra flotante. --fit-h es el alto libre para el contenido:
+   los escenarios 3D y las tarjetas se achican con él.
    -------------------------------------------------------------------------- */
 
-.section-head {
-  display: grid;
-  justify-items: center;
-  gap: 1rem;
-  text-align: center;
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+.band--fit {
+  --fit-pad-top: calc(var(--topbar-clear) + clamp(1rem, 3vh, 2.25rem));
+  --fit-pad-bottom: clamp(1.5rem, 4vh, 3rem);
+  --fit-h: calc(100svh - var(--fit-pad-top) - var(--fit-pad-bottom));
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--fit-pad-top) var(--fit-pad-bottom);
+  /* El margen de la barra ya está en el padding: el ancla cae en el borde. */
+  scroll-margin-top: calc(-1 * (var(--topbar-h) + 1rem));
 }
-.section-head .eyebrow {
-  margin: 0;
+
+/* En pantallas grandes el contenido acompaña el ancho, sin quedar perdido
+   en el centro. */
+.band--fit > .wrap {
+  max-width: clamp(var(--wrap), 80vw, 2048px);
 }
-.section-head .lede {
-  margin-inline: auto;
+
+/* Cómo funciona: las tarjetas miden 755 × 1330, así que el ancho de la fila
+   sale del alto libre menos el título y la etiqueta de abajo. */
+.band--fit .step-cards {
+  width: 100%;
+  max-width: calc((var(--fit-h) - var(--sec-head-h) - 1.5rem) * 2.27 + 3.3rem);
+  margin: 0 auto;
 }
-.band--ink .section-head .lede {
-  color: var(--text-on-dark-muted);
+
+
+/* La caja y su título se achican con el alto de la pantalla. */
+.band--fit .svg-title--center img {
+  width: auto;
+  max-height: calc(var(--sec-title-size) * 1.15);
 }
+.band--fit .box-grid {
+  margin-top: clamp(1rem, 3vh, 2.5rem);
+  row-gap: clamp(1rem, 3vh, 2.5rem);
+}
+.band--fit .box-item__img {
+  min-height: 0;
+}
+.band--fit .box-item__img img {
+  max-height: min(clamp(120px, 15vw, 220px), 15svh);
+}
+.band--fit .box-item--wide .box-item__img img {
+  max-height: min(clamp(160px, 22vw, 320px), 22svh);
+}
+.band--fit .faq summary {
+  padding-block: clamp(0.6rem, 1.6vh, 1.05rem);
+}
+
+/* --------------------------------------------------------------------------
+   Escenas 3D (atlas3d.js): ¿Qué es Atlas?, Módulos, Fichas y Atlas Core
+   -------------------------------------------------------------------------- */
 
 .stage3d-wrap {
   margin: 0;
@@ -2675,13 +2631,15 @@ h3 {
   margin-inline: auto;
   aspect-ratio: 16 / 10;
 }
-.stage3d--wide {
-  max-width: 1200px;
-}
 .stage3d canvas {
   display: block;
   width: 100% !important;
   height: 100% !important;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.stage3d.is-ready canvas {
+  opacity: 1;
 }
 .stage3d__fallback {
   position: absolute;
@@ -2690,8 +2648,123 @@ h3 {
   height: 100%;
   object-fit: contain;
 }
+.stage3d.is-loading .stage3d__fallback,
 .stage3d.is-ready .stage3d__fallback {
-  display: none;
+  visibility: hidden;
+}
+
+/* Burbuja de Atlas Core: el tablero dice el nombre de la ficha que leyó, con el
+   color de la ficha. atlas3d.js la ubica sobre el centro del tablero. */
+.stage3d__bubble {
+  --bubble: var(--white);
+  --bubble-ink: var(--ink);
+  position: absolute;
+  z-index: 2;
+  padding: 0.45em 0.9em 0.5em;
+  border: 2px solid var(--ink);
+  border-radius: 1em;
+  background: var(--bubble);
+  color: var(--bubble-ink);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1rem, 1.7vw, 1.8rem);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, calc(-100% - 14px)) scale(0.3);
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.4s cubic-bezier(0.34, 1.9, 0.6, 1);
+}
+/* La colita apunta al tablero */
+.stage3d__bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  background: var(--bubble);
+  border: 2px solid var(--ink);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.stage3d__bubble.is-on {
+  opacity: 1;
+  transform: translate(-50%, calc(-100% - 14px)) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage3d__bubble {
+    transition: opacity 0.15s ease;
+  }
+}
+
+/* Loader: ocupa exactamente el lugar de la escena hasta que todo cargó. */
+.stage3d__loader {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1rem;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.stage3d.is-ready .stage3d__loader,
+.stage3d.is-fallback .stage3d__loader {
+  opacity: 0;
+  visibility: hidden;
+}
+.stage3d__loader-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  width: clamp(56px, 6vw, 80px);
+}
+.stage3d__loader-grid i {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.15;
+  animation: stage3d-cell 1.6s ease-in-out infinite;
+}
+@keyframes stage3d-cell {
+  0%,
+  60%,
+  100% {
+    opacity: 0.15;
+  }
+  25% {
+    opacity: 0.9;
+  }
+}
+.stage3d__loader-bar {
+  width: clamp(120px, 30%, 220px);
+  height: 3px;
+  border-radius: 3px;
+  background: color-mix(in srgb, currentColor 18%, transparent);
+  overflow: hidden;
+}
+.stage3d__loader-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.stage3d__loader-text {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  font-variant-numeric: tabular-nums;
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage3d__loader-grid i {
+    animation: none;
+    opacity: 0.4;
+  }
 }
 
 .stage3d__foot {
@@ -2710,26 +2783,219 @@ h3 {
   font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   min-height: 1.5em;
 }
-.stage3d__toggle {
-  padding: 0.45rem 1.1rem;
+
+/* Escena a un lado, texto al otro, debajo del título de la sección. El
+   escenario se achica para entrar en el alto libre (--room) que dejan la
+   pantalla y el título; con epígrafe abajo, le deja lugar. */
+.split--3d {
+  --room: calc(var(--fit-h, 70svh) - var(--sec-head-h));
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+}
+.split--3d .stage3d {
+  aspect-ratio: 4 / 3;
+  width: min(100%, calc(var(--room) * 4 / 3));
+}
+/* El Maze y los módulos son más anchos que altos: escenario 3:2 */
+.split--3d .stage3d-wrap .stage3d {
+  aspect-ratio: 3 / 2;
+  width: min(100%, calc((var(--room) - 3rem) * 3 / 2));
+}
+.split--3d .stage3d__foot {
+  width: min(100%, calc((var(--room) - 3rem) * 3 / 2));
+  margin-top: 0.5rem;
+}
+.split--3d .split__copy {
+  justify-self: center;
+  max-width: 21ch;
+  font-size: clamp(1.4rem, 2.1vw, 3.4rem);
 }
 
-/* Botones + y − de Armá tu mesa */
+/* El texto de cada escena: grande, en columna angosta, con lo importante en
+   negrita. --fg es el color del texto según la banda. */
+.statement {
+  --fg: var(--ink);
+  --soft: 70%; /* opacidad del texto normal: sobre amarillo, 70 % da 4,7:1 */
+  margin: 0;
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: inherit;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  text-wrap: pretty;
+  color: color-mix(in srgb, var(--fg) var(--soft), transparent);
+}
+.band--paper .statement {
+  --soft: 65%;
+}
+.band--ink .statement {
+  --fg: var(--text-on-dark);
+  --soft: 60%;
+}
+.statement strong {
+  font-weight: 700;
+  color: var(--fg);
+}
+/* AtlasHUB lleva a Ecosistema */
+.statement__link {
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.14em;
+  transition: text-decoration-thickness 0.2s ease;
+}
+.statement__link:hover {
+  text-decoration-thickness: 0.16em;
+}
+
+/* --------------------------------------------------------------------------
+   Encabezado de sección: el título, centrado arriba de todo
+   -------------------------------------------------------------------------- */
+
+.sec-head {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: var(--sec-head-gap);
+}
+.sec-title.display {
+  font-size: var(--sec-title-size);
+}
+/* Cómo funciona: el titular SVG llena más su caja que los otros, así que va más
+   bajo para verse del mismo tamaño, y deja más aire antes de las tarjetas. */
+.band--fit .sec-head--cards .svg-title--center img {
+  max-height: calc(var(--sec-title-size) * 0.8);
+}
+.sec-head--cards {
+  margin-bottom: calc(var(--sec-head-gap) * 1.6);
+}
+/* Los titulares SVG no tienen ancho propio: ocupan la fila y la imagen se centra. */
+.sec-head .svg-title {
+  justify-self: stretch;
+}
+
+/* --------------------------------------------------------------------------
+   Entrada de las secciones (script.js agrega .is-in cuando la sección llega)
+   El título se enciende en 8 columnas, de a una, como las casillas del
+   tablero; después aparece el resto. Sin JavaScript o con movimiento reducido
+   todo está visible desde el principio.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* El recorte se pasa del renglón para no comerse los rasgos descendentes.
+     En los titulares SVG se recorta la imagen, que es la que tiene el ancho. */
+  .js [data-enter] .sec-title:not(.svg-title),
+  .js [data-enter] .sec-title.svg-title img {
+    clip-path: inset(-0.25em 100% -0.25em 0);
+  }
+  .js [data-enter].is-in .sec-title:not(.svg-title),
+  .js [data-enter].is-in .sec-title.svg-title img {
+    clip-path: inset(-0.25em 0 -0.25em 0);
+    transition: clip-path 0.64s steps(8, jump-start) 0.15s;
+  }
+
+  /* Después del título, el contenido sube y aparece */
+  .js [data-enter] .enter-body,
+  .js [data-enter] .step-cards li,
+  .js [data-enter] .box-item {
+    opacity: 0;
+    transform: translateY(2.5rem);
+  }
+  .js [data-enter].is-in .enter-body,
+  .js [data-enter].is-in .step-cards li,
+  .js [data-enter].is-in .box-item {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.7s ease 0.8s, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.8s;
+  }
+
+  /* Los pasos de Cómo funciona y los objetos de la caja, de a uno y en orden */
+  .js [data-enter].is-in .step-cards li:nth-child(2),
+  .js [data-enter].is-in .box-item:nth-child(2) { transition-delay: 0.92s; }
+  .js [data-enter].is-in .step-cards li:nth-child(3),
+  .js [data-enter].is-in .box-item:nth-child(3) { transition-delay: 1.04s; }
+  .js [data-enter].is-in .step-cards li:nth-child(4),
+  .js [data-enter].is-in .box-item:nth-child(4) { transition-delay: 1.16s; }
+  .js [data-enter].is-in .box-item:nth-child(5) { transition-delay: 1.28s; }
+  .js [data-enter].is-in .box-item:nth-child(6) { transition-delay: 1.4s; }
+  .js [data-enter].is-in .box-item:nth-child(7) { transition-delay: 1.52s; }
+
+  /* Lo importante del texto se enciende de a una parte, como casillas */
+  .js [data-enter] .statement,
+  .js [data-enter] .statement strong {
+    color: color-mix(in srgb, var(--fg) 30%, transparent);
+  }
+  .js [data-enter].is-in .statement strong {
+    color: var(--fg);
+    transition: color 0.35s ease;
+  }
+  .js [data-enter].is-in .statement strong:nth-of-type(1) { transition-delay: 1.3s; }
+  .js [data-enter].is-in .statement strong:nth-of-type(2) { transition-delay: 1.65s; }
+  .js [data-enter].is-in .statement strong:nth-of-type(3) { transition-delay: 2s; }
+  .js [data-enter].is-in .statement strong:nth-of-type(4) { transition-delay: 2.35s; }
+  .js [data-enter].is-in .statement strong:nth-of-type(5) { transition-delay: 2.7s; }
+  .js [data-enter].is-in .statement {
+    color: color-mix(in srgb, var(--fg) var(--soft), transparent);
+    transition: color 0.6s ease 3.1s;
+  }
+}
+
+/* Botones + y − de Módulos */
 .stepper {
+  --step-size: clamp(3rem, 2.5vw, 4.5rem);
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1.25rem;
-  margin-bottom: 0.5rem;
+}
+.split__copy > .stepper {
+  justify-content: center;
+  margin-top: clamp(1.5rem, 3vh, 2.25rem);
+}
+/* El + invita a tocarlo: salta, se sacude y vuelve, cada 1,7 s */
+.stepper__btn--nudge {
+  animation: stepper-nudge 1.7s ease-in-out infinite;
+}
+.stepper__btn--nudge:hover,
+.stepper__btn--nudge:focus-visible,
+.stepper__btn--nudge:disabled {
+  animation: none;
+}
+@keyframes stepper-nudge {
+  0%,
+  45%,
+  100% {
+    transform: none;
+  }
+  8% {
+    transform: translateY(-10px);
+  }
+  16% {
+    transform: translateY(0);
+  }
+  22% {
+    transform: rotate(-12deg);
+  }
+  28% {
+    transform: rotate(10deg);
+  }
+  34% {
+    transform: rotate(-6deg);
+  }
+  40% {
+    transform: rotate(3deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stepper__btn--nudge {
+    animation: none;
+  }
 }
 .stepper__btn {
-  width: 3rem;
-  height: 3rem;
+  width: var(--step-size);
+  height: var(--step-size);
   border-radius: 50%;
   border: 1.5px solid var(--ink);
   background: var(--yellow);
   color: var(--ink);
-  font: 700 1.6rem/1 var(--font-text);
+  font: 700 calc(var(--step-size) * 0.5) / 1 var(--font-text);
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
@@ -2743,16 +3009,18 @@ h3 {
   cursor: default;
 }
 .stepper__count {
+  display: grid;
+  place-items: center;
+  height: var(--step-size);
+  min-width: 2ch;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: calc(var(--step-size) * 0.9);
   line-height: 1;
-  min-width: 2ch;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
-/* Fichas y El módulo: medio + texto corto */
+/* Fichas: medio + texto corto */
 .split {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -2766,26 +3034,33 @@ h3 {
   width: 100%;
   height: auto;
 }
-.split .stage3d {
-  aspect-ratio: 4 / 3;
-}
 
-.mini-steps,
-.spec-list {
+.mini-steps {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   gap: 1.5rem;
-}
-.mini-steps {
   counter-reset: paso;
+}
+/* Atlas Core: el texto es más largo, va un poco más chico y en párrafos */
+.split--3d .split__copy--long {
+  max-width: 30ch;
+  font-size: clamp(1.1rem, 1.45vw, 2.3rem);
+}
+.split__copy--long > .statement + .statement {
+  margin-top: 0.75em;
+}
+.split__copy > .mini-steps {
+  margin-top: clamp(1.5rem, 3vh, 2.25rem);
+  font-size: 1rem;
 }
 .mini-steps li {
   counter-increment: paso;
   display: grid;
   grid-template-columns: 2.5rem 1fr;
   column-gap: 0.75rem;
+  transition: opacity 0.4s ease;
 }
 .mini-steps li::before {
   content: counter(paso);
@@ -2796,6 +3071,9 @@ h3 {
   line-height: 1;
   color: var(--yellow);
 }
+.band--paper .mini-steps li::before {
+  color: var(--ink);
+}
 .mini-steps h3 {
   font-size: clamp(1.15rem, 1.6vw, 1.4rem);
 }
@@ -2803,29 +3081,1548 @@ h3 {
   margin: 0.3rem 0 0;
   color: var(--text-on-dark-muted);
 }
+.band--paper .mini-steps p {
+  color: var(--text-muted);
+}
 /* El paso que la animación de las fichas está mostrando */
-.mini-steps li {
-  transition: opacity 0.4s ease;
-}
-.mini-steps:has(.is-active) li:not(.is-active):not(:last-child) {
+.mini-steps:has(.is-active) li[data-ficha-paso]:not(.is-active) {
   opacity: 0.5;
-}
-
-.spec-list li {
-  display: grid;
-  gap: 0.15rem;
-  border-top: 1.5px solid var(--line);
-  padding-top: 0.9rem;
-}
-.spec-list strong {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
-  line-height: 1;
 }
 
 @media (max-width: 760px) {
   .split {
     grid-template-columns: 1fr;
+  }
+  /* En el celular las escenas van de borde a borde y más altas */
+  .split--3d .split__media {
+    margin-inline: calc(-1 * var(--gutter));
+  }
+  .split--3d .stage3d,
+  .split--3d .stage3d-wrap .stage3d {
+    width: auto;
+    max-width: none;
+    aspect-ratio: 4 / 3;
+  }
+  .split--3d .stage3d__foot {
+    width: auto;
+    padding-inline: var(--gutter);
+  }
+  /* La ficha va más baja para dejar lugar a los tres pasos */
+  .split--3d > .stage3d[data-atlas3d="ficha"] {
+    aspect-ratio: 2 / 1;
+  }
+  .split--3d .split__copy {
+    justify-self: stretch;
+    max-width: none;
+  }
+  /* Los epígrafes de los juegos ocupan hasta dos renglones: el lugar queda fijo */
+  .stage3d__cap {
+    min-height: 3em;
+    text-align: center;
+  }
+  .mini-steps {
+    gap: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Producto: el texto de cada escena en pocas palabras. Una frase grande
+   (.statement) y renglones cortos con íconos (.copy-list) que entran de a uno
+   cuando la sección llega; los íconos aparecen con un rebote.
+   El ícono cambia según la banda: tinta sobre amarillo, amarillo sobre papel
+   y contorno amarillo sobre tinta.
+   -------------------------------------------------------------------------- */
+
+.split--3d .split__copy--rich {
+  max-width: 24ch;
+}
+.copy-list {
+  --fg: var(--ink);
+  display: grid;
+  gap: clamp(0.6rem, 1.6vh, 1rem);
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(1rem, 1.15vw, 1.35rem);
+}
+.band--ink .copy-list {
+  --fg: var(--text-on-dark);
+}
+.copy-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: color-mix(in srgb, var(--fg) 75%, transparent);
+}
+.copy-list strong {
+  font-weight: 700;
+  color: var(--fg);
+}
+.copy-ico {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: clamp(2.5rem, 2.9vw, 3.1rem);
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: var(--ink);
+  color: var(--yellow);
+}
+.copy-ico svg {
+  width: 55%;
+  height: 55%;
+}
+.band--paper .copy-ico {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.band--ink .copy-ico {
+  border: 1.5px solid rgba(249, 182, 6, 0.55);
+  background: rgba(249, 182, 6, 0.12);
+}
+
+/* Fichas: la bajada y los tres pasos, con íconos en lugar de números */
+.copy-sub {
+  margin: 0.6rem 0 0;
+  font-size: clamp(1rem, 1.15vw, 1.3rem);
+  line-height: 1.3;
+  color: var(--text-muted);
+}
+.split__copy > .mini-steps--icons {
+  margin-top: clamp(1.1rem, 2.6vh, 1.75rem);
+  gap: clamp(0.8rem, 2vh, 1.25rem);
+}
+.mini-steps--icons li {
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.9rem;
+  align-items: center;
+}
+.mini-steps--icons li::before {
+  content: none;
+}
+.mini-steps--icons .copy-ico {
+  grid-row: span 2;
+}
+.mini-steps--icons h3 {
+  align-self: end;
+}
+.mini-steps--icons p {
+  align-self: start;
+  margin-top: 0.15rem;
+}
+
+/* Atlas Core: la palabra cambia sola (caballero, alfil, edificio) */
+.copy-nowrap {
+  white-space: nowrap;
+}
+.word-cycle {
+  display: inline-grid;
+  height: 1.25em;
+  overflow: hidden;
+  vertical-align: bottom;
+  font-weight: 700;
+  color: var(--yellow);
+}
+.word-cycle span {
+  grid-area: 1 / 1;
+  line-height: 1.25em;
+}
+
+@keyframes copy-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+/* Cada palabra entra mientras la anterior sale: siempre hay una a la vista */
+@keyframes word-cycle {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  5%,
+  33% {
+    opacity: 1;
+    transform: none;
+  }
+  38%,
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Después de que el bloque entra, los renglones suben de a uno */
+  .js [data-enter].is-in .split__copy--rich .rise {
+    animation-delay: calc(0.9s + var(--i, 0) * 0.16s);
+  }
+  .js [data-enter].is-in .copy-ico {
+    animation: copy-pop 0.55s cubic-bezier(0.3, 1.6, 0.5, 1) calc(1s + var(--i, 0) * 0.16s) both;
+  }
+  .word-cycle span {
+    opacity: 0;
+    animation: word-cycle 6s ease-in-out infinite;
+  }
+  .word-cycle span:nth-child(2) {
+    animation-delay: 2s;
+  }
+  .word-cycle span:nth-child(3) {
+    animation-delay: 4s;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .word-cycle span:not(:first-child) {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .copy-list {
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.98rem;
+  }
+  .copy-ico {
+    width: 2.25rem;
+    border-radius: 10px;
+  }
+  .copy-sub {
+    margin-top: 0.4rem;
+    font-size: 0.92rem;
+  }
+  .split__copy > .mini-steps--icons {
+    margin-top: 0.9rem;
+    gap: 0.55rem;
+  }
+  .mini-steps--icons h3 {
+    font-size: 1.05rem;
+  }
+  .mini-steps--icons p {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mirá cómo se juega: esqueletos de video que llevan al canal de YouTube.
+   Uno grande y dos chicos; el fondo es una grilla de casillas cuadradas.
+   -------------------------------------------------------------------------- */
+
+.video-grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(0.75rem, 1.4vw, 1.25rem);
+  /* El grande mide dos chicos de alto: el ancho sale del alto libre */
+  max-width: calc((var(--fit-h, 70svh) - var(--sec-head-h) - 6rem) * 2.667 + 1.25rem);
+}
+.video-grid li:first-child {
+  grid-row: span 2;
+}
+.video-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  color: var(--text-on-dark);
+  background-color: var(--ink-soft);
+  background-image: linear-gradient(rgba(242, 242, 242, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 242, 242, 0.05) 1px, transparent 1px);
+  background-size: calc(100% / 16) calc(100% / 9);
+  transition: background-color 0.25s ease;
+}
+.video-card--main {
+  aspect-ratio: auto;
+  height: 100%;
+}
+.video-card:hover,
+.video-card:focus-visible {
+  background-color: #333;
+}
+.video-card__play {
+  display: grid;
+  place-items: center;
+  width: clamp(3rem, 4vw, 4.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--ink);
+  transition: transform 0.25s ease;
+}
+.video-card--main .video-card__play {
+  width: clamp(4rem, 6vw, 6.5rem);
+}
+.video-card__play svg {
+  width: 45%;
+  margin-left: 8%;
+  fill: currentColor;
+}
+.video-card:hover .video-card__play,
+.video-card:focus-visible .video-card__play {
+  transform: scale(1.08);
+}
+/* Lugar del título del video */
+.video-card__lines {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 8%;
+  display: grid;
+  gap: 0.45rem;
+}
+.video-card__lines i {
+  display: block;
+  height: clamp(0.45rem, 0.6vw, 0.75rem);
+  width: 55%;
+  border-radius: 99px;
+  background: rgba(242, 242, 242, 0.14);
+}
+.video-card__lines i + i {
+  width: 32%;
+}
+.video-more {
+  display: flex;
+  justify-content: center;
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-card__play {
+    transition: none;
+  }
+}
+@media (max-width: 760px) {
+  .video-grid {
+    display: flex;
+    gap: 0.75rem;
+    max-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .video-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .video-grid li {
+    flex: 0 0 80vw;
+    scroll-snap-align: start;
+  }
+  .video-card--main {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Celular: lo que no entra en una pantalla pasa a ser un carrusel horizontal
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .step-cards,
+  .box-grid,
+  .band--fit .step-cards,
+  .band--fit .box-grid {
+    display: flex;
+    gap: 0.75rem;
+    width: auto;
+    max-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .step-cards::-webkit-scrollbar,
+  .box-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .step-cards li,
+  .box-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  /* El siguiente asoma para que se note que hay más */
+  .step-cards li {
+    width: min(68vw, calc((var(--fit-h, 60svh) - 9rem) * 0.5677));
+  }
+  .box-item,
+  .box-item--wide {
+    width: 58vw;
+  }
+  .band--fit .box-item__img {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 28svh;
+  }
+  .band--fit .box-item__img img,
+  .band--fit .box-item--wide .box-item__img img {
+    max-height: 24svh;
+    max-width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Juegos: el catálogo (destacados y todos los juegos) y la página de cada
+   juego. Las páginas se generan con tools/build_juegos.py. Cada juego trae su
+   paleta y su tipografía en .theme-<slug>; la barra y el pie siguen siendo Atlas.
+     --g-bg      fondo oscuro del juego
+     --g-accent  color de marca del juego: título, botón y detalles
+     --g-text    texto sobre el fondo
+     --g-label   versión oscura del acento, para leer sobre papel
+     --g-font    tipografía del título (Google Fonts, solo las letras usadas)
+     --g-scale   corrige el tamaño de las tipografías muy anchas
+   -------------------------------------------------------------------------- */
+
+.theme-role-mapper {
+  --g-bg: #23170c;
+  --g-accent: #e6c88d;
+  --g-text: #f6ead2;
+  --g-label: #8a5a26;
+  --g-font: "MedievalSharp", var(--font-display);
+}
+.theme-ajedrez {
+  --g-bg: #0c1321;
+  --g-accent: #efe5cf;
+  --g-text: #f1eee6;
+  --g-label: #3c5486;
+  --g-font: "Bodoni Moda", var(--font-display);
+}
+.theme-maze {
+  --g-bg: #090b17;
+  --g-accent: #e2ab4a;
+  --g-text: #efe6d2;
+  --g-label: #94650f;
+  --g-font: "Cinzel", var(--font-display);
+  --g-text-scale: 0.9;
+}
+.theme-amazonas {
+  --g-bg: #0e2316;
+  --g-accent: #efc55a;
+  --g-text: #f6eed8;
+  --g-label: #2e7a36;
+  --g-font: "Cinzel Decorative", var(--font-display);
+  --g-scale: 0.85;
+  --g-text-scale: 0.8;
+}
+.theme-la-luz-mala {
+  --g-bg: #07100e;
+  --g-accent: #7df3d0;
+  --g-text: #e5eee9;
+  --g-label: #12806a;
+  --g-font: "IM Fell English SC", var(--font-display);
+}
+.theme-pongol {
+  --g-bg: #0c2410;
+  --g-accent: #f4d46e;
+  --g-text: #f6f1de;
+  --g-label: #2c7a31;
+  --g-font: "Silkscreen", var(--font-display);
+  --g-scale: 0.85;
+  --g-text-scale: 0.85;
+}
+.theme-estacion-lunar {
+  --g-bg: #040914;
+  --g-accent: #58caff;
+  --g-text: #e5f3ff;
+  --g-label: #0a73b0;
+  --g-font: "Orbitron", var(--font-display);
+  --g-scale: 0.72;
+  --g-text-scale: 0.82;
+}
+.theme-plagio-en-la-academia {
+  --g-bg: #28170c;
+  --g-accent: #efc57e;
+  --g-text: #f7ebd6;
+  --g-label: #9c4f22;
+  --g-font: "Cormorant SC", var(--font-display);
+}
+.theme-pixel-blaster {
+  --g-bg: #060918;
+  --g-accent: #38e8ff;
+  --g-text: #eaf6ff;
+  --g-label: #b8136f;
+  --g-font: "Press Start 2P", var(--font-display);
+  --g-scale: 0.48;
+  --g-text-scale: 0.6;
+}
+
+/* Los textos entran de a uno, subiendo. En el carrusel, cada vez que una
+   diapositiva se activa; en las páginas, cuando la sección llega. */
+@keyframes g-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .feat__slide.is-active .rise {
+    animation: g-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(0.2s + var(--i, 0) * 0.1s) both;
+  }
+  .js [data-enter] .rise,
+  .js .library[data-enter] .lib-card {
+    opacity: 0;
+  }
+  .js [data-enter].is-in .rise,
+  .js .library[data-enter].is-in .lib-card {
+    opacity: 1;
+    animation: g-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(0.15s + var(--i, 0) * 0.09s) both;
+  }
+  .js .library[data-enter].is-in .lib-card {
+    animation-delay: calc(0.6s + min(var(--i, 0), 6) * 0.08s);
+  }
+}
+
+/* ----- Portada con el arte del juego (destacados y página de cada juego) ----- */
+
+.games-hero,
+.game-hero {
+  --hero-x: clamp(1.25rem, 10vw, 12rem);
+  position: relative;
+  overflow: hidden;
+  background: var(--g-bg, var(--ink-deep));
+  color: var(--g-text, var(--text-on-dark));
+}
+.games-hero {
+  height: 100svh;
+  min-height: 34rem;
+}
+.game-hero {
+  display: flex;
+  min-height: 100svh;
+}
+
+/* El arte nítido va a la derecha, debajo de la barra, y se funde a la
+   izquierda con su propia copia desenfocada teñida del color del juego. */
+.g-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.g-blur {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  max-width: none;
+  height: 110%;
+  object-fit: cover;
+  filter: blur(48px) saturate(1.3);
+  opacity: 0.5;
+}
+.g-art {
+  position: absolute;
+  top: var(--topbar-clear);
+  right: 0;
+  bottom: 0;
+  display: block;
+  max-width: 100%;
+}
+.g-art img {
+  width: auto;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 32%),
+    linear-gradient(180deg, transparent 0, #000 7%, #000 88%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0, #000 32%),
+    linear-gradient(180deg, transparent 0, #000 7%, #000 88%, transparent 100%);
+  mask-composite: intersect;
+}
+.g-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      var(--g-bg) 0%,
+      color-mix(in srgb, var(--g-bg) 82%, transparent) 30%,
+      color-mix(in srgb, var(--g-bg) 20%, transparent) 58%,
+      transparent 78%
+    ),
+    linear-gradient(0deg, var(--g-bg) 0%, transparent 22%);
+}
+
+.g-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(0.7rem, 1.8vh, 1.2rem);
+  width: 100%;
+  max-width: calc(36rem + var(--hero-x));
+  height: 100%;
+  padding: calc(var(--topbar-clear) + 1.5rem) var(--gutter) 5.5rem var(--hero-x);
+}
+.game-hero .g-content {
+  max-width: calc(42rem + var(--hero-x));
+  height: auto;
+  min-height: 100svh;
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+}
+.g-credit {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(0.78rem, 0.9vw, 0.95rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--g-text) 72%, transparent);
+}
+.g-title {
+  font-family: var(--g-font);
+  font-weight: 700;
+  font-size: calc(clamp(2.5rem, 5.2vw, 5.5rem) * var(--g-scale, 1));
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: var(--g-accent);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+}
+.g-tagline {
+  margin: 0;
+  max-width: 32ch;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  line-height: 1.45;
+}
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+.game-meta span {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--g-accent);
+}
+.g-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+.g-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 11rem;
+  padding: 0.8rem 1.6rem;
+  border: 2px solid var(--g-accent);
+  border-radius: 999px;
+  background: var(--g-accent);
+  color: var(--g-bg);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.g-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -12px var(--g-accent);
+}
+.g-btn--ghost {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--g-text) 55%, transparent);
+  color: var(--g-text);
+}
+.g-btn--ghost:hover {
+  background: var(--g-text);
+  border-color: var(--g-text);
+  color: var(--g-bg);
+  box-shadow: none;
+}
+
+/* ----- Destacados: una diapositiva por juego ----- */
+
+.feat__slides {
+  position: absolute;
+  inset: 0;
+}
+.feat__slide {
+  position: absolute;
+  inset: 0;
+  background: var(--g-bg);
+  color: var(--g-text);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+}
+.feat__slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* El arte se acerca apenas mientras la diapositiva está a la vista */
+  .feat__slide .g-art img {
+    transform: scale(1.06);
+    transform-origin: right center;
+    transition: transform 6s ease-out;
+  }
+  .feat__slide.is-active .g-art img {
+    transform: none;
+  }
+}
+
+.feat__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-top: -1.625rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(18, 18, 18, 0.55);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.feat__arrow:hover {
+  background: rgba(18, 18, 18, 0.85);
+  transform: scale(1.06);
+}
+.feat__arrow--prev {
+  left: clamp(0.75rem, 3vw, 3.5rem);
+}
+.feat__arrow--next {
+  right: clamp(0.75rem, 3vw, 3.5rem);
+}
+.feat__arrow--next svg {
+  transform: scaleX(-1);
+}
+
+/* Una rayita por juego; la activa se llena con el color del juego mientras corre */
+.feat__dots {
+  position: absolute;
+  left: var(--hero-x);
+  bottom: clamp(1.5rem, 5vh, 3rem);
+  z-index: 3;
+  display: flex;
+  gap: 0.45rem;
+}
+.feat__dot {
+  position: relative;
+  width: 2rem;
+  height: 1.25rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.feat__dot::before,
+.feat__dot::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 2px;
+}
+.feat__dot::before {
+  right: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+.feat__dot::after {
+  width: 0;
+  background: var(--dot, var(--yellow));
+}
+.feat__dot[aria-current="true"]::after {
+  width: 100%;
+}
+.games-hero.is-playing .feat__dot[aria-current="true"]::after {
+  width: 0;
+  animation: feat-progress var(--feat-interval, 4.5s) linear forwards;
+}
+@keyframes feat-progress {
+  to {
+    width: 100%;
+  }
+}
+
+/* ----- Todos los juegos: fila que se desliza a mano ----- */
+
+.library {
+  --frame-x: clamp(1.25rem, 6vw, 7.2rem);
+  --lib-gap: clamp(1rem, 1.8vw, 2rem);
+  --card-w: clamp(13rem, min(20vw, calc(var(--fit-h) - 17rem)), 20rem);
+}
+.lib-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(1.25rem, 3.5vh, 2.25rem);
+}
+.lib-tools {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.lib-filters {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+}
+.lib-filter {
+  padding: 0.5rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.lib-filter:hover {
+  color: var(--ink);
+}
+.lib-filter[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--white);
+}
+.lib-arrows {
+  display: flex;
+  gap: 0.5rem;
+}
+.lib-arrow {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.lib-arrow:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+.lib-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.lib-arrow--next svg {
+  transform: scaleX(-1);
+}
+.library:has(.lib-track.is-still) .lib-arrows {
+  visibility: hidden;
+}
+
+.lib-track {
+  display: flex;
+  gap: var(--lib-gap);
+  overflow-x: auto;
+  padding: 0.5rem var(--frame-x) 1rem;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--frame-x);
+  scrollbar-width: none;
+}
+.lib-track::-webkit-scrollbar {
+  display: none;
+}
+.lib-row {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--lib-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lib-card[hidden] {
+  display: none;
+}
+.lib-card {
+  flex: 0 0 var(--card-w);
+  width: var(--card-w);
+  scroll-snap-align: start;
+}
+.lib-card a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--text);
+}
+.lib-card__art {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  margin-bottom: 0.55rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--g-bg);
+  box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.lib-card__art > img:last-child {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+.lib-card__art--contain > img:last-child {
+  object-fit: contain;
+  object-position: center;
+}
+.lib-card__blur {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(18px) brightness(0.7);
+  transform: scale(1.2);
+}
+.lib-card a:hover .lib-card__art {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 3px var(--g-label), 0 22px 34px -18px rgba(0, 0, 0, 0.55);
+}
+.lib-card a:hover .lib-card__art > img:last-child {
+  transform: scale(1.05);
+}
+.lib-card__label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--g-label);
+}
+.lib-card__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.1rem, 1.3vw, 1.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.lib-card__tagline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+.lib-empty {
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+/* ----- Atlas Studio: el key art a todo el ancho, con el texto y el botón encima ----- */
+
+/* La sección toma la proporción del key art (sin pasarse de la ventana), así
+   la imagen se ve entera y el texto cae siempre en el mismo hueco. */
+.studio {
+  position: relative;
+  height: min(100svh, calc(100vw * 941 / 1671));
+  min-height: 22rem;
+  overflow: hidden;
+  background: var(--ink-deep);
+  color: var(--white);
+}
+.studio__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Bordes difuminados: arriba y abajo la imagen se funde con el fondo */
+.studio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, var(--ink-deep) 0%, transparent 14%, transparent 82%, var(--ink-deep) 100%);
+}
+/* El hueco oscuro entre «Play · Create · Connect» y el tablero */
+.studio__content {
+  position: absolute;
+  left: 50%;
+  top: 40.5%;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  width: min(90%, 48rem);
+  transform: translateX(-50%);
+  text-align: center;
+}
+.studio__lede {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2.1vw, 2.4rem);
+  line-height: 1.15;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 760px) {
+  /* Muy angosto para escribir sobre la imagen: la imagen arriba, a todo el
+     ancho, y el texto debajo */
+  .studio {
+    height: auto;
+    min-height: 0;
+    padding-top: calc(100vw * 941 / 1671);
+  }
+  .studio__art {
+    bottom: auto;
+    height: calc(100vw * 941 / 1671);
+  }
+  .studio::after {
+    bottom: auto;
+    height: calc(100vw * 941 / 1671);
+  }
+  .studio__content {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    padding: 1.25rem var(--gutter) 3rem;
+    transform: none;
+  }
+  .studio__lede {
+    font-size: 1.25rem;
+    text-shadow: none;
+  }
+}
+
+/* ----- Página de cada juego ----- */
+
+.game {
+  background: var(--g-bg);
+  color: var(--g-text);
+}
+.game .sec-title {
+  font-family: var(--g-font);
+  font-weight: 700;
+  font-size: calc(var(--sec-title-size) * var(--g-scale, 1));
+  letter-spacing: 0;
+  color: var(--g-accent);
+}
+.game-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--g-text);
+  opacity: 0.85;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.game-back:hover {
+  opacity: 1;
+  color: var(--g-accent);
+}
+.game-back svg {
+  width: 18px;
+  height: 18px;
+}
+.game-desc {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 40rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.08rem);
+  line-height: 1.55;
+}
+.game-desc p {
+  margin: 0;
+}
+
+/* Reglas: sobre el arte del juego, apenas visible detrás */
+.game-rules {
+  background: var(--g-bg);
+}
+.game-rules__bg {
+  position: absolute;
+  inset: 0;
+}
+.game-rules__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px) saturate(1.15);
+  opacity: 0.7;
+  transform: scale(1.04);
+}
+.game-rules__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--g-bg) 45%, transparent), color-mix(in srgb, var(--g-bg) 88%, transparent) 90%);
+}
+.game-rules > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.rule-list {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 1.25rem;
+}
+.rule-list--s {
+  max-width: 44rem;
+  columns: 1;
+}
+.rule {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--g-accent) 22%, transparent);
+  border-left: 3px solid var(--g-accent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--g-bg) 80%, transparent);
+  backdrop-filter: blur(10px);
+  font-size: clamp(0.92rem, 1vw, 1.02rem);
+  line-height: 1.5;
+  break-inside: avoid;
+}
+.rules-sub {
+  margin: 0 0 0.9rem;
+  text-align: center;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+}
+.role-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+.role-card {
+  padding: 1rem 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--g-accent) 35%, transparent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--g-accent) 12%, var(--g-bg));
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.role-card strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--g-font);
+  font-size: 1rem;
+  color: var(--g-accent);
+}
+
+/* Cómo se juega: una explicación corta en la tipografía del juego, cuántos
+   juegan y cuánto dura, los esqueletos del video y las fotos, y la invitación
+   a comprar Atlas. */
+.game-play {
+  background: radial-gradient(ellipse 55% 50% at 75% 45%, color-mix(in srgb, var(--g-accent) 14%, transparent), transparent 70%),
+    var(--g-bg);
+}
+.game-play__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+.game-play__text {
+  display: grid;
+  justify-items: start;
+  gap: clamp(0.9rem, 2.4vh, 1.5rem);
+}
+.game-play__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--g-font);
+  font-size: calc(clamp(1rem, 1.3vw, 1.3rem) * var(--g-text-scale, 1));
+  line-height: 1.3;
+}
+.game-play__meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.game-play__meta svg {
+  flex: 0 0 auto;
+  color: var(--g-accent);
+}
+.game-play__teaser {
+  margin: 0;
+  max-width: 30rem;
+  font-family: var(--g-font);
+  font-size: calc(clamp(1.25rem, 1.9vw, 1.85rem) * var(--g-text-scale, 1));
+  line-height: 1.4;
+}
+.game-play__buy {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 0.25rem;
+  padding-top: clamp(0.9rem, 2.4vh, 1.4rem);
+  border-top: 1px solid color-mix(in srgb, var(--g-text) 18%, transparent);
+}
+.game-play__buy p {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+}
+.game-play__buy strong {
+  color: var(--g-accent);
+}
+.game-play__buy .g-actions {
+  margin: 0;
+}
+.game-play__media {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.video-skel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--g-accent) 25%, transparent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+}
+.video-skel__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(14px) brightness(0.45);
+  transform: scale(1.15);
+}
+.video-skel::before,
+.photo-skel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.09) 50%, transparent 70%);
+  transform: translateX(-100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .video-skel::before,
+  .photo-skel::before {
+    animation: skel-shimmer 2.6s ease-in-out infinite;
+  }
+  .photo-skel:nth-child(2)::before {
+    animation-delay: 0.25s;
+  }
+  .photo-skel:nth-child(3)::before {
+    animation-delay: 0.5s;
+  }
+}
+@keyframes skel-shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+.video-skel__play {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: clamp(4rem, 6vw, 5.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--g-accent);
+  color: var(--g-bg);
+  box-shadow: 0 0 0 10px color-mix(in srgb, var(--g-accent) 22%, transparent);
+}
+.video-skel__play svg {
+  margin-left: 4px;
+}
+.video-skel__cap {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.75rem;
+  z-index: 2;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--g-text);
+}
+.video-skel__bar {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  z-index: 2;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.18);
+}
+.video-skel__bar span {
+  display: block;
+  width: 28%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--g-accent);
+}
+
+/* Fotos del juego: tres recuadros a la espera, cada uno con otra parte del arte */
+.photo-skels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.photo-skel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  border: 1px solid color-mix(in srgb, var(--g-accent) 20%, transparent);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  color: color-mix(in srgb, var(--g-text) 75%, transparent);
+}
+.photo-skel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px) brightness(0.4) saturate(1.1);
+  transform: scale(1.6);
+}
+.photo-skel svg {
+  position: relative;
+  z-index: 2;
+}
+
+/* Flechas fijas al juego anterior y al siguiente. Al pasar el puntero muestran
+   a qué juego llevan. */
+.game-arrow {
+  position: fixed;
+  top: 50%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  height: 3.25rem;
+  min-width: 3.25rem;
+  margin-top: -1.625rem;
+  padding: 0 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--g-accent) 35%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--g-bg) 65%, transparent);
+  color: var(--g-text);
+  backdrop-filter: blur(8px);
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.game-arrow--prev {
+  left: clamp(0.6rem, 1.5vw, 1.75rem);
+}
+.game-arrow--next {
+  right: clamp(0.6rem, 1.5vw, 1.75rem);
+  flex-direction: row-reverse;
+}
+.game-arrow svg {
+  flex: 0 0 auto;
+}
+.game-arrow--next svg {
+  transform: scaleX(-1);
+}
+.game-arrow span {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
+}
+.game-arrow--prev:hover span,
+.game-arrow--prev:focus-visible span {
+  padding-left: 0.4rem;
+}
+.game-arrow--next:hover span,
+.game-arrow--next:focus-visible span {
+  padding-right: 0.4rem;
+}
+.game-arrow:hover,
+.game-arrow:focus-visible {
+  background: var(--g-accent);
+  color: var(--g-bg);
+}
+.game-arrow:hover span,
+.game-arrow:focus-visible span {
+  max-width: 16rem;
+  opacity: 1;
+}
+/* En escritorio, el contenido deja lugar a las flechas */
+@media (min-width: 761px) {
+  .game .band > .wrap {
+    padding-inline: max(var(--gutter), 5.75rem);
+  }
+}
+
+@media (max-width: 760px) {
+  /* Portadas: el arte arriba, de ancho completo, y el texto debajo */
+  .g-art {
+    left: 0;
+    bottom: auto;
+    height: 52svh;
+  }
+  .g-art img {
+    width: 100%;
+    object-position: center top;
+    -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent);
+    -webkit-mask-composite: source-over;
+    mask-image: linear-gradient(180deg, #000 55%, transparent);
+    mask-composite: add;
+  }
+  .g-media::after {
+    background: linear-gradient(
+      0deg,
+      var(--g-bg) 0%,
+      var(--g-bg) 36%,
+      color-mix(in srgb, var(--g-bg) 55%, transparent) 52%,
+      transparent 72%
+    );
+  }
+  .g-content {
+    justify-content: flex-end;
+    gap: 0.6rem;
+    max-width: none;
+    padding: 0 var(--gutter) 4.25rem;
+  }
+  .game-hero .g-content {
+    padding-top: calc(var(--topbar-clear) + 35svh);
+    padding-bottom: 2rem;
+  }
+  .g-tagline,
+  .game-desc {
+    font-size: 0.95rem;
+  }
+  .game-meta {
+    gap: 0.4rem 1.1rem;
+    font-size: 0.85rem;
+  }
+  .g-btn {
+    min-width: 0;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  .feat__arrow {
+    display: none;
+  }
+  .feat__dots {
+    left: var(--gutter);
+    bottom: 1.5rem;
+  }
+
+  .library {
+    --card-w: 62vw;
+  }
+  .lib-arrows {
+    display: none;
+  }
+  .lib-filter {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  /* Reglas y roles: tarjetas que se deslizan de costado */
+  .rule-list,
+  .role-list {
+    display: flex;
+    gap: 0.75rem;
+    max-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+    columns: auto;
+  }
+  .rule-list::-webkit-scrollbar,
+  .role-list::-webkit-scrollbar {
+    display: none;
+  }
+  .rule,
+  .role-card {
+    flex: 0 0 78vw;
+    margin: 0;
+    scroll-snap-align: start;
+  }
+  .role-list {
+    margin-bottom: 1rem;
+  }
+
+  .game-play__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+  .game-play__text {
+    gap: 0.8rem;
+  }
+  .photo-skels {
+    gap: 0.5rem;
+  }
+  .photo-skel svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Flechas: chicas, en las esquinas de abajo */
+  .game-arrow {
+    top: auto;
+    bottom: 0.9rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    margin-top: 0;
+    padding: 0 0.7rem;
+  }
+  .game-arrow--prev {
+    left: 0.75rem;
+  }
+  .game-arrow--next {
+    right: 0.75rem;
+  }
+  .game-hero .g-content {
+    padding-bottom: 4.5rem;
   }
 }

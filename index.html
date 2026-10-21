@@ -26,7 +26,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles.css?v=20261021-21" />
+    <script>document.documentElement.classList.add("js")</script>
   </head>
   <body>
     <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
@@ -42,6 +43,7 @@
         </button>
         <nav class="topbar__nav" id="nav-principal" data-nav aria-label="Navegación principal">
           <a href="/" aria-current="page">Producto</a>
+          <a href="/juegos/">Juegos</a>
           <a href="/ecosistema/">Ecosistema</a>
           <a href="/sobre-nosotros/">Sobre nosotros</a>
         </nav>
@@ -97,65 +99,103 @@
             </p>
             <div class="btn-row">
               <a class="btn btn--ink" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
-              <a class="btn" href="#como-funciona">Ver cómo funciona</a>
+              <a class="btn" href="#que-es">Ver cómo funciona</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= ¿QUÉ ES ATLAS? ================= -->
-      <section class="band band--yellow" id="que-es">
-        <div class="wrap showcase reveal">
-          <p class="eyebrow">¿Qué es Atlas?</p>
-          <h2 class="svg-title svg-title--center">
-            <img
-              src="/assets/titulos/mucho-mas.svg"
-              alt="Mucho más que un tablero."
-              style="max-width: 1281px"
-              width="1281"
-              height="116"
-            />
-          </h2>
-
-          <div class="showcase__stage">
-            <img
-              class="showcase__hero-img"
-              src="/assets/tablero-minis.webp"
-              alt="Tablero Atlas en perspectiva, con dos miniaturas flotando a los lados"
-              width="1800"
-              height="1049"
-              loading="lazy"
-            />
+      <!-- ================= ¿QUÉ ES ATLAS? (3D) ================= -->
+      <!-- Escena 3D de tres juegos en ciclo: Maze, ajedrez y arena (atlas3d.js).
+           La imagen es el respaldo sin WebGL.
+           PENDIENTE: confirmar la mecánica real del Maze (el paso rojo es una suposición)
+           y si la arena contra un jefe es un juego de Atlas. -->
+      <section class="band band--yellow band--fit" id="que-es" data-enter>
+        <div class="wrap">
+          <header class="sec-head">
+            <h2 class="sec-title svg-title svg-title--center">
+              <img
+                src="/assets/titulos/mucho-mas.svg"
+                alt="Mucho más que un tablero."
+                style="max-width: 1281px"
+                width="1281"
+                height="116"
+              />
+            </h2>
+          </header>
+          <div class="split split--3d enter-body">
+            <figure class="stage3d-wrap split__media">
+              <div class="stage3d" data-atlas3d="juegos" role="img" aria-label="Tres juegos sobre el tablero Atlas: una ficha recorre el Maze, una partida de ajedrez muestra a dónde puede ir cada pieza y tres fichas pelean contra un rey en llamas">
+                <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
+              </div>
+              <figcaption class="stage3d__foot stage3d__foot--center">
+                <span class="stage3d__cap" data-atlas3d-cap aria-live="polite">Maze: encontrá la salida recordando el camino.</span>
+              </figcaption>
+            </figure>
+            <div class="split__copy split__copy--rich">
+              <p class="statement">Atlas es <strong>la primera consola de juegos de mesa modular.</strong></p>
+              <ul class="copy-list" role="list">
+                <li class="rise" style="--i:1"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2" /><path d="M3.5 9.2h17M3.5 14.8h17M9.2 3.5v17M14.8 3.5v17" /></g></svg></span><span><strong>Un único tablero</strong>, múltiples juegos</span></li>
+                <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2" /><path d="M11 18.5h2" /></g></svg></span><span>Conectalo a tu celular con <a class="statement__link" href="/ecosistema/">Atlas HUB</a></span></li>
+                <li class="rise" style="--i:3"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z" /></g></svg></span><span>Elegís un juego y <strong>¡el tablero se transforma!</strong></span></li>
+              </ul>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <p class="showcase__note">
-            Un único tablero, muchos juegos. La tecnología se encarga del resto.
-          </p>
+      <!-- ================= MÓDULOS (3D) ================= -->
+      <!-- PENDIENTE: el mapa es de ejemplo. Confirmar el máximo de módulos (el equipo dice 6, la documentación técnica de 1 a 7). -->
+      <section class="band band--paper band--fit" id="modulos" data-enter>
+        <div class="wrap" data-mesa="4">
+          <header class="sec-head">
+            <h2 class="sec-title display">Armá tu mesa</h2>
+          </header>
+          <div class="split split--3d enter-body">
+            <figure class="stage3d-wrap split__media">
+              <div class="stage3d" data-atlas3d="mesa" role="img" aria-label="Varios módulos Atlas unidos forman un mapa de rol con bosque, río y una villa">
+                <img class="stage3d__fallback" src="/assets/tablero-piezas.jpg" alt="" loading="lazy" />
+              </div>
+              <figcaption class="stage3d__foot stage3d__foot--center">
+                <span class="stage3d__cap" data-atlas3d-cap aria-live="polite">Un puente cruza el río.</span>
+              </figcaption>
+            </figure>
+            <div class="split__copy split__copy--rich">
+              <p class="statement">Cada módulo es <strong>un tablero completo.</strong></p>
+              <ul class="copy-list" role="list">
+                <li class="rise" style="--i:1"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="7.5" height="10" rx="1.5" /><rect x="14" y="7" width="7.5" height="10" rx="1.5" /><path d="M11.2 12h1.6" /></g></svg></span><span>Acercá otro y <strong>se conecta solo</strong></span></li>
+                <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9a10 10 0 0 1 14 0M8 12.5a5.5 5.5 0 0 1 8 0" /><circle cx="12" cy="16.5" r="1.3" /></g></svg></span><span><strong>Sin cables</strong>: se unen por radiofrecuencia</span></li>
+                <li class="rise" style="--i:3"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5" /><rect x="13" y="3" width="8" height="8" rx="1.5" /><rect x="3" y="13" width="8" height="8" rx="1.5" /><path d="M17 14v6M14 17h6" /></g></svg></span><span>Sumá <strong>hasta 6</strong> y el mundo crece con vos</span></li>
+              </ul>
+              <div class="stepper" role="group" aria-label="Cantidad de módulos">
+                <button class="stepper__btn" type="button" data-mesa-step="-1" aria-label="Quitar un módulo">−</button>
+                <output class="stepper__count" data-mesa-count aria-live="polite">4</output>
+                <button class="stepper__btn stepper__btn--nudge" type="button" data-mesa-step="1" aria-label="Sumar un módulo">+</button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- ================= CÓMO FUNCIONA ================= -->
-      <section class="band band--ink" id="como-funciona">
+      <section class="band band--ink band--fit" id="como-funciona" data-enter>
         <div class="wrap">
-          <div class="steps-head reveal">
-            <div>
-              <p class="eyebrow">Cómo funciona</p>
-              <h2 class="svg-title">
-                <img
-                  src="/assets/titulos/empezar-a-jugar.svg"
-                  alt="Empezar a jugar nunca fue tan fácil."
-                  style="max-width: 837px"
-                  width="837"
-                  height="59"
-                />
-              </h2>
-            </div>
-            <p class="tag-pill"><span>Un tablero</span><span>infinitos juegos.</span></p>
-          </div>
+          <header class="sec-head sec-head--cards">
+            <h2 class="sec-title svg-title svg-title--center">
+              <img
+                src="/assets/titulos/empezar-a-jugar.svg"
+                alt="Empezar a jugar nunca fue tan fácil."
+                style="max-width: 1400px"
+                width="837"
+                height="59"
+              />
+            </h2>
+          </header>
 
           <!-- Las cuatro tarjetas vienen compuestas del estudio: foto, número,
-               título y descripción en una sola pieza. El texto va en el alt. -->
-          <ol class="step-cards reveal">
+               título y descripción en una sola pieza. El texto va en el alt.
+               En el celular pasan a ser un carrusel horizontal. -->
+          <ol class="step-cards">
             <li>
               <img
                 src="/assets/paso-1.webp"
@@ -196,160 +236,77 @@
         </div>
       </section>
 
-      <!-- ================= EN JUEGO (3D) ================= -->
-      <!-- Escena 3D del Maze (atlas3d.js). La imagen es el respaldo sin WebGL. -->
-      <section class="band band--ink" id="en-juego">
-        <div class="wrap reveal">
-          <div class="section-head">
-            <p class="eyebrow eyebrow--center">En juego</p>
-            <h2 class="display display--lg">Apoyá una ficha. El tablero hace el resto.</h2>
-            <p class="lede">Las casillas se iluminan para guiarte en cada jugada.</p>
-          </div>
-          <figure class="stage3d-wrap">
-            <div class="stage3d" data-atlas3d="maze" role="img" aria-label="Una ficha recorre el juego Maze sobre el tablero Atlas y enciende cada casilla del camino">
-              <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
-            </div>
-            <figcaption class="stage3d__foot">
-              <span class="stage3d__cap" data-atlas3d-cap aria-live="polite">Maze: encontrá la salida recordando el camino.</span>
-              <button class="btn btn--light stage3d__toggle" type="button" data-atlas3d-toggle>Pausar</button>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- ================= ARMÁ TU MESA (3D) ================= -->
-      <!-- PENDIENTE: el mapa es de ejemplo. Confirmar el máximo de módulos (el equipo dice 6). -->
-      <section class="band band--paper" id="arma-tu-mesa">
-        <div class="wrap reveal" data-mesa="2">
-          <div class="section-head">
-            <p class="eyebrow eyebrow--center">Módulos</p>
-            <h2 class="display display--lg">Armá tu mesa</h2>
-            <p class="lede">Sumá hasta 6 tableros y el mundo crece con vos.</p>
-          </div>
-          <div class="stepper" role="group" aria-label="Cantidad de módulos">
-            <button class="stepper__btn" type="button" data-mesa-step="-1" aria-label="Quitar un módulo">−</button>
-            <output class="stepper__count" data-mesa-count aria-live="polite">2</output>
-            <button class="stepper__btn" type="button" data-mesa-step="1" aria-label="Sumar un módulo">+</button>
-          </div>
-          <figure class="stage3d-wrap">
-            <div class="stage3d stage3d--wide" data-atlas3d="mesa" role="img" aria-label="Varios módulos Atlas unidos forman un mapa de rol con bosque, río y una villa">
-              <img class="stage3d__fallback" src="/assets/tablero-piezas.jpg" alt="" loading="lazy" />
-            </div>
-            <figcaption class="stage3d__foot stage3d__foot--center">
-              <span class="stage3d__cap" data-atlas3d-cap aria-live="polite">Aparece el río.</span>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- ================= FICHAS ================= -->
-      <!-- Escena 3D de la ficha roja y la base con rosca (atlas3d.js). -->
-      <section class="band band--ink" id="fichas">
-        <div class="wrap reveal">
-          <div class="section-head">
-            <p class="eyebrow eyebrow--center">Fichas</p>
-            <h2 class="display display--lg">Una base, todas las fichas</h2>
-            <p class="lede">Enroscá la ficha que quieras sobre la misma base inteligente.</p>
-          </div>
-          <div class="split">
+      <!-- ================= FICHAS (3D) ================= -->
+      <!-- Escena 3D de la ficha y la base con rosca (atlas3d.js). -->
+      <section class="band band--paper band--fit" id="fichas" data-enter>
+        <div class="wrap">
+          <header class="sec-head">
+            <h2 class="sec-title display">Tus fichas, nuestra base</h2>
+          </header>
+          <div class="split split--3d enter-body">
             <div class="stage3d split__media" data-atlas3d="ficha" role="img" aria-label="Una ficha se enrosca en la base inteligente, se desenrosca y entra otra de otro color">
-              <img class="stage3d__fallback" src="/assets/base-inteligente.webp" alt="" width="464" height="360" loading="lazy" />
+              <img class="stage3d__fallback" src="/assets/modulo-nfc.webp" alt="" width="190" height="142" loading="lazy" />
             </div>
-            <ol class="mini-steps">
-              <li><h3>Enroscala en la base</h3><p>La base es la que siente el tablero.</p></li>
-              <li><h3>Cambiala cuando quieras</h3><p>Desenroscala y poné otra.</p></li>
-              <li><h3>Imprimí las tuyas</h3><p>Diseñá tu figura con la rosca y reusá la base.</p></li>
-            </ol>
+            <!-- data-ficha-paso: los pasos que la escena 3D va marcando mientras la ficha se enrosca y se cambia. -->
+            <div class="split__copy split__copy--rich">
+              <p class="statement">Diseñá e imprimí <strong>tus propias fichas</strong> y enroscalas en <strong>nuestras bases inteligentes.</strong></p>
+              <p class="copy-sub rise" style="--i:1">El tablero las reconoce como a cualquier otra.</p>
+              <ol class="mini-steps mini-steps--icons">
+                <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5z" /><path d="M13.5 7l3 3" /></g></svg></span><h3>Diseñá tu ficha</h3><p>Dale la forma que quieras: solo necesita la rosca.</p></li>
+                <li class="rise" style="--i:3" data-ficha-paso><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6" /><path d="M20 4v4h-4" /></g></svg></span><h3>Enroscala en la base</h3><p>La base inteligente es la que el tablero detecta.</p></li>
+                <li class="rise" style="--i:4" data-ficha-paso><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-3-3M17 17H6l3 3" /></g></svg></span><h3>Cambiala cuando quieras</h3><p>Desenroscala, poné otra y seguí usando la misma base.</p></li>
+              </ol>
+              <!-- La rosca para diseñar fichas propias: el STL se descarga directo, sin abrir otra página. -->
+              <p class="ficha-download rise" style="--i:5">
+                <a class="btn btn--ink" href="/assets/descargas/AtlasPiecesBase.stl" download="AtlasPiecesBase.stl" type="model/stl">
+                  Descargar modelo
+                </a>
+                <span class="ficha-download__meta">STL · 3 MB</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= EL MÓDULO (3D) ================= -->
-      <!-- PENDIENTE: sección preparada. Revisar los datos técnicos antes de publicar. -->
-      <section class="band band--fade-yellow-up" id="modulo">
-        <div class="wrap reveal">
-          <div class="section-head">
-            <p class="eyebrow eyebrow--center">El módulo</p>
-            <h2 class="display display--lg">64 casillas que se iluminan</h2>
-            <p class="lede">Luz, sensores y batería en cada tablero. Atlas Core lee cada ficha.</p>
-          </div>
-          <div class="split">
-            <div class="stage3d split__media" data-atlas3d="modulo" role="img" aria-label="Un módulo Atlas con Atlas Core acoplado: una ficha se apoya en Atlas Core y el tablero se ilumina">
+      <!-- ================= ATLAS CORE (3D) ================= -->
+      <!-- PENDIENTE: qué hace el tablero después de leer la ficha (la ola de luz es una suposición). -->
+      <section class="band band--ink band--fit" id="atlas-core" data-enter>
+        <div class="wrap">
+          <header class="sec-head">
+            <h2 class="sec-title display">Atlas Core</h2>
+          </header>
+          <div class="split split--3d enter-body">
+            <div class="stage3d split__media" data-atlas3d="modulo" role="img" aria-label="Atlas Core se acopla al borde de un módulo Atlas; cada ficha que se apoya en él se ilumina y el tablero dice qué ficha es">
               <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
             </div>
-            <ul class="spec-list">
-              <li><strong>8 × 8</strong><span>casillas con luz de color</span></li>
-              <li><strong>22 × 22 cm</strong><span>por módulo</span></li>
-              <li><strong>Batería</strong><span>propia, carga por USB-C</span></li>
-              <li><strong>Inalámbrico</strong><span>se conecta con los otros módulos</span></li>
-              <li><strong>Atlas Core</strong><span>se acopla al borde y lee la ficha por NFC</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= TECNOLOGÍA ================= -->
-      <section class="band band--ink band--tight" id="tecnologia">
-        <div class="wrap text-center reveal">
-          <p class="eyebrow eyebrow--center">Tecnología</p>
-          <h2 class="svg-title svg-title--center">
-            <img
-              src="/assets/titulos/mejor-tecnologia.svg"
-              alt="La mejor tecnología es la que desaparece"
-              style="max-width: 954px"
-              width="954"
-              height="59"
-            />
-          </h2>
-
-          <div class="tech-grid">
-            <article class="tech-item">
-              <img src="/assets/graficos/tec-leds.svg" alt="" aria-hidden="true" loading="lazy" />
-              <div>
-                <h3>LEDs Inteligentes</h3>
-                <p>Muestran sólo lo que necesitás ver.</p>
-              </div>
-            </article>
-            <article class="tech-item">
-              <img src="/assets/graficos/tec-core.svg" alt="" aria-hidden="true" loading="lazy" />
-              <div>
-                <h3>Atlas Core</h3>
-                <p>Apoyá una ficha y Atlas sabe quién es.</p>
-              </div>
-            </article>
-            <article class="tech-item">
-              <img src="/assets/graficos/tec-tablero.svg" alt="" aria-hidden="true" loading="lazy" />
-              <div>
-                <h3>Diseño del tablero</h3>
-                <p>Minimalista y resistente.</p>
-              </div>
-            </article>
-            <article class="tech-item">
-              <img src="/assets/graficos/tec-sistema.svg" alt="" aria-hidden="true" loading="lazy" />
-              <div>
-                <h3>Sistema inteligente</h3>
-                <p>Detecta cada movimiento y se sincroniza con la app.</p>
-              </div>
-            </article>
+            <div class="split__copy split__copy--rich">
+              <p class="statement">Con <strong>Atlas Core</strong> y las bases inteligentes, Atlas <strong>reconoce cada ficha.</strong></p>
+              <ul class="copy-list" role="list">
+                <li class="rise" style="--i:1"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5l8-8h7a2 2 0 0 1 2 2v7l-8 8a2 2 0 0 1-2.8 0l-6.2-6.2a2 2 0 0 1 0-2.8z" /><circle cx="16" cy="8" r="1.4" /></g></svg></span><span>Cada base tiene <strong>un identificador único</strong></span></li>
+                <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6.5" r="2.7" /><path d="M9.5 10.5h5l1.2 7h-7.4z" /><path d="M6.5 20.5h11" /></g></svg></span><span><strong>Cada juego decide qué es</strong>: <span class="copy-nowrap">¿un <span class="word-cycle" aria-hidden="true"><span>caballero?</span><span>alfil?</span><span>edificio?</span></span></span><span class="visually-hidden">caballero, un alfil o un edificio?</span></span></li>
+                <li class="rise" style="--i:3"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5" /><path d="M6.5 8h11v3a5.5 5.5 0 0 1-11 0z" /><path d="M12 16.5V21" /></g></svg></span><span>Acoplalo al borde del tablero y <strong>¡listo!</strong></span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- ================= ¿QUÉ INCLUYE LA CAJA? ================= -->
-      <section class="band band--fade-yellow" id="caja">
-        <div class="wrap reveal">
-          <p class="eyebrow eyebrow--center">¿Qué incluye la caja?</p>
-          <h2 class="svg-title svg-title--center">
-            <img
-              src="/assets/titulos/todo-listo.svg"
-              alt="Todo listo para empezar a jugar"
-              style="max-width: 1653px"
-              width="1653"
+      <section class="band band--fade-yellow band--fit" id="caja" data-enter>
+        <div class="wrap">
+          <header class="sec-head">
+            <h2 class="sec-title svg-title svg-title--center">
+              <img
+                src="/assets/titulos/todo-listo.svg"
+                alt="Todo listo para empezar a jugar"
+                style="max-width: 1653px"
+                width="1653"
               height="130"
-            />
-          </h2>
+              />
+            </h2>
+          </header>
 
-          <ul class="box-grid" role="list">
+          <ul class="box-grid" role="list" data-autoplay>
             <li class="box-item box-item--wide">
               <div class="box-item__img">
                 <img src="/assets/tablero.webp" alt="Tablero Atlas" width="1228" height="631" loading="lazy" />
@@ -358,7 +315,7 @@
             </li>
             <li class="box-item">
               <div class="box-item__img">
-                <img src="/assets/base-inteligente.webp" alt="Base inteligente de Atlas" width="464" height="360" loading="lazy" />
+                <img src="/assets/modulo-nfc.webp" alt="Base inteligente de Atlas" width="190" height="142" loading="lazy" />
               </div>
               <p class="box-item__label">Bases inteligentes</p>
             </li>
@@ -370,7 +327,7 @@
             </li>
             <li class="box-item">
               <div class="box-item__img">
-                <img src="/assets/modulo-nfc.webp" alt="Módulo NFC Atlas Core" width="190" height="142" loading="lazy" />
+                <img src="/assets/base-inteligente.webp" alt="Módulo NFC Atlas Core" width="464" height="360" loading="lazy" />
               </div>
               <p class="box-item__label">Módulo NFC</p>
             </li>
@@ -396,12 +353,54 @@
         </div>
       </section>
 
-      <!-- ================= FAQ ================= -->
-      <section class="band band--yellow band--tight" id="faq">
-        <div class="wrap reveal">
-          <p class="eyebrow eyebrow--center">Preguntas frecuentes</p>
+      <!-- ================= MIRÁ CÓMO SE JUEGA ================= -->
+      <!-- PENDIENTE: por ahora son esqueletos que llevan al canal de YouTube de WOLO Labs.
+           Reemplazar por los videos cuando estén. -->
+      <section class="band band--ink band--fit" id="videos" data-enter>
+        <div class="wrap">
+          <header class="sec-head">
+            <h2 class="sec-title display">Mirá cómo se juega</h2>
+          </header>
+          <ul class="video-grid enter-body" role="list">
+            <li>
+              <a class="video-card video-card--main" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
+                <span class="video-card__play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
+                </span>
+                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
+              </a>
+            </li>
+            <li>
+              <a class="video-card" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
+                <span class="video-card__play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
+                </span>
+                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
+              </a>
+            </li>
+            <li>
+              <a class="video-card" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
+                <span class="video-card__play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
+                </span>
+                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
+              </a>
+            </li>
+          </ul>
+          <p class="video-more enter-body">
+            <a class="btn btn--solid" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener">Ver el canal en YouTube</a>
+          </p>
+        </div>
+      </section>
 
-          <div class="faq">
+      <!-- ================= FAQ ================= -->
+      <section class="band band--yellow band--fit" id="faq" data-enter>
+        <div class="wrap">
+          <header class="sec-head">
+            <h2 class="sec-title display">Preguntas frecuentes</h2>
+          </header>
+
+          <div class="faq enter-body">
             <details>
               <summary>¿Necesito Internet para jugar?</summary>
               <p class="faq__answer">
@@ -474,7 +473,7 @@
       </section>
 
       <!-- ================= CTA ================= -->
-      <section class="cta-band cta-band--soft" id="comprar">
+      <section class="cta-band cta-band--soft" id="comprar" data-enter>
         <img
           class="cta-band__bg"
           src="/assets/cta-tablero.jpg"
@@ -485,16 +484,16 @@
           loading="lazy"
         />
         <div class="wrap cta-band__inner">
-          <p class="cta-band__lede">Un único tablero. Infinitas posibilidades.</p>
-          <h2 class="display display--cta">Hay mundos<br />que esperan ser<br />descubiertos</h2>
+          <p class="cta-band__lede enter-body">Un único tablero. Infinitas posibilidades.</p>
+          <h2 class="sec-title display display--cta">Hay mundos<br />que esperan ser<br />descubiertos</h2>
           <!-- PENDIENTE: reemplazar por la URL de la tienda cuando exista. -->
-          <a class="btn btn--solid" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
+          <a class="btn btn--solid enter-body" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
         </div>
       </section>
     </main>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="site-footer">
+    <footer class="site-footer site-footer--compact">
       <svg class="footer-deco footer-deco--left-top" viewBox="0 0 471.9 323.9" fill="#f9b606" aria-hidden="true" focusable="false"><rect x="357.6" y="0.0" width="44.4" height="6.9"/><rect x="417.0" y="0.0" width="44.4" height="6.9"/><rect x="465.0" y="11.0" width="6.9" height="44.3"/><rect x="405.5" y="11.0" width="6.9" height="44.3"/><rect x="345.9" y="11.2" width="6.9" height="44.3"/><rect x="417.0" y="59.3" width="44.4" height="6.9"/><rect x="357.4" y="59.5" width="44.4" height="6.9"/><rect x="465.0" y="70.3" width="6.9" height="44.3"/><rect x="345.9" y="70.5" width="6.9" height="44.3"/><rect x="405.4" y="70.5" width="6.9" height="44.3"/><rect x="119.3" y="79.5" width="44.4" height="6.9"/><rect x="178.8" y="79.5" width="44.4" height="6.9"/><rect x="226.7" y="90.5" width="6.9" height="44.3"/><rect x="167.3" y="90.5" width="6.9" height="44.3"/><rect x="107.6" y="90.7" width="6.9" height="44.3"/><rect x="357.4" y="118.7" width="44.4" height="6.9"/><rect x="416.8" y="118.7" width="44.4" height="6.9"/><rect x="178.8" y="138.8" width="44.4" height="6.9"/><rect x="119.1" y="139.0" width="44.4" height="6.9"/><rect x="226.7" y="149.8" width="6.9" height="44.3"/><rect x="167.1" y="150.0" width="6.9" height="44.3"/><rect x="107.6" y="150.0" width="6.9" height="44.3"/><rect x="0.2" y="198.2" width="44.4" height="6.9"/><rect x="59.6" y="198.2" width="44.4" height="6.9"/><rect x="238.4" y="198.2" width="44.4" height="6.9"/><rect x="297.9" y="198.2" width="44.4" height="6.9"/><rect x="119.1" y="198.2" width="44.4" height="6.9"/><rect x="178.6" y="198.2" width="44.4" height="6.9"/><rect x="48.1" y="209.2" width="6.9" height="44.3"/><rect x="107.6" y="209.2" width="6.9" height="44.3"/><rect x="286.4" y="209.2" width="6.9" height="44.3"/><rect x="345.9" y="209.2" width="6.9" height="44.3"/><rect x="226.8" y="209.4" width="6.9" height="44.3"/><rect x="59.6" y="257.5" width="44.4" height="6.9"/><rect x="297.9" y="257.5" width="44.4" height="6.9"/><rect x="0.0" y="257.7" width="44.4" height="6.9"/><rect x="238.3" y="257.7" width="44.4" height="6.9"/><rect x="107.6" y="268.5" width="6.9" height="44.3"/><rect x="345.9" y="268.5" width="6.9" height="44.3"/><rect x="48.0" y="268.7" width="6.9" height="44.3"/><rect x="226.8" y="268.7" width="6.9" height="44.3"/><rect x="286.2" y="268.7" width="6.9" height="44.3"/><rect x="0.0" y="317.0" width="44.4" height="6.9"/><rect x="59.4" y="317.0" width="44.4" height="6.9"/><rect x="238.3" y="317.0" width="44.4" height="6.9"/><rect x="297.7" y="317.0" width="44.4" height="6.9"/></svg>
       <svg class="footer-deco footer-deco--left-bottom" viewBox="0 0 114.5 114.8" fill="#f9b606" aria-hidden="true" focusable="false"><rect x="0.2" y="0.0" width="44.4" height="6.9"/><rect x="59.6" y="0.0" width="44.4" height="6.9"/><rect x="107.6" y="11.0" width="6.9" height="44.3"/><rect x="48.1" y="11.0" width="6.9" height="44.3"/><rect x="59.6" y="59.3" width="44.4" height="6.9"/><rect x="0.0" y="59.5" width="44.4" height="6.9"/><rect x="107.6" y="70.3" width="6.9" height="44.3"/><rect x="48.0" y="70.5" width="6.9" height="44.3"/></svg>
       <svg class="footer-deco footer-deco--right" viewBox="0 0 607.5 474.0" fill="#f9b606" aria-hidden="true" focusable="false"><rect x="491.6" y="0.0" width="44.6" height="6.9"/><rect x="551.4" y="0.0" width="44.6" height="6.9"/><rect x="540.9" y="10.9" width="6.9" height="44.5"/><rect x="600.6" y="10.9" width="6.9" height="44.5"/><rect x="480.9" y="11.1" width="6.9" height="44.5"/><rect x="551.4" y="59.6" width="44.6" height="6.9"/><rect x="491.5" y="59.8" width="44.6" height="6.9"/><rect x="600.6" y="70.5" width="6.9" height="44.5"/><rect x="480.9" y="70.7" width="6.9" height="44.5"/><rect x="540.7" y="70.7" width="6.9" height="44.5"/><rect x="491.5" y="119.3" width="44.6" height="6.9"/><rect x="551.2" y="119.3" width="44.6" height="6.9"/><rect x="491.6" y="119.7" width="44.6" height="6.9"/><rect x="551.4" y="119.7" width="44.6" height="6.9"/><rect x="600.6" y="130.7" width="6.9" height="44.5"/><rect x="540.9" y="130.7" width="6.9" height="44.5"/><rect x="480.9" y="130.8" width="6.9" height="44.5"/><rect x="551.4" y="179.3" width="44.6" height="6.9"/><rect x="491.5" y="179.5" width="44.6" height="6.9"/><rect x="600.6" y="190.2" width="6.9" height="44.5"/><rect x="540.7" y="190.4" width="6.9" height="44.5"/><rect x="480.9" y="190.4" width="6.9" height="44.5"/><rect x="491.5" y="239.0" width="44.6" height="6.9"/><rect x="551.2" y="239.0" width="44.6" height="6.9"/><rect x="131.7" y="239.1" width="44.6" height="6.9"/><rect x="191.5" y="239.1" width="44.6" height="6.9"/><rect x="371.2" y="239.1" width="44.6" height="6.9"/><rect x="430.9" y="239.1" width="44.6" height="6.9"/><rect x="240.7" y="250.0" width="6.9" height="44.5"/><rect x="480.1" y="250.0" width="6.9" height="44.5"/><rect x="181.0" y="250.0" width="6.9" height="44.5"/><rect x="420.4" y="250.0" width="6.9" height="44.5"/><rect x="121.0" y="250.2" width="6.9" height="44.5"/><rect x="360.5" y="250.2" width="6.9" height="44.5"/><rect x="191.5" y="298.6" width="44.6" height="6.9"/><rect x="430.9" y="298.6" width="44.6" height="6.9"/><rect x="131.6" y="298.8" width="44.6" height="6.9"/><rect x="371.0" y="298.8" width="44.6" height="6.9"/><rect x="240.7" y="309.6" width="6.9" height="44.5"/><rect x="480.1" y="309.6" width="6.9" height="44.5"/><rect x="180.8" y="309.7" width="6.9" height="44.5"/><rect x="420.2" y="309.7" width="6.9" height="44.5"/><rect x="121.0" y="309.7" width="6.9" height="44.5"/><rect x="360.5" y="309.7" width="6.9" height="44.5"/><rect x="251.5" y="358.4" width="44.6" height="6.9"/><rect x="311.2" y="358.4" width="44.6" height="6.9"/><rect x="131.6" y="358.4" width="44.6" height="6.9"/><rect x="191.3" y="358.4" width="44.6" height="6.9"/><rect x="371.0" y="358.4" width="44.6" height="6.9"/><rect x="430.7" y="358.4" width="44.6" height="6.9"/><rect x="360.4" y="369.3" width="6.9" height="44.5"/><rect x="300.7" y="369.3" width="6.9" height="44.5"/><rect x="240.8" y="369.5" width="6.9" height="44.5"/><rect x="311.2" y="417.9" width="44.6" height="6.9"/><rect x="251.3" y="418.1" width="44.6" height="6.9"/><rect x="10.7" y="418.4" width="44.6" height="6.9"/><rect x="70.4" y="418.4" width="44.6" height="6.9"/><rect x="360.4" y="428.9" width="6.9" height="44.5"/><rect x="300.5" y="429.0" width="6.9" height="44.5"/><rect x="240.8" y="429.0" width="6.9" height="44.5"/><rect x="119.7" y="429.3" width="6.9" height="44.5"/><rect x="59.9" y="429.3" width="6.9" height="44.5"/><rect x="0.0" y="429.5" width="6.9" height="44.5"/></svg>
@@ -527,7 +526,7 @@
                 <li><a href="/#faq">FAQ</a></li>
                 <li><a href="mailto:admin@wololabs.com">Contacto</a></li>
                 <li>
-                  <a href="/descargar/">
+                  <a href="/ecosistema/#app">
                     Descargar la app
                   </a>
                 </li>
@@ -547,7 +546,7 @@
       </div>
     </footer>
 
-    <script src="/script.js" defer></script>
-    <script src="/atlas3d.js" defer></script>
+    <script src="/script.js?v=20261021-21" defer></script>
+    <script src="/atlas3d.js?v=20261021-21" defer></script>
   </body>
 </html>

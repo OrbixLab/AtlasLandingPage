@@ -26,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles.css?v=20261021-21" />
   </head>
   <body>
     <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
@@ -41,6 +41,7 @@
         </button>
         <nav class="topbar__nav" id="nav-principal" data-nav aria-label="Navegación principal">
           <a href="/">Producto</a>
+          <a href="/juegos/">Juegos</a>
           <a href="/ecosistema/">Ecosistema</a>
           <a href="/sobre-nosotros/" aria-current="page">Sobre nosotros</a>
         </nav>
@@ -78,7 +79,7 @@
           </h1>
 
           <div class="hero__foot hero__foot--split">
-            <a class="btn" href="/ecosistema/#plataforma">Explorar juegos</a>
+            <a class="btn" href="/juegos/">Explorar juegos</a>
             <a class="btn" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
           </div>
         </div>
@@ -295,60 +296,37 @@
         </div>
       </section>
 
-      <!-- ================= EQUIPO ================= -->
-      <section class="band band--yellow" id="equipo">
-        <div class="wrap reveal">
-          <p class="eyebrow">05. Nuestro equipo</p>
-
-          <div class="team">
-            <article>
-              <img src="/assets/graficos/equipo-disenadores.svg" alt="Diseñadores" width="230" height="180" loading="lazy" />
-            </article>
-            <article>
-              <img src="/assets/graficos/equipo-ingenieros.svg" alt="Ingenieros" width="230" height="180" loading="lazy" />
-            </article>
-            <article>
-              <img src="/assets/graficos/equipo-jugadores.svg" alt="Jugadores" width="230" height="180" loading="lazy" />
-            </article>
-          </div>
-
-          <div class="team-foot">
-            <p class="body-copy">
-              Atlas es desarrollado por un equipo multidisciplinario. Cada decisión de diseño, cada
-              línea de código y cada componente del hardware nace de una pregunta muy simple: ¿Esto
-              hace que jugar sea mejor? Creemos que las mejores ideas aparecen cuando el diseño, la
-              ingeniería y la imaginación trabajan juntos.
-            </p>
-            <img
-              src="/assets/logo-atlas64-dark.png"
-              alt="Atlas 64 — el mapa de mundos"
-              width="1400"
-              height="219"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= WOLO LABS ================= -->
+      <!-- ================= WOLO LABS =================
+           Incluye al equipo (antes era una sección aparte). -->
       <section class="band band--ink" id="wolo-labs">
         <div class="wrap split reveal">
           <div class="split__copy">
-            <p class="eyebrow">06. WOLO Labs</p>
+            <p class="eyebrow">05. WOLO Labs</p>
             <h2 class="display display--md">Donde las ideas<br />toman forma.</h2>
             <p class="body-copy">
-              Atlas es desarrollado por WOLO Labs, un laboratorio de innovación dedicado a crear
-              experiencias que combinan diseño, tecnología y creatividad. Nuestro objetivo no es
-              desarrollar un único producto.
+              Atlas es desarrollado por <strong>WOLO Labs</strong>, un laboratorio de innovación que crea
+              experiencias combinando diseño, tecnología y creatividad.
+            </p>
+
+            <ul class="wolo-team" role="list">
+              <li><img src="/assets/graficos/equipo-disenadores.svg" alt="Diseñadores" width="230" height="180" loading="lazy" /></li>
+              <li><img src="/assets/graficos/equipo-ingenieros.svg" alt="Ingenieros" width="230" height="180" loading="lazy" /></li>
+              <li><img src="/assets/graficos/equipo-jugadores.svg" alt="Jugadores" width="230" height="180" loading="lazy" /></li>
+            </ul>
+
+            <p class="body-copy">
+              Un equipo multidisciplinario donde cada decisión nace de una pregunta simple:
+              <strong>¿esto hace que jugar sea mejor?</strong>
             </p>
             <p class="body-copy">
-              Buscamos construir plataformas capaces de evolucionar junto con sus comunidades, donde
-              cada actualización, cada expansión y cada nuevo creador hagan que el ecosistema sea más
-              grande que el día anterior.
+              Buscamos construir plataformas que evolucionen junto con sus comunidades.
+              <strong>Atlas es el primer paso de esa visión.</strong>
             </p>
-            <p class="body-copy">Atlas representa el primer paso de esa visión.</p>
+            <p class="wolo-cta">
+              <a class="btn btn--solid" href="https://wololabs.com/" target="_blank" rel="noopener">Conocé WOLO Labs</a>
+            </p>
           </div>
-          <div class="split__media">
+          <div class="split__media wolo-media">
             <img
               src="/assets/wolo-moneda.jpg"
               alt="El isotipo de WOLO Labs grabado en relieve sobre metal"
@@ -361,7 +339,7 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer site-footer--compact">
       <svg class="footer-deco footer-deco--left-top" viewBox="0 0 471.9 323.9" fill="#f9b606" aria-hidden="true" focusable="false"><rect x="357.6" y="0.0" width="44.4" height="6.9"/><rect x="417.0" y="0.0" width="44.4" height="6.9"/><rect x="465.0" y="11.0" width="6.9" height="44.3"/><rect x="405.5" y="11.0" width="6.9" height="44.3"/><rect x="345.9" y="11.2" width="6.9" height="44.3"/><rect x="417.0" y="59.3" width="44.4" height="6.9"/><rect x="357.4" y="59.5" width="44.4" height="6.9"/><rect x="465.0" y="70.3" width="6.9" height="44.3"/><rect x="345.9" y="70.5" width="6.9" height="44.3"/><rect x="405.4" y="70.5" width="6.9" height="44.3"/><rect x="119.3" y="79.5" width="44.4" height="6.9"/><rect x="178.8" y="79.5" width="44.4" height="6.9"/><rect x="226.7" y="90.5" width="6.9" height="44.3"/><rect x="167.3" y="90.5" width="6.9" height="44.3"/><rect x="107.6" y="90.7" width="6.9" height="44.3"/><rect x="357.4" y="118.7" width="44.4" height="6.9"/><rect x="416.8" y="118.7" width="44.4" height="6.9"/><rect x="178.8" y="138.8" width="44.4" height="6.9"/><rect x="119.1" y="139.0" width="44.4" height="6.9"/><rect x="226.7" y="149.8" width="6.9" height="44.3"/><rect x="167.1" y="150.0" width="6.9" height="44.3"/><rect x="107.6" y="150.0" width="6.9" height="44.3"/><rect x="0.2" y="198.2" width="44.4" height="6.9"/><rect x="59.6" y="198.2" width="44.4" height="6.9"/><rect x="238.4" y="198.2" width="44.4" height="6.9"/><rect x="297.9" y="198.2" width="44.4" height="6.9"/><rect x="119.1" y="198.2" width="44.4" height="6.9"/><rect x="178.6" y="198.2" width="44.4" height="6.9"/><rect x="48.1" y="209.2" width="6.9" height="44.3"/><rect x="107.6" y="209.2" width="6.9" height="44.3"/><rect x="286.4" y="209.2" width="6.9" height="44.3"/><rect x="345.9" y="209.2" width="6.9" height="44.3"/><rect x="226.8" y="209.4" width="6.9" height="44.3"/><rect x="59.6" y="257.5" width="44.4" height="6.9"/><rect x="297.9" y="257.5" width="44.4" height="6.9"/><rect x="0.0" y="257.7" width="44.4" height="6.9"/><rect x="238.3" y="257.7" width="44.4" height="6.9"/><rect x="107.6" y="268.5" width="6.9" height="44.3"/><rect x="345.9" y="268.5" width="6.9" height="44.3"/><rect x="48.0" y="268.7" width="6.9" height="44.3"/><rect x="226.8" y="268.7" width="6.9" height="44.3"/><rect x="286.2" y="268.7" width="6.9" height="44.3"/><rect x="0.0" y="317.0" width="44.4" height="6.9"/><rect x="59.4" y="317.0" width="44.4" height="6.9"/><rect x="238.3" y="317.0" width="44.4" height="6.9"/><rect x="297.7" y="317.0" width="44.4" height="6.9"/></svg>
       <svg class="footer-deco footer-deco--left-bottom" viewBox="0 0 114.5 114.8" fill="#f9b606" aria-hidden="true" focusable="false"><rect x="0.2" y="0.0" width="44.4" height="6.9"/><rect x="59.6" y="0.0" width="44.4" height="6.9"/><rect x="107.6" y="11.0" width="6.9" height="44.3"/><rect x="48.1" y="11.0" width="6.9" height="44.3"/><rect x="59.6" y="59.3" width="44.4" height="6.9"/><rect x="0.0" y="59.5" width="44.4" height="6.9"/><rect x="107.6" y="70.3" width="6.9" height="44.3"/><rect x="48.0" y="70.5" width="6.9" height="44.3"/></svg>
       <svg class="footer-deco footer-deco--right" viewBox="0 0 607.5 474.0" fill="#f9b606" aria-hidden="true" focusable="false"><rect x="491.6" y="0.0" width="44.6" height="6.9"/><rect x="551.4" y="0.0" width="44.6" height="6.9"/><rect x="540.9" y="10.9" width="6.9" height="44.5"/><rect x="600.6" y="10.9" width="6.9" height="44.5"/><rect x="480.9" y="11.1" width="6.9" height="44.5"/><rect x="551.4" y="59.6" width="44.6" height="6.9"/><rect x="491.5" y="59.8" width="44.6" height="6.9"/><rect x="600.6" y="70.5" width="6.9" height="44.5"/><rect x="480.9" y="70.7" width="6.9" height="44.5"/><rect x="540.7" y="70.7" width="6.9" height="44.5"/><rect x="491.5" y="119.3" width="44.6" height="6.9"/><rect x="551.2" y="119.3" width="44.6" height="6.9"/><rect x="491.6" y="119.7" width="44.6" height="6.9"/><rect x="551.4" y="119.7" width="44.6" height="6.9"/><rect x="600.6" y="130.7" width="6.9" height="44.5"/><rect x="540.9" y="130.7" width="6.9" height="44.5"/><rect x="480.9" y="130.8" width="6.9" height="44.5"/><rect x="551.4" y="179.3" width="44.6" height="6.9"/><rect x="491.5" y="179.5" width="44.6" height="6.9"/><rect x="600.6" y="190.2" width="6.9" height="44.5"/><rect x="540.7" y="190.4" width="6.9" height="44.5"/><rect x="480.9" y="190.4" width="6.9" height="44.5"/><rect x="491.5" y="239.0" width="44.6" height="6.9"/><rect x="551.2" y="239.0" width="44.6" height="6.9"/><rect x="131.7" y="239.1" width="44.6" height="6.9"/><rect x="191.5" y="239.1" width="44.6" height="6.9"/><rect x="371.2" y="239.1" width="44.6" height="6.9"/><rect x="430.9" y="239.1" width="44.6" height="6.9"/><rect x="240.7" y="250.0" width="6.9" height="44.5"/><rect x="480.1" y="250.0" width="6.9" height="44.5"/><rect x="181.0" y="250.0" width="6.9" height="44.5"/><rect x="420.4" y="250.0" width="6.9" height="44.5"/><rect x="121.0" y="250.2" width="6.9" height="44.5"/><rect x="360.5" y="250.2" width="6.9" height="44.5"/><rect x="191.5" y="298.6" width="44.6" height="6.9"/><rect x="430.9" y="298.6" width="44.6" height="6.9"/><rect x="131.6" y="298.8" width="44.6" height="6.9"/><rect x="371.0" y="298.8" width="44.6" height="6.9"/><rect x="240.7" y="309.6" width="6.9" height="44.5"/><rect x="480.1" y="309.6" width="6.9" height="44.5"/><rect x="180.8" y="309.7" width="6.9" height="44.5"/><rect x="420.2" y="309.7" width="6.9" height="44.5"/><rect x="121.0" y="309.7" width="6.9" height="44.5"/><rect x="360.5" y="309.7" width="6.9" height="44.5"/><rect x="251.5" y="358.4" width="44.6" height="6.9"/><rect x="311.2" y="358.4" width="44.6" height="6.9"/><rect x="131.6" y="358.4" width="44.6" height="6.9"/><rect x="191.3" y="358.4" width="44.6" height="6.9"/><rect x="371.0" y="358.4" width="44.6" height="6.9"/><rect x="430.7" y="358.4" width="44.6" height="6.9"/><rect x="360.4" y="369.3" width="6.9" height="44.5"/><rect x="300.7" y="369.3" width="6.9" height="44.5"/><rect x="240.8" y="369.5" width="6.9" height="44.5"/><rect x="311.2" y="417.9" width="44.6" height="6.9"/><rect x="251.3" y="418.1" width="44.6" height="6.9"/><rect x="10.7" y="418.4" width="44.6" height="6.9"/><rect x="70.4" y="418.4" width="44.6" height="6.9"/><rect x="360.4" y="428.9" width="6.9" height="44.5"/><rect x="300.5" y="429.0" width="6.9" height="44.5"/><rect x="240.8" y="429.0" width="6.9" height="44.5"/><rect x="119.7" y="429.3" width="6.9" height="44.5"/><rect x="59.9" y="429.3" width="6.9" height="44.5"/><rect x="0.0" y="429.5" width="6.9" height="44.5"/></svg>
@@ -394,7 +372,7 @@
                 <li><a href="/#faq">FAQ</a></li>
                 <li><a href="mailto:admin@wololabs.com">Contacto</a></li>
                 <li>
-                  <a href="/descargar/">
+                  <a href="/ecosistema/#app">
                     Descargar la app
                   </a>
                 </li>
@@ -414,6 +392,6 @@
       </div>
     </footer>
 
-    <script src="/script.js" defer></script>
+    <script src="/script.js?v=20261021-21" defer></script>
   </body>
 </html>

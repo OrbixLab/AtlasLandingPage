@@ -8,27 +8,34 @@ dependencias: HTML, un CSS y un JS.
 | Archivo | Página | Origen |
 | --- | --- | --- |
 | `index.html` | Producto | página 1 del diseño `ATL_Webfinal.pdf` |
+| `juegos.html` | Juegos | catálogo y una página por juego (`juegos/<slug>/`), generados con `python tools/build_juegos.py` desde `tools/juegos.json` (textos tomados de los `metadata.json` de la app) |
 | `ecosistema.html` | Ecosistema | página 2 del diseño |
 | `sobre-nosotros.html` | Sobre nosotros | página 3 del diseño |
 | `user-manual.html` | Manual de usuario y avisos de seguridad | contenido propio |
 | `privacy-policy.html` | Política de privacidad | contenido propio |
 | `delete-account-guide.html` | Guía para eliminar la cuenta | contenido propio |
-| `descargar.html` | Descarga del APK de AtlasHub | contenido propio |
 
 Cada página tiene además una copia idéntica en su carpeta (`ecosistema/index.html`,
 etc.) para que la URL funcione sin `.html`. **Al editar una página hay que copiarla
 a su carpeta**:
 
 ```sh
-for p in ecosistema sobre-nosotros descargar user-manual privacy-policy delete-account-guide; do
+for p in juegos ecosistema sobre-nosotros user-manual privacy-policy delete-account-guide; do
   cp "$p.html" "$p/index.html"
 done
 ```
 
+- Las páginas cargan `styles.css`, `script.js` y `atlas3d.js` con `?v=…`. **Al cambiar
+  alguno de esos archivos hay que subir ese número en todas las páginas**; si no, el
+  navegador puede seguir usando la versión vieja guardada.
 - `styles.css` — sistema de diseño completo (tokens, bandas, componentes y las
   páginas de documentación).
 - `script.js` — menú móvil y animación de entrada al hacer scroll.
 - `assets/` — fotos de producto, marca y favicons.
+- `assets/descargas/` — archivos que se bajan desde el sitio. `AtlasPiecesBase.stl` es la
+  rosca para diseñar fichas propias (23 × 23 × 11 mm); la baja el botón «Descargar modelo»
+  de «Tus fichas, nuestra base». Si se actualiza, conviene mantener el nombre y corregir
+  el peso que muestra el botón.
 
 ## Sistema de diseño
 
@@ -120,9 +127,7 @@ titulares claros caen sobre la remera negra y el buzo claro.
 El diseño se compone sobre un cuadro de 1920 px con márgenes laterales del 6 %,
 más ancho que `.wrap` (1400 px). Las secciones rehechas en la ronda de
 correcciones usan `.wrap-frame`, que reproduce ese margen: Nuestra historia,
-Nuestra misión, Principios, Filosofía y La app. «Un tablero, muchos mundos» va a
-ancho completo y mide todo en `cqi` (porcentaje del ancho del bloque) para que la
-esfera, los titulares y las etiquetas mantengan la composición a cualquier ancho.
+Nuestra misión, Principios, Filosofía y La app.
 
 ## Video del hero
 
@@ -145,50 +150,59 @@ El video se reproduce en bucle y sin sonido. El botón de la esquina lo pausa
 detenerlo) y, si el sistema pide reducir movimiento, arranca pausado mostrando
 el póster.
 
-## Descarga del APK
+## AtlasHub
 
-`descargar.html` sirve AtlasHub desde Google Drive: el archivo pesa 239 MB y no
-entra en el repositorio (GitHub rechaza más de 100 MB). El botón apunta al
-endpoint de descarga directa, con `confirm=t` para saltear la pantalla de aviso
-que Drive interpone en archivos grandes.
-
-Versión publicada: **1.0.0** · 239 MB · Android 10+ ·
-SHA-256 `a311993828888a054cdc17b836070ad944b7f8b1f5975fab6a18a5fbcd02c2b7`.
-
-Para publicar una versión nueva hay que actualizar, en `descargar.html`, el ID del
-enlace, el SHA-256 y los datos de versión y tamaño de la tarjeta.
-
-**Límite conocido**: Drive corta las descargas de un archivo durante 24 h al
-superar su cuota diaria, y devuelve un error a todo el mundo. Si el volumen
-crece, conviene mover el archivo a un alojamiento sin esa restricción.
+La app se descarga desde Google Play y, en iPhone, desde la beta de TestFlight. Los
+enlaces están en la sección «La app» de Ecosistema (`/ecosistema/#app`); el pie de
+todas las páginas lleva ahí. `descargar/index.html` ya no es una página: redirige a esa
+sección para que no se rompan enlaces ni códigos QR viejos.
 
 ## Escenas 3D del tablero
 
-`atlas3d.js` arma con Three.js (r128, desde jsDelivr) tres escenas en `index.html`.
+`atlas3d.js` arma con Three.js (r128, desde jsDelivr) cuatro escenas en `index.html`.
 Cada una es un bloque con `data-atlas3d`:
 
 | Valor | Sección | Qué muestra |
 | --- | --- | --- |
-| `maze` | En juego | Una ficha recorre el Maze y enciende las casillas |
-| `mesa` | Armá tu mesa | De 1 a 6 módulos (botones + y −) que arman un mapa de rol de ejemplo |
-| `modulo` | El módulo | El módulo con Atlas Core acoplado: una ficha se apoya, Atlas Core la lee y una ola de luz recorre el tablero |
+| `juegos` | ¿Qué es Atlas? | Tres juegos en ciclo: el Maze, con el laberinto escondido y un tesoro dorado en el centro (la ficha roja choca una pared y vuelve al inicio; la azul llega al tesoro), con las reglas en el epígrafe; una partida de ajedrez (1. e4 e5 2. Cf3) donde al levantar una pieza se encienden sus casillas posibles; y una arena de casillas grises con el rey en llamas en el centro y tres fichas rojas que lo atacan |
+| `mesa` | Módulos | De 1 a 6 módulos (botones + y −, arranca en 4) que arman un mapa de rol de ejemplo |
+| `modulo` | Atlas Core | Atlas Core espera separado, se acerca y se conecta al borde del módulo una sola vez (se enciende la fila del borde). La conexión arranca cuando se ve al menos el 60 % de la escena, y se repite si la escena sale de pantalla y vuelve. Después se repite: una ficha se apoya, la lámina blanca de Atlas Core se pone rosa al leerla, el tablero dice su nombre en una burbuja ("Red Piece!", `FICHA_NAMES`) y una ola de luz lo recorre. Cada vuelta lee una ficha de otro color |
 | `ficha` | Fichas | La ficha se enrosca en la base, se desenrosca, sale y entra otra de otro color |
 
-- El modelo es `assets/3d/atlas64_modulo.glb`, exportado de Fusion 360 (1,4 MB, en
+- Todos los modelos están en `assets/Models3D/`.
+- El modelo es `assets/Models3D/atlas64_modulo.glb`, exportado de Fusion 360 (1,4 MB, en
   metros, Y arriba). Cada casilla es un nodo `celda_x_y` con su propio material: x es
   la columna y y la fila desde el borde opuesto al botón y al USB-C.
 - Los colores del pogo pin, los contactos y el botón se cambian en el código
   (`RECOLOR`), no en el `.glb`. Las casillas apagadas son `#a9cbf9` y las encendidas,
   rosa `#ff4fa3`.
-- La ficha es `assets/3d/ficha_roja.glb` (comprimida con meshopt, por eso se carga
-  también `meshopt_decoder.js`) y la base, `assets/3d/base_con_rosca.glb`. Si la ficha
+- La ficha es `assets/Models3D/ficha_roja.glb` (comprimida con meshopt, por eso se carga
+  también `meshopt_decoder.js`) y la base, `assets/Models3D/base_con_rosca.glb`. Si la ficha
   no carga, el Maze usa una figura genérica hecha en código (`makePiece`). Los otros
   colores de ficha (`FICHA_COLORS`) se pintan en el código sobre el mismo modelo.
+- Las piezas de ajedrez son `assets/Models3D/ajedrez.glb`: un nodo por pieza (`Peon`,
+  `Torre`, `Caballero`, `Alfil`, `Reina`, `Rey`), comprimido con meshopt. Salen de los STL
+  de `WoloLabs/ChessSet` (en mm, Z arriba) con `tools/convert_chess.py`, que los pasa a
+  metros con Y arriba y los reduce a 3.000–7.000 caras; después
+  `gltf-transform meshopt ajedrez_raw.glb ajedrez.glb`. El color de cada bando se pone
+  en el código. El caballo del modelo mira hacia −x.
 - Atlas Core es `assets/Models3D/modulo_nfc.glb`, con el mismo origen que el módulo:
   cargado en 0,0,0 queda acoplado al borde del USB-C.
-- Three.js y el modelo se descargan sólo cuando una escena se acerca a la pantalla.
-  Sin WebGL queda la imagen de respaldo que trae cada bloque.
-- Todas usan una vista isométrica fija, sin giro.
+- Three.js y los modelos se descargan apenas termina de cargar la página. Mientras
+  tanto cada bloque muestra un loader de su mismo tamaño con el porcentaje descargado
+  (`NEEDS` dice qué modelos espera cada escena), y la escena aparece recién cuando
+  tiene todo. Sin WebGL queda la imagen de respaldo que trae cada bloque.
+- Las secciones con `band--fit` ocupan una pantalla y su contenido entra entero debajo
+  de la barra (probado en 1366 × 768, 1440 × 900 y 390 × 844). En el celular, Cómo
+  funciona y la caja pasan a ser carruseles horizontales. Los que llevan `data-autoplay`
+  (la caja) avanzan solos cada 2,5 s mientras están a la vista y se frenan al tocarlos.
+- Las secciones con `data-enter` tienen el título arriba (`.sec-head`) y una entrada
+  animada: el título se enciende en 8 columnas, como las casillas del tablero, y
+  después aparece el resto (`.enter-body`). `script.js` agrega `.is-in` al llegar a la
+  sección. Sin JavaScript o con movimiento reducido, todo está visible desde el inicio.
+- Todas usan una vista isométrica fija, sin giro, y corren a `SPEED` (1,5) veces la
+  velocidad de su guion. `view.zoom` acerca la cámara en cada escena y
+  `view.mobileZoom` la acerca más en el celular, donde las escenas van de borde a borde.
 
 ## Ver el sitio en local
 
