@@ -1,0 +1,334 @@
+[
+  {
+    "slug": "role-mapper",
+    "title": "Role Mapper",
+    "font": "MedievalSharp",
+    "cover": "role-mapper.webp",
+    "cover_w": 597,
+    "cover_h": 800,
+    "hero": "hero/role-mapper.webp",
+    "hero_w": 971,
+    "hero_h": 1300,
+    "credit": "Herramienta para juegos de rol",
+    "players_min": 0,
+    "players_max": 0,
+    "duration": "Libre",
+    "difficulty": "Variable",
+    "tagline": "Creá los mapas de tus partidas de rol y controlá la sesión en vivo desde la app.",
+    "description": [
+      "Una herramienta para generar mapas de juegos de rol en el tablero Atlas 64. Permite crear mapas, editarlos y controlar la sesión en vivo."
+    ],
+    "features": [
+      "Generación de mapas",
+      "Control de la sesión en vivo",
+      "Eventos personalizados y efectos especiales"
+    ],
+    "rules": [],
+    "teaser": "Creá el mapa, llevalo al tablero y manejá la partida en vivo, con eventos y efectos que nadie ve venir.",
+    "teaser_meta": [
+      "Para quien dirige la partida",
+      "Duración libre"
+    ]
+  },
+  {
+    "slug": "ajedrez",
+    "title": "Ajedrez",
+    "font": "Bodoni Moda:wght@700",
+    "cover": "chess.webp",
+    "cover_w": 800,
+    "cover_h": 800,
+    "hero": "hero/ajedrez.webp",
+    "hero_w": 1254,
+    "hero_h": 1254,
+    "credit": "Con el motor Stockfish",
+    "players_min": 1,
+    "players_max": 2,
+    "duration": "10–60 min",
+    "difficulty": "Variable",
+    "tagline": "El clásico de siempre, contra un amigo o contra una IA que se adapta a tu nivel.",
+    "description": [
+      "Desafiá a la inteligencia artificial o enfrentate a un amigo en el clásico juego de estrategia. Con el motor Stockfish integrado, la IA se adapta a tu nivel, desde principiante hasta gran maestro."
+    ],
+    "features": [
+      "Motor Stockfish integrado",
+      "10 niveles de dificultad",
+      "Jugador contra IA y Jugador contra Jugador",
+      "Análisis de movimientos"
+    ],
+    "rules": [
+      "Mové las piezas según las reglas estándar del ajedrez.",
+      "El objetivo es dar jaque mate al rey rival.",
+      "En el modo Jugador contra Jugador se puede configurar el tiempo."
+    ],
+    "teaser": "El clásico de siempre, ahora sobre el tablero Atlas. Diez niveles de IA te esperan: ¿hasta cuál llegás?"
+  },
+  {
+    "slug": "maze",
+    "title": "Maze",
+    "font": "Cinzel:wght@700",
+    "note": "PENDIENTE: en la app el título es «Magic Maze» (también es el nombre de un juego de mesa existente); acá va el de la portada.",
+    "cover": "maze.webp",
+    "cover_w": 800,
+    "cover_h": 800,
+    "hero": "hero/maze.webp",
+    "hero_w": 1254,
+    "hero_h": 1254,
+    "credit": "El laberinto del dios fragmentado",
+    "players_min": 2,
+    "players_max": 2,
+    "duration": "5–15 min",
+    "difficulty": "Fácil",
+    "tagline": "Un laberinto vivo de paredes invisibles. Reuní los cinco fragmentos del tesoro antes que tu rival.",
+    "description": [
+      "Hace eras, un dios antiguo selló su tesoro para que no cayera en manos indignas. No lo escondió en cofres ni cámaras, sino en un laberinto vivo, donde las paredes no se ven y el camino cambia con la voluntad divina. El tesoro fue dividido en cinco fragmentos sagrados. Solo quien logre reunirlos podrá reclamar el favor del dios."
+    ],
+    "features": [
+      "Castiga a quienes avanzan sin cuidado",
+      "Reescribe sus pasillos cuando lo perturban",
+      "Múltiples laberintos"
+    ],
+    "rules": [
+      "Cada jugador empieza en una esquina del laberinto.",
+      "Reuní los 5 fragmentos del tesoro para ganar.",
+      "Evitá las paredes o volvés al inicio.",
+      "Juntá poderes especiales que te ayudan en la búsqueda."
+    ],
+    "teaser": "Las paredes no se ven. Un paso en falso y volvés al inicio. ¿Quién junta primero los cinco fragmentos?"
+  },
+  {
+    "slug": "amazonas",
+    "title": "Amazonas",
+    "font": "Cinzel Decorative:wght@700",
+    "cover": "amazonas.webp",
+    "cover_w": 582,
+    "cover_h": 800,
+    "hero": "hero/amazonas.webp",
+    "hero_w": 1900,
+    "hero_h": 1036,
+    "credit": "Creado por Walter Zamkauskas",
+    "players_min": 1,
+    "players_max": 2,
+    "duration": "10–30 min",
+    "difficulty": "Variable",
+    "tagline": "Mové una Amazona, dispará una flecha y achicá el territorio. Pierde quien se queda sin jugadas.",
+    "description": [
+      "Estrategia abstracta pura, inventada por el argentino Walter Zamkauskas en 1988 y adaptada al tablero Atlas 64. Cada jugador comanda cuatro Amazonas que se mueven como la reina del ajedrez y, después de cada movimiento, disparan una flecha que bloquea una casilla para siempre. El territorio se achica turno a turno y pierde quien se quede sin jugadas: los empates son imposibles."
+    ],
+    "features": [
+      "Jugador contra jugador",
+      "Contra la IA en tres niveles: Principiante, Intermedio y Experto",
+      "IA con búsqueda Monte Carlo (MCTS)",
+      "Tablero de 8×8, adaptado del original de 10×10",
+      "La partida se cierra sola cuando los territorios quedan aislados"
+    ],
+    "rules": [
+      "Cada jugador tiene 4 Amazonas. Las Blancas mueven primero y luego se alternan los turnos.",
+      "Cada turno tiene dos partes obligatorias e inseparables: mover una Amazona y disparar una flecha.",
+      "Las Amazonas se mueven como la reina del ajedrez: en línea recta u oblicua, cualquier cantidad de casillas vacías, sin saltar Amazonas ni flechas.",
+      "Después de moverse, la Amazona dispara una flecha desde su nueva posición con el mismo alcance de la reina. La casilla donde cae queda bloqueada para el resto de la partida.",
+      "Pierde el primer jugador que en su turno no pueda mover y disparar. No hay empates: gana el último en mover.",
+      "Si los territorios quedan aislados y ya no hay zonas en disputa, la partida se cierra sola y gana quien tenga más casillas disponibles."
+    ],
+    "teaser": "Cada jugada mueve una Amazona y clava una flecha. El tablero se achica… y alguien se queda sin salida."
+  },
+  {
+    "slug": "la-luz-mala",
+    "title": "La Luz Mala",
+    "font": "IM Fell English SC",
+    "note": "PENDIENTE: el metadata dice de 1 a 4 jugadores, pero sus características dicen «Un jugador».",
+    "cover": "la-luz-mala.webp",
+    "cover_w": 554,
+    "cover_h": 800,
+    "hero": "hero/la-luz-mala.webp",
+    "hero_w": 1859,
+    "hero_h": 1300,
+    "credit": "Creado por Luis Olcese",
+    "players_min": 1,
+    "players_max": 4,
+    "duration": "10–20 min",
+    "difficulty": "Media",
+    "tagline": "Los que la siguen no vuelven. Los que saben, la guían.",
+    "description": [
+      "Los que la siguen no vuelven. Los que saben, la guían. Un juego de puzzles lógicos: acomodá los objetos sobre el tablero para que la luz llegue a todas las guaridas."
+    ],
+    "features": [
+      "Puzzles lógicos",
+      "Niveles con generación procedimental"
+    ],
+    "rules": [
+      "Colocá los objetos antes de que pase la luz.",
+      "Hacé que la luz llegue a todas las guaridas.",
+      "Si choca contra un árbol o sale del tablero, se pierde."
+    ],
+    "teaser": "Una luz cruza el monte y no se detiene. Acomodá su camino antes de que pase… si te animás."
+  },
+  {
+    "slug": "pongol",
+    "title": "PONGol",
+    "font": "Silkscreen:wght@700",
+    "cover": "pongol.webp",
+    "cover_w": 800,
+    "cover_h": 800,
+    "hero": "hero/pongol.webp",
+    "hero_w": 1254,
+    "hero_h": 1254,
+    "credit": "Creado por Luis Olcese",
+    "players_min": 1,
+    "players_max": 4,
+    "duration": "5–15 min",
+    "difficulty": "Media",
+    "tagline": "Fútbol de mesa jugado con luces: armá paredes con fichas y desviá la pelota al arco rival.",
+    "description": [
+      "Fútbol de mesa jugado con luces. El balón es una luz amarilla que nunca deja de moverse por la cancha de 8×8. No manejás un jugador: apoyás fichas reales sobre el tablero para armar paredes y desviar la pelota hacia el arco rival.",
+      "Con árbitro electrónico, VAR y tarjetas: apurarte en levantar una ficha o meterte en la mitad del rival se paga caro."
+    ],
+    "features": [
+      "Contra la IA o 1 vs 1 en la misma mesa",
+      "Cuatro velocidades de balón: Lento, Normal, Rápido y Flash",
+      "Árbitro electrónico con VAR y tarjetas amarillas y rojas",
+      "Academia: tutorial de 5 lecciones para dominar los rebotes",
+      "Se juega apoyando fichas físicas sobre el tablero"
+    ],
+    "rules": [
+      "El objetivo es meter la luz amarilla en el arco del rival. Los arcos son la primera y la última fila del tablero, iluminadas en blanco.",
+      "Cada equipo tiene 2 fichas y solo puede apoyarlas en su propia mitad de la cancha.",
+      "Regla de los 3 segundos: al apoyar una ficha su LED se pone naranja y queda bloqueada. Recién cuando pasa a azul se puede levantar.",
+      "Rebotes: de frente la pelota vuelve por el mismo camino; si llega en diagonal contra el frente de la ficha se endereza; un roce de esquina la desvía sin frenarla; un puntazo justo en la punta la devuelve por donde vino; y dos fichas separadas por un hueco arman un pasillo por el que pasa derecho.",
+      "Amarilla: levantar la ficha antes de que el LED se ponga azul, invadir la mitad del rival o poner más fichas de las permitidas. Cada infracción pasa primero por el VAR.",
+      "Roja: la segunda amarilla del mismo equipo. El resto de la jugada se juega con una sola ficha.",
+      "Si un equipo se come la segunda roja, el rival recibe un gol por default.",
+      "Amnistía: cada gol convertido borra todas las tarjetas y devuelve las dos fichas a los dos equipos.",
+      "Antes del saque, una luz púrpura pulsante marca hacia dónde va a salir disparada la pelota. Se apaga cuando arranca la jugada.",
+      "Gana el primero que llega a 5 goles."
+    ],
+    "teaser": "La pelota es una luz que nunca frena y tus fichas son la defensa. El primero en meter cinco goles gana."
+  },
+  {
+    "slug": "estacion-lunar",
+    "title": "Estación Lunar",
+    "font": "Orbitron:wght@800",
+    "cover": "moon-station.webp",
+    "cover_w": 800,
+    "cover_h": 800,
+    "hero": "hero/estacion-lunar.webp",
+    "hero_w": 1254,
+    "hero_h": 1254,
+    "credit": "Engaño y roles ocultos",
+    "players_min": 3,
+    "players_max": 4,
+    "duration": "20–50 min",
+    "difficulty": "Media",
+    "tagline": "Una criatura se infiltró en la colonia lunar. Descubrí quién es antes de que contagie a todos.",
+    "description": [
+      "Somos científicos en una colonia lunar. En un recorrido de rutina encontramos a una persona desmayada y, desde que está con nosotros, empezaron a pasar cosas… Hay una criatura extraterrestre infiltrada, y puede que también un Boicoteador de otra colonia."
+    ],
+    "roles": [
+      [
+        "Científicos",
+        "matar a la Criatura con un Reactivo, que se prepara juntando 6 Componentes repartidos por el tablero."
+      ],
+      [
+        "Criatura",
+        "contagiar a todos los demás jugadores, o resistir hasta que terminen las rondas."
+      ],
+      [
+        "Boicoteador",
+        "sabotear la colonia hasta romper todas sus máquinas."
+      ]
+    ],
+    "features": [
+      "Tres mapas de 8×8: Zona Alpha, Corredor Delta y Núcleo Gamma",
+      "El Extraño, manejado por la app, completa la mesa cuando son impares",
+      "Los LEDs marcan paredes, máquinas, ductos y las casillas a las que se puede llegar",
+      "Minijuego de habilidad para reparar las máquinas",
+      "Asambleas con voto secreto",
+      "Tutorial guiado paso a paso"
+    ],
+    "rules": [
+      "Cada jugador ve su rol en secreto con el teléfono. Si son impares, se suma el Extraño, un personaje que se controla solo.",
+      "En su turno, cada jugador avanza tantas casillas como marque la Cordura.",
+      "Al pasar por un Componente, se recoge. Con 6 se obtiene un Reactivo.",
+      "Las máquinas se rompen por azar o por sabotaje. Para repararlas hacen falta dos jugadores junto a ellas.",
+      "Una vez por turno se puede convocar una Asamblea para votar quién es el Boicoteador o a quién inyectarle el Reactivo.",
+      "Cada 2 rondas, un informe revela cuántos tripulantes están contagiados, y la Cordura baja.",
+      "El juego incluye un tutorial interactivo que explica todo paso a paso, y se puede repetir desde el menú."
+    ],
+    "teaser": "Alguien en la colonia no es humano. Juntá componentes, convocá asambleas y desconfiá de todos."
+  },
+  {
+    "slug": "plagio-en-la-academia",
+    "title": "Plagio en la Academia",
+    "font": "Cormorant SC:wght@700",
+    "cover": "plagio.webp",
+    "cover_w": 800,
+    "cover_h": 600,
+    "cover_fit": "contain",
+    "hero": "hero/plagio-en-la-academia.webp",
+    "hero_w": 1734,
+    "hero_h": 1300,
+    "credit": "Deducción social",
+    "players_min": 3,
+    "players_max": 6,
+    "duration": "15–30 min",
+    "difficulty": "Media",
+    "tagline": "Los artistas conocen el mosaico secreto; los Farsantes improvisan. Descubrilos antes de la pincelada 50.",
+    "description": [
+      "Bienvenidos a la Real Academia de Artes Visuales. El Rector descubrió un escándalo: entre los nuevos alumnos hay infiltrados que falsificaron su portafolio. Para cuidar la reputación de la institución organizó una evaluación sorpresa: replicar un mosaico secreto. Los verdaderos artistas conocen el plano; los impostores tienen que improvisar cada pincelada para no ser expulsados."
+    ],
+    "features": [
+      "Roles ocultos: Prodigios contra Farsantes",
+      "Lienzo colectivo de 8×8 y paleta de pigmentos",
+      "Acusaciones y votaciones en cualquier momento",
+      "Límite de 50 pinceladas por partida"
+    ],
+    "rules": [
+      "Roles secretos según la cantidad de alumnos: con 3 o 4 jugadores hay 1 Farsante; con 5 o 6 hay 2. El resto son Prodigios, los artistas reales.",
+      "Inspección de portafolios: por turnos y en secreto, cada alumno toca la pantalla para ver su rol. Los Prodigios ven el Mosaico Secreto de 8×8; los Farsantes solo ven una advertencia, sin plano ni guía.",
+      "La evaluación se juega por turnos sobre un lienzo colectivo de 8×8. En tu turno elegí un color de la paleta y pintá una casilla.",
+      "Si sos Prodigio, poné el color exacto en la coordenada correcta según tu plano.",
+      "Si sos Farsante, disimulá: mirá dónde pintan los demás e imitá el patrón para que nadie sospeche.",
+      "Acusación formal: en cualquier momento un alumno puede llamar al Rector. Se detiene la pintura y todos votan por el sospechoso.",
+      "Ganan los Prodigios si expulsan a todos los Farsantes. Ganan los Farsantes si se acusa a un Prodigio inocente.",
+      "Límite de trazos: si el lienzo llega a 50 pinceladas sin una acusación exitosa, el examen termina y ganan los Farsantes."
+    ],
+    "teaser": "Todos pintan el mismo mosaico, pero no todos conocen el plano. ¿Descubrís al Farsante a tiempo?"
+  },
+  {
+    "slug": "pixel-blaster",
+    "title": "Pixel Blaster",
+    "font": "Press Start 2P",
+    "cover": "pixel-blaster.webp",
+    "cover_w": 800,
+    "cover_h": 800,
+    "hero": "hero/pixel-blaster.webp",
+    "hero_w": 1254,
+    "hero_h": 1254,
+    "credit": "Arcade",
+    "players_min": 1,
+    "players_max": 1,
+    "duration": "5–15 min",
+    "difficulty": "Media",
+    "tagline": "Siete piezas caen sin descanso. Completá filas y aguantá todo lo que puedas.",
+    "description": [
+      "Siete piezas de cuatro bloques caen sin descanso dentro del pozo y tu único trabajo es que no sobre lugar. Giralas, corrélas y clavalas para completar filas enteras de ocho bloques. Cuanto más limpiás, más rápido caen. La partida no se gana, se aguanta."
+    ],
+    "features": [
+      "7 piezas distintas, cada una con su color",
+      "Pozo de 8×16 con dos módulos, o de 8×8 con uno solo",
+      "Silueta guía y aviso de la próxima pieza",
+      "Bajada rápida y giro desde el pad del control",
+      "Niveles progresivos y récord de la sesión"
+    ],
+    "rules": [
+      "Las piezas caen de a una desde arriba del pozo. Movelas a izquierda y derecha, giralas y bajalas antes de que toquen fondo.",
+      "El pozo mide 8 columnas por 16 filas cuando hay dos módulos conectados. Con un solo módulo se achica a 8×8 para que la partida entre completa en el tablero.",
+      "Completá una fila entera de 8 bloques y la fila estalla: todo lo que quedaba arriba baja un casillero.",
+      "Una fila suma 100 puntos, dos suman 300, tres suman 500 y cuatro de una sola vez suman 800. El total se multiplica por el nivel en el que estés.",
+      "Cada 10 filas eliminadas subís un nivel y las piezas empiezan a caer más rápido.",
+      "La silueta tenue debajo de la pieza marca dónde va a aterrizar, y el indicador Next te adelanta cuál viene después.",
+      "La bajada rápida clava la pieza en el acto en la posición de la silueta.",
+      "La partida termina cuando entra una pieza nueva y ya no hay lugar para ella."
+    ],
+    "teaser": "Las piezas caen cada vez más rápido. Completá filas, aguantá y superá tu récord."
+  }
+]
