@@ -80,8 +80,6 @@ ld = {"@context": "https://schema.org", "@graph": [
         "url": SITE + "/",
         "logo": SITE + "/assets/logo-atlas64-dark.png",
         "email": "admin@wololabs.com",
-        "address": {"@type": "PostalAddress", "addressLocality": "Mendoza", "addressRegion": "Mendoza",
-                    "addressCountry": "AR"},
         "sameAs": ["https://www.instagram.com/atlas64_/", "https://www.youtube.com/@wololabs"],
     },
     {

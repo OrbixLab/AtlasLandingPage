@@ -162,6 +162,10 @@ button {
 .band--fade-yellow {
   background: linear-gradient(180deg, var(--paper-2) 0%, #efe4c4 45%, var(--yellow) 100%);
 }
+/* .band--fit pone display: flex, que le gana al hidden del navegador */
+.band[hidden] {
+  display: none;
+}
 .band--fade-yellow-up {
   background: linear-gradient(180deg, var(--yellow) 0%, #f5d98a 55%, var(--paper-2) 100%);
 }
