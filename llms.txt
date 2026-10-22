@@ -1,0 +1,44 @@
+# Atlas 64
+
+> Atlas es la primera consola de juegos de mesa: un único tablero que da vida a cientos de juegos y una tecnología que se encarga del resto. La desarrolla WOLO Labs. El tablero se maneja desde la app gratuita AtlasHub, funciona sin conexión a Internet y reconoce fichas y miniaturas con bases inteligentes intercambiables.
+
+Datos clave:
+
+- Un mismo tablero se reconfigura para cada juego: se elige el título en la app y el tablero se prepara solo.
+- Los módulos se unen para armar mesas más grandes; cada módulo es un tablero completo y se conectan solos por radiofrecuencia.
+- Las piezas usan bases inteligentes: se puede montar cualquier figura, incluso impresa en 3D, y el tablero la sigue reconociendo. El modelo de la base para diseñar fichas propias se descarga gratis desde el sitio.
+- Internet sólo hace falta para descargar juegos nuevos, sincronizar el perfil y recibir actualizaciones.
+- Edad recomendada: a partir de 13 años. No apto para menores de 3 años (piezas pequeñas).
+- Se compra en Aquí Hay Dragones: https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/
+
+## Páginas principales
+
+- [Producto](https://atlas-64.com/): qué es Atlas, cómo funciona, módulos, fichas, Atlas Core y preguntas frecuentes.
+- [Preguntas frecuentes](https://atlas-64.com/#faq): Internet, juegos incluidos, costo de la app, seguridad para niños.
+- [Juegos](https://atlas-64.com/juegos/): el catálogo con jugadores, duración y reglas de cada juego.
+- [Ecosistema](https://atlas-64.com/ecosistema/): la plataforma, la app AtlasHub (Google Play y TestFlight), el ecosistema creativo y la comunidad.
+- [Sobre nosotros](https://atlas-64.com/sobre-nosotros/): WOLO Labs, su historia, misión y equipo.
+
+## Juegos
+
+- [Role Mapper](https://atlas-64.com/juegos/role-mapper/): herramienta para crear mapas de partidas de rol y controlar la sesión en vivo desde la app.
+- [Ajedrez](https://atlas-64.com/juegos/ajedrez/): contra un amigo o contra una IA (motor Stockfish) que se adapta al nivel.
+- [Maze](https://atlas-64.com/juegos/maze/): laberinto de paredes invisibles; gana quien reúne primero los cinco fragmentos del tesoro.
+- [Amazonas](https://atlas-64.com/juegos/amazonas/): de Walter Zamkauskas. Mover una amazona, disparar una flecha y achicar el territorio.
+- [La Luz Mala](https://atlas-64.com/juegos/la-luz-mala/): de Luis Olcese. Puzzles lógicos para guiar la luz hasta todas las guaridas.
+- [PONGol](https://atlas-64.com/juegos/pongol/): de Luis Olcese. Fútbol de mesa con luces; se arman paredes con fichas.
+- [Estación Lunar](https://atlas-64.com/juegos/estacion-lunar/): engaño y roles ocultos en una colonia lunar.
+- [Plagio en la Academia](https://atlas-64.com/juegos/plagio-en-la-academia/): deducción social; descubrir a los Farsantes.
+- [Pixel Blaster](https://atlas-64.com/juegos/pixel-blaster/): arcade de piezas que caen; completar filas y aguantar.
+
+## Documentación
+
+- [Manual de usuario y avisos de seguridad](https://atlas-64.com/user-manual/): uso, batería, señales de radio, garantía.
+- [Política de privacidad](https://atlas-64.com/privacy-policy/)
+- [Eliminar la cuenta](https://atlas-64.com/delete-account-guide/)
+
+## Contacto
+
+- Email: admin@wololabs.com
+- Instagram: https://www.instagram.com/atlas64_/
+- YouTube: https://www.youtube.com/@wololabs

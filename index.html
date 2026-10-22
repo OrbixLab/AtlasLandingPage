@@ -8,15 +8,20 @@
       name="description"
       content="Atlas es la primera consola de juegos de mesa: un único tablero que da vida a cientos de juegos y una tecnología que se encarga del resto."
     />
-    <link rel="canonical" href="https://www.atlas-64.com/" />
+    <link rel="canonical" href="https://atlas-64.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Atlas — El mapa hacia infinitos mundos" />
     <meta
       property="og:description"
       content="La primera consola de juegos de mesa. Un tablero, infinitos juegos."
     />
-    <meta property="og:image" content="https://www.atlas-64.com/assets/cta-tablero.jpg" />
-    <meta property="og:url" content="https://www.atlas-64.com/" />
+    <meta property="og:image" content="https://atlas-64.com/assets/cta-tablero.jpg" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:url" content="https://atlas-64.com/" />
+    <meta property="og:site_name" content="Atlas" />
+    <meta property="og:locale" content="es_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f9b606" />
     <link rel="icon" href="/favicon.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -26,8 +31,150 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=20261021-21" />
+    <script src="/analytics.js?v=20261022-1" async></script>
+    <link rel="stylesheet" href="/styles.css?v=20261022-1" />
     <script>document.documentElement.classList.add("js")</script>
+    <script type="application/ld+json" id="ld-atlas">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://atlas-64.com/#org",
+          "name": "WOLO Labs",
+          "url": "https://atlas-64.com/",
+          "logo": "https://atlas-64.com/assets/logo-atlas64-dark.png",
+          "email": "admin@wololabs.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Mendoza",
+            "addressRegion": "Mendoza",
+            "addressCountry": "AR"
+          },
+          "sameAs": [
+            "https://www.instagram.com/atlas64_/",
+            "https://www.youtube.com/@wololabs"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://atlas-64.com/#web",
+          "name": "Atlas",
+          "url": "https://atlas-64.com/",
+          "inLanguage": "es",
+          "publisher": {
+            "@id": "https://atlas-64.com/#org"
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://atlas-64.com/#atlas",
+          "name": "Atlas 64",
+          "alternateName": "Atlas",
+          "description": "Atlas es la primera consola de juegos de mesa: un único tablero que da vida a cientos de juegos y una tecnología que se encarga del resto.",
+          "image": [
+            "https://atlas-64.com/assets/cta-tablero.jpg",
+            "https://atlas-64.com/assets/tablero.webp"
+          ],
+          "category": "Juegos de mesa",
+          "brand": {
+            "@type": "Brand",
+            "name": "Atlas"
+          },
+          "manufacturer": {
+            "@id": "https://atlas-64.com/#org"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/",
+            "priceCurrency": "ARS",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Aquí Hay Dragones"
+            }
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Necesito Internet para jugar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. El tablero y la app se comunican directamente entre sí, así que podés jugar sin conexión. Internet solo hace falta para descargar juegos nuevos, sincronizar tu perfil y recibir actualizaciones."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué juegos incluye Atlas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Atlas viene con una biblioteca de juegos nativos de autor: Amazonas desarrollado por Walter Zamkauskas y La Luz Mala y Pongol desarrollados por Luis Olcese. Con otros títulos como: Pixel Blaster, Maze, Ajedrez, Role Mapper y Plagio en la Academia. La biblioteca crece con cada actualización."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Necesito un tablero diferente para cada juego?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Ese es el punto de Atlas: un único tablero se reconfigura para cada juego. Elegís el título desde la app y el tablero se prepara solo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Puedo comprar nuevos juegos más adelante?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Los juegos nuevos, las expansiones y los accesorios se suman desde la app, sin cambiar de hardware."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Las miniaturas son intercambiables?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Las piezas usan bases inteligentes intercambiables: cambiás la figura y el tablero sigue reconociendo el personaje que le asignaste."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Puedo imprimir mis propias miniaturas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Podés montar tus propias figuras sobre las bases inteligentes de Atlas y usarlas en cualquier partida."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿La aplicación tiene costo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La app es gratuita y viene incluida con el tablero. Algunos juegos y expansiones pueden venderse por separado."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Necesito conocimientos técnicos para usar Atlas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. No hay que calibrar ni configurar nada: encendés el tablero, elegís un juego en la app y Atlas se ocupa del resto."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Es seguro para los niños?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Atlas está recomendado a partir de los 13 años y no es apto para menores de 3 años porque contiene piezas pequeñas. Antes de usarlo, leé el manual de usuario y sus advertencias de seguridad."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
@@ -546,7 +693,7 @@
       </div>
     </footer>
 
-    <script src="/script.js?v=20261021-21" defer></script>
-    <script src="/atlas3d.js?v=20261021-21" defer></script>
+    <script src="/script.js?v=20261022-1" defer></script>
+    <script src="/atlas3d.js?v=20261022-1" defer></script>
   </body>
 </html>

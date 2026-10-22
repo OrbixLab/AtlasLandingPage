@@ -14,7 +14,7 @@ import re
 from urllib.parse import quote
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITE = "https://www.atlas-64.com"
+SITE = "https://atlas-64.com"  # sin www: www redirige acá
 GAMES = json.loads((ROOT / "tools" / "juegos.json").read_text(encoding="utf-8"))
 E = html.escape
 
@@ -93,7 +93,12 @@ def meta(g, i):
     return f'<ul class="game-meta rise" style="--i:{i}">{li}</ul>'
 
 
-def head(title, desc, path, image, fonts):
+def json_ld(data):
+    # «</» cortaría el <script> si apareciera en algún texto
+    return json.dumps(data, ensure_ascii=False, indent=2).replace("</", "<\\/").replace("\n", "\n    ")
+
+
+def head(title, desc, path, image, image_w, image_h, fonts, ld):
     return f"""<!DOCTYPE html>
 <html lang="es">
   <head>
@@ -112,7 +117,12 @@ def head(title, desc, path, image, fonts):
       content="{E(desc)}"
     />
     <meta property="og:image" content="{SITE}{image}" />
+    <meta property="og:image:width" content="{image_w}" />
+    <meta property="og:image:height" content="{image_h}" />
     <meta property="og:url" content="{SITE}{path}" />
+    <meta property="og:site_name" content="Atlas" />
+    <meta property="og:locale" content="es_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f9b606" />
     <link rel="icon" href="/favicon.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -124,7 +134,11 @@ def head(title, desc, path, image, fonts):
     />
     <link href="{E(fonts)}" rel="stylesheet" />
     <script>document.documentElement.classList.add("js")</script>
+    <script src="/analytics.js?v={VERSION}" async></script>
     <link rel="stylesheet" href="/styles.css?v={VERSION}" />
+    <script type="application/ld+json">
+    {json_ld(ld)}
+    </script>
   </head>
   <body>
 """
@@ -340,7 +354,33 @@ for n, g in enumerate(GAMES):
 {I}</nav>'''
 
     extra = HEADS + "".join(r for r, _ in g.get("roles", [])) + g["teaser"] + "".join(play_meta(g))
-    h = head(f'{g["title"]} | Juegos | Atlas', g["tagline"], f"/juegos/{slug}/", f'/assets/Games/{g["cover"]}', fonts_url([g], extra))
+    url = f"{SITE}/juegos/{slug}/"
+    game_ld = {
+        "@type": "VideoGame",
+        "name": g["title"],
+        "url": url,
+        "description": " ".join(g["description"]),
+        "image": SITE + cover,
+        "inLanguage": "es",
+        "gamePlatform": "Atlas 64",
+    }
+    # «credit» es el autor («Creado por …») o, si no, una etiqueta de género
+    if g["credit"].startswith("Creado por "):
+        game_ld["author"] = {"@type": "Person", "name": g["credit"][len("Creado por "):]}
+    else:
+        game_ld["genre"] = g["credit"]
+    if g["players_max"]:
+        game_ld["numberOfPlayers"] = {"@type": "QuantitativeValue", "minValue": g["players_min"], "maxValue": g["players_max"]}
+    ld = {"@context": "https://schema.org", "@graph": [game_ld, {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Atlas", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Juegos", "item": SITE + "/juegos/"},
+            {"@type": "ListItem", "position": 3, "name": g["title"], "item": url},
+        ],
+    }]}
+    h = head(f'{g["title"]} | Juegos | Atlas', g["tagline"], f"/juegos/{slug}/", cover, g["cover_w"], g["cover_h"],
+             fonts_url([g], extra), ld)
     out_dir = ROOT / "juegos" / slug
     out_dir.mkdir(exist_ok=True)
     (out_dir / "index.html").write_text(page(h, main), encoding="utf-8")

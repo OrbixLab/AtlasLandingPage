@@ -318,6 +318,43 @@
     });
   }
 
+  // Medición: los clics que importan van a GA4 y Clarity (analytics.js define
+  // window.atlasTrack; si no cargó o no tiene IDs, esto no hace nada).
+  var track = function (name, params) {
+    if (window.atlasTrack) window.atlasTrack(name, params);
+  };
+
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest && event.target.closest("a[href]");
+    if (!link) return;
+    var href = link.getAttribute("href");
+    var where = { link_text: link.textContent.trim().slice(0, 60), page: location.pathname };
+
+    if (href.indexOf("aquihaydragones.com.ar") !== -1) {
+      track("click_comprar", where);
+    } else if (href.indexOf("AtlasPiecesBase.stl") !== -1) {
+      track("descargar_stl", where);
+    } else if (/instagram\.com|youtube\.com|tiktok\.com|discord\.|linkedin\.com|x\.com/.test(href)) {
+      track("click_social", { network: link.hostname.replace(/^www\./, ""), page: location.pathname });
+    } else if (/play\.google\.com|testflight\.apple\.com|apps\.apple\.com/.test(href)) {
+      track("click_app", { store: link.hostname, page: location.pathname });
+    } else if (link.closest(".lib-card")) {
+      track("click_juego", { game: href.split("/").filter(Boolean).pop() });
+    }
+  });
+
+  // «toggle» no burbujea: se escucha en captura para abarcar todos los <details>
+  document.addEventListener(
+    "toggle",
+    function (event) {
+      var details = event.target;
+      if (!details.open || !details.closest || !details.closest(".faq")) return;
+      var summary = details.querySelector("summary");
+      track("faq_open", { question: summary ? summary.textContent.trim() : "" });
+    },
+    true
+  );
+
   // Animación de entrada
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var items = document.querySelectorAll(".reveal");
