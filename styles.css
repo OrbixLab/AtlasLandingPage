@@ -51,6 +51,10 @@
   --line: rgba(29, 29, 29, 0.16);
   --line-on-dark: rgba(242, 242, 242, 0.18);
 
+  /* Esqueletos de carga: el gris y el brillo que lo recorre */
+  --skel: #e2e2e2;
+  --skel-shine: #f1f1f1;
+
   /* Tipografías del diseño. Mientras no estén los archivos en assets/fonts/
      cada pila cae en su sustituto de Google Fonts (ver assets/fonts/README.md).
        --font-display      → Brillante Var: titulares, antetítulos y botones
@@ -1030,6 +1034,8 @@ h3 {
     var(--yellow) 100%
   );
   color: var(--text-on-dark);
+  --skel: rgba(255, 255, 255, 0.07);
+  --skel-shine: rgba(255, 255, 255, 0.16);
 }
 
 /* Titular y mapa a la izquierda (47 % del cuadro), teléfonos a la derecha */
@@ -2652,8 +2658,26 @@ h3 {
   height: 100%;
   object-fit: contain;
 }
-.stage3d.is-loading .stage3d__fallback,
-.stage3d.is-ready .stage3d__fallback {
+/* Con JavaScript la foto queda oculta desde el primer cuadro (si dependiera de
+   .is-loading, se vería un instante antes de que arranque atlas3d.js) y sólo
+   aparece si la escena no puede armarse. */
+.js .stage3d:not(.is-fallback) .stage3d__fallback {
+  visibility: hidden;
+}
+/* El fondo del loader va en la escena misma, así ocupa su lugar desde el primer
+   cuadro, antes de que atlas3d.js agregue el loader. */
+.js .stage3d::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.js .stage3d.is-ready::before,
+.js .stage3d.is-fallback::before {
+  opacity: 0;
   visibility: hidden;
 }
 
@@ -2712,8 +2736,6 @@ h3 {
   place-content: center;
   justify-items: center;
   gap: 1rem;
-  border-radius: var(--radius);
-  background: color-mix(in srgb, currentColor 6%, transparent);
   transition: opacity 0.4s ease, visibility 0s linear 0.4s;
 }
 .stage3d.is-ready .stage3d__loader,
@@ -3571,17 +3593,68 @@ h3 {
   .feat__slide.is-active .rise {
     animation: g-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(0.2s + var(--i, 0) * 0.1s) both;
   }
-  .js [data-enter] .rise,
-  .js .library[data-enter] .lib-card {
+  .js [data-enter] .rise {
     opacity: 0;
   }
-  .js [data-enter].is-in .rise,
-  .js .library[data-enter].is-in .lib-card {
+  .js [data-enter].is-in .rise {
     opacity: 1;
     animation: g-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(0.15s + var(--i, 0) * 0.09s) both;
   }
-  .js .library[data-enter].is-in .lib-card {
-    animation-delay: calc(0.6s + min(var(--i, 0), 6) * 0.08s);
+
+  /* Las tarjetas del catálogo están desde el principio, como esqueleto: la
+     portada late en gris (ver «Esqueletos de carga») y cada texto es una barra
+     de su tamaño. Cuando la sección entra, los textos aparecen de a una tarjeta. */
+  .js .library[data-enter] :is(.lib-card__label, .lib-card__title, .lib-card__tagline) {
+    transition: color 0.5s ease, background-color 0.5s ease;
+    transition-delay: calc(0.3s + min(var(--i, 0), 6) * 0.08s);
+  }
+  .js .library[data-enter]:not(.is-in) :is(.lib-card__label, .lib-card__title, .lib-card__tagline) {
+    color: transparent;
+    background-color: var(--skel);
+    border-radius: 0.3em;
+  }
+  .js .library[data-enter]:not(.is-in) :is(.lib-card__label, .lib-card__title) {
+    width: fit-content;
+  }
+}
+
+/* ----- Esqueletos de carga -----
+   Mientras una imagen no llegó, su recuadro late en gris; cuando llega, aparece
+   con un fundido. script.js marca cada imagen con .is-loaded al terminar; acá se
+   eligen los recuadros que llevan esqueleto. La imagen pendiente se oculta porque
+   el navegador dibuja encima su alt y un ícono de imagen rota.
+   Los colores son --skel y --skel-shine (en :root y en las bandas oscuras). */
+.app-media {
+  position: relative;
+}
+.js .lib-card__art > img:last-child {
+  transition: transform 0.5s ease, opacity 0.4s ease;
+}
+.js .app-media img {
+  transition: opacity 0.4s ease;
+}
+.js :is(.lib-card__art, .app-media) img:not(.is-loaded) {
+  opacity: 0;
+}
+.js :is(.lib-card__art, .app-media):has(img:not(.is-loaded))::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(100deg, var(--skel) 40%, var(--skel-shine) 50%, var(--skel) 60%) var(--skel);
+  background-size: 300% 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js :is(.lib-card__art, .app-media):has(img:not(.is-loaded))::before {
+    animation: skel-pulse 1.6s linear infinite;
+  }
+}
+@keyframes skel-pulse {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
   }
 }
 

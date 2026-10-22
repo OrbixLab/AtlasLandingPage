@@ -318,6 +318,20 @@
     });
   }
 
+  // Esqueletos de carga: cada imagen se marca con .is-loaded cuando termina (o
+  // falla), y el CSS saca el gris que late detrás de las que lo llevan.
+  Array.prototype.forEach.call(document.images, function (img) {
+    var done = function () {
+      img.classList.add("is-loaded");
+    };
+    if (img.complete && img.naturalWidth) {
+      done();
+    } else {
+      img.addEventListener("load", done);
+      img.addEventListener("error", done);
+    }
+  });
+
   // Medición: los clics que importan van a GA4 y Clarity (analytics.js define
   // window.atlasTrack; si no cargó o no tiene IDs, esto no hace nada).
   var track = function (name, params) {
