@@ -18,6 +18,13 @@
   var THREE_URL = "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js";
   var GLTF_URL = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js";
   var MESHOPT_URL = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/meshopt_decoder.js";
+  // Huella de cada archivo del CDN: si el contenido cambia, el navegador no lo
+  // ejecuta. Al subir de versión de three hay que recalcularlas:
+  //   curl -s URL | openssl dgst -sha384 -binary | openssl base64 -A
+  var SRI = {};
+  SRI[THREE_URL] = "sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu";
+  SRI[GLTF_URL] = "sha384-fljlqkjWlmSFjkESkQvm77heIZpoWmXEOzlCA7kOpGUH+95Zk0yGfQieWM2q136E";
+  SRI[MESHOPT_URL] = "sha384-Ua4+miEfAhtQpWvzgEohUG5UfbDPgyuYVVT+sgb2QvRC3fjACMsy7LV3Zoxnv2xf";
   var MODEL_URL = "/assets/Models3D/atlas64_modulo.glb";
   var FICHA_URL = "/assets/Models3D/ficha_roja.glb"; // comprimido con meshopt
   var BASE_URL = "/assets/Models3D/base_con_rosca.glb";
@@ -50,30 +57,49 @@
 
   // ---------- Carga ----------
 
+  // Cada descarga se hace una vez y la comparten todas las escenas. Si falla
+  // (un corte de red durante la precarga, por ejemplo) se olvida, para que la
+  // escena que la pida después lo intente de nuevo en vez de heredar el error.
+  var pending = {};
+  function once(key, make) {
+    if (!pending[key]) {
+      var p = (pending[key] = make());
+      p.catch(function () {
+        if (pending[key] === p) delete pending[key];
+      });
+    }
+    return pending[key];
+  }
+
   function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-      var s = document.createElement("script");
-      s.src = src;
-      s.onload = resolve;
-      s.onerror = function () {
-        reject(new Error("No se pudo cargar " + src));
-      };
-      document.head.appendChild(s);
+    return once("js " + src, function () {
+      return new Promise(function (resolve, reject) {
+        var s = document.createElement("script");
+        s.src = src;
+        if (SRI[src]) {
+          s.integrity = SRI[src];
+          s.crossOrigin = "anonymous";
+        }
+        s.onload = resolve;
+        s.onerror = function () {
+          s.remove();
+          reject(new Error("No se pudo cargar " + src));
+        };
+        document.head.appendChild(s);
+      });
     });
   }
 
-  var libPromise = null;
   function lib() {
-    return (
-      libPromise ||
-      (libPromise = loadScript(THREE_URL)
+    return once("lib", function () {
+      return loadScript(THREE_URL)
         .then(function () {
           return loadScript(GLTF_URL);
         })
         .then(function () {
           return loadScript(MESHOPT_URL);
-        }))
-    );
+        });
+    });
   }
 
   // Bytes descargados de cada modelo: url → [cargado, total].
@@ -88,11 +114,9 @@
 
   // Carga un .glb en centímetros (los modelos vienen en metros) con sombras.
   // Cada archivo se descarga una vez; quien lo usa en una escena lo clona.
-  var glbs = {};
   function glb(url) {
-    return (
-      glbs[url] ||
-      (glbs[url] = lib().then(function () {
+    return once("glb " + url, function () {
+      return lib().then(function () {
         return new Promise(function (resolve, reject) {
           var loader = new THREE.GLTFLoader();
           if (window.MeshoptDecoder) loader.setMeshoptDecoder(window.MeshoptDecoder);
@@ -118,8 +142,8 @@
             reject
           );
         });
-      }))
-    );
+      });
+    });
   }
 
   function ficha() {
@@ -137,17 +161,15 @@
     });
   }
 
-  var modelPromise = null;
   function model() {
-    return (
-      modelPromise ||
-      (modelPromise = glb(MODEL_URL).then(function (root) {
+    return once("model", function () {
+      return glb(MODEL_URL).then(function (root) {
         root.rotation.y = Math.PI; // el borde del botón y el USB-C, hacia la cámara
         recolor(root);
         root.updateMatrixWorld(true);
         return root;
-      }))
-    );
+      });
+    });
   }
 
   // ---------- Loader ----------
