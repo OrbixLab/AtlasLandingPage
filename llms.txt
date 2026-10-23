@@ -1,44 +1,70 @@
 # Atlas 64
 
-> Atlas es la primera consola de juegos de mesa: un único tablero que da vida a cientos de juegos y una tecnología que se encarga del resto. La desarrolla WOLO Labs. El tablero se maneja desde la app gratuita AtlasHub, funciona sin conexión a Internet y reconoce fichas y miniaturas con bases inteligentes intercambiables.
+> Atlas es la primera consola de juegos de mesa: un tablero modular con luces que reconoce las fichas que se apoyan encima y se transforma en cada juego. Se maneja desde la app gratuita Atlas HUB y la desarrolla WOLO Labs. Sirve para jugar rol (como Dungeons & Dragons), estrategia (ajedrez y Amazonas), juegos de luces y reflejos en familia o con amigos, y para crear y publicar juegos propios con Atlas Studio. Edad recomendada: desde 14 años.
 
-Datos clave:
+## Cómo funciona
 
-- Un mismo tablero se reconfigura para cada juego: se elige el título en la app y el tablero se prepara solo.
-- Los módulos se unen para armar mesas más grandes; cada módulo es un tablero completo y se conectan solos por radiofrecuencia.
-- Las piezas usan bases inteligentes: se puede montar cualquier figura, incluso impresa en 3D, y el tablero la sigue reconociendo. El modelo de la base para diseñar fichas propias se descarga gratis desde el sitio.
-- Internet sólo hace falta para descargar juegos nuevos, sincronizar el perfil y recibir actualizaciones.
-- Edad recomendada: a partir de 13 años. No apto para menores de 3 años (piezas pequeñas).
-- Se compra en Aquí Hay Dragones: https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/
+- **Un tablero, muchos juegos.** Se elige el juego en la app Atlas HUB (Android en Google Play, iPhone en TestFlight) y el tablero se configura solo: las luces marcan casillas, caminos, paredes y jugadas posibles. No hay que calibrar nada.
+- **Funciona sin Internet.** El tablero y la app se comunican directamente por Bluetooth. Internet solo hace falta para descargar juegos nuevos, sincronizar el perfil y recibir actualizaciones.
+- **Modular.** Cada módulo es un tablero completo. Al acercar otro se conecta solo por radiofrecuencia, sin cables. Se pueden unir hasta 6 para armar mesas y mapas más grandes.
+- **Detecta las jugadas.** Atlas detecta cada movimiento y guía la partida con iluminación, para que los jugadores solo se concentren en jugar.
+
+## Fichas, bases inteligentes y Atlas Core
+
+- Cada ficha va enroscada sobre una **base inteligente** con un identificador único.
+- **Atlas Core**, un módulo NFC que se acopla al borde del tablero, lee la base que se le apoya y el tablero dice qué ficha es.
+- **Cada juego decide qué representa cada ficha**: un caballero, un alfil, un edificio, un personaje de rol.
+- **Las figuras son intercambiables**: se desenrosca una, se enrosca otra y la base sigue siendo la misma.
+- **Miniaturas propias**: se puede diseñar e imprimir en 3D cualquier figura con la rosca de la base. El modelo STL de la base se descarga gratis en https://atlas-64.com/#fichas y el tablero reconoce esas fichas como a cualquier otra.
+- La caja incluye: tablero Atlas, bases inteligentes, miniaturas, módulo NFC (Atlas Core), cable USB-C, porta celular y guía rápida.
+
+## Atlas Studio: crear juegos sin programar
+
+Atlas Studio permite crear juegos para Atlas sin saber programar:
+
+1. **Imagina**: le cuentas tu idea a un asistente de IA.
+2. **Crea**: Atlas Studio la convierte en un juego.
+3. **Prueba**: lo juegas en un tablero simulado o en tu teléfono.
+4. **Publica**: lo subes a la tienda de Atlas HUB.
+5. **Comparte**: otros jugadores lo descargan o lo compran.
+
+La tienda de Atlas HUB está abierta a creadores independientes, que pueden publicar sus juegos gratis o a la venta. Más información: https://atlas-64.com/ecosistema/#creadores. Guías para creadores: https://wololabs.com/guides.html
+
+## Para quién es Atlas
+
+- **Jugadores de rol (Dungeons & Dragons y similares).** Con **Role Mapper**, quien dirige la partida crea sus propios mapas, los lleva al tablero y controla la sesión en vivo desde el teléfono, generando eventos y efectos especiales. Tiene un modo de cámara para recorrer todo el mapa como si fuera un videojuego. Con los módulos de expansión (hasta 6) el mundo crece y se diseña como se quiera, y gracias a las fichas intercambiables cada jugador puede diseñar y usar su propia miniatura: Atlas la reconoce. Con Atlas Studio también se pueden crear aventuras y juegos propios.
+- **Jugadores de ajedrez y estrategia.** **Ajedrez** trae el motor Stockfish con 10 niveles de dificultad, desde principiante hasta gran maestro, análisis de movimientos y partidas contra otra persona con reloj configurable. **Amazonas** es estrategia abstracta argentina, con IA en tres niveles.
+- **Familias y grupos de amigos que quieren jugar juntos en la mesa, lejos de las pantallas.** La partida pasa sobre el tablero, con fichas físicas y luces; el teléfono solo se usa como control. Para dos: **Maze** (fácil, 5 a 15 minutos). Con luces y reflejos: **PONGol** (fútbol de mesa con luces) y **La Luz Mala** (puzzles). Para grupos de 3 a 6: **Estación Lunar** y **Plagio en la Academia** (roles ocultos y deducción). Recomendado desde 14 años; no apto para menores de 3 por las piezas pequeñas.
+- **Creadores y diseñadores de juegos.** Atlas Studio convierte una idea en un juego sin programar, y la tienda de Atlas HUB permite publicarlo y venderlo.
+- **Quienes imprimen en 3D o pintan miniaturas.** Cualquier figura con la rosca de la base se convierte en una ficha que el tablero reconoce.
+
+## Juegos
+
+- [Role Mapper](https://atlas-64.com/juegos/role-mapper/) — Herramienta para juegos de rol. herramienta, sin cantidad fija de jugadores, libre, dificultad variable. Creá los mapas de tus partidas de rol y controlá la sesión en vivo desde la app.
+- [Ajedrez](https://atlas-64.com/juegos/ajedrez/) — Con el motor Stockfish. 1 a 2 jugadores, 10–60 min, dificultad variable. El clásico de siempre, contra un amigo o contra una IA que se adapta a tu nivel.
+- [Maze](https://atlas-64.com/juegos/maze/) — El laberinto del dios fragmentado. 2 jugadores, 5–15 min, dificultad fácil. Un laberinto vivo de paredes invisibles. Reuní los cinco fragmentos del tesoro antes que tu rival.
+- [Amazonas](https://atlas-64.com/juegos/amazonas/) — Creado por Walter Zamkauskas. 1 a 2 jugadores, 10–30 min, dificultad variable. Mové una Amazona, dispará una flecha y achicá el territorio. Pierde quien se queda sin jugadas.
+- [La Luz Mala](https://atlas-64.com/juegos/la-luz-mala/) — Creado por Luis Olcese. 1 a 4 jugadores, 10–20 min, dificultad media. Los que la siguen no vuelven. Los que saben, la guían.
+- [PONGol](https://atlas-64.com/juegos/pongol/) — Creado por Luis Olcese. 1 a 4 jugadores, 5–15 min, dificultad media. Fútbol de mesa jugado con luces: armá paredes con fichas y desviá la pelota al arco rival.
+- [Estación Lunar](https://atlas-64.com/juegos/estacion-lunar/) — Engaño y roles ocultos. 3 a 4 jugadores, 20–50 min, dificultad media. Una criatura se infiltró en la colonia lunar. Descubrí quién es antes de que contagie a todos.
+- [Plagio en la Academia](https://atlas-64.com/juegos/plagio-en-la-academia/) — Deducción social. 3 a 6 jugadores, 15–30 min, dificultad media. Los artistas conocen el mosaico secreto; los Farsantes improvisan. Descubrilos antes de la pincelada 50.
+- [Pixel Blaster](https://atlas-64.com/juegos/pixel-blaster/) — Arcade. 1 jugador, 5–15 min, dificultad media. Siete piezas caen sin descanso. Completá filas y aguantá todo lo que puedas.
+
+Reglas completas de cada juego: https://atlas-64.com/llms-full.txt
 
 ## Páginas principales
 
 - [Producto](https://atlas-64.com/): qué es Atlas, cómo funciona, módulos, fichas, Atlas Core y preguntas frecuentes.
-- [Preguntas frecuentes](https://atlas-64.com/#faq): Internet, juegos incluidos, costo de la app, seguridad para niños.
+- [Preguntas frecuentes](https://atlas-64.com/#faq)
 - [Juegos](https://atlas-64.com/juegos/): el catálogo con jugadores, duración y reglas de cada juego.
-- [Ecosistema](https://atlas-64.com/ecosistema/): la plataforma, la app AtlasHub (Google Play y TestFlight), el ecosistema creativo y la comunidad.
+- [Ecosistema](https://atlas-64.com/ecosistema/): la app Atlas HUB, Atlas Studio y la tienda para creadores.
 - [Sobre nosotros](https://atlas-64.com/sobre-nosotros/): WOLO Labs, su historia, misión y equipo.
+- [Manual de usuario y avisos de seguridad](https://atlas-64.com/user-manual/)
+- [Versión completa, con las reglas de cada juego](https://atlas-64.com/llms-full.txt)
 
-## Juegos
+## Comprar y contacto
 
-- [Role Mapper](https://atlas-64.com/juegos/role-mapper/): herramienta para crear mapas de partidas de rol y controlar la sesión en vivo desde la app.
-- [Ajedrez](https://atlas-64.com/juegos/ajedrez/): contra un amigo o contra una IA (motor Stockfish) que se adapta al nivel.
-- [Maze](https://atlas-64.com/juegos/maze/): laberinto de paredes invisibles; gana quien reúne primero los cinco fragmentos del tesoro.
-- [Amazonas](https://atlas-64.com/juegos/amazonas/): de Walter Zamkauskas. Mover una amazona, disparar una flecha y achicar el territorio.
-- [La Luz Mala](https://atlas-64.com/juegos/la-luz-mala/): de Luis Olcese. Puzzles lógicos para guiar la luz hasta todas las guaridas.
-- [PONGol](https://atlas-64.com/juegos/pongol/): de Luis Olcese. Fútbol de mesa con luces; se arman paredes con fichas.
-- [Estación Lunar](https://atlas-64.com/juegos/estacion-lunar/): engaño y roles ocultos en una colonia lunar.
-- [Plagio en la Academia](https://atlas-64.com/juegos/plagio-en-la-academia/): deducción social; descubrir a los Farsantes.
-- [Pixel Blaster](https://atlas-64.com/juegos/pixel-blaster/): arcade de piezas que caen; completar filas y aguantar.
-
-## Documentación
-
-- [Manual de usuario y avisos de seguridad](https://atlas-64.com/user-manual/): uso, batería, señales de radio, garantía.
-- [Política de privacidad](https://atlas-64.com/privacy-policy/)
-- [Eliminar la cuenta](https://atlas-64.com/delete-account-guide/)
-
-## Contacto
-
+- Comprar Atlas: https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/
 - Email: admin@wololabs.com
 - Instagram: https://www.instagram.com/atlas64_/
 - YouTube: https://www.youtube.com/@wololabs

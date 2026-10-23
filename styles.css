@@ -906,6 +906,17 @@ h3 {
   margin-top: -0.6rem;
 }
 
+/* Los vínculos dentro de una respuesta se distinguen del texto */
+.faq__answer a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+}
+.faq__answer a:hover {
+  text-decoration-thickness: 2.5px;
+}
+
 /* --------------------------------------------------------------------------
    Banda CTA con foto
    -------------------------------------------------------------------------- */
@@ -1048,6 +1059,7 @@ h3 {
 
 /* Los teléfonos vienen recortados, sin caja detrás: 34 % del cuadro */
 .app-media {
+  position: relative; /* el esqueleto de carga se apoya acá */
   margin: 0;
   justify-self: center;
   width: 100%;
@@ -3618,15 +3630,85 @@ h3 {
   }
 }
 
+/* ----- Aviso de cookies (lo agrega analytics.js) -----
+   Flota abajo con los mismos márgenes que la barra de navegación. */
+.cookie-bar {
+  position: fixed;
+  left: clamp(0.6rem, 4.34vw, 5.2rem);
+  right: clamp(0.6rem, 4.34vw, 5.2rem);
+  bottom: clamp(0.6rem, 2.08vw, 2.5rem);
+  z-index: 70;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 1rem clamp(1rem, 2vw, 1.75rem);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--text-on-dark);
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.55);
+}
+.cookie-bar[hidden] {
+  display: none;
+}
+.cookie-bar__text {
+  flex: 1 1 28rem;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.cookie-bar__text a {
+  color: var(--yellow);
+}
+.cookie-bar__actions {
+  display: flex;
+  gap: 0.6rem;
+}
+.cookie-bar__btn {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: -0.025em;
+  padding: 0.6rem 1.35rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-on-dark);
+  background: transparent;
+  color: var(--text-on-dark);
+  cursor: pointer;
+  transition: background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+}
+.cookie-bar__btn:hover {
+  border-color: var(--text-on-dark);
+}
+.cookie-bar__btn--accept {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
+.cookie-bar__btn--accept:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+}
+.cookie-bar__btn:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+@media (max-width: 560px) {
+  .cookie-bar__actions {
+    width: 100%;
+  }
+  .cookie-bar__btn {
+    flex: 1;
+  }
+}
+
 /* ----- Esqueletos de carga -----
    Mientras una imagen no llegó, su recuadro late en gris; cuando llega, aparece
    con un fundido. script.js marca cada imagen con .is-loaded al terminar; acá se
    eligen los recuadros que llevan esqueleto. La imagen pendiente se oculta porque
    el navegador dibuja encima su alt y un ícono de imagen rota.
    Los colores son --skel y --skel-shine (en :root y en las bandas oscuras). */
-.app-media {
-  position: relative;
-}
 .js .lib-card__art > img:last-child {
   transition: transform 0.5s ease, opacity 0.4s ease;
 }

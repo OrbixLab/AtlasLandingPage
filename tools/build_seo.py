@@ -20,9 +20,12 @@ SITE = "https://atlas-64.com"  # sin www: www redirige acá
 GAMES = json.loads((ROOT / "tools" / "juegos.json").read_text(encoding="utf-8"))
 
 STORE = "https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/"
-# Precio en pesos para el Product de Google. None = no se publica (Google no
-# muestra el precio en los resultados, pero tampoco queda uno viejo si cambia).
+# Precio del Product de Google. Google exige precio (o reseñas) para aceptar un
+# Product, así que mientras PRICE sea None el producto no se declara en el JSON-LD
+# (Search Console lo marcaría como error crítico). Cuando el precio esté definido,
+# completarlo, por ejemplo PRICE = 250 y CURRENCY = "USD", y volver a correr.
 PRICE = None
+CURRENCY = "USD"
 
 # Ruta pública → archivo. Las que no están acá no van al sitemap (descargar/ es
 # una redirección con noindex).
@@ -66,11 +69,21 @@ faq = [{"@type": "Question", "name": text(q),
         "acceptedAnswer": {"@type": "Answer", "text": text(a)}}
        for q, a in re.findall(r"<summary>(.*?)</summary>\s*<p[^>]*>(.*?)</p>", faq_html, re.S)]
 
-offer = {"@type": "Offer", "url": STORE, "priceCurrency": "ARS",
-         "availability": "https://schema.org/InStock",
-         "seller": {"@type": "Organization", "name": "Aquí Hay Dragones"}}
-if PRICE:
-    offer["price"] = str(PRICE)
+product = {
+    "@type": "Product",
+    "@id": SITE + "/#atlas",
+    "name": "Atlas 64",
+    "alternateName": "Atlas",
+    "description": re.search(r'name="description"\s+content="([^"]*)"', index).group(1),
+    "image": [SITE + "/assets/cta-tablero.jpg", SITE + "/assets/tablero.webp"],
+    "category": "Juegos de mesa",
+    "audience": {"@type": "PeopleAudience", "suggestedMinAge": 14},
+    "brand": {"@type": "Brand", "name": "Atlas"},
+    "manufacturer": {"@id": SITE + "/#org"},
+    "offers": {"@type": "Offer", "url": STORE, "price": str(PRICE), "priceCurrency": CURRENCY,
+               "availability": "https://schema.org/InStock",
+               "seller": {"@type": "Organization", "name": "Aquí Hay Dragones"}},
+}
 
 ld = {"@context": "https://schema.org", "@graph": [
     {
@@ -90,18 +103,7 @@ ld = {"@context": "https://schema.org", "@graph": [
         "inLanguage": "es",
         "publisher": {"@id": SITE + "/#org"},
     },
-    {
-        "@type": "Product",
-        "@id": SITE + "/#atlas",
-        "name": "Atlas 64",
-        "alternateName": "Atlas",
-        "description": re.search(r'name="description"\s+content="([^"]*)"', index).group(1),
-        "image": [SITE + "/assets/cta-tablero.jpg", SITE + "/assets/tablero.webp"],
-        "category": "Juegos de mesa",
-        "brand": {"@type": "Brand", "name": "Atlas"},
-        "manufacturer": {"@id": SITE + "/#org"},
-        "offers": offer,
-    },
+    *([product] if PRICE else []),
     {"@type": "FAQPage", "mainEntity": faq},
 ]}
 
@@ -114,4 +116,46 @@ else:
     index = index.replace("  </head>", f"    {block}\n  </head>", 1)
 index_path.write_text(index, encoding="utf-8", newline="\n")
 
-print(f"listo: sitemap con {len(PAGES)} páginas y {len(faq)} preguntas en el JSON-LD")
+# ---------------------------------------------------------------- llms.txt
+# Resumen para asistentes de IA. El texto fijo está en tools/llms_base.md; los
+# juegos salen de juegos.json. llms.txt lleva una línea por juego y
+# llms-full.txt, además, la descripción y las reglas completas.
+
+def players(g):
+    if not g["players_max"]:
+        return "herramienta, sin cantidad fija de jugadores"
+    if g["players_min"] == g["players_max"]:
+        n = g["players_min"]
+        return f"{n} jugador" + ("es" if n > 1 else "")
+    return f'{g["players_min"]} a {g["players_max"]} jugadores'
+
+
+def game_line(g):
+    url = f"{SITE}/juegos/{g['slug']}/"
+    return (f"- [{g['title']}]({url}) — {g['credit']}. {players(g)}, {g['duration'].lower()}, "
+            f"dificultad {g['difficulty'].lower()}. {g['tagline']}")
+
+
+def game_full(g):
+    out = [f"### {g['title']}", "",
+           f"{g['credit']} · {players(g)} · {g['duration']} · dificultad {g['difficulty'].lower()} · "
+           f"{SITE}/juegos/{g['slug']}/", "", " ".join(g["description"]), ""]
+    if g["features"]:
+        out += ["Características:", *[f"- {f}" for f in g["features"]], ""]
+    if g.get("roles"):
+        out += ["Roles:", *[f"- **{r}**: {t}" for r, t in g["roles"]], ""]
+    if g["rules"]:
+        out += ["Cómo se juega:", *[f"{k}. {r}" for k, r in enumerate(g["rules"], 1)], ""]
+    return "\n".join(out).rstrip()
+
+
+base = (ROOT / "tools" / "llms_base.md").read_text(encoding="utf-8")
+short = (base.replace("{{JUEGOS}}", "\n".join(game_line(g) for g in GAMES)
+                      + f"\n\nReglas completas de cada juego: {SITE}/llms-full.txt")
+         .replace("{{OTRA_VERSION}}", f"- [Versión completa, con las reglas de cada juego]({SITE}/llms-full.txt)\n"))
+full = (base.replace("{{JUEGOS}}", "\n\n".join(game_full(g) for g in GAMES).rstrip())
+        .replace("{{OTRA_VERSION}}", ""))
+(ROOT / "llms.txt").write_text(short, encoding="utf-8", newline="\n")
+(ROOT / "llms-full.txt").write_text(full, encoding="utf-8", newline="\n")
+
+print(f"listo: producto {'con precio' if PRICE else 'sin declarar (falta PRICE)'}, sitemap con {len(PAGES)} páginas, {len(faq)} preguntas en el JSON-LD y llms.txt con {len(GAMES)} juegos")

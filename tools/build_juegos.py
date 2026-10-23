@@ -371,6 +371,7 @@ for n, g in enumerate(GAMES):
         game_ld["genre"] = g["credit"]
     if g["players_max"]:
         game_ld["numberOfPlayers"] = {"@type": "QuantitativeValue", "minValue": g["players_min"], "maxValue": g["players_max"]}
+        game_ld["playMode"] = (["SinglePlayer"] if g["players_min"] <= 1 else []) + (["MultiPlayer"] if g["players_max"] >= 2 else [])
     ld = {"@context": "https://schema.org", "@graph": [game_ld, {
         "@type": "BreadcrumbList",
         "itemListElement": [

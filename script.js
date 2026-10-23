@@ -334,9 +334,22 @@
 
   // Medición: los clics que importan van a GA4 y Clarity (analytics.js define
   // window.atlasTrack; si no cargó o no tiene IDs, esto no hace nada).
+  // analytics.js carga en paralelo: lo que pase antes queda en espera hasta que
+  // termina de cargar la página.
+  var waiting = [];
   var track = function (name, params) {
     if (window.atlasTrack) window.atlasTrack(name, params);
+    else if (waiting) waiting.push([name, params]);
   };
+  window.addEventListener("load", function () {
+    var list = waiting;
+    waiting = null;
+    if (window.atlasTrack) {
+      list.forEach(function (e) {
+        window.atlasTrack(e[0], e[1]);
+      });
+    }
+  });
 
   document.addEventListener("click", function (event) {
     var link = event.target.closest && event.target.closest("a[href]");
@@ -368,6 +381,24 @@
     },
     true
   );
+
+  // Secciones vistas: cada sección con id cuenta una vez por página cuando cruza
+  // el centro de la pantalla (así también cuentan las más altas que la ventana).
+  if ("IntersectionObserver" in window) {
+    var seen = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          seen.unobserve(entry.target);
+          track("section_view", { section: entry.target.id, page: location.pathname });
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+    Array.prototype.forEach.call(document.querySelectorAll("main section[id]:not([hidden])"), function (s) {
+      seen.observe(s);
+    });
+  }
 
   // Animación de entrada
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

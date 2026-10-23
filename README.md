@@ -221,17 +221,30 @@ python -m http.server 8080
   (Google, Bing, OpenAI, Anthropic, Perplexity, Apple) para que quede explícito.
 - **`sitemap.xml`** y el **JSON-LD de la portada** (empresa, producto y FAQ) los
   genera `python tools/build_seo.py`. Hay que correrlo después de agregar una
-  página, de tocar el FAQ o de correr `tools/build_juegos.py`. El precio del
-  producto no se publica en el JSON-LD (`PRICE = None`) para que no quede uno
-  viejo; si se completa, Google puede mostrarlo en los resultados.
+  página, de tocar el FAQ o de correr `tools/build_juegos.py`. **El producto
+  (`Product`) no se declara mientras no haya precio definido**: Google exige
+  precio o reseñas y, si falta, Search Console lo marca como error crítico.
+  Cuando esté el precio, completar `PRICE` y `CURRENCY` en `build_seo.py`
+  (p. ej. `250` y `"USD"`), correrlo y publicar.
 - Las fichas de juego llevan su JSON-LD (`VideoGame`) desde la plantilla de
   `tools/build_juegos.py`. Juegos, Ecosistema y Sobre nosotros tienen un
   `BreadcrumbList` escrito a mano.
-- **`llms.txt`**: resumen en Markdown para asistentes de IA. Hay que actualizarlo
-  a mano cuando cambian los juegos o los datos del producto.
+- **`llms.txt`** y **`llms-full.txt`**: lo que leen los asistentes de IA (ChatGPT,
+  Claude, Perplexity) para entender Atlas y recomendarlo. También los genera
+  `tools/build_seo.py`: el texto fijo (qué es, fichas, Atlas Studio, para quién es)
+  está en `tools/llms_base.md` y los juegos salen de `tools/juegos.json`;
+  `llms-full.txt` suma las reglas completas de cada juego. **La IA de Google no lee
+  estos archivos**: usa el texto visible y el JSON-LD, por eso el FAQ de la portada
+  repite lo importante (rol, ajedrez, familias, Atlas Studio, fichas).
 - **Analítica**: `analytics.js` carga Google Analytics 4 y Microsoft Clarity. Los
   dos IDs están al principio del archivo (buscar `ANALYTICS_ID`); con los valores
   de ejemplo no se carga nada, y en local tampoco. Los eventos propios los manda
   `script.js`: `click_comprar`, `descargar_stl`, `click_social`, `click_app`,
-  `click_juego` y `faq_open`. La política de privacidad (sección 11) explica qué
-  se mide.
+  `click_juego`, `faq_open` y `section_view` (cada sección con `id` que cruza el
+  centro de la pantalla, una vez por página). La política de privacidad (sección 11)
+  explica qué se mide.
+- **Aviso de cookies**: también lo arma `analytics.js` (estilos en `.cookie-bar`).
+  Hasta que la persona acepta, GA4 funciona sin cookies con el modo de
+  consentimiento de Google y Clarity no se carga; al aceptar se activan las dos.
+  La elección queda en `localStorage` (`atlas-cookies`). Cualquier elemento con
+  `data-cookie-settings` vuelve a abrir el aviso (está en la política de privacidad).
