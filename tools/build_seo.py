@@ -78,7 +78,8 @@ product = {
     "image": [SITE + "/assets/cta-tablero.jpg", SITE + "/assets/tablero.webp"],
     "category": "Juegos de mesa",
     "audience": {"@type": "PeopleAudience", "suggestedMinAge": 14},
-    "brand": {"@type": "Brand", "name": "Atlas"},
+    "brand": {"@id": SITE + "/#marca"},
+    "url": SITE + "/",
     "manufacturer": {"@id": SITE + "/#org"},
     "offers": {"@type": "Offer", "url": STORE, "price": str(PRICE), "priceCurrency": CURRENCY,
                "availability": "https://schema.org/InStock",
@@ -94,11 +95,16 @@ ld = {"@context": "https://schema.org", "@graph": [
         "logo": SITE + "/assets/logo-atlas64-dark.png",
         "email": "admin@wololabs.com",
         "sameAs": ["https://www.instagram.com/atlas64_/", "https://www.youtube.com/@wololabs"],
+        # La marca y su sitio oficial: para que los buscadores asocien «Atlas 64»
+        # con este dominio y no con las tiendas que lo venden
+        "brand": {"@type": "Brand", "@id": SITE + "/#marca", "name": "Atlas 64", "alternateName": "Atlas",
+                  "url": SITE + "/", "logo": SITE + "/assets/logo-atlas64-dark.png"},
     },
     {
         "@type": "WebSite",
         "@id": SITE + "/#web",
-        "name": "Atlas",
+        "name": "Atlas 64",
+        "alternateName": "Atlas",
         "url": SITE + "/",
         "inLanguage": "es",
         "publisher": {"@id": SITE + "/#org"},

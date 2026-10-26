@@ -380,7 +380,7 @@ for n, g in enumerate(GAMES):
             {"@type": "ListItem", "position": 3, "name": g["title"], "item": url},
         ],
     }]}
-    h = head(f'{g["title"]} | Juegos | Atlas', g["tagline"], f"/juegos/{slug}/", cover, g["cover_w"], g["cover_h"],
+    h = head(f'{g["title"]} | Juegos | Atlas 64', g["tagline"], f"/juegos/{slug}/", cover, g["cover_w"], g["cover_h"],
              fonts_url([g], extra), ld)
     out_dir = ROOT / "juegos" / slug
     out_dir.mkdir(exist_ok=True)
