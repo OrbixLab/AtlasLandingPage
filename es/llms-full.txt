@@ -1,0 +1,237 @@
+# Atlas 64
+
+> Atlas es la consola modular de juegos de mesa: un tablero con luces que reconoce las fichas que se apoyan encima y se transforma en cada juego. Se maneja desde la app gratuita Atlas HUB y la desarrolla WOLO Labs. Sirve para jugar rol (como Dungeons & Dragons), estrategia (ajedrez y Amazonas), juegos de luces y reflejos en familia o con amigos, y para crear y publicar juegos propios con Atlas Studio. Edad recomendada: desde 14 años. Se lanza próximamente en Kickstarter; el registro está abierto en https://presale.atlas-64.com/
+
+## Cómo funciona
+
+- **Un tablero, muchos juegos.** Se elige el juego en la app Atlas HUB (Android en Google Play, iPhone en TestFlight) y el tablero se configura solo: las luces marcan casillas, caminos, paredes y jugadas posibles. No hay que calibrar nada.
+- **Funciona sin Internet.** El tablero y la app se comunican directamente por Bluetooth. Internet solo hace falta para descargar juegos nuevos, sincronizar el perfil y recibir actualizaciones.
+- **Modular.** Cada módulo es un tablero completo. Al acercar otro se conecta solo: todo es inalámbrico, sin nada que enchufar. Se pueden unir hasta 6 para armar mesas y mapas más grandes.
+- **Detecta las jugadas.** Atlas detecta cada movimiento y guía la partida con iluminación, para que los jugadores solo se concentren en jugar.
+
+## Fichas, bases inteligentes y Atlas Core
+
+- Cada ficha va enroscada sobre una **base inteligente** con un identificador único.
+- **Atlas Core**, un módulo NFC que se acopla al borde del tablero, lee la base que se le apoya y el tablero dice qué ficha es.
+- **Cada juego decide qué representa cada ficha**: un caballero, un alfil, un edificio, un personaje de rol.
+- **Las figuras son intercambiables**: se desenrosca una, se enrosca otra y la base sigue siendo la misma.
+- **Miniaturas propias**: se puede diseñar e imprimir en 3D cualquier figura con la rosca de la base. El modelo STL de la base se descarga gratis en https://atlas-64.com/es/#fichas y el tablero reconoce esas fichas como a cualquier otra.
+- La caja incluye: tablero Atlas, bases inteligentes, miniaturas, módulo NFC (Atlas Core), cable USB-C, porta celular y guía rápida.
+
+## Atlas Studio: crear juegos sin programar
+
+Atlas Studio permite crear juegos para Atlas sin saber programar:
+
+1. **Imagina**: le cuentas tu idea a un asistente de IA.
+2. **Crea**: Atlas Studio la convierte en un juego.
+3. **Prueba**: lo juegas en un tablero simulado o en tu teléfono.
+4. **Publica**: lo subes a la tienda de Atlas HUB.
+5. **Comparte**: otros jugadores lo descargan o lo compran.
+
+La tienda de Atlas HUB está abierta a creadores independientes, que pueden publicar sus juegos gratis o a la venta. Más información: https://atlas-64.com/es/ecosistema/#creadores. Guías para creadores: https://wololabs.com/guides.html
+
+## Para quién es Atlas
+
+- **Jugadores de rol (Dungeons & Dragons y similares).** Con **Role Mapper**, quien dirige la partida crea sus propios mapas, los lleva al tablero y controla la sesión en vivo desde el teléfono, generando eventos y efectos especiales. Tiene un modo de cámara para recorrer todo el mapa como si fuera un videojuego. Con los módulos de expansión (hasta 6) el mundo crece y se diseña como se quiera, y gracias a las fichas intercambiables cada jugador puede diseñar y usar su propia miniatura: Atlas la reconoce. Con Atlas Studio también se pueden crear aventuras y juegos propios.
+- **Jugadores de ajedrez y estrategia.** **Ajedrez** trae el motor Stockfish con 10 niveles de dificultad, desde principiante hasta gran maestro, análisis de movimientos y partidas contra otra persona con reloj configurable. **Amazonas** es estrategia abstracta argentina, con IA en tres niveles.
+- **Familias y grupos de amigos que quieren jugar juntos en la mesa, lejos de las pantallas.** La partida pasa sobre el tablero, con fichas físicas y luces; el teléfono solo se usa como control. Para dos: **Maze** (fácil, 5 a 15 minutos). Con luces y reflejos: **PONGol** (fútbol de mesa con luces) y **La Luz Mala** (puzzles). Para grupos de 3 a 6: **Estación Lunar** y **Plagio en la Academia** (roles ocultos y deducción). Recomendado desde 14 años; no apto para menores de 3 por las piezas pequeñas.
+- **Creadores y diseñadores de juegos.** Atlas Studio convierte una idea en un juego sin programar, y la tienda de Atlas HUB permite publicarlo y venderlo.
+- **Quienes imprimen en 3D o pintan miniaturas.** Cualquier figura con la rosca de la base se convierte en una ficha que el tablero reconoce.
+
+## Juegos
+
+### Role Mapper
+
+Herramienta para juegos de rol · herramienta, sin cantidad fija de jugadores · Libre · dificultad variable · https://atlas-64.com/es/juegos/role-mapper/
+
+Una herramienta para generar mapas de juegos de rol en el tablero Atlas 64. Permite crear mapas, editarlos y controlar la sesión en vivo.
+
+Características:
+- Generación de mapas
+- Control de la sesión en vivo
+- Eventos personalizados y efectos especiales
+
+### Ajedrez
+
+Con el motor Stockfish · 1 a 2 jugadores · 10–60 min · dificultad variable · https://atlas-64.com/es/juegos/ajedrez/
+
+Desafiá a la inteligencia artificial o enfrentate a un amigo en el clásico juego de estrategia. Con el motor Stockfish integrado, la IA se adapta a tu nivel, desde principiante hasta gran maestro.
+
+Características:
+- Motor Stockfish integrado
+- 10 niveles de dificultad
+- Jugador contra IA y Jugador contra Jugador
+- Análisis de movimientos
+
+Cómo se juega:
+1. Mové las piezas según las reglas estándar del ajedrez.
+2. El objetivo es dar jaque mate al rey rival.
+3. En el modo Jugador contra Jugador se puede configurar el tiempo.
+
+### Maze
+
+El laberinto del dios fragmentado · 2 jugadores · 5–15 min · dificultad fácil · https://atlas-64.com/es/juegos/maze/
+
+Hace eras, un dios antiguo selló su tesoro para que no cayera en manos indignas. No lo escondió en cofres ni cámaras, sino en un laberinto vivo, donde las paredes no se ven y el camino cambia con la voluntad divina. El tesoro fue dividido en cinco fragmentos sagrados. Solo quien logre reunirlos podrá reclamar el favor del dios.
+
+Características:
+- Castiga a quienes avanzan sin cuidado
+- Reescribe sus pasillos cuando lo perturban
+- Múltiples laberintos
+
+Cómo se juega:
+1. Cada jugador empieza en una esquina del laberinto.
+2. Reuní los 5 fragmentos del tesoro para ganar.
+3. Evitá las paredes o volvés al inicio.
+4. Juntá poderes especiales que te ayudan en la búsqueda.
+
+### Amazonas
+
+Creado por Walter Zamkauskas · 1 a 2 jugadores · 10–30 min · dificultad variable · https://atlas-64.com/es/juegos/amazonas/
+
+Estrategia abstracta pura, inventada por el argentino Walter Zamkauskas en 1988 y adaptada al tablero Atlas 64. Cada jugador comanda cuatro Amazonas que se mueven como la reina del ajedrez y, después de cada movimiento, disparan una flecha que bloquea una casilla para siempre. El territorio se achica turno a turno y pierde quien se quede sin jugadas: los empates son imposibles.
+
+Características:
+- Jugador contra jugador
+- Contra la IA en tres niveles: Principiante, Intermedio y Experto
+- IA con búsqueda Monte Carlo (MCTS)
+- Tablero de 8×8, adaptado del original de 10×10
+- La partida se cierra sola cuando los territorios quedan aislados
+
+Cómo se juega:
+1. Cada jugador tiene 4 Amazonas. Las Blancas mueven primero y luego se alternan los turnos.
+2. Cada turno tiene dos partes obligatorias e inseparables: mover una Amazona y disparar una flecha.
+3. Las Amazonas se mueven como la reina del ajedrez: en línea recta u oblicua, cualquier cantidad de casillas vacías, sin saltar Amazonas ni flechas.
+4. Después de moverse, la Amazona dispara una flecha desde su nueva posición con el mismo alcance de la reina. La casilla donde cae queda bloqueada para el resto de la partida.
+5. Pierde el primer jugador que en su turno no pueda mover y disparar. No hay empates: gana el último en mover.
+6. Si los territorios quedan aislados y ya no hay zonas en disputa, la partida se cierra sola y gana quien tenga más casillas disponibles.
+
+### La Luz Mala
+
+Creado por Luis Olcese · 1 a 4 jugadores · 10–20 min · dificultad media · https://atlas-64.com/es/juegos/la-luz-mala/
+
+Los que la siguen no vuelven. Los que saben, la guían. Un juego de puzzles lógicos: acomodá los objetos sobre el tablero para que la luz llegue a todas las guaridas.
+
+Características:
+- Puzzles lógicos
+- Niveles con generación procedimental
+
+Cómo se juega:
+1. Colocá los objetos antes de que pase la luz.
+2. Hacé que la luz llegue a todas las guaridas.
+3. Si choca contra un árbol o sale del tablero, se pierde.
+
+### PONGol
+
+Creado por Luis Olcese · 1 a 4 jugadores · 5–15 min · dificultad media · https://atlas-64.com/es/juegos/pongol/
+
+Fútbol de mesa jugado con luces. El balón es una luz amarilla que nunca deja de moverse por la cancha de 8×8. No manejás un jugador: apoyás fichas reales sobre el tablero para armar paredes y desviar la pelota hacia el arco rival. Con árbitro electrónico, VAR y tarjetas: apurarte en levantar una ficha o meterte en la mitad del rival se paga caro.
+
+Características:
+- Contra la IA o 1 vs 1 en la misma mesa
+- Cuatro velocidades de balón: Lento, Normal, Rápido y Flash
+- Árbitro electrónico con VAR y tarjetas amarillas y rojas
+- Academia: tutorial de 5 lecciones para dominar los rebotes
+- Se juega apoyando fichas físicas sobre el tablero
+
+Cómo se juega:
+1. El objetivo es meter la luz amarilla en el arco del rival. Los arcos son la primera y la última fila del tablero, iluminadas en blanco.
+2. Cada equipo tiene 2 fichas y solo puede apoyarlas en su propia mitad de la cancha.
+3. Regla de los 3 segundos: al apoyar una ficha su LED se pone naranja y queda bloqueada. Recién cuando pasa a azul se puede levantar.
+4. Rebotes: de frente la pelota vuelve por el mismo camino; si llega en diagonal contra el frente de la ficha se endereza; un roce de esquina la desvía sin frenarla; un puntazo justo en la punta la devuelve por donde vino; y dos fichas separadas por un hueco arman un pasillo por el que pasa derecho.
+5. Amarilla: levantar la ficha antes de que el LED se ponga azul, invadir la mitad del rival o poner más fichas de las permitidas. Cada infracción pasa primero por el VAR.
+6. Roja: la segunda amarilla del mismo equipo. El resto de la jugada se juega con una sola ficha.
+7. Si un equipo se come la segunda roja, el rival recibe un gol por default.
+8. Amnistía: cada gol convertido borra todas las tarjetas y devuelve las dos fichas a los dos equipos.
+9. Antes del saque, una luz púrpura pulsante marca hacia dónde va a salir disparada la pelota. Se apaga cuando arranca la jugada.
+10. Gana el primero que llega a 5 goles.
+
+### Estación Lunar
+
+Engaño y roles ocultos · 3 a 4 jugadores · 20–50 min · dificultad media · https://atlas-64.com/es/juegos/estacion-lunar/
+
+Somos científicos en una colonia lunar. En un recorrido de rutina encontramos a una persona desmayada y, desde que está con nosotros, empezaron a pasar cosas… Hay una criatura extraterrestre infiltrada, y puede que también un Boicoteador de otra colonia.
+
+Características:
+- Tres mapas de 8×8: Zona Alpha, Corredor Delta y Núcleo Gamma
+- El Extraño, manejado por la app, completa la mesa cuando son impares
+- Los LEDs marcan paredes, máquinas, ductos y las casillas a las que se puede llegar
+- Minijuego de habilidad para reparar las máquinas
+- Asambleas con voto secreto
+- Tutorial guiado paso a paso
+
+Roles:
+- **Científicos**: matar a la Criatura con un Reactivo, que se prepara juntando 6 Componentes repartidos por el tablero.
+- **Criatura**: contagiar a todos los demás jugadores, o resistir hasta que terminen las rondas.
+- **Boicoteador**: sabotear la colonia hasta romper todas sus máquinas.
+
+Cómo se juega:
+1. Cada jugador ve su rol en secreto con el teléfono. Si son impares, se suma el Extraño, un personaje que se controla solo.
+2. En su turno, cada jugador avanza tantas casillas como marque la Cordura.
+3. Al pasar por un Componente, se recoge. Con 6 se obtiene un Reactivo.
+4. Las máquinas se rompen por azar o por sabotaje. Para repararlas hacen falta dos jugadores junto a ellas.
+5. Una vez por turno se puede convocar una Asamblea para votar quién es el Boicoteador o a quién inyectarle el Reactivo.
+6. Cada 2 rondas, un informe revela cuántos tripulantes están contagiados, y la Cordura baja.
+7. El juego incluye un tutorial interactivo que explica todo paso a paso, y se puede repetir desde el menú.
+
+### Plagio en la Academia
+
+Deducción social · 3 a 6 jugadores · 15–30 min · dificultad media · https://atlas-64.com/es/juegos/plagio-en-la-academia/
+
+Bienvenidos a la Real Academia de Artes Visuales. El Rector descubrió un escándalo: entre los nuevos alumnos hay infiltrados que falsificaron su portafolio. Para cuidar la reputación de la institución organizó una evaluación sorpresa: replicar un mosaico secreto. Los verdaderos artistas conocen el plano; los impostores tienen que improvisar cada pincelada para no ser expulsados.
+
+Características:
+- Roles ocultos: Prodigios contra Farsantes
+- Lienzo colectivo de 8×8 y paleta de pigmentos
+- Acusaciones y votaciones en cualquier momento
+- Límite de 50 pinceladas por partida
+
+Cómo se juega:
+1. Roles secretos según la cantidad de alumnos: con 3 o 4 jugadores hay 1 Farsante; con 5 o 6 hay 2. El resto son Prodigios, los artistas reales.
+2. Inspección de portafolios: por turnos y en secreto, cada alumno toca la pantalla para ver su rol. Los Prodigios ven el Mosaico Secreto de 8×8; los Farsantes solo ven una advertencia, sin plano ni guía.
+3. La evaluación se juega por turnos sobre un lienzo colectivo de 8×8. En tu turno elegí un color de la paleta y pintá una casilla.
+4. Si sos Prodigio, poné el color exacto en la coordenada correcta según tu plano.
+5. Si sos Farsante, disimulá: mirá dónde pintan los demás e imitá el patrón para que nadie sospeche.
+6. Acusación formal: en cualquier momento un alumno puede llamar al Rector. Se detiene la pintura y todos votan por el sospechoso.
+7. Ganan los Prodigios si expulsan a todos los Farsantes. Ganan los Farsantes si se acusa a un Prodigio inocente.
+8. Límite de trazos: si el lienzo llega a 50 pinceladas sin una acusación exitosa, el examen termina y ganan los Farsantes.
+
+### Pixel Blaster
+
+Arcade · 1 jugador · 5–15 min · dificultad media · https://atlas-64.com/es/juegos/pixel-blaster/
+
+Siete piezas de cuatro bloques caen sin descanso dentro del pozo y tu único trabajo es que no sobre lugar. Giralas, corrélas y clavalas para completar filas enteras de ocho bloques. Cuanto más limpiás, más rápido caen. La partida no se gana, se aguanta.
+
+Características:
+- 7 piezas distintas, cada una con su color
+- Pozo de 8×16 con dos módulos, o de 8×8 con uno solo
+- Silueta guía y aviso de la próxima pieza
+- Bajada rápida y giro desde el pad del control
+- Niveles progresivos y récord de la sesión
+
+Cómo se juega:
+1. Las piezas caen de a una desde arriba del pozo. Movelas a izquierda y derecha, giralas y bajalas antes de que toquen fondo.
+2. El pozo mide 8 columnas por 16 filas cuando hay dos módulos conectados. Con un solo módulo se achica a 8×8 para que la partida entre completa en el tablero.
+3. Completá una fila entera de 8 bloques y la fila estalla: todo lo que quedaba arriba baja un casillero.
+4. Una fila suma 100 puntos, dos suman 300, tres suman 500 y cuatro de una sola vez suman 800. El total se multiplica por el nivel en el que estés.
+5. Cada 10 filas eliminadas subís un nivel y las piezas empiezan a caer más rápido.
+6. La silueta tenue debajo de la pieza marca dónde va a aterrizar, y el indicador Next te adelanta cuál viene después.
+7. La bajada rápida clava la pieza en el acto en la posición de la silueta.
+8. La partida termina cuando entra una pieza nueva y ya no hay lugar para ella.
+
+## Páginas principales
+
+- [Producto](https://atlas-64.com/es/): qué es Atlas, cómo funciona, módulos, fichas, Atlas Core y preguntas frecuentes.
+- [Preguntas frecuentes](https://atlas-64.com/es/#faq)
+- [Juegos](https://atlas-64.com/es/juegos/): el catálogo con jugadores, duración y reglas de cada juego.
+- [Ecosistema](https://atlas-64.com/es/ecosistema/): la app Atlas HUB, Atlas Studio y la tienda para creadores.
+- [Sobre nosotros](https://atlas-64.com/es/sobre-nosotros/): WOLO Labs, su historia, misión y equipo.
+- [Manual de usuario y avisos de seguridad](https://atlas-64.com/es/manual-de-usuario/)
+- [Versión en inglés del sitio](https://atlas-64.com/)
+
+## Campaña en Kickstarter y contacto
+
+- Atlas 64 se lanza próximamente en Kickstarter, con un precio de 250 USD durante la campaña. Para recibir el aviso del lanzamiento, el registro está abierto en https://presale.atlas-64.com/
+- Email: admin@wololabs.com
+- Instagram: https://www.instagram.com/atlas64_/
+- YouTube: https://www.youtube.com/@wololabs

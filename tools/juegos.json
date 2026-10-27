@@ -28,7 +28,26 @@
     "teaser_meta": [
       "Para quien dirige la partida",
       "Duración libre"
-    ]
+    ],
+    "en": {
+      "credit": "Tool for role-playing games",
+      "duration": "Open-ended",
+      "difficulty": "Varies",
+      "tagline": "Build the maps for your role-playing sessions and run the game live from the app.",
+      "description": [
+        "A tool for creating role-playing game maps on the Atlas 64 board. Create maps, edit them and run the session live."
+      ],
+      "features": [
+        "Map creation",
+        "Live session control",
+        "Custom events and special effects"
+      ],
+      "teaser": "Build the map, bring it to the board and run the session live, with events and effects nobody sees coming.",
+      "teaser_meta": [
+        "For the game master",
+        "Open-ended"
+      ]
+    }
   },
   {
     "slug": "ajedrez",
@@ -60,7 +79,28 @@
       "El objetivo es dar jaque mate al rey rival.",
       "En el modo Jugador contra Jugador se puede configurar el tiempo."
     ],
-    "teaser": "El clásico de siempre, ahora sobre el tablero Atlas. Diez niveles de IA te esperan: ¿hasta cuál llegás?"
+    "teaser": "El clásico de siempre, ahora sobre el tablero Atlas. Diez niveles de IA te esperan: ¿hasta cuál llegás?",
+    "en": {
+      "title": "Chess",
+      "credit": "Powered by Stockfish",
+      "difficulty": "Varies",
+      "tagline": "The timeless classic, against a friend or an AI that adapts to your level.",
+      "description": [
+        "Challenge the AI or face a friend in the classic strategy game. With the built-in Stockfish engine, the AI adapts to your level, from beginner to grandmaster."
+      ],
+      "features": [
+        "Built-in Stockfish engine",
+        "10 difficulty levels",
+        "Player vs. AI and Player vs. Player",
+        "Move analysis"
+      ],
+      "rules": [
+        "Move the pieces following the standard rules of chess.",
+        "The goal is to checkmate your opponent's king.",
+        "In Player vs. Player mode you can set the clock."
+      ],
+      "teaser": "The timeless classic, now on the Atlas board. Ten AI levels await: how far can you go?"
+    }
   },
   {
     "slug": "maze",
@@ -93,7 +133,27 @@
       "Evitá las paredes o volvés al inicio.",
       "Juntá poderes especiales que te ayudan en la búsqueda."
     ],
-    "teaser": "Las paredes no se ven. Un paso en falso y volvés al inicio. ¿Quién junta primero los cinco fragmentos?"
+    "teaser": "Las paredes no se ven. Un paso en falso y volvés al inicio. ¿Quién junta primero los cinco fragmentos?",
+    "en": {
+      "credit": "The labyrinth of the shattered god",
+      "difficulty": "Easy",
+      "tagline": "A living labyrinth with invisible walls. Collect the five treasure fragments before your rival.",
+      "description": [
+        "Ages ago, an ancient god sealed away his treasure so it would never fall into unworthy hands. He didn't hide it in chests or vaults, but in a living labyrinth where the walls can't be seen and the path shifts at the god's will. The treasure was split into five sacred fragments. Only whoever gathers them all can claim the god's favor."
+      ],
+      "features": [
+        "Punishes those who move carelessly",
+        "Rewrites its corridors when disturbed",
+        "Multiple labyrinths"
+      ],
+      "rules": [
+        "Each player starts in a corner of the labyrinth.",
+        "Collect the 5 treasure fragments to win.",
+        "Avoid the walls or you go back to the start.",
+        "Gather special powers that help you in your search."
+      ],
+      "teaser": "The walls are invisible. One wrong step and you're back at the start. Who will collect the five fragments first?"
+    }
   },
   {
     "slug": "amazonas",
@@ -129,7 +189,31 @@
       "Pierde el primer jugador que en su turno no pueda mover y disparar. No hay empates: gana el último en mover.",
       "Si los territorios quedan aislados y ya no hay zonas en disputa, la partida se cierra sola y gana quien tenga más casillas disponibles."
     ],
-    "teaser": "Cada jugada mueve una Amazona y clava una flecha. El tablero se achica… y alguien se queda sin salida."
+    "teaser": "Cada jugada mueve una Amazona y clava una flecha. El tablero se achica… y alguien se queda sin salida.",
+    "en": {
+      "credit": "Created by Walter Zamkauskas",
+      "difficulty": "Varies",
+      "tagline": "Move an Amazon, shoot an arrow and shrink the territory. Whoever runs out of moves loses.",
+      "description": [
+        "Pure abstract strategy, invented by Argentine designer Walter Zamkauskas in 1988 and adapted to the Atlas 64 board. Each player commands four Amazons that move like a chess queen and, after every move, shoot an arrow that blocks a square for good. The territory shrinks turn by turn and whoever runs out of moves loses: draws are impossible."
+      ],
+      "features": [
+        "Player vs. player",
+        "Against the AI at three levels: Beginner, Intermediate and Expert",
+        "AI powered by Monte Carlo tree search (MCTS)",
+        "8×8 board, adapted from the original 10×10",
+        "The game ends on its own once the territories are sealed off"
+      ],
+      "rules": [
+        "Each player has 4 Amazons. White moves first, then players take turns.",
+        "Each turn has two mandatory, inseparable parts: move an Amazon and shoot an arrow.",
+        "Amazons move like a chess queen: in a straight or diagonal line, any number of empty squares, without jumping over Amazons or arrows.",
+        "After moving, the Amazon shoots an arrow from her new position with the same reach as a queen. The square where it lands stays blocked for the rest of the game.",
+        "The first player who can't move and shoot on their turn loses. There are no draws: the last player to move wins.",
+        "If the territories are sealed off and no contested areas remain, the game ends on its own and whoever has more available squares wins."
+      ],
+      "teaser": "Every turn moves an Amazon and fires an arrow. The board shrinks… and someone runs out of room."
+    }
   },
   {
     "slug": "la-luz-mala",
@@ -160,7 +244,25 @@
       "Hacé que la luz llegue a todas las guaridas.",
       "Si choca contra un árbol o sale del tablero, se pierde."
     ],
-    "teaser": "Una luz cruza el monte y no se detiene. Acomodá su camino antes de que pase… si te animás."
+    "teaser": "Una luz cruza el monte y no se detiene. Acomodá su camino antes de que pase… si te animás.",
+    "en": {
+      "credit": "Created by Luis Olcese",
+      "difficulty": "Medium",
+      "tagline": "Those who follow it never return. Those who know, guide it.",
+      "description": [
+        "Those who follow it never return. Those who know, guide it. A logic puzzle game: place the objects on the board so the light reaches every den."
+      ],
+      "features": [
+        "Logic puzzles",
+        "Procedurally generated levels"
+      ],
+      "rules": [
+        "Place the objects before the light passes.",
+        "Make the light reach every den.",
+        "If it hits a tree or leaves the board, it's lost."
+      ],
+      "teaser": "A light crosses the wilds and never stops. Set its path before it passes… if you dare."
+    }
   },
   {
     "slug": "pongol",
@@ -201,7 +303,36 @@
       "Antes del saque, una luz púrpura pulsante marca hacia dónde va a salir disparada la pelota. Se apaga cuando arranca la jugada.",
       "Gana el primero que llega a 5 goles."
     ],
-    "teaser": "La pelota es una luz que nunca frena y tus fichas son la defensa. El primero en meter cinco goles gana."
+    "teaser": "La pelota es una luz que nunca frena y tus fichas son la defensa. El primero en meter cinco goles gana.",
+    "en": {
+      "credit": "Created by Luis Olcese",
+      "difficulty": "Medium",
+      "tagline": "Table soccer played with light: build walls with your pieces and bounce the ball into the opposing goal.",
+      "description": [
+        "Table soccer played with light. The ball is a yellow light that never stops moving across the 8×8 pitch. You don't control a player: you place real pieces on the board to build walls and deflect the ball toward the opposing goal.",
+        "With an electronic referee, VAR and cards: lift a piece too soon or step into your rival's half and you'll pay for it."
+      ],
+      "features": [
+        "Against the AI or 1 vs 1 at the same table",
+        "Four ball speeds: Slow, Normal, Fast and Flash",
+        "Electronic referee with VAR and yellow and red cards",
+        "Academy: a 5-lesson tutorial to master the bounces",
+        "Played by placing physical pieces on the board"
+      ],
+      "rules": [
+        "The goal is to get the yellow light into your rival's goal. The goals are the first and last rows of the board, lit in white.",
+        "Each team has 2 pieces and can only place them in its own half of the pitch.",
+        "3-second rule: when you place a piece, its LED turns orange and the piece is locked. Only once it turns blue can you lift it.",
+        "Bounces: head-on, the ball comes back the way it came; if it hits the front of a piece diagonally, it straightens out; a corner graze deflects it without slowing it down; a hit right on the tip sends it back where it came from; and two pieces with a gap between them form a corridor the ball goes straight through.",
+        "Yellow card: lifting a piece before its LED turns blue, invading your rival's half or placing more pieces than allowed. Every offense goes to VAR first.",
+        "Red card: the same team's second yellow. The rest of the play is played with a single piece.",
+        "If a team gets a second red card, the rival is awarded a goal by default.",
+        "Amnesty: every goal scored clears all cards and gives both teams their two pieces back.",
+        "Before kickoff, a pulsing purple light shows where the ball will shoot off. It goes out when play starts.",
+        "First to 5 goals wins."
+      ],
+      "teaser": "The ball is a light that never stops and your pieces are the defense. First to score five goals wins."
+    }
   },
   {
     "slug": "estacion-lunar",
@@ -253,7 +384,47 @@
       "Cada 2 rondas, un informe revela cuántos tripulantes están contagiados, y la Cordura baja.",
       "El juego incluye un tutorial interactivo que explica todo paso a paso, y se puede repetir desde el menú."
     ],
-    "teaser": "Alguien en la colonia no es humano. Juntá componentes, convocá asambleas y desconfiá de todos."
+    "teaser": "Alguien en la colonia no es humano. Juntá componentes, convocá asambleas y desconfiá de todos.",
+    "en": {
+      "credit": "Deception and hidden roles",
+      "difficulty": "Medium",
+      "tagline": "A creature has infiltrated the lunar colony. Find out who it is before it infects everyone.",
+      "description": [
+        "We are scientists in a lunar colony. On a routine patrol we found someone unconscious and, ever since they joined us, strange things have been happening… An alien creature has infiltrated the colony, and there may also be a Saboteur from another colony."
+      ],
+      "roles": [
+        [
+          "Scientists",
+          "kill the Creature with a Reagent, made by collecting 6 Components scattered across the board."
+        ],
+        [
+          "Creature",
+          "infect every other player, or hold out until the rounds run out."
+        ],
+        [
+          "Saboteur",
+          "sabotage the colony until all its machines are broken."
+        ]
+      ],
+      "features": [
+        "Three 8×8 maps: Zone Alpha, Delta Corridor and Gamma Core",
+        "The Stranger, run by the app, fills the table when there's an odd number of players",
+        "LEDs mark walls, machines, vents and the squares you can reach",
+        "Skill mini-game to repair the machines",
+        "Meetings with secret ballots",
+        "Step-by-step guided tutorial"
+      ],
+      "rules": [
+        "Each player sees their role in secret on the phone. With an odd number of players, the Stranger joins in: a character that plays on its own.",
+        "On their turn, each player moves as many squares as their Sanity allows.",
+        "Passing over a Component picks it up. With 6 you get a Reagent.",
+        "Machines break down by chance or through sabotage. Repairing one takes two players standing next to it.",
+        "Once per turn, anyone can call a Meeting to vote on who the Saboteur is or whom to inject with the Reagent.",
+        "Every 2 rounds, a report reveals how many crew members are infected, and Sanity drops.",
+        "The game includes an interactive tutorial that explains everything step by step, and you can replay it from the menu."
+      ],
+      "teaser": "Someone in the colony isn't human. Collect components, call meetings and trust no one."
+    }
   },
   {
     "slug": "plagio-en-la-academia",
@@ -291,7 +462,32 @@
       "Ganan los Prodigios si expulsan a todos los Farsantes. Ganan los Farsantes si se acusa a un Prodigio inocente.",
       "Límite de trazos: si el lienzo llega a 50 pinceladas sin una acusación exitosa, el examen termina y ganan los Farsantes."
     ],
-    "teaser": "Todos pintan el mismo mosaico, pero no todos conocen el plano. ¿Descubrís al Farsante a tiempo?"
+    "teaser": "Todos pintan el mismo mosaico, pero no todos conocen el plano. ¿Descubrís al Farsante a tiempo?",
+    "en": {
+      "credit": "Social deduction",
+      "difficulty": "Medium",
+      "tagline": "The artists know the secret mosaic; the Frauds improvise. Unmask them before the 50th brushstroke.",
+      "description": [
+        "Welcome to the Royal Academy of Visual Arts. The Rector has uncovered a scandal: among the new students are impostors who faked their portfolios. To protect the institution's reputation, he has set a surprise exam: reproduce a secret mosaic. The true artists know the plan; the impostors must improvise every brushstroke to avoid being expelled."
+      ],
+      "features": [
+        "Hidden roles: Prodigies vs. Frauds",
+        "Shared 8×8 canvas and pigment palette",
+        "Accusations and votes at any time",
+        "Limit of 50 brushstrokes per game"
+      ],
+      "rules": [
+        "Secret roles depend on the number of students: with 3 or 4 players there is 1 Fraud; with 5 or 6 there are 2. Everyone else is a Prodigy, a real artist.",
+        "Portfolio inspection: taking turns in secret, each student taps the screen to see their role. Prodigies see the 8×8 Secret Mosaic; Frauds only see a warning, with no plan or guide.",
+        "The exam is played in turns on a shared 8×8 canvas. On your turn, pick a color from the palette and paint a square.",
+        "If you're a Prodigy, place the exact color at the right coordinate according to your plan.",
+        "If you're a Fraud, blend in: watch where the others paint and copy the pattern so nobody suspects you.",
+        "Formal accusation: at any time a student can call the Rector. Painting stops and everyone votes on the suspect.",
+        "The Prodigies win if they expel every Fraud. The Frauds win if an innocent Prodigy is accused.",
+        "Stroke limit: if the canvas reaches 50 brushstrokes without a successful accusation, the exam ends and the Frauds win."
+      ],
+      "teaser": "Everyone paints the same mosaic, but not everyone knows the plan. Can you catch the Fraud in time?"
+    }
   },
   {
     "slug": "pixel-blaster",
@@ -329,6 +525,32 @@
       "La bajada rápida clava la pieza en el acto en la posición de la silueta.",
       "La partida termina cuando entra una pieza nueva y ya no hay lugar para ella."
     ],
-    "teaser": "Las piezas caen cada vez más rápido. Completá filas, aguantá y superá tu récord."
+    "teaser": "Las piezas caen cada vez más rápido. Completá filas, aguantá y superá tu récord.",
+    "en": {
+      "credit": "Arcade",
+      "difficulty": "Medium",
+      "tagline": "Seven pieces keep falling. Clear rows and hold out as long as you can.",
+      "description": [
+        "Seven four-block pieces fall nonstop into the well, and your only job is to keep it from filling up. Rotate them, slide them and slam them down to complete full rows of eight blocks. The more you clear, the faster they fall. You don't win this game: you survive it."
+      ],
+      "features": [
+        "7 different pieces, each with its own color",
+        "8×16 well with two modules, or 8×8 with just one",
+        "Ghost piece and next-piece preview",
+        "Hard drop and rotate from the controller pad",
+        "Progressive levels and session high score"
+      ],
+      "rules": [
+        "Pieces fall one at a time from the top of the well. Move them left and right, rotate them and drop them before they hit the bottom.",
+        "The well is 8 columns by 16 rows when two modules are connected. With a single module it shrinks to 8×8 so the whole game fits on the board.",
+        "Complete a full row of 8 blocks and it bursts: everything above it drops down one square.",
+        "One row scores 100 points, two score 300, three score 500 and four at once score 800. The total is multiplied by your current level.",
+        "Every 10 rows cleared you go up a level and the pieces start falling faster.",
+        "The faint ghost below the piece shows where it will land, and the Next indicator shows which piece comes after.",
+        "Hard drop slams the piece instantly into the ghost's position.",
+        "The game ends when a new piece comes in and there's no room left for it."
+      ],
+      "teaser": "The pieces fall faster and faster. Clear rows, hold on and beat your high score."
+    }
   }
 ]

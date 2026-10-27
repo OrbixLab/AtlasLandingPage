@@ -2,6 +2,11 @@
 (function () {
   "use strict";
 
+  // Textos que escribe este archivo, en el idioma de la página (<html lang>)
+  var T = document.documentElement.lang === "es"
+    ? { menu: "Menú", cerrar: "Cerrar", pausar: "Pausar el video", reproducir: "Reproducir el video" }
+    : { menu: "Menu", cerrar: "Close", pausar: "Pause the video", reproducir: "Play the video" };
+
   // Menú móvil
   var toggle = document.querySelector("[data-nav-toggle]");
   var nav = document.querySelector("[data-nav]");
@@ -10,17 +15,26 @@
     toggle.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(open));
-      toggle.textContent = open ? "Cerrar" : "Menú";
+      toggle.textContent = open ? T.cerrar : T.menu;
     });
 
     nav.addEventListener("click", function (event) {
       if (event.target.tagName === "A" && nav.classList.contains("is-open")) {
         nav.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
-        toggle.textContent = "Menú";
+        toggle.textContent = T.menu;
       }
     });
   }
+
+  // Selector de idioma: lleva a la misma página en el otro idioma y, si se está
+  // en una sección (#faq, #app…), a esa misma sección: las páginas principales
+  // usan las mismas anclas en los dos idiomas (si no existe, se abre arriba).
+  document.querySelectorAll("[data-lang-switch]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      if (location.hash && link.href.indexOf("#") === -1) link.href += location.hash;
+    });
+  });
 
   // Video del hero: control de pausa y respeto por "reducir movimiento"
   var video = document.querySelector("[class~='hero__video']");
@@ -31,7 +45,7 @@
 
     var sync = function (playing) {
       videoToggle.setAttribute("aria-pressed", String(!playing));
-      label.textContent = playing ? "Pausar el video" : "Reproducir el video";
+      label.textContent = playing ? T.pausar : T.reproducir;
       // El icono lo decide el CSS a partir de esta clase: <g> es SVGElement y
       // no expone la propiedad .hidden, así que no sirve alternarla.
       videoToggle.classList.toggle("is-paused", !playing);

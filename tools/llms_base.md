@@ -1,59 +1,60 @@
 # Atlas 64
 
-> Atlas es la consola modular de juegos de mesa: un tablero con luces que reconoce las fichas que se apoyan encima y se transforma en cada juego. Se maneja desde la app gratuita Atlas HUB y la desarrolla WOLO Labs. Sirve para jugar rol (como Dungeons & Dragons), estrategia (ajedrez y Amazonas), juegos de luces y reflejos en familia o con amigos, y para crear y publicar juegos propios con Atlas Studio. Edad recomendada: desde 14 años. Se lanza próximamente en Kickstarter; el registro está abierto en https://presale.atlas-64.com/
+> Atlas is the modular board game console: a board with lights that recognizes the pieces placed on it and transforms for each game. It is controlled from the free Atlas HUB app and developed by WOLO Labs. It's made for role-playing games (like Dungeons & Dragons), strategy (chess and Amazonas), light-and-reflex games for families or friends, and for creating and publishing your own games with Atlas Studio. Recommended age: 14 and up. Launching soon on Kickstarter; sign-up is open at https://presale.atlas-64.com/
 
-## Cómo funciona
+## How it works
 
-- **Un tablero, muchos juegos.** Se elige el juego en la app Atlas HUB (Android en Google Play, iPhone en TestFlight) y el tablero se configura solo: las luces marcan casillas, caminos, paredes y jugadas posibles. No hay que calibrar nada.
-- **Funciona sin Internet.** El tablero y la app se comunican directamente por Bluetooth. Internet solo hace falta para descargar juegos nuevos, sincronizar el perfil y recibir actualizaciones.
-- **Modular.** Cada módulo es un tablero completo. Al acercar otro se conecta solo por radiofrecuencia, sin cables. Se pueden unir hasta 6 para armar mesas y mapas más grandes.
-- **Detecta las jugadas.** Atlas detecta cada movimiento y guía la partida con iluminación, para que los jugadores solo se concentren en jugar.
+- **One board, many games.** You pick the game in the Atlas HUB app (Android on Google Play, iPhone on TestFlight) and the board sets itself up: the lights mark squares, paths, walls and possible moves. There's nothing to calibrate.
+- **Works offline.** The board and the app talk to each other directly over Bluetooth. An internet connection is only needed to download new games, sync your profile and get updates.
+- **Modular.** Each module is a complete board. Bring another one close and it connects on its own: everything is wireless, with nothing to plug in. Up to 6 can be joined to build bigger tables and maps.
+- **Detects every move.** Atlas detects each move and guides the game with lighting, so players can focus on playing.
 
-## Fichas, bases inteligentes y Atlas Core
+## Pieces, smart bases and Atlas Core
 
-- Cada ficha va enroscada sobre una **base inteligente** con un identificador único.
-- **Atlas Core**, un módulo NFC que se acopla al borde del tablero, lee la base que se le apoya y el tablero dice qué ficha es.
-- **Cada juego decide qué representa cada ficha**: un caballero, un alfil, un edificio, un personaje de rol.
-- **Las figuras son intercambiables**: se desenrosca una, se enrosca otra y la base sigue siendo la misma.
-- **Miniaturas propias**: se puede diseñar e imprimir en 3D cualquier figura con la rosca de la base. El modelo STL de la base se descarga gratis en https://atlas-64.com/#fichas y el tablero reconoce esas fichas como a cualquier otra.
-- La caja incluye: tablero Atlas, bases inteligentes, miniaturas, módulo NFC (Atlas Core), cable USB-C, porta celular y guía rápida.
+- Each piece screws onto a **smart base** with a unique ID.
+- **Atlas Core**, an NFC module that attaches to the edge of the board, reads the base placed on it and the board says which piece it is.
+- **Each game decides what each piece represents**: a knight, a bishop, a building, a role-playing character.
+- **Figures are interchangeable**: unscrew one, screw on another and the base stays the same.
+- **Your own miniatures**: you can design and 3D print any figure with the base's thread. The base's STL model is a free download at https://atlas-64.com/#fichas and the board recognizes those pieces like any other.
+- The box includes: Atlas board, smart bases, miniatures, NFC module (Atlas Core), USB-C cable, phone stand and quick-start guide.
 
-## Atlas Studio: crear juegos sin programar
+## Atlas Studio: create games without coding
 
-Atlas Studio permite crear juegos para Atlas sin saber programar:
+Atlas Studio lets you create games for Atlas without knowing how to code:
 
-1. **Imagina**: le cuentas tu idea a un asistente de IA.
-2. **Crea**: Atlas Studio la convierte en un juego.
-3. **Prueba**: lo juegas en un tablero simulado o en tu teléfono.
-4. **Publica**: lo subes a la tienda de Atlas HUB.
-5. **Comparte**: otros jugadores lo descargan o lo compran.
+1. **Imagine**: tell an AI assistant your idea.
+2. **Create**: Atlas Studio turns it into a game.
+3. **Test**: play it on a simulated board or on your phone.
+4. **Publish**: upload it to the Atlas HUB store.
+5. **Share**: other players download it or buy it.
 
-La tienda de Atlas HUB está abierta a creadores independientes, que pueden publicar sus juegos gratis o a la venta. Más información: https://atlas-64.com/ecosistema/#creadores. Guías para creadores: https://wololabs.com/guides.html
+The Atlas HUB store is open to independent creators, who can publish their games for free or for sale. More information: https://atlas-64.com/ecosystem/#creadores. Creator guides: https://wololabs.com/guides.html
 
-## Para quién es Atlas
+## Who Atlas is for
 
-- **Jugadores de rol (Dungeons & Dragons y similares).** Con **Role Mapper**, quien dirige la partida crea sus propios mapas, los lleva al tablero y controla la sesión en vivo desde el teléfono, generando eventos y efectos especiales. Tiene un modo de cámara para recorrer todo el mapa como si fuera un videojuego. Con los módulos de expansión (hasta 6) el mundo crece y se diseña como se quiera, y gracias a las fichas intercambiables cada jugador puede diseñar y usar su propia miniatura: Atlas la reconoce. Con Atlas Studio también se pueden crear aventuras y juegos propios.
-- **Jugadores de ajedrez y estrategia.** **Ajedrez** trae el motor Stockfish con 10 niveles de dificultad, desde principiante hasta gran maestro, análisis de movimientos y partidas contra otra persona con reloj configurable. **Amazonas** es estrategia abstracta argentina, con IA en tres niveles.
-- **Familias y grupos de amigos que quieren jugar juntos en la mesa, lejos de las pantallas.** La partida pasa sobre el tablero, con fichas físicas y luces; el teléfono solo se usa como control. Para dos: **Maze** (fácil, 5 a 15 minutos). Con luces y reflejos: **PONGol** (fútbol de mesa con luces) y **La Luz Mala** (puzzles). Para grupos de 3 a 6: **Estación Lunar** y **Plagio en la Academia** (roles ocultos y deducción). Recomendado desde 14 años; no apto para menores de 3 por las piezas pequeñas.
-- **Creadores y diseñadores de juegos.** Atlas Studio convierte una idea en un juego sin programar, y la tienda de Atlas HUB permite publicarlo y venderlo.
-- **Quienes imprimen en 3D o pintan miniaturas.** Cualquier figura con la rosca de la base se convierte en una ficha que el tablero reconoce.
+- **Role-players (Dungeons & Dragons and similar).** With **Role Mapper**, the game master creates their own maps, brings them to the board and runs the session live from the phone, triggering events and special effects. It has a camera mode to explore the whole map as if it were a video game. With expansion modules (up to 6) the world grows and can be designed however you like, and thanks to the interchangeable pieces each player can design and use their own miniature: Atlas recognizes it. With Atlas Studio you can also create your own adventures and games.
+- **Chess and strategy players.** **Chess** comes with the Stockfish engine, with 10 difficulty levels from beginner to grandmaster, move analysis and games against another person with an adjustable clock. **Amazonas** is an Argentine abstract strategy game, with an AI at three levels.
+- **Families and groups of friends who want to play together at the table, away from screens.** The game happens on the board, with physical pieces and lights; the phone is only used as a controller. For two: **Maze** (easy, 5 to 15 minutes). With lights and reflexes: **PONGol** (table soccer played with light) and **La Luz Mala** (puzzles). For groups of 3 to 6: **Estación Lunar** and **Plagio en la Academia** (hidden roles and deduction). Recommended for ages 14 and up; not suitable for children under 3 because of small parts.
+- **Game creators and designers.** Atlas Studio turns an idea into a game without coding, and the Atlas HUB store lets you publish and sell it.
+- **3D printing and miniature painting fans.** Any figure with the base's thread becomes a piece the board recognizes.
 
-## Juegos
+## Games
 
 {{JUEGOS}}
 
-## Páginas principales
+## Main pages
 
-- [Producto](https://atlas-64.com/): qué es Atlas, cómo funciona, módulos, fichas, Atlas Core y preguntas frecuentes.
-- [Preguntas frecuentes](https://atlas-64.com/#faq)
-- [Juegos](https://atlas-64.com/juegos/): el catálogo con jugadores, duración y reglas de cada juego.
-- [Ecosistema](https://atlas-64.com/ecosistema/): la app Atlas HUB, Atlas Studio y la tienda para creadores.
-- [Sobre nosotros](https://atlas-64.com/sobre-nosotros/): WOLO Labs, su historia, misión y equipo.
-- [Manual de usuario y avisos de seguridad](https://atlas-64.com/user-manual/)
+- [Product](https://atlas-64.com/): what Atlas is, how it works, modules, pieces, Atlas Core and frequently asked questions.
+- [Frequently asked questions](https://atlas-64.com/#faq)
+- [Games](https://atlas-64.com/games/): the library, with players, length and rules for each game.
+- [Ecosystem](https://atlas-64.com/ecosystem/): the Atlas HUB app, Atlas Studio and the store for creators.
+- [About us](https://atlas-64.com/about-us/): WOLO Labs, its story, mission and team.
+- [User manual and safety information](https://atlas-64.com/user-manual/)
+- [Spanish version of the site](https://atlas-64.com/es/)
 {{OTRA_VERSION}}
-## Campaña en Kickstarter y contacto
+## Kickstarter campaign and contact
 
-- Atlas 64 se lanza próximamente en Kickstarter, con un precio de 250 USD durante la campaña. Para recibir el aviso del lanzamiento, el registro está abierto en https://presale.atlas-64.com/
+- Atlas 64 is launching soon on Kickstarter, priced at 250 USD during the campaign. To get notified at launch, sign-up is open at https://presale.atlas-64.com/
 - Email: admin@wololabs.com
 - Instagram: https://www.instagram.com/atlas64_/
 - YouTube: https://www.youtube.com/@wololabs

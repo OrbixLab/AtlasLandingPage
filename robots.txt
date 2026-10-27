@@ -17,7 +17,7 @@ User-agent: Perplexity-User
 User-agent: Applebot
 User-agent: Applebot-Extended
 Allow: /
-# Redirección vieja a Ecosistema (tiene noindex)
-Disallow: /descargar/
+# Las direcciones viejas (/juegos/, /descargar/…) son redirecciones y no se
+# bloquean: Google tiene que poder leerlas para seguirlas.
 
 Sitemap: https://atlas-64.com/sitemap.xml

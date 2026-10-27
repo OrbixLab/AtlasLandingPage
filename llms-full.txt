@@ -1,236 +1,237 @@
 # Atlas 64
 
-> Atlas es la consola modular de juegos de mesa: un tablero con luces que reconoce las fichas que se apoyan encima y se transforma en cada juego. Se maneja desde la app gratuita Atlas HUB y la desarrolla WOLO Labs. Sirve para jugar rol (como Dungeons & Dragons), estrategia (ajedrez y Amazonas), juegos de luces y reflejos en familia o con amigos, y para crear y publicar juegos propios con Atlas Studio. Edad recomendada: desde 14 años. Se lanza próximamente en Kickstarter; el registro está abierto en https://presale.atlas-64.com/
+> Atlas is the modular board game console: a board with lights that recognizes the pieces placed on it and transforms for each game. It is controlled from the free Atlas HUB app and developed by WOLO Labs. It's made for role-playing games (like Dungeons & Dragons), strategy (chess and Amazonas), light-and-reflex games for families or friends, and for creating and publishing your own games with Atlas Studio. Recommended age: 14 and up. Launching soon on Kickstarter; sign-up is open at https://presale.atlas-64.com/
 
-## Cómo funciona
+## How it works
 
-- **Un tablero, muchos juegos.** Se elige el juego en la app Atlas HUB (Android en Google Play, iPhone en TestFlight) y el tablero se configura solo: las luces marcan casillas, caminos, paredes y jugadas posibles. No hay que calibrar nada.
-- **Funciona sin Internet.** El tablero y la app se comunican directamente por Bluetooth. Internet solo hace falta para descargar juegos nuevos, sincronizar el perfil y recibir actualizaciones.
-- **Modular.** Cada módulo es un tablero completo. Al acercar otro se conecta solo por radiofrecuencia, sin cables. Se pueden unir hasta 6 para armar mesas y mapas más grandes.
-- **Detecta las jugadas.** Atlas detecta cada movimiento y guía la partida con iluminación, para que los jugadores solo se concentren en jugar.
+- **One board, many games.** You pick the game in the Atlas HUB app (Android on Google Play, iPhone on TestFlight) and the board sets itself up: the lights mark squares, paths, walls and possible moves. There's nothing to calibrate.
+- **Works offline.** The board and the app talk to each other directly over Bluetooth. An internet connection is only needed to download new games, sync your profile and get updates.
+- **Modular.** Each module is a complete board. Bring another one close and it connects on its own: everything is wireless, with nothing to plug in. Up to 6 can be joined to build bigger tables and maps.
+- **Detects every move.** Atlas detects each move and guides the game with lighting, so players can focus on playing.
 
-## Fichas, bases inteligentes y Atlas Core
+## Pieces, smart bases and Atlas Core
 
-- Cada ficha va enroscada sobre una **base inteligente** con un identificador único.
-- **Atlas Core**, un módulo NFC que se acopla al borde del tablero, lee la base que se le apoya y el tablero dice qué ficha es.
-- **Cada juego decide qué representa cada ficha**: un caballero, un alfil, un edificio, un personaje de rol.
-- **Las figuras son intercambiables**: se desenrosca una, se enrosca otra y la base sigue siendo la misma.
-- **Miniaturas propias**: se puede diseñar e imprimir en 3D cualquier figura con la rosca de la base. El modelo STL de la base se descarga gratis en https://atlas-64.com/#fichas y el tablero reconoce esas fichas como a cualquier otra.
-- La caja incluye: tablero Atlas, bases inteligentes, miniaturas, módulo NFC (Atlas Core), cable USB-C, porta celular y guía rápida.
+- Each piece screws onto a **smart base** with a unique ID.
+- **Atlas Core**, an NFC module that attaches to the edge of the board, reads the base placed on it and the board says which piece it is.
+- **Each game decides what each piece represents**: a knight, a bishop, a building, a role-playing character.
+- **Figures are interchangeable**: unscrew one, screw on another and the base stays the same.
+- **Your own miniatures**: you can design and 3D print any figure with the base's thread. The base's STL model is a free download at https://atlas-64.com/#fichas and the board recognizes those pieces like any other.
+- The box includes: Atlas board, smart bases, miniatures, NFC module (Atlas Core), USB-C cable, phone stand and quick-start guide.
 
-## Atlas Studio: crear juegos sin programar
+## Atlas Studio: create games without coding
 
-Atlas Studio permite crear juegos para Atlas sin saber programar:
+Atlas Studio lets you create games for Atlas without knowing how to code:
 
-1. **Imagina**: le cuentas tu idea a un asistente de IA.
-2. **Crea**: Atlas Studio la convierte en un juego.
-3. **Prueba**: lo juegas en un tablero simulado o en tu teléfono.
-4. **Publica**: lo subes a la tienda de Atlas HUB.
-5. **Comparte**: otros jugadores lo descargan o lo compran.
+1. **Imagine**: tell an AI assistant your idea.
+2. **Create**: Atlas Studio turns it into a game.
+3. **Test**: play it on a simulated board or on your phone.
+4. **Publish**: upload it to the Atlas HUB store.
+5. **Share**: other players download it or buy it.
 
-La tienda de Atlas HUB está abierta a creadores independientes, que pueden publicar sus juegos gratis o a la venta. Más información: https://atlas-64.com/ecosistema/#creadores. Guías para creadores: https://wololabs.com/guides.html
+The Atlas HUB store is open to independent creators, who can publish their games for free or for sale. More information: https://atlas-64.com/ecosystem/#creadores. Creator guides: https://wololabs.com/guides.html
 
-## Para quién es Atlas
+## Who Atlas is for
 
-- **Jugadores de rol (Dungeons & Dragons y similares).** Con **Role Mapper**, quien dirige la partida crea sus propios mapas, los lleva al tablero y controla la sesión en vivo desde el teléfono, generando eventos y efectos especiales. Tiene un modo de cámara para recorrer todo el mapa como si fuera un videojuego. Con los módulos de expansión (hasta 6) el mundo crece y se diseña como se quiera, y gracias a las fichas intercambiables cada jugador puede diseñar y usar su propia miniatura: Atlas la reconoce. Con Atlas Studio también se pueden crear aventuras y juegos propios.
-- **Jugadores de ajedrez y estrategia.** **Ajedrez** trae el motor Stockfish con 10 niveles de dificultad, desde principiante hasta gran maestro, análisis de movimientos y partidas contra otra persona con reloj configurable. **Amazonas** es estrategia abstracta argentina, con IA en tres niveles.
-- **Familias y grupos de amigos que quieren jugar juntos en la mesa, lejos de las pantallas.** La partida pasa sobre el tablero, con fichas físicas y luces; el teléfono solo se usa como control. Para dos: **Maze** (fácil, 5 a 15 minutos). Con luces y reflejos: **PONGol** (fútbol de mesa con luces) y **La Luz Mala** (puzzles). Para grupos de 3 a 6: **Estación Lunar** y **Plagio en la Academia** (roles ocultos y deducción). Recomendado desde 14 años; no apto para menores de 3 por las piezas pequeñas.
-- **Creadores y diseñadores de juegos.** Atlas Studio convierte una idea en un juego sin programar, y la tienda de Atlas HUB permite publicarlo y venderlo.
-- **Quienes imprimen en 3D o pintan miniaturas.** Cualquier figura con la rosca de la base se convierte en una ficha que el tablero reconoce.
+- **Role-players (Dungeons & Dragons and similar).** With **Role Mapper**, the game master creates their own maps, brings them to the board and runs the session live from the phone, triggering events and special effects. It has a camera mode to explore the whole map as if it were a video game. With expansion modules (up to 6) the world grows and can be designed however you like, and thanks to the interchangeable pieces each player can design and use their own miniature: Atlas recognizes it. With Atlas Studio you can also create your own adventures and games.
+- **Chess and strategy players.** **Chess** comes with the Stockfish engine, with 10 difficulty levels from beginner to grandmaster, move analysis and games against another person with an adjustable clock. **Amazonas** is an Argentine abstract strategy game, with an AI at three levels.
+- **Families and groups of friends who want to play together at the table, away from screens.** The game happens on the board, with physical pieces and lights; the phone is only used as a controller. For two: **Maze** (easy, 5 to 15 minutes). With lights and reflexes: **PONGol** (table soccer played with light) and **La Luz Mala** (puzzles). For groups of 3 to 6: **Estación Lunar** and **Plagio en la Academia** (hidden roles and deduction). Recommended for ages 14 and up; not suitable for children under 3 because of small parts.
+- **Game creators and designers.** Atlas Studio turns an idea into a game without coding, and the Atlas HUB store lets you publish and sell it.
+- **3D printing and miniature painting fans.** Any figure with the base's thread becomes a piece the board recognizes.
 
-## Juegos
+## Games
 
 ### Role Mapper
 
-Herramienta para juegos de rol · herramienta, sin cantidad fija de jugadores · Libre · dificultad variable · https://atlas-64.com/juegos/role-mapper/
+Tool for role-playing games · tool, no fixed number of players · Open-ended · difficulty varies · https://atlas-64.com/games/role-mapper/
 
-Una herramienta para generar mapas de juegos de rol en el tablero Atlas 64. Permite crear mapas, editarlos y controlar la sesión en vivo.
+A tool for creating role-playing game maps on the Atlas 64 board. Create maps, edit them and run the session live.
 
-Características:
-- Generación de mapas
-- Control de la sesión en vivo
-- Eventos personalizados y efectos especiales
+Features:
+- Map creation
+- Live session control
+- Custom events and special effects
 
-### Ajedrez
+### Chess
 
-Con el motor Stockfish · 1 a 2 jugadores · 10–60 min · dificultad variable · https://atlas-64.com/juegos/ajedrez/
+Powered by Stockfish · 1 to 2 players · 10–60 min · difficulty varies · https://atlas-64.com/games/ajedrez/
 
-Desafiá a la inteligencia artificial o enfrentate a un amigo en el clásico juego de estrategia. Con el motor Stockfish integrado, la IA se adapta a tu nivel, desde principiante hasta gran maestro.
+Challenge the AI or face a friend in the classic strategy game. With the built-in Stockfish engine, the AI adapts to your level, from beginner to grandmaster.
 
-Características:
-- Motor Stockfish integrado
-- 10 niveles de dificultad
-- Jugador contra IA y Jugador contra Jugador
-- Análisis de movimientos
+Features:
+- Built-in Stockfish engine
+- 10 difficulty levels
+- Player vs. AI and Player vs. Player
+- Move analysis
 
-Cómo se juega:
-1. Mové las piezas según las reglas estándar del ajedrez.
-2. El objetivo es dar jaque mate al rey rival.
-3. En el modo Jugador contra Jugador se puede configurar el tiempo.
+How to play:
+1. Move the pieces following the standard rules of chess.
+2. The goal is to checkmate your opponent's king.
+3. In Player vs. Player mode you can set the clock.
 
 ### Maze
 
-El laberinto del dios fragmentado · 2 jugadores · 5–15 min · dificultad fácil · https://atlas-64.com/juegos/maze/
+The labyrinth of the shattered god · 2 players · 5–15 min · difficulty easy · https://atlas-64.com/games/maze/
 
-Hace eras, un dios antiguo selló su tesoro para que no cayera en manos indignas. No lo escondió en cofres ni cámaras, sino en un laberinto vivo, donde las paredes no se ven y el camino cambia con la voluntad divina. El tesoro fue dividido en cinco fragmentos sagrados. Solo quien logre reunirlos podrá reclamar el favor del dios.
+Ages ago, an ancient god sealed away his treasure so it would never fall into unworthy hands. He didn't hide it in chests or vaults, but in a living labyrinth where the walls can't be seen and the path shifts at the god's will. The treasure was split into five sacred fragments. Only whoever gathers them all can claim the god's favor.
 
-Características:
-- Castiga a quienes avanzan sin cuidado
-- Reescribe sus pasillos cuando lo perturban
-- Múltiples laberintos
+Features:
+- Punishes those who move carelessly
+- Rewrites its corridors when disturbed
+- Multiple labyrinths
 
-Cómo se juega:
-1. Cada jugador empieza en una esquina del laberinto.
-2. Reuní los 5 fragmentos del tesoro para ganar.
-3. Evitá las paredes o volvés al inicio.
-4. Juntá poderes especiales que te ayudan en la búsqueda.
+How to play:
+1. Each player starts in a corner of the labyrinth.
+2. Collect the 5 treasure fragments to win.
+3. Avoid the walls or you go back to the start.
+4. Gather special powers that help you in your search.
 
 ### Amazonas
 
-Creado por Walter Zamkauskas · 1 a 2 jugadores · 10–30 min · dificultad variable · https://atlas-64.com/juegos/amazonas/
+Created by Walter Zamkauskas · 1 to 2 players · 10–30 min · difficulty varies · https://atlas-64.com/games/amazonas/
 
-Estrategia abstracta pura, inventada por el argentino Walter Zamkauskas en 1988 y adaptada al tablero Atlas 64. Cada jugador comanda cuatro Amazonas que se mueven como la reina del ajedrez y, después de cada movimiento, disparan una flecha que bloquea una casilla para siempre. El territorio se achica turno a turno y pierde quien se quede sin jugadas: los empates son imposibles.
+Pure abstract strategy, invented by Argentine designer Walter Zamkauskas in 1988 and adapted to the Atlas 64 board. Each player commands four Amazons that move like a chess queen and, after every move, shoot an arrow that blocks a square for good. The territory shrinks turn by turn and whoever runs out of moves loses: draws are impossible.
 
-Características:
-- Jugador contra jugador
-- Contra la IA en tres niveles: Principiante, Intermedio y Experto
-- IA con búsqueda Monte Carlo (MCTS)
-- Tablero de 8×8, adaptado del original de 10×10
-- La partida se cierra sola cuando los territorios quedan aislados
+Features:
+- Player vs. player
+- Against the AI at three levels: Beginner, Intermediate and Expert
+- AI powered by Monte Carlo tree search (MCTS)
+- 8×8 board, adapted from the original 10×10
+- The game ends on its own once the territories are sealed off
 
-Cómo se juega:
-1. Cada jugador tiene 4 Amazonas. Las Blancas mueven primero y luego se alternan los turnos.
-2. Cada turno tiene dos partes obligatorias e inseparables: mover una Amazona y disparar una flecha.
-3. Las Amazonas se mueven como la reina del ajedrez: en línea recta u oblicua, cualquier cantidad de casillas vacías, sin saltar Amazonas ni flechas.
-4. Después de moverse, la Amazona dispara una flecha desde su nueva posición con el mismo alcance de la reina. La casilla donde cae queda bloqueada para el resto de la partida.
-5. Pierde el primer jugador que en su turno no pueda mover y disparar. No hay empates: gana el último en mover.
-6. Si los territorios quedan aislados y ya no hay zonas en disputa, la partida se cierra sola y gana quien tenga más casillas disponibles.
+How to play:
+1. Each player has 4 Amazons. White moves first, then players take turns.
+2. Each turn has two mandatory, inseparable parts: move an Amazon and shoot an arrow.
+3. Amazons move like a chess queen: in a straight or diagonal line, any number of empty squares, without jumping over Amazons or arrows.
+4. After moving, the Amazon shoots an arrow from her new position with the same reach as a queen. The square where it lands stays blocked for the rest of the game.
+5. The first player who can't move and shoot on their turn loses. There are no draws: the last player to move wins.
+6. If the territories are sealed off and no contested areas remain, the game ends on its own and whoever has more available squares wins.
 
 ### La Luz Mala
 
-Creado por Luis Olcese · 1 a 4 jugadores · 10–20 min · dificultad media · https://atlas-64.com/juegos/la-luz-mala/
+Created by Luis Olcese · 1 to 4 players · 10–20 min · difficulty medium · https://atlas-64.com/games/la-luz-mala/
 
-Los que la siguen no vuelven. Los que saben, la guían. Un juego de puzzles lógicos: acomodá los objetos sobre el tablero para que la luz llegue a todas las guaridas.
+Those who follow it never return. Those who know, guide it. A logic puzzle game: place the objects on the board so the light reaches every den.
 
-Características:
-- Puzzles lógicos
-- Niveles con generación procedimental
+Features:
+- Logic puzzles
+- Procedurally generated levels
 
-Cómo se juega:
-1. Colocá los objetos antes de que pase la luz.
-2. Hacé que la luz llegue a todas las guaridas.
-3. Si choca contra un árbol o sale del tablero, se pierde.
+How to play:
+1. Place the objects before the light passes.
+2. Make the light reach every den.
+3. If it hits a tree or leaves the board, it's lost.
 
 ### PONGol
 
-Creado por Luis Olcese · 1 a 4 jugadores · 5–15 min · dificultad media · https://atlas-64.com/juegos/pongol/
+Created by Luis Olcese · 1 to 4 players · 5–15 min · difficulty medium · https://atlas-64.com/games/pongol/
 
-Fútbol de mesa jugado con luces. El balón es una luz amarilla que nunca deja de moverse por la cancha de 8×8. No manejás un jugador: apoyás fichas reales sobre el tablero para armar paredes y desviar la pelota hacia el arco rival. Con árbitro electrónico, VAR y tarjetas: apurarte en levantar una ficha o meterte en la mitad del rival se paga caro.
+Table soccer played with light. The ball is a yellow light that never stops moving across the 8×8 pitch. You don't control a player: you place real pieces on the board to build walls and deflect the ball toward the opposing goal. With an electronic referee, VAR and cards: lift a piece too soon or step into your rival's half and you'll pay for it.
 
-Características:
-- Contra la IA o 1 vs 1 en la misma mesa
-- Cuatro velocidades de balón: Lento, Normal, Rápido y Flash
-- Árbitro electrónico con VAR y tarjetas amarillas y rojas
-- Academia: tutorial de 5 lecciones para dominar los rebotes
-- Se juega apoyando fichas físicas sobre el tablero
+Features:
+- Against the AI or 1 vs 1 at the same table
+- Four ball speeds: Slow, Normal, Fast and Flash
+- Electronic referee with VAR and yellow and red cards
+- Academy: a 5-lesson tutorial to master the bounces
+- Played by placing physical pieces on the board
 
-Cómo se juega:
-1. El objetivo es meter la luz amarilla en el arco del rival. Los arcos son la primera y la última fila del tablero, iluminadas en blanco.
-2. Cada equipo tiene 2 fichas y solo puede apoyarlas en su propia mitad de la cancha.
-3. Regla de los 3 segundos: al apoyar una ficha su LED se pone naranja y queda bloqueada. Recién cuando pasa a azul se puede levantar.
-4. Rebotes: de frente la pelota vuelve por el mismo camino; si llega en diagonal contra el frente de la ficha se endereza; un roce de esquina la desvía sin frenarla; un puntazo justo en la punta la devuelve por donde vino; y dos fichas separadas por un hueco arman un pasillo por el que pasa derecho.
-5. Amarilla: levantar la ficha antes de que el LED se ponga azul, invadir la mitad del rival o poner más fichas de las permitidas. Cada infracción pasa primero por el VAR.
-6. Roja: la segunda amarilla del mismo equipo. El resto de la jugada se juega con una sola ficha.
-7. Si un equipo se come la segunda roja, el rival recibe un gol por default.
-8. Amnistía: cada gol convertido borra todas las tarjetas y devuelve las dos fichas a los dos equipos.
-9. Antes del saque, una luz púrpura pulsante marca hacia dónde va a salir disparada la pelota. Se apaga cuando arranca la jugada.
-10. Gana el primero que llega a 5 goles.
+How to play:
+1. The goal is to get the yellow light into your rival's goal. The goals are the first and last rows of the board, lit in white.
+2. Each team has 2 pieces and can only place them in its own half of the pitch.
+3. 3-second rule: when you place a piece, its LED turns orange and the piece is locked. Only once it turns blue can you lift it.
+4. Bounces: head-on, the ball comes back the way it came; if it hits the front of a piece diagonally, it straightens out; a corner graze deflects it without slowing it down; a hit right on the tip sends it back where it came from; and two pieces with a gap between them form a corridor the ball goes straight through.
+5. Yellow card: lifting a piece before its LED turns blue, invading your rival's half or placing more pieces than allowed. Every offense goes to VAR first.
+6. Red card: the same team's second yellow. The rest of the play is played with a single piece.
+7. If a team gets a second red card, the rival is awarded a goal by default.
+8. Amnesty: every goal scored clears all cards and gives both teams their two pieces back.
+9. Before kickoff, a pulsing purple light shows where the ball will shoot off. It goes out when play starts.
+10. First to 5 goals wins.
 
 ### Estación Lunar
 
-Engaño y roles ocultos · 3 a 4 jugadores · 20–50 min · dificultad media · https://atlas-64.com/juegos/estacion-lunar/
+Deception and hidden roles · 3 to 4 players · 20–50 min · difficulty medium · https://atlas-64.com/games/estacion-lunar/
 
-Somos científicos en una colonia lunar. En un recorrido de rutina encontramos a una persona desmayada y, desde que está con nosotros, empezaron a pasar cosas… Hay una criatura extraterrestre infiltrada, y puede que también un Boicoteador de otra colonia.
+We are scientists in a lunar colony. On a routine patrol we found someone unconscious and, ever since they joined us, strange things have been happening… An alien creature has infiltrated the colony, and there may also be a Saboteur from another colony.
 
-Características:
-- Tres mapas de 8×8: Zona Alpha, Corredor Delta y Núcleo Gamma
-- El Extraño, manejado por la app, completa la mesa cuando son impares
-- Los LEDs marcan paredes, máquinas, ductos y las casillas a las que se puede llegar
-- Minijuego de habilidad para reparar las máquinas
-- Asambleas con voto secreto
-- Tutorial guiado paso a paso
+Features:
+- Three 8×8 maps: Zone Alpha, Delta Corridor and Gamma Core
+- The Stranger, run by the app, fills the table when there's an odd number of players
+- LEDs mark walls, machines, vents and the squares you can reach
+- Skill mini-game to repair the machines
+- Meetings with secret ballots
+- Step-by-step guided tutorial
 
 Roles:
-- **Científicos**: matar a la Criatura con un Reactivo, que se prepara juntando 6 Componentes repartidos por el tablero.
-- **Criatura**: contagiar a todos los demás jugadores, o resistir hasta que terminen las rondas.
-- **Boicoteador**: sabotear la colonia hasta romper todas sus máquinas.
+- **Scientists**: kill the Creature with a Reagent, made by collecting 6 Components scattered across the board.
+- **Creature**: infect every other player, or hold out until the rounds run out.
+- **Saboteur**: sabotage the colony until all its machines are broken.
 
-Cómo se juega:
-1. Cada jugador ve su rol en secreto con el teléfono. Si son impares, se suma el Extraño, un personaje que se controla solo.
-2. En su turno, cada jugador avanza tantas casillas como marque la Cordura.
-3. Al pasar por un Componente, se recoge. Con 6 se obtiene un Reactivo.
-4. Las máquinas se rompen por azar o por sabotaje. Para repararlas hacen falta dos jugadores junto a ellas.
-5. Una vez por turno se puede convocar una Asamblea para votar quién es el Boicoteador o a quién inyectarle el Reactivo.
-6. Cada 2 rondas, un informe revela cuántos tripulantes están contagiados, y la Cordura baja.
-7. El juego incluye un tutorial interactivo que explica todo paso a paso, y se puede repetir desde el menú.
+How to play:
+1. Each player sees their role in secret on the phone. With an odd number of players, the Stranger joins in: a character that plays on its own.
+2. On their turn, each player moves as many squares as their Sanity allows.
+3. Passing over a Component picks it up. With 6 you get a Reagent.
+4. Machines break down by chance or through sabotage. Repairing one takes two players standing next to it.
+5. Once per turn, anyone can call a Meeting to vote on who the Saboteur is or whom to inject with the Reagent.
+6. Every 2 rounds, a report reveals how many crew members are infected, and Sanity drops.
+7. The game includes an interactive tutorial that explains everything step by step, and you can replay it from the menu.
 
 ### Plagio en la Academia
 
-Deducción social · 3 a 6 jugadores · 15–30 min · dificultad media · https://atlas-64.com/juegos/plagio-en-la-academia/
+Social deduction · 3 to 6 players · 15–30 min · difficulty medium · https://atlas-64.com/games/plagio-en-la-academia/
 
-Bienvenidos a la Real Academia de Artes Visuales. El Rector descubrió un escándalo: entre los nuevos alumnos hay infiltrados que falsificaron su portafolio. Para cuidar la reputación de la institución organizó una evaluación sorpresa: replicar un mosaico secreto. Los verdaderos artistas conocen el plano; los impostores tienen que improvisar cada pincelada para no ser expulsados.
+Welcome to the Royal Academy of Visual Arts. The Rector has uncovered a scandal: among the new students are impostors who faked their portfolios. To protect the institution's reputation, he has set a surprise exam: reproduce a secret mosaic. The true artists know the plan; the impostors must improvise every brushstroke to avoid being expelled.
 
-Características:
-- Roles ocultos: Prodigios contra Farsantes
-- Lienzo colectivo de 8×8 y paleta de pigmentos
-- Acusaciones y votaciones en cualquier momento
-- Límite de 50 pinceladas por partida
+Features:
+- Hidden roles: Prodigies vs. Frauds
+- Shared 8×8 canvas and pigment palette
+- Accusations and votes at any time
+- Limit of 50 brushstrokes per game
 
-Cómo se juega:
-1. Roles secretos según la cantidad de alumnos: con 3 o 4 jugadores hay 1 Farsante; con 5 o 6 hay 2. El resto son Prodigios, los artistas reales.
-2. Inspección de portafolios: por turnos y en secreto, cada alumno toca la pantalla para ver su rol. Los Prodigios ven el Mosaico Secreto de 8×8; los Farsantes solo ven una advertencia, sin plano ni guía.
-3. La evaluación se juega por turnos sobre un lienzo colectivo de 8×8. En tu turno elegí un color de la paleta y pintá una casilla.
-4. Si sos Prodigio, poné el color exacto en la coordenada correcta según tu plano.
-5. Si sos Farsante, disimulá: mirá dónde pintan los demás e imitá el patrón para que nadie sospeche.
-6. Acusación formal: en cualquier momento un alumno puede llamar al Rector. Se detiene la pintura y todos votan por el sospechoso.
-7. Ganan los Prodigios si expulsan a todos los Farsantes. Ganan los Farsantes si se acusa a un Prodigio inocente.
-8. Límite de trazos: si el lienzo llega a 50 pinceladas sin una acusación exitosa, el examen termina y ganan los Farsantes.
+How to play:
+1. Secret roles depend on the number of students: with 3 or 4 players there is 1 Fraud; with 5 or 6 there are 2. Everyone else is a Prodigy, a real artist.
+2. Portfolio inspection: taking turns in secret, each student taps the screen to see their role. Prodigies see the 8×8 Secret Mosaic; Frauds only see a warning, with no plan or guide.
+3. The exam is played in turns on a shared 8×8 canvas. On your turn, pick a color from the palette and paint a square.
+4. If you're a Prodigy, place the exact color at the right coordinate according to your plan.
+5. If you're a Fraud, blend in: watch where the others paint and copy the pattern so nobody suspects you.
+6. Formal accusation: at any time a student can call the Rector. Painting stops and everyone votes on the suspect.
+7. The Prodigies win if they expel every Fraud. The Frauds win if an innocent Prodigy is accused.
+8. Stroke limit: if the canvas reaches 50 brushstrokes without a successful accusation, the exam ends and the Frauds win.
 
 ### Pixel Blaster
 
-Arcade · 1 jugador · 5–15 min · dificultad media · https://atlas-64.com/juegos/pixel-blaster/
+Arcade · 1 player · 5–15 min · difficulty medium · https://atlas-64.com/games/pixel-blaster/
 
-Siete piezas de cuatro bloques caen sin descanso dentro del pozo y tu único trabajo es que no sobre lugar. Giralas, corrélas y clavalas para completar filas enteras de ocho bloques. Cuanto más limpiás, más rápido caen. La partida no se gana, se aguanta.
+Seven four-block pieces fall nonstop into the well, and your only job is to keep it from filling up. Rotate them, slide them and slam them down to complete full rows of eight blocks. The more you clear, the faster they fall. You don't win this game: you survive it.
 
-Características:
-- 7 piezas distintas, cada una con su color
-- Pozo de 8×16 con dos módulos, o de 8×8 con uno solo
-- Silueta guía y aviso de la próxima pieza
-- Bajada rápida y giro desde el pad del control
-- Niveles progresivos y récord de la sesión
+Features:
+- 7 different pieces, each with its own color
+- 8×16 well with two modules, or 8×8 with just one
+- Ghost piece and next-piece preview
+- Hard drop and rotate from the controller pad
+- Progressive levels and session high score
 
-Cómo se juega:
-1. Las piezas caen de a una desde arriba del pozo. Movelas a izquierda y derecha, giralas y bajalas antes de que toquen fondo.
-2. El pozo mide 8 columnas por 16 filas cuando hay dos módulos conectados. Con un solo módulo se achica a 8×8 para que la partida entre completa en el tablero.
-3. Completá una fila entera de 8 bloques y la fila estalla: todo lo que quedaba arriba baja un casillero.
-4. Una fila suma 100 puntos, dos suman 300, tres suman 500 y cuatro de una sola vez suman 800. El total se multiplica por el nivel en el que estés.
-5. Cada 10 filas eliminadas subís un nivel y las piezas empiezan a caer más rápido.
-6. La silueta tenue debajo de la pieza marca dónde va a aterrizar, y el indicador Next te adelanta cuál viene después.
-7. La bajada rápida clava la pieza en el acto en la posición de la silueta.
-8. La partida termina cuando entra una pieza nueva y ya no hay lugar para ella.
+How to play:
+1. Pieces fall one at a time from the top of the well. Move them left and right, rotate them and drop them before they hit the bottom.
+2. The well is 8 columns by 16 rows when two modules are connected. With a single module it shrinks to 8×8 so the whole game fits on the board.
+3. Complete a full row of 8 blocks and it bursts: everything above it drops down one square.
+4. One row scores 100 points, two score 300, three score 500 and four at once score 800. The total is multiplied by your current level.
+5. Every 10 rows cleared you go up a level and the pieces start falling faster.
+6. The faint ghost below the piece shows where it will land, and the Next indicator shows which piece comes after.
+7. Hard drop slams the piece instantly into the ghost's position.
+8. The game ends when a new piece comes in and there's no room left for it.
 
-## Páginas principales
+## Main pages
 
-- [Producto](https://atlas-64.com/): qué es Atlas, cómo funciona, módulos, fichas, Atlas Core y preguntas frecuentes.
-- [Preguntas frecuentes](https://atlas-64.com/#faq)
-- [Juegos](https://atlas-64.com/juegos/): el catálogo con jugadores, duración y reglas de cada juego.
-- [Ecosistema](https://atlas-64.com/ecosistema/): la app Atlas HUB, Atlas Studio y la tienda para creadores.
-- [Sobre nosotros](https://atlas-64.com/sobre-nosotros/): WOLO Labs, su historia, misión y equipo.
-- [Manual de usuario y avisos de seguridad](https://atlas-64.com/user-manual/)
+- [Product](https://atlas-64.com/): what Atlas is, how it works, modules, pieces, Atlas Core and frequently asked questions.
+- [Frequently asked questions](https://atlas-64.com/#faq)
+- [Games](https://atlas-64.com/games/): the library, with players, length and rules for each game.
+- [Ecosystem](https://atlas-64.com/ecosystem/): the Atlas HUB app, Atlas Studio and the store for creators.
+- [About us](https://atlas-64.com/about-us/): WOLO Labs, its story, mission and team.
+- [User manual and safety information](https://atlas-64.com/user-manual/)
+- [Spanish version of the site](https://atlas-64.com/es/)
 
-## Campaña en Kickstarter y contacto
+## Kickstarter campaign and contact
 
-- Atlas 64 se lanza próximamente en Kickstarter, con un precio de 250 USD durante la campaña. Para recibir el aviso del lanzamiento, el registro está abierto en https://presale.atlas-64.com/
+- Atlas 64 is launching soon on Kickstarter, priced at 250 USD during the campaign. To get notified at launch, sign-up is open at https://presale.atlas-64.com/
 - Email: admin@wololabs.com
 - Instagram: https://www.instagram.com/atlas64_/
 - YouTube: https://www.youtube.com/@wololabs

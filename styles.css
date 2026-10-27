@@ -452,6 +452,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: clamp(1rem, 2.2vw, 2.25rem);
+  margin-left: auto; /* junto al selector de idioma, a la derecha */
 }
 
 .topbar__nav a {
@@ -513,6 +514,36 @@ h3 {
     padding-block: 0.85rem;
     border-bottom: 1px solid rgba(29, 29, 29, 0.15);
     font-size: 0.85rem;
+  }
+}
+
+/* Selector de idioma: la misma página en el otro idioma («ES» / «EN»). Va al
+   final de la barra; en el celular, antes del botón del menú, siempre a la vista. */
+.lang-switch {
+  flex: none;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: clamp(0.7rem, 0.75vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-switch:hover {
+  background: var(--ink);
+  color: var(--yellow);
+}
+
+@media (max-width: 860px) {
+  .lang-switch {
+    order: 1;
+    margin-left: auto;
+  }
+
+  .nav-toggle {
+    order: 2;
   }
 }
 
@@ -743,6 +774,28 @@ h3 {
 .hero--overlay .hero__title--split img:last-child {
   justify-self: end;
   width: clamp(9rem, 31.5vw, 604px);
+}
+
+/* Titulares del hero como texto: las páginas en inglés, hasta que el estudio
+   entregue los SVG en ese idioma. Mismo lugar y color que el SVG. */
+.hero--overlay .hero__title--text {
+  color: #e4e4e4;
+  font-size: clamp(2.2rem, 6.6vw, 8rem);
+  line-height: 1;
+}
+
+.hero--overlay .hero__title--split.hero__title--text {
+  font-size: clamp(2.2rem, 5.4vw, 6.5rem);
+}
+
+/* Cada mitad, centrada en su lado como los dos SVG */
+.hero--overlay .hero__title--split.hero__title--text span {
+  max-width: 6.5em;
+  text-align: center;
+}
+
+.hero--overlay .hero__title--split.hero__title--text span:last-child {
+  justify-self: end;
 }
 
 .hero--overlay .btn {
@@ -1732,6 +1785,29 @@ h3 {
   margin-bottom: clamp(1.5rem, 3.9vw, 4.7rem);
 }
 
+/* Titulares de Sobre nosotros como texto (páginas en inglés, hasta tener los SVG
+   del estudio): el tamaño, el color y la alineación del SVG que reemplazan. */
+.story__title {
+  color: #e4e4e4;
+  font-size: clamp(2.4rem, 5.2vw, 6.25rem);
+  margin-bottom: clamp(1.5rem, 3.9vw, 4.7rem);
+}
+
+.mission__title--text {
+  max-width: 14em;
+  margin-left: auto;
+  color: #e4e4e4;
+  font-size: clamp(1.8rem, 3.4vw, 4rem);
+  line-height: 1.12;
+  text-align: right;
+}
+
+.steps-head__title {
+  max-width: 14em;
+  font-size: clamp(2rem, 4.1vw, 4.9rem);
+  line-height: 1.12;
+}
+
 .story__copy .body-copy {
   max-width: 24em;
 }
@@ -1828,6 +1904,11 @@ h3 {
 
   .mission__title img {
     margin-left: 0;
+  }
+
+  .mission__title--text {
+    margin-left: 0;
+    text-align: left;
   }
 
   .mission__photo--bw {
@@ -2044,14 +2125,151 @@ h3 {
   list-style: none;
 }
 .wolo-team li {
-  flex: 0 1 clamp(5.5rem, 7.2vw, 7.5rem);
+  flex: 0 1 clamp(6.75rem, 8.6vw, 9rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.45rem, 0.8vw, 0.75rem);
   padding: clamp(0.6rem, 1vw, 0.9rem);
   border-radius: 14px;
   background: var(--yellow);
+  color: var(--ink);
 }
-.split__copy .wolo-team img {
+/* El nombre es texto, para que se traduzca; el diagrama va debajo */
+.wolo-team__label {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.wolo-team__art {
+  display: block;
   width: 100%;
   height: auto;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+.wolo-team__art .n {
+  fill: currentColor;
+  stroke: none;
+}
+.wolo-team__art .t-dash {
+  stroke-dasharray: 2 2.5;
+}
+.wolo-team__art :is(.n, .t-meridian) {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+/* La ficha de «Jugadores» se mueve en coordenadas del dibujo; sin animación
+   queda en la primera casilla */
+.wolo-team__art .t-token {
+  fill: var(--yellow);
+  stroke-width: 2;
+  transform-box: view-box;
+  transform-origin: 0 0;
+  transform: translate(8px, 30px);
+}
+
+/* Cada diagrama hace lo que nombra: la red de diseño se conecta de a una línea,
+   el globo de ingeniería gira y una ficha salta de casilla en casilla. */
+@media (prefers-reduced-motion: no-preference) {
+  .wolo-team__card--diseno .t-line {
+    stroke-dasharray: 1;
+    animation: team-draw 6s ease-in-out calc(var(--k) * 0.3s) infinite;
+  }
+  .wolo-team__card--diseno .n:not(.t-core) {
+    animation: team-pop 6s ease-in-out calc(var(--k) * 0.3s) infinite;
+  }
+  .wolo-team__card--diseno .t-core,
+  .wolo-team__card--ingenieria .t-core {
+    animation: team-pulse 2s ease-in-out infinite;
+  }
+  .wolo-team__card--ingenieria .t-meridian {
+    animation: team-spin 4s linear infinite;
+  }
+  .wolo-team__card--ingenieria .t-meridian--b {
+    animation-delay: -2s;
+  }
+  .wolo-team__card--ingenieria .t-blink {
+    animation: team-blink 2.4s ease-in-out calc(var(--k) * 0.6s) infinite;
+  }
+  .wolo-team__card--juego .t-token {
+    animation: team-hop 5s cubic-bezier(0.5, 0, 0.3, 1) infinite;
+  }
+}
+@keyframes team-draw {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  25%,
+  80% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1;
+  }
+}
+@keyframes team-pop {
+  0%,
+  100% {
+    transform: scale(0.4);
+  }
+  25%,
+  80% {
+    transform: scale(1);
+  }
+}
+@keyframes team-pulse {
+  50% {
+    transform: scale(1.18);
+  }
+}
+/* Dos meridianos desfasados que se angostan y se abren: el globo parece girar */
+@keyframes team-spin {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.02);
+  }
+}
+@keyframes team-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes team-hop {
+  0%,
+  12% {
+    transform: translate(8px, 30px);
+  }
+  20%,
+  32% {
+    transform: translate(50px, 16px);
+  }
+  40%,
+  52% {
+    transform: translate(92px, 30px);
+  }
+  60%,
+  72% {
+    transform: translate(50px, 93px);
+  }
+  80%,
+  92% {
+    transform: translate(28px, 80px);
+  }
+  100% {
+    transform: translate(8px, 30px);
+  }
 }
 .wolo-cta {
   margin: clamp(1.25rem, 2.5vw, 2rem) 0 0;

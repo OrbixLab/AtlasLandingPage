@@ -1,67 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://atlas-64.com/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/es/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/role-mapper/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/games/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/ajedrez/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/es/juegos/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/maze/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/games/role-mapper/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/role-mapper/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/role-mapper/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/role-mapper/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/amazonas/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/es/juegos/role-mapper/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/role-mapper/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/role-mapper/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/role-mapper/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/la-luz-mala/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/games/ajedrez/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/ajedrez/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/ajedrez/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/ajedrez/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/pongol/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/es/juegos/ajedrez/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/ajedrez/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/ajedrez/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/ajedrez/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/estacion-lunar/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/games/maze/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/maze/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/maze/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/maze/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/plagio-en-la-academia/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/es/juegos/maze/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/maze/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/maze/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/maze/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/juegos/pixel-blaster/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/games/amazonas/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/amazonas/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/amazonas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/amazonas/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/ecosistema/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/es/juegos/amazonas/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/amazonas/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/amazonas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/amazonas/" />
   </url>
   <url>
-    <loc>https://atlas-64.com/sobre-nosotros/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <loc>https://atlas-64.com/games/la-luz-mala/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/la-luz-mala/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/la-luz-mala/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/la-luz-mala/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/juegos/la-luz-mala/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/la-luz-mala/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/la-luz-mala/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/la-luz-mala/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/games/pongol/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/pongol/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/pongol/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/pongol/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/juegos/pongol/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/pongol/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/pongol/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/pongol/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/games/estacion-lunar/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/estacion-lunar/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/estacion-lunar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/estacion-lunar/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/juegos/estacion-lunar/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/estacion-lunar/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/estacion-lunar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/estacion-lunar/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/games/plagio-en-la-academia/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/plagio-en-la-academia/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/plagio-en-la-academia/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/plagio-en-la-academia/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/juegos/plagio-en-la-academia/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/plagio-en-la-academia/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/plagio-en-la-academia/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/plagio-en-la-academia/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/games/pixel-blaster/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/pixel-blaster/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/pixel-blaster/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/pixel-blaster/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/juegos/pixel-blaster/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/games/pixel-blaster/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/juegos/pixel-blaster/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/games/pixel-blaster/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/ecosystem/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/ecosystem/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/ecosistema/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/ecosystem/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/ecosistema/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/ecosystem/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/ecosistema/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/ecosystem/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/about-us/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/about-us/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/sobre-nosotros/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/about-us/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/sobre-nosotros/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/about-us/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/sobre-nosotros/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/about-us/" />
   </url>
   <url>
     <loc>https://atlas-64.com/user-manual/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/user-manual/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/manual-de-usuario/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/user-manual/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/manual-de-usuario/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/user-manual/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/manual-de-usuario/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/user-manual/" />
   </url>
   <url>
     <loc>https://atlas-64.com/privacy-policy/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/politica-de-privacidad/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/privacy-policy/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/politica-de-privacidad/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/politica-de-privacidad/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/privacy-policy/" />
   </url>
   <url>
     <loc>https://atlas-64.com/delete-account-guide/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/delete-account-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/eliminar-cuenta/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/delete-account-guide/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/eliminar-cuenta/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/delete-account-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/eliminar-cuenta/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/delete-account-guide/" />
   </url>
 </urlset>

@@ -18,16 +18,23 @@
   No inventar el numero de homologacion ENACOM: declararlo solo cuando exista.
   ============================================================================
 -->
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manual de usuario y avisos de seguridad | Atlas 64</title>
+    <title>User Manual and Safety Information | Atlas 64</title>
     <meta
       name="description"
-      content="Manual de usuario del tablero Atlas: instrucciones de uso, advertencias de seguridad, batería, señales de radio, garantía limitada y condiciones legales."
+      content="Atlas board user manual: operating instructions, safety warnings, battery, radio signals, limited warranty and legal terms."
     />
     <link rel="canonical" href="https://atlas-64.com/user-manual/" />
+    <!-- idiomas:inicio -->
+    <link rel="alternate" hreflang="en" href="https://atlas-64.com/user-manual/" />
+    <link rel="alternate" hreflang="es" href="https://atlas-64.com/es/manual-de-usuario/" />
+    <link rel="alternate" hreflang="x-default" href="https://atlas-64.com/user-manual/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_AR" />
+    <!-- idiomas:fin -->
     <meta name="theme-color" content="#f9b606" />
     <link rel="icon" href="/favicon.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -37,381 +44,386 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <script src="/analytics.js?v=20261026-1" async></script>
-    <link rel="stylesheet" href="/styles.css?v=20261026-1" />
+    <script src="/analytics.js?v=20261027-2" async></script>
+    <link rel="stylesheet" href="/styles.css?v=20261027-2" />
   </head>
   <body>
-    <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
+    <!-- barra:inicio -->
+    <a class="visually-hidden" href="#contenido">Skip to content</a>
 
     <header class="topbar">
       <div class="wrap topbar__inner">
-        <a class="brand" href="/" aria-label="Atlas — inicio">
+        <a class="brand" href="/" aria-label="Atlas — home">
           <img class="brand-logo" src="/assets/logo-lockup-dark.png" alt="" width="900" height="185" />
         </a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-principal">
-          Menú
+          Menu
         </button>
-        <nav class="topbar__nav" id="nav-principal" data-nav aria-label="Navegación principal">
-          <a href="/">Producto</a>
-          <a href="/juegos/">Juegos</a>
-          <a href="/ecosistema/">Ecosistema</a>
-          <a href="/sobre-nosotros/">Sobre nosotros</a>
+        <nav class="topbar__nav" id="nav-principal" data-nav aria-label="Main navigation">
+          <a href="/">Product</a>
+          <a href="/games/">Games</a>
+          <a href="/ecosystem/">Ecosystem</a>
+          <a href="/about-us/">About us</a>
         </nav>
+        <a class="lang-switch" href="/es/manual-de-usuario/" hreflang="es" lang="es" title="Español" data-lang-switch><span aria-hidden="true">ES</span><span class="visually-hidden">Ver esta página en español</span></a>
       </div>
     </header>
+    <!-- barra:fin -->
 
     <main id="contenido">
       <section class="doc-hero">
         <div class="wrap">
-          <a class="back-link" href="/">← Volver al inicio</a>
-          <p class="eyebrow">Manual de usuario</p>
-          <h1 class="display display--lg">Tablero Atlas</h1>
-          <p class="lede">Instrucciones de uso, advertencias de seguridad, cuidado de la batería, señales de radio, garantía limitada y condiciones legales del tablero Atlas y de la aplicación AtlasHub.</p>
+          <a class="back-link" href="/">← Back to home</a>
+          <p class="eyebrow">User manual</p>
+          <h1 class="display display--lg">Atlas board</h1>
+          <p class="lede">Operating instructions, safety warnings, battery care, radio signals, limited warranty and legal terms for the Atlas board and the AtlasHub app.</p>
         </div>
       </section>
 
       <section class="page-shell">
         <div class="wrap">
         <article class="article-card">
-          <!-- PENDIENTE (1): agregar el modelo/SKU cuando este definido -> "tablero electronico Atlas, modelo XXX, y aplicacion AtlasHub". -->
-          <p class="doc-meta"><strong>Producto:</strong> tablero electrónico Atlas y aplicación AtlasHub.</p>
-          <p class="doc-meta"><strong>Versión del manual:</strong> 1.0 &nbsp;·&nbsp; <strong>Última actualización:</strong> 2 de septiembre de 2026</p>
-          <p class="doc-meta"><strong>Fabricante / responsable:</strong> WOLOLO STUDIO S.A.S. (wololabs) — Maure Avelino 245, Ciudad de Mendoza, Provincia de Mendoza, República Argentina — <a href="mailto:admin@wololabs.com">admin@wololabs.com</a></p>
+          <!-- PENDIENTE (1): agregar el modelo/SKU cuando este definido -> "Atlas electronic board, model XXX, and the AtlasHub app". -->
+          <p class="doc-meta"><strong>Product:</strong> Atlas electronic board and the AtlasHub app.</p>
+          <p class="doc-meta"><strong>Manual version:</strong> 1.0 &nbsp;·&nbsp; <strong>Last updated:</strong> September 2, 2026</p>
+          <p class="doc-meta"><strong>Manufacturer / responsible party:</strong> WOLOLO STUDIO S.A.S. (wololabs) — Maure Avelino 245, Ciudad de Mendoza, Province of Mendoza, Argentina — <a href="mailto:admin@wololabs.com">admin@wololabs.com</a></p>
+          <p class="doc-meta">This is a translation. The <a href="/es/manual-de-usuario/" hreflang="es" lang="es">Spanish version</a> is the reference text.</p>
 
           <div class="callout danger">
-            <p class="callout-title">Leé esto antes de usar el producto</p>
-            <p><strong>Este manual contiene advertencias de seguridad e instrucciones cuyo incumplimiento puede provocar lesiones graves, daños materiales o la pérdida de la garantía.</strong> Conservalo mientras uses el producto y entregalo junto con el tablero si lo prestás, revendés o regalás.</p>
-            <p>Al usar el tablero Atlas confirmás que leíste, entendiste y aceptás las instrucciones, advertencias y condiciones de este documento. Si no estás de acuerdo, no uses el producto y contactanos.</p>
+            <p class="callout-title">Read this before using the product</p>
+            <p><strong>This manual contains safety warnings and instructions that, if not followed, may result in serious injury, property damage or loss of the warranty.</strong> Keep it for as long as you use the product and hand it over with the board if you lend, resell or give it away.</p>
+            <p>By using the Atlas board you confirm that you have read, understood and accepted the instructions, warnings and terms in this document. If you do not agree, do not use the product and contact us.</p>
           </div>
 
-          <ul class="age-badges" aria-label="Advertencias principales">
-            <li>Edad recomendada: 14 años o más</li>
-            <li>Contiene piezas pequeñas</li>
-            <li>Peligro de asfixia — no apto para menores de 3 años</li>
-            <li>Batería recargable no removible</li>
-            <li>Emite señales de radiofrecuencia</li>
+          <ul class="age-badges" aria-label="Main warnings">
+            <li>Recommended age: 14 and up</li>
+            <li>Contains small parts</li>
+            <li>Choking hazard — not for children under 3</li>
+            <li>Non-removable rechargeable battery</li>
+            <li>Emits radio frequency signals</li>
           </ul>
 
-          <nav class="toc" aria-label="Índice del manual">
-            <h2>Índice</h2>
+          <nav class="toc" aria-label="Manual contents">
+            <h2>Contents</h2>
             <ol>
-              <li><a href="#advertencias">Advertencias de seguridad</a></li>
-              <li><a href="#uso-previsto">Uso previsto y usos prohibidos</a></li>
-              <li><a href="#contenido">Contenido y descripción</a></li>
-              <li><a href="#bateria">Batería y carga</a></li>
-              <li><a href="#senales">Señales de radio e interferencias</a></li>
-              <li><a href="#luces-sonido">Luces, sonido y salud</a></li>
-              <li><a href="#primeros-pasos">Primeros pasos</a></li>
-              <li><a href="#uso-diario">Uso diario y limpieza</a></li>
-              <li><a href="#almacenamiento">Almacenamiento y transporte</a></li>
-              <li><a href="#problemas">Resolución de problemas</a></li>
-              <li><a href="#reparacion">Reparación y modificaciones</a></li>
-              <li><a href="#reciclaje">Eliminación y reciclaje</a></li>
-              <li><a href="#regulatorio">Información regulatoria</a></li>
-              <li><a href="#software">Software, firmware y licencia</a></li>
-              <li><a href="#garantia">Garantía limitada</a></li>
-              <li><a href="#exclusiones">Exclusión de garantías</a></li>
-              <li><a href="#responsabilidad">Limitación de responsabilidad</a></li>
-              <li><a href="#indemnidad">Indemnidad y uso por terceros</a></li>
-              <li><a href="#consumidor">Derechos del consumidor</a></li>
-              <li><a href="#legal">Disposiciones generales</a></li>
-              <li><a href="#contacto">Contacto y soporte</a></li>
+              <li><a href="#warnings">Safety warnings</a></li>
+              <li><a href="#intended-use">Intended use and prohibited uses</a></li>
+              <li><a href="#in-the-box">What&rsquo;s in the box</a></li>
+              <li><a href="#battery">Battery and charging</a></li>
+              <li><a href="#radio">Radio signals and interference</a></li>
+              <li><a href="#lights-sound">Lights, sound and health</a></li>
+              <li><a href="#getting-started">Getting started</a></li>
+              <li><a href="#daily-use">Everyday use and cleaning</a></li>
+              <li><a href="#storage">Storage and transport</a></li>
+              <li><a href="#troubleshooting">Troubleshooting</a></li>
+              <li><a href="#repair">Repairs and modifications</a></li>
+              <li><a href="#disposal">Disposal and recycling</a></li>
+              <li><a href="#regulatory">Regulatory information</a></li>
+              <li><a href="#software">Software, firmware and license</a></li>
+              <li><a href="#warranty">Limited warranty</a></li>
+              <li><a href="#disclaimer">Disclaimer of warranties</a></li>
+              <li><a href="#liability">Limitation of liability</a></li>
+              <li><a href="#indemnity">Indemnity and use by third parties</a></li>
+              <li><a href="#consumer">Consumer rights</a></li>
+              <li><a href="#legal">General provisions</a></li>
+              <li><a href="#contact">Contact and support</a></li>
             </ol>
           </nav>
 
-          <h2 id="advertencias">1. Advertencias de seguridad</h2>
+          <h2 id="warnings">1. Safety warnings</h2>
 
           <div class="callout danger">
-            <p class="callout-title">Peligro de asfixia — piezas pequeñas</p>
-            <p>El tablero Atlas incluye <strong>8 piezas genéricas con bases intercambiables</strong> y el módulo <strong>Atlas Core</strong>. Las piezas, sus bases y los componentes desmontables son <strong>piezas pequeñas</strong> que pueden causar <strong>asfixia por atragantamiento</strong> si se llevan a la boca.</p>
+            <p class="callout-title">Choking hazard — small parts</p>
+            <p>The Atlas board includes <strong>8 generic pieces with interchangeable bases</strong> and the <strong>Atlas Core</strong> module. The pieces, their bases and any detachable components are <strong>small parts</strong> that can cause <strong>choking</strong> if put in the mouth.</p>
             <ul>
-              <li><strong>Edad mínima recomendada: 14 años.</strong> <strong>No apto para menores de 3 años.</strong></li>
-              <li>Mantené el producto, sus piezas y su embalaje fuera del alcance de bebés, niños pequeños y mascotas.</li>
-              <li>Los menores deben usar el producto siempre <strong>bajo la supervisión directa de una persona adulta</strong>.</li>
-              <li>Antes y después de cada partida, revisá que no haya piezas sueltas, rotas o astilladas. Retirá de inmediato cualquier pieza dañada.</li>
-              <li>Si el producto incluye imanes: la ingestión de <strong>dos o más imanes</strong>, o de un imán junto con un objeto metálico, puede provocar perforaciones intestinales y ser mortal. Buscá atención médica de urgencia inmediatamente.</li>
-              <li>Descartá bolsas plásticas, films y otros materiales de embalaje antes de entregar el producto a un menor: <strong>no son juguetes</strong> y presentan riesgo de asfixia.</li>
+              <li><strong>Minimum recommended age: 14.</strong> <strong>Not suitable for children under 3.</strong></li>
+              <li>Keep the product, its parts and its packaging out of reach of babies, young children and pets.</li>
+              <li>Minors must always use the product <strong>under the direct supervision of an adult</strong>.</li>
+              <li>Before and after each game, check for loose, broken or chipped pieces. Remove any damaged piece immediately.</li>
+              <li>If the product includes magnets: swallowing <strong>two or more magnets</strong>, or a magnet together with a metal object, can cause intestinal perforation and can be fatal. Seek emergency medical care immediately.</li>
+              <li>Throw away plastic bags, film and other packaging materials before giving the product to a minor: <strong>they are not toys</strong> and present a choking hazard.</li>
             </ul>
           </div>
 
           <div class="callout danger">
-            <p class="callout-title">Batería — riesgo de incendio, quemaduras y lesiones</p>
+            <p class="callout-title">Battery — risk of fire, burns and injury</p>
             <ul>
-              <li><strong>No perfores, aplastes, cortes, dobles, desarmes, incineres ni sumerjas</strong> el producto ni sus baterías. Las celdas de polímero de litio son especialmente sensibles a la perforación y a la presión: un daño interno puede provocar incendio o explosión incluso pasado un tiempo desde el golpe.</li>
-              <li>No lo expongas a fuego, llamas, hornos, microondas, luz solar directa prolongada ni a temperaturas fuera del rango de funcionamiento de <strong>5 °C a 35 °C</strong> (por ejemplo, dentro de un vehículo cerrado al sol).</li>
-              <li>Si notás <strong>hinchazón, deformación, sobrecalentamiento, olor inusual, humo, ruido o fuga de líquido</strong>: dejá de usar el producto de inmediato, desconectalo si podés hacerlo con seguridad, alejalo de materiales inflamables y contactanos. No lo cargues nunca más.</li>
-              <li>Si el contenido de la batería entra en contacto con la piel o los ojos, enjuagá con abundante agua durante 15 minutos y buscá atención médica.</li>
-              <li>La batería es <strong>interna, recargable y no removible</strong>: no es reemplazable por la persona usuaria. No intentes extraerla ni abrir el equipo para acceder a ella.</li>
-              <li>El tablero Atlas y sus accesorios <strong>no contienen pilas removibles, pilas de botón ni pilas de moneda</strong>. Si alguna vez encontrás una pila suelta dentro del embalaje, no la uses y contactanos.</li>
+              <li><strong>Do not puncture, crush, cut, bend, disassemble, incinerate or immerse</strong> the product or its batteries. Lithium polymer cells are especially sensitive to puncture and pressure: internal damage can cause fire or explosion, even some time after the impact.</li>
+              <li>Do not expose it to fire, flames, ovens, microwaves, prolonged direct sunlight or temperatures outside the operating range of <strong>5 °C to 35 °C (41 °F to 95 °F)</strong> (for example, inside a closed car in the sun).</li>
+              <li>If you notice <strong>swelling, deformation, overheating, an unusual smell, smoke, noise or leaking fluid</strong>: stop using the product immediately, unplug it if you can do so safely, move it away from flammable materials and contact us. Never charge it again.</li>
+              <li>If battery contents come into contact with skin or eyes, rinse with plenty of water for 15 minutes and seek medical attention.</li>
+              <li>The battery is <strong>internal, rechargeable and non-removable</strong>: it cannot be replaced by the user. Do not try to remove it or open the device to reach it.</li>
+              <li>The Atlas board and its accessories <strong>contain no removable batteries, button cells or coin cells</strong>. If you ever find a loose battery in the packaging, do not use it and contact us.</li>
             </ul>
           </div>
 
           <div class="callout warning">
-            <p class="callout-title">Advertencias generales</p>
+            <p class="callout-title">General warnings</p>
             <ul>
-              <li>El tablero Atlas es un <strong>producto electrónico de interior</strong>. No lo uses bajo la lluvia, en exteriores, ni en ambientes húmedos, mojados, con polvo excesivo, vapores inflamables o riesgo de explosión.</li>
-              <li>No lo apoyes sobre superficies inestables ni en altura, donde pueda caer sobre una persona.</li>
-              <li>No lo uses mientras conducís, operás maquinaria o realizás cualquier actividad que requiera tu atención.</li>
-              <li>No dejes cables donde puedan provocar tropiezos o estrangulamiento.</li>
-              <li>Suspendé el uso si el producto presenta daños visibles, cables pelados, carcasa rajada o comportamiento anómalo.</li>
+              <li>The Atlas board is an <strong>indoor electronic product</strong>. Do not use it in the rain, outdoors, or in humid, wet or very dusty environments, or where there are flammable vapors or a risk of explosion.</li>
+              <li>Do not place it on unstable surfaces or up high, where it could fall on someone.</li>
+              <li>Do not use it while driving, operating machinery or doing anything that requires your attention.</li>
+              <li>Do not leave cables where they could cause tripping or strangulation.</li>
+              <li>Stop using the product if it shows visible damage, frayed cables, a cracked casing or abnormal behavior.</li>
             </ul>
           </div>
 
-          <h2 id="uso-previsto">2. Uso previsto y usos prohibidos</h2>
-          <p>El tablero Atlas está diseñado <strong>exclusivamente</strong> para el entretenimiento doméstico: jugar juegos de mesa en interiores, en combinación con la aplicación AtlasHub, por parte de personas que cumplan la edad mínima indicada y respeten este manual.</p>
-          <p>Queda expresamente <strong>excluido y prohibido</strong> cualquier otro uso, en particular:</p>
+          <h2 id="intended-use">2. Intended use and prohibited uses</h2>
+          <p>The Atlas board is designed <strong>exclusively</strong> for home entertainment: playing board games indoors, together with the AtlasHub app, by people who meet the minimum age stated and follow this manual.</p>
+          <p>Any other use is expressly <strong>excluded and prohibited</strong>, in particular:</p>
           <ul>
-            <li>Usos médicos, de diagnóstico, terapéuticos, de monitoreo de salud o de asistencia a personas.</li>
-            <li>Usos en los que un fallo pueda causar la muerte, lesiones o daños graves: aeronáutica, navegación, transporte, control industrial, energía, armamento, instalaciones nucleares, sistemas de emergencia o de seguridad.</li>
-            <li>Usos profesionales, comerciales, de alquiler o de explotación intensiva, salvo acuerdo escrito con nosotros.</li>
-            <li>Apuestas o juegos de azar con dinero real donde la legislación aplicable lo prohíba.</li>
-            <li>Cualquier uso en condiciones ambientales, eléctricas o mecánicas fuera de las especificaciones de este manual.</li>
+            <li>Medical, diagnostic, therapeutic, health-monitoring or assistive uses.</li>
+            <li>Uses where a failure could cause death, injury or serious damage: aviation, navigation, transportation, industrial control, energy, weapons, nuclear facilities, emergency or safety systems.</li>
+            <li>Professional, commercial, rental or heavy-duty uses, unless agreed with us in writing.</li>
+            <li>Gambling or games of chance with real money where applicable law prohibits it.</li>
+            <li>Any use under environmental, electrical or mechanical conditions outside the specifications in this manual.</li>
           </ul>
-          <p><strong>El tablero Atlas no es un juguete de primera infancia, no es un dispositivo médico, no es un instrumento de medición y no es un equipo de seguridad.</strong> No declaramos ni garantizamos su aptitud para ninguno de los usos excluidos, y no asumimos responsabilidad alguna derivada de ellos.</p>
+          <p><strong>The Atlas board is not an early-childhood toy, a medical device, a measuring instrument or safety equipment.</strong> We make no representation or warranty as to its fitness for any of the excluded uses and accept no liability arising from them.</p>
 
-          <h2 id="contenido">3. Contenido y descripción</h2>
-          <p>La caja incluye:</p>
+          <h2 id="in-the-box">3. What&rsquo;s in the box</h2>
+          <p>The box includes:</p>
           <ul>
-            <li><strong>Tablero Atlas</strong></li>
+            <li><strong>Atlas board</strong></li>
             <li><strong>Atlas Core</strong></li>
-            <li><strong>8 piezas genéricas</strong> con sus bases intercambiables</li>
-            <li>Un <strong>cable USB-C</strong> de carga y datos</li>
-            <li>Un <strong>soporte para dispositivos móviles</strong></li>
-            <li>Un <strong>panfleto de inicio rápido</strong> con un código QR que lleva a este manual</li>
+            <li><strong>8 generic pieces</strong> with their interchangeable bases</li>
+            <li>A <strong>USB-C</strong> charging and data <strong>cable</strong></li>
+            <li>A <strong>mobile device stand</strong></li>
+            <li>A <strong>quick-start leaflet</strong> with a QR code that links to this manual</li>
           </ul>
-          <!-- PENDIENTE (3): fijar el plazo para reportar faltantes o danos de transporte -> "avisanos dentro de los N dias corridos desde la recepcion". Sin plazo definido se pide aviso "lo antes posible", que no restringe derechos del consumidor. -->
-          <p>Verificá el contenido al abrir la caja y avisanos <strong>lo antes posible</strong> si falta algo o llegó dañado, conservando el embalaje. El panfleto de inicio rápido es un resumen: <strong>las advertencias de seguridad completas y vinculantes son las de este manual</strong>.</p>
-          <p>El tablero se comunica con la aplicación AtlasHub instalada en tu teléfono mediante <strong>Bluetooth</strong>. Los datos de la partida viajan entre el teléfono y el tablero; el detalle de qué información tratamos está en la <a href="/privacy-policy/">política de privacidad</a>.</p>
-          <p><strong>Requisitos:</strong> teléfono con <strong>Android 7.0 (API 24) o superior</strong>, compatible con <strong>Bluetooth 4.0 Low Energy (BLE) o superior</strong>, y la aplicación AtlasHub instalada. La compatibilidad con dispositivos, capas de personalización, sistemas operativos y versiones futuras no está garantizada.</p>
+          <!-- PENDIENTE (3): fijar el plazo para reportar faltantes o danos de transporte -> "let us know within N calendar days of receipt". -->
+          <p>Check the contents when you open the box and let us know <strong>as soon as possible</strong> if anything is missing or arrived damaged, keeping the packaging. The quick-start leaflet is a summary: <strong>the complete and binding safety warnings are the ones in this manual</strong>.</p>
+          <p>The board communicates with the AtlasHub app on your phone via <strong>Bluetooth</strong>. Game data travels between the phone and the board; details of what information we process are in the <a href="/privacy-policy/">privacy policy</a>.</p>
+          <p><strong>Requirements:</strong> a phone running <strong>Android 7.0 (API 24) or later</strong>, with <strong>Bluetooth 4.0 Low Energy (BLE) or later</strong>, and the AtlasHub app installed. Compatibility with devices, manufacturer skins, operating systems and future versions is not guaranteed.</p>
 
-          <h2 id="bateria">4. Batería y carga</h2>
-          <p>El tablero incorpora <strong>dos baterías recargables de polímero de litio (LiPo) de 3500 mAh y 3,7 V cada una</strong>, internas y no removibles, con una energía nominal total aproximada de <strong>25,9 Wh</strong>. Para cargarlo de forma segura:</p>
+          <h2 id="battery">4. Battery and charging</h2>
+          <p>The board contains <strong>two rechargeable lithium polymer (LiPo) batteries of 3500 mAh and 3.7 V each</strong>, internal and non-removable, with a total rated energy of approximately <strong>25.9 Wh</strong>. To charge it safely:</p>
           <ol>
-            <!-- PENDIENTE (2): agregar la corriente de salida del cargador -> "salida de 5 V y N A". -->
-            <li>El tablero se carga por su conector <strong>USB-C</strong>, con el cable suministrado. Usá <strong>únicamente</strong> ese cable y un adaptador de corriente certificado que cumpla las normas de seguridad de tu país, con <strong>salida de 5 V</strong>. El uso de cargadores no aptos puede provocar incendio, descarga eléctrica o daño permanente, y <strong>anula la garantía</strong>.</li>
-            <li>Cargá en un lugar seco, ventilado, sobre una superficie no inflamable y dentro del rango de <strong>5 °C a 35 °C</strong>. Cargar fuera de ese rango daña la batería y puede resultar peligroso.</li>
-            <li><strong>No cargues el producto sin supervisión</strong>, ni mientras dormís, ni tapado con mantas, almohadas, ropa o papel.</li>
-            <li>Desconectá el cargador cuando la carga finalice y ante tormentas eléctricas.</li>
-            <li>No cargues un producto mojado, dañado, deformado o que haya sufrido un golpe fuerte o una caída.</li>
-            <li>Si no vas a usar el tablero por un tiempo prolongado, cargalo aproximadamente al 50 % y repetí la carga cada <strong>3 meses</strong> para preservar la batería.</li>
+            <!-- PENDIENTE (2): agregar la corriente de salida del cargador -> "5 V, N A output". -->
+            <li>The board charges through its <strong>USB-C</strong> port, with the supplied cable. Use <strong>only</strong> that cable and a certified power adapter that meets the safety standards of your country, with a <strong>5 V output</strong>. Using unsuitable chargers can cause fire, electric shock or permanent damage, and <strong>voids the warranty</strong>.</li>
+            <li>Charge in a dry, ventilated place, on a non-flammable surface and within the range of <strong>5 °C to 35 °C (41 °F to 95 °F)</strong>. Charging outside that range damages the battery and can be dangerous.</li>
+            <li><strong>Do not charge the product unattended</strong>, while you sleep, or covered by blankets, pillows, clothing or paper.</li>
+            <li>Unplug the charger when charging is complete and during electrical storms.</li>
+            <li>Do not charge a product that is wet, damaged, deformed or that has suffered a hard knock or fall.</li>
+            <li>If you won&rsquo;t use the board for a long time, charge it to about 50 % and repeat every <strong>3 months</strong> to preserve the battery.</li>
           </ol>
-          <p>La autonomía y la capacidad de la batería son <strong>estimaciones</strong> y varían con el uso, la temperatura, la antigüedad y el número de ciclos de carga. La degradación progresiva de la batería es un <strong>desgaste normal</strong> y no constituye un defecto cubierto por la garantía.</p>
+          <p>Battery life and capacity are <strong>estimates</strong> and vary with use, temperature, age and number of charge cycles. Gradual battery degradation is <strong>normal wear</strong> and is not a defect covered by the warranty.</p>
 
-          <h2 id="senales">5. Señales de radio e interferencias</h2>
-          <p>El tablero Atlas <strong>emite y recibe señales de radiofrecuencia</strong> para comunicarse con la aplicación.</p>
+          <h2 id="radio">5. Radio signals and interference</h2>
+          <p>The Atlas board <strong>transmits and receives radio frequency signals</strong> to communicate with the app.</p>
 
           <div class="callout warning">
-            <p class="callout-title">Dispositivos médicos implantados</p>
-            <p>Las señales de radio pueden interferir con marcapasos, desfibriladores implantables, bombas de insulina, audífonos, implantes cocleares y otros dispositivos médicos.</p>
+            <p class="callout-title">Implanted medical devices</p>
+            <p>Radio signals can interfere with pacemakers, implantable defibrillators, insulin pumps, hearing aids, cochlear implants and other medical devices.</p>
             <ul>
-              <li>Mantené una distancia mínima de <strong>15 cm (6 pulgadas)</strong> entre el tablero y cualquier dispositivo médico implantado.</li>
-              <li>Si sospechás que el producto está interfiriendo con un dispositivo médico, <strong>apagalo de inmediato</strong>.</li>
-              <li>Si usás un dispositivo médico, <strong>consultá a tu médico o al fabricante del dispositivo antes de usar el tablero</strong>. Nosotros no podemos evaluar la compatibilidad con tu dispositivo particular.</li>
+              <li>Keep a minimum distance of <strong>15 cm (6 inches)</strong> between the board and any implanted medical device.</li>
+              <li>If you suspect the product is interfering with a medical device, <strong>turn it off immediately</strong>.</li>
+              <li>If you use a medical device, <strong>consult your doctor or the device manufacturer before using the board</strong>. We cannot assess compatibility with your particular device.</li>
             </ul>
           </div>
 
-          <p>Además:</p>
+          <p>In addition:</p>
           <ul>
-            <li>Apagá el tablero donde esté señalizada la prohibición de usar equipos de radio: aeronaves, hospitales y centros de salud, estaciones de servicio, depósitos de combustible o productos químicos, y zonas de voladura.</li>
-            <li>El producto puede sufrir interferencias de otros equipos (routers, microondas, otros dispositivos Bluetooth) que provoquen desconexiones o retrasos. Esto <strong>no constituye un defecto</strong>.</li>
-            <li>El alcance de la conexión es aproximado y depende del entorno, los obstáculos y el teléfono utilizado.</li>
-            <li>No garantizamos una conexión ininterrumpida ni libre de errores.</li>
+            <li>Turn off the board wherever the use of radio equipment is prohibited by signs: aircraft, hospitals and healthcare facilities, gas stations, fuel or chemical depots, and blasting areas.</li>
+            <li>The product may experience interference from other equipment (routers, microwaves, other Bluetooth devices) that causes disconnections or delays. This <strong>is not a defect</strong>.</li>
+            <li>Connection range is approximate and depends on the environment, obstacles and the phone used.</li>
+            <li>We do not guarantee an uninterrupted or error-free connection.</li>
           </ul>
 
-          <h2 id="luces-sonido">6. Luces, sonido y salud</h2>
+          <h2 id="lights-sound">6. Lights, sound and health</h2>
 
           <div class="callout warning">
-            <p class="callout-title">Advertencia sobre fotosensibilidad</p>
-            <p>Un porcentaje reducido de personas puede sufrir <strong>mareos, alteraciones de la visión, contracciones musculares, desorientación, movimientos involuntarios, convulsiones o pérdida de conciencia</strong> al exponerse a luces intermitentes o patrones luminosos, incluso sin antecedentes de epilepsia.</p>
-            <p><strong>Dejá de usar el producto de inmediato y consultá a un médico</strong> si experimentás alguno de estos síntomas. Si tenés antecedentes de epilepsia o convulsiones, consultá a tu médico antes de usarlo. Los menores son especialmente susceptibles: supervisalos.</p>
+            <p class="callout-title">Photosensitivity warning</p>
+            <p>A small percentage of people may experience <strong>dizziness, altered vision, muscle twitching, disorientation, involuntary movements, seizures or loss of consciousness</strong> when exposed to flashing lights or light patterns, even with no history of epilepsy.</p>
+            <p><strong>Stop using the product immediately and consult a doctor</strong> if you experience any of these symptoms. If you have a history of epilepsy or seizures, consult your doctor before using it. Minors are especially susceptible: supervise them.</p>
           </div>
 
           <ul>
-            <li><strong>No mires directamente</strong> a los emisores de luz ni los apuntes a los ojos de otras personas o animales, especialmente a corta distancia.</li>
-            <li>Jugá en una habitación bien iluminada, a una distancia cómoda del tablero, y hacé <strong>pausas de 10 a 15 minutos cada hora</strong>.</li>
-            <li>Si el producto emite sonido, mantené el volumen en un nivel moderado. La exposición prolongada a volúmenes altos puede dañar la audición.</li>
-            <li>Suspendé el uso si sentís fatiga visual, dolor de cabeza o molestias en manos, muñecas, brazos, cuello u hombros. Si las molestias persisten, consultá a un profesional de la salud.</li>
+            <li><strong>Do not stare directly</strong> at the light emitters or point them at the eyes of other people or animals, especially at close range.</li>
+            <li>Play in a well-lit room, at a comfortable distance from the board, and take <strong>10 to 15 minute breaks every hour</strong>.</li>
+            <li>If the product emits sound, keep the volume at a moderate level. Prolonged exposure to high volume can damage hearing.</li>
+            <li>Stop using it if you feel eye strain, a headache or discomfort in your hands, wrists, arms, neck or shoulders. If the discomfort persists, consult a healthcare professional.</li>
           </ul>
 
-          <h2 id="primeros-pasos">7. Primeros pasos</h2>
+          <h2 id="getting-started">7. Getting started</h2>
           <ol>
-            <li>Retirá el tablero y sus accesorios del embalaje y verificá que no presenten daños de transporte.</li>
-            <li>Cargá el tablero por completo antes del primer uso, siguiendo la sección <a href="#bateria">Batería y carga</a>.</li>
-            <li>Instalá la aplicación <strong>AtlasHub</strong> desde Google Play y creá tu cuenta.</li>
-            <li>Activá el Bluetooth en el teléfono y otorgá los permisos que la aplicación solicite. Android exige el permiso de ubicación para poder buscar dispositivos Bluetooth cercanos; como se explica en la <a href="/privacy-policy/">política de privacidad</a>, la app no accede a tu ubicación.</li>
-            <li>Encendé el tablero y seguí el asistente de emparejamiento de la aplicación.</li>
-            <li>Elegí un juego y comenzá la partida.</li>
+            <li>Take the board and its accessories out of the packaging and check them for shipping damage.</li>
+            <li>Fully charge the board before first use, following the <a href="#battery">Battery and charging</a> section.</li>
+            <li>Install the <strong>AtlasHub</strong> app from Google Play and create your account.</li>
+            <li>Turn on Bluetooth on your phone and grant the permissions the app requests. Android requires the location permission to scan for nearby Bluetooth devices; as explained in the <a href="/privacy-policy/">privacy policy</a>, the app does not access your location.</li>
+            <li>Turn on the board and follow the pairing wizard in the app.</li>
+            <li>Pick a game and start playing.</li>
           </ol>
 
-          <h2 id="uso-diario">8. Uso diario y limpieza</h2>
+          <h2 id="daily-use">8. Everyday use and cleaning</h2>
           <ul>
-            <li>Apoyá el tablero sobre una superficie plana, estable, seca y despejada.</li>
-            <li>No apoyes objetos pesados sobre el tablero, no te sientes ni te pares encima, y no lo uses como soporte de otros objetos.</li>
-            <li>No fuerces las piezas ni los conectores. Insertalos en la orientación correcta y sin presión excesiva.</li>
-            <li>Apagá el tablero cuando no lo uses.</li>
-            <li><strong>Limpieza:</strong> apagá y desconectá el producto. Usá un paño suave, seco o apenas humedecido con agua. <strong>Nunca</strong> sumerjas el tablero, ni uses alcohol, solventes, abrasivos, aire comprimido ni productos de limpieza agresivos. Dejá secar por completo antes de encenderlo o cargarlo.</li>
-            <li>Si entra líquido en el producto, <strong>no lo enciendas ni lo cargues</strong>: contactanos.</li>
+            <li>Place the board on a flat, stable, dry and clear surface.</li>
+            <li>Do not put heavy objects on the board, sit or stand on it, or use it to hold other objects.</li>
+            <li>Do not force the pieces or the connectors. Insert them the right way round and without excessive pressure.</li>
+            <li>Turn off the board when you are not using it.</li>
+            <li><strong>Cleaning:</strong> turn off and unplug the product. Use a soft cloth, dry or slightly dampened with water. <strong>Never</strong> immerse the board or use alcohol, solvents, abrasives, compressed air or harsh cleaning products. Let it dry completely before turning it on or charging it.</li>
+            <li>If liquid gets into the product, <strong>do not turn it on or charge it</strong>: contact us.</li>
           </ul>
 
-          <h2 id="almacenamiento">9. Almacenamiento y transporte</h2>
+          <h2 id="storage">9. Storage and transport</h2>
           <ul>
-            <li>Guardalo en un lugar seco, fresco y ventilado, dentro del rango de <strong>5 °C a 35 °C</strong>, lejos de la luz solar directa y de fuentes de calor.</li>
-            <li>Guardalo fuera del alcance de niños pequeños y mascotas.</li>
-            <li><strong>Transporte aéreo:</strong> los productos con baterías de litio están sujetos a restricciones. El tablero debe viajar en el <strong>equipaje de mano</strong>, nunca en el equipaje despachado, apagado y protegido contra encendidos accidentales. Su energía nominal total (<strong>25,9 Wh</strong>) está por debajo del umbral de 100 Wh a partir del cual se exige autorización previa del transportista, pero <strong>consultá siempre las normas de tu aerolínea y de la autoridad aeronáutica antes de volar</strong>: las condiciones pueden variar.</li>
-            <li>Protegé el producto de golpes y vibraciones durante el traslado. Los daños por transporte inadecuado no están cubiertos por la garantía.</li>
+            <li>Store it in a dry, cool, ventilated place, within the range of <strong>5 °C to 35 °C (41 °F to 95 °F)</strong>, away from direct sunlight and heat sources.</li>
+            <li>Store it out of reach of young children and pets.</li>
+            <li><strong>Air travel:</strong> products with lithium batteries are subject to restrictions. The board must travel in your <strong>carry-on baggage</strong>, never in checked baggage, turned off and protected against accidental activation. Its total rated energy (<strong>25.9 Wh</strong>) is below the 100 Wh threshold above which the carrier&rsquo;s prior approval is required, but <strong>always check the rules of your airline and aviation authority before flying</strong>: conditions may vary.</li>
+            <li>Protect the product from knocks and vibration during transport. Damage caused by improper transport is not covered by the warranty.</li>
           </ul>
 
-          <h2 id="problemas">10. Resolución de problemas</h2>
+          <h2 id="troubleshooting">10. Troubleshooting</h2>
           <table>
             <thead>
               <tr>
-                <th>Síntoma</th>
-                <th>Qué hacer</th>
+                <th>Symptom</th>
+                <th>What to do</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>El tablero no enciende</td>
-                <td>Cargalo al menos 30 minutos con el cable original y volvé a intentar.</td>
+                <td>The board won&rsquo;t turn on</td>
+                <td>Charge it for at least 30 minutes with the original cable and try again.</td>
               </tr>
               <tr>
-                <td>La app no encuentra el tablero</td>
-                <td>Verificá que el Bluetooth esté activado, que los permisos estén concedidos y que el tablero esté encendido y cerca del teléfono.</td>
+                <td>The app can&rsquo;t find the board</td>
+                <td>Check that Bluetooth is on, that permissions are granted and that the board is on and close to the phone.</td>
               </tr>
               <tr>
-                <td>La conexión se corta</td>
-                <td>Acercá el teléfono, alejá otros equipos inalámbricos y reiniciá la aplicación.</td>
+                <td>The connection drops</td>
+                <td>Move the phone closer, move other wireless devices away and restart the app.</td>
               </tr>
               <tr>
-                <td>La batería dura poco</td>
-                <td>Cargala por completo, evitá temperaturas extremas y comprobá si hay una actualización de firmware.</td>
+                <td>The battery runs down quickly</td>
+                <td>Charge it fully, avoid extreme temperatures and check for a firmware update.</td>
               </tr>
               <tr>
-                <td>Ruido, olor, calor o deformación</td>
-                <td><strong>Dejá de usarlo de inmediato</strong>, no lo cargues y contactanos.</td>
+                <td>Noise, smell, heat or deformation</td>
+                <td><strong>Stop using it immediately</strong>, do not charge it and contact us.</td>
               </tr>
             </tbody>
           </table>
-          <p>Si el problema persiste, escribinos a <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> con el modelo, el número de serie y una descripción del fallo.</p>
+          <p>If the problem persists, write to us at <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> with the model, the serial number and a description of the fault.</p>
 
-          <h2 id="reparacion">11. Reparación y modificaciones</h2>
+          <h2 id="repair">11. Repairs and modifications</h2>
           <div class="callout warning">
-            <p class="callout-title">No abras ni modifiques el producto</p>
-            <p>El tablero no contiene piezas reparables por la persona usuaria. Abrirlo, desarmarlo, modificarlo, alterar su firmware o repararlo fuera de nuestro servicio autorizado:</p>
+            <p class="callout-title">Do not open or modify the product</p>
+            <p>The board contains no user-serviceable parts. Opening, disassembling or modifying it, altering its firmware or having it repaired outside our authorized service:</p>
             <ul>
-              <li><strong>anula la garantía en su totalidad</strong>;</li>
-              <li>puede invalidar las homologaciones regulatorias y la autorización para operar el equipo;</li>
-              <li>puede provocar incendio, descarga eléctrica, lesiones o daños;</li>
-              <li>traslada íntegramente a quien lo realiza la responsabilidad por cualquier consecuencia.</li>
+              <li><strong>voids the warranty entirely</strong>;</li>
+              <li>may invalidate regulatory approvals and the authorization to operate the equipment;</li>
+              <li>may cause fire, electric shock, injury or damage;</li>
+              <li>transfers all liability for any consequences to whoever carries it out.</li>
             </ul>
-            <p>Toda reparación debe realizarse a través de nuestro canal de soporte.</p>
+            <p>All repairs must go through our support channel.</p>
           </div>
 
-          <h2 id="reciclaje">12. Eliminación y reciclaje</h2>
-          <p>Este producto es un aparato eléctrico y electrónico con batería incorporada. <strong>No lo tires a la basura doméstica</strong> ni lo incineres.</p>
+          <h2 id="disposal">12. Disposal and recycling</h2>
+          <p>This product is electrical and electronic equipment with a built-in battery. <strong>Do not throw it away with household waste</strong> or incinerate it.</p>
           <ul>
-            <li>Llevalo a un punto limpio, centro de recogida de residuos electrónicos (RAEE/WEEE) o programa de devolución de tu localidad.</li>
-            <li>Las pilas y baterías se depositan en los contenedores específicos para ese fin.</li>
-            <li>Cumplí la normativa de residuos vigente en tu país. La eliminación incorrecta puede dañar el medio ambiente y la salud, y puede estar sancionada por ley.</li>
+            <li>Take it to a recycling center, an electronic waste (WEEE) collection point or a take-back program in your area.</li>
+            <li>Batteries go in the containers designated for that purpose.</li>
+            <li>Follow the waste regulations in force in your country. Improper disposal can harm the environment and health, and may be penalized by law.</li>
           </ul>
 
-          <h2 id="regulatorio">13. Información regulatoria</h2>
-          <p>El tablero Atlas incorpora un módulo de radio <strong>Bluetooth Low Energy</strong> de baja potencia. En la <strong>República Argentina</strong>, los equipos de radiocomunicación requieren la homologación del <strong>ENACOM</strong> (Ente Nacional de Comunicaciones). El identificador de homologación correspondiente a tu unidad figura en la etiqueta del producto y en su embalaje.</p>
+          <h2 id="regulatory">13. Regulatory information</h2>
+          <p>The Atlas board includes a low-power <strong>Bluetooth Low Energy</strong> radio module. In the <strong>Argentine Republic</strong>, radiocommunication equipment requires approval from <strong>ENACOM</strong> (Ente Nacional de Comunicaciones). The approval identifier for your unit appears on the product label and its packaging.</p>
           <!-- PENDIENTE (5): cuando exista la homologacion, agregar aqui el identificador ENACOM. No declararlo antes de obtenerlo. -->
-          <p>Este equipo cumple las condiciones de operación de los dispositivos de radio de baja potencia: (1) no puede causar interferencias perjudiciales, y (2) debe aceptar cualquier interferencia recibida, incluida la que pueda provocar un funcionamiento no deseado.</p>
-          <p class="fine-print">Los cambios o modificaciones no aprobados expresamente por el fabricante pueden anular la autorización de la persona usuaria para operar el equipo. Este producto está destinado a comercializarse únicamente en los mercados para los que fue homologado; su uso, importación o reventa en otros territorios queda bajo la responsabilidad exclusiva de quien lo realice, incluida la obtención de las homologaciones locales que correspondan.</p>
+          <p>This equipment complies with the operating conditions for low-power radio devices: (1) it may not cause harmful interference, and (2) it must accept any interference received, including interference that may cause undesired operation.</p>
+          <p class="fine-print">Changes or modifications not expressly approved by the manufacturer could void the user&rsquo;s authority to operate the equipment. This product is intended to be sold only in the markets for which it has been approved; its use, import or resale in other territories is the sole responsibility of whoever does so, including obtaining any applicable local approvals.</p>
 
-          <h2 id="software">14. Software, firmware y licencia</h2>
+          <h2 id="software">14. Software, firmware and license</h2>
           <ul>
-            <li>El firmware del tablero y la aplicación AtlasHub se te licencian, <strong>no se te venden</strong>. Recibís una licencia personal, limitada, revocable, no exclusiva y no transferible para usarlos con el producto.</li>
-            <li>No está permitido copiar, distribuir, alquilar, sublicenciar, descompilar, aplicar ingeniería inversa, extraer el firmware ni eludir sus medidas técnicas de protección, salvo en la medida en que la ley lo permita de forma imperativa.</li>
-            <li>Podemos publicar <strong>actualizaciones de firmware y de la aplicación</strong> para corregir fallos o mejorar la seguridad y la compatibilidad. Algunas actualizaciones pueden ser necesarias para que el producto siga funcionando. Mantené el producto actualizado.</li>
-            <li>Una actualización puede modificar, limitar o discontinuar funciones. Nos reservamos el derecho de <strong>modificar o discontinuar servicios en línea</strong> con un preaviso razonable cuando sea posible.</li>
-            <li>Las marcas, logotipos, diseños, contenidos y reglas de juego son propiedad de wololabs o de sus licenciantes. Este manual no concede ningún derecho sobre ellos.</li>
-            <li>Interrumpir una actualización de firmware, apagar el tablero durante el proceso o instalar software no oficial puede dejar el producto inutilizable y no está cubierto por la garantía.</li>
+            <li>The board&rsquo;s firmware and the AtlasHub app are licensed to you, <strong>not sold</strong>. You receive a personal, limited, revocable, non-exclusive and non-transferable license to use them with the product.</li>
+            <li>You may not copy, distribute, rent, sublicense, decompile, reverse engineer, extract the firmware or circumvent its technical protection measures, except to the extent that the law mandatorily allows it.</li>
+            <li>We may release <strong>firmware and app updates</strong> to fix bugs or improve security and compatibility. Some updates may be required for the product to keep working. Keep the product up to date.</li>
+            <li>An update may change, limit or discontinue features. We reserve the right to <strong>modify or discontinue online services</strong> with reasonable notice where possible.</li>
+            <li>The trademarks, logos, designs, content and game rules are the property of wololabs or its licensors. This manual grants no rights over them.</li>
+            <li>Interrupting a firmware update, turning off the board during the process or installing unofficial software can render the product unusable and is not covered by the warranty.</li>
           </ul>
 
-          <h2 id="garantia">15. Garantía limitada</h2>
-          <!-- PENDIENTE (4): al fijar un plazo de garantia comercial mayor al minimo legal, REEMPLAZAR el parrafo siguiente por: "Garantizamos que el tablero Atlas esta libre de defectos de materiales y de fabricacion, en condiciones de uso normal conforme a este manual, durante N meses desde la fecha de compra acreditada por el comprobante original. Este plazo se suma a la garantia legal y nunca la reemplaza." -->
-          <p>Garantizamos que el tablero Atlas está libre de <strong>defectos de materiales y de fabricación</strong> en condiciones de uso normal conforme a este manual, durante el plazo de la <strong>garantía legal</strong> que corresponda según la normativa aplicable, contado desde la entrega y acreditado con el comprobante de compra original. En la República Argentina ese plazo es de <strong>6 meses como mínimo</strong> (art. 11 de la Ley 24.240).</p>
-          <p>Dentro de ese plazo, y a nuestra elección, <strong>repararemos, reemplazaremos o reembolsaremos</strong> el producto defectuoso. Este es tu <strong>único y exclusivo remedio</strong> bajo esta garantía comercial. La reparación o el reemplazo no reinician el plazo original.</p>
-          <p><strong>La garantía no cubre:</strong></p>
+          <h2 id="warranty">15. Limited warranty</h2>
+          <!-- PENDIENTE (4): al fijar un plazo de garantia comercial mayor al minimo legal, REEMPLAZAR el parrafo siguiente (igual que en la version en espanol). -->
+          <p>We warrant that the Atlas board is free from <strong>defects in materials and workmanship</strong> under normal use in accordance with this manual, for the <strong>statutory warranty</strong> period that applies under the relevant law, counted from delivery and evidenced by the original proof of purchase. In the Argentine Republic that period is <strong>at least 6 months</strong> (art. 11 of Law No. 24,240).</p>
+          <p>Within that period, and at our option, we will <strong>repair, replace or refund</strong> the defective product. This is your <strong>sole and exclusive remedy</strong> under this commercial warranty. A repair or replacement does not restart the original period.</p>
+          <p><strong>The warranty does not cover:</strong></p>
           <ul>
-            <li>desgaste normal, rayones, decoloración y degradación gradual de la capacidad de la batería;</li>
-            <li>daños por caídas, golpes, aplastamiento, líquidos, humedad, arena, fuego, calor, corrosión o condiciones ambientales fuera de las especificadas;</li>
-            <li>uso indebido, negligencia, accidente, uso contrario a este manual o para fines no previstos;</li>
-            <li>uso de cargadores, cables, accesorios o repuestos no autorizados;</li>
-            <li>apertura, modificación, alteración del firmware o reparación por terceros no autorizados;</li>
-            <li>daños por transporte, instalación o almacenamiento inadecuados;</li>
-            <li>fuerza mayor, sobretensiones, fallos de la red eléctrica o desastres naturales;</li>
-            <li>productos sin número de serie legible, con etiquetas alteradas, o adquiridos a revendedores no autorizados, de segunda mano o falsificados;</li>
-            <li>software, contenidos, datos o configuraciones, y su pérdida;</li>
-            <li>incompatibilidades con teléfonos, sistemas operativos o versiones futuras.</li>
+            <li>normal wear and tear, scratches, discoloration and gradual loss of battery capacity;</li>
+            <li>damage from drops, impacts, crushing, liquids, humidity, sand, fire, heat, corrosion or environmental conditions outside those specified;</li>
+            <li>misuse, negligence, accidents, use contrary to this manual or for unintended purposes;</li>
+            <li>use of unauthorized chargers, cables, accessories or spare parts;</li>
+            <li>opening, modification, firmware alteration or repair by unauthorized third parties;</li>
+            <li>damage from improper transport, installation or storage;</li>
+            <li>force majeure, power surges, grid failures or natural disasters;</li>
+            <li>products without a legible serial number, with tampered labels, or bought from unauthorized resellers, second-hand or counterfeit;</li>
+            <li>software, content, data or settings, and their loss;</li>
+            <li>incompatibilities with phones, operating systems or future versions.</li>
           </ul>
-          <p><strong>Cómo reclamar:</strong> escribinos a <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> antes de enviar nada, indicando modelo, número de serie, descripción del fallo y comprobante de compra. Te indicaremos el procedimiento. Los envíos no autorizados pueden ser rechazados. Hacé una copia de tus datos antes de entregar el producto: no respondemos por su pérdida.</p>
+          <p><strong>How to make a claim:</strong> write to us at <a href="mailto:admin@wololabs.com">admin@wololabs.com</a> before sending anything, stating the model, serial number, a description of the fault and your proof of purchase. We will tell you the procedure. Unauthorized shipments may be refused. Back up your data before handing over the product: we are not responsible for its loss.</p>
 
-          <h2 id="exclusiones">16. Exclusión de garantías</h2>
-          <p>En la máxima medida permitida por la legislación aplicable, y sin perjuicio de la garantía limitada anterior y de los derechos legales imperativos de los consumidores, el producto, su firmware, la aplicación y los servicios asociados se proporcionan <strong>«tal cual» y «según disponibilidad»</strong>, sin garantías de ningún otro tipo, expresas o implícitas, incluidas —sin limitación— las garantías implícitas de comerciabilidad, calidad satisfactoria, adecuación a un fin determinado y no infracción.</p>
-          <p>No garantizamos que el funcionamiento del producto o de la aplicación sea ininterrumpido, seguro o libre de errores, ni que los defectos vayan a ser corregidos, ni la disponibilidad permanente de los servicios en línea.</p>
+          <h2 id="disclaimer">16. Disclaimer of warranties</h2>
+          <p>To the fullest extent permitted by applicable law, and without prejudice to the limited warranty above and to consumers&rsquo; mandatory statutory rights, the product, its firmware, the app and the associated services are provided <strong>&ldquo;as is&rdquo; and &ldquo;as available&rdquo;</strong>, without warranties of any other kind, express or implied, including—without limitation—the implied warranties of merchantability, satisfactory quality, fitness for a particular purpose and non-infringement.</p>
+          <p>We do not warrant that the product or the app will operate uninterrupted, securely or error-free, that defects will be corrected, or that online services will be permanently available.</p>
 
-          <h2 id="responsabilidad">17. Limitación de responsabilidad</h2>
-          <p>En la máxima medida permitida por la legislación aplicable:</p>
+          <h2 id="liability">17. Limitation of liability</h2>
+          <p>To the fullest extent permitted by applicable law:</p>
           <ul>
-            <li>No responderemos por daños <strong>indirectos, incidentales, especiales, punitivos o consecuentes</strong>, ni por lucro cesante, pérdida de datos, pérdida de uso, pérdida de oportunidades o daño reputacional, aunque se nos hubiera advertido de su posibilidad.</li>
-            <li>Nuestra responsabilidad total acumulada, por cualquier causa y cualquiera sea la teoría jurídica invocada, <strong>no excederá el importe efectivamente pagado por el producto</strong> que da origen al reclamo.</li>
+            <li>We will not be liable for <strong>indirect, incidental, special, punitive or consequential</strong> damages, or for lost profits, loss of data, loss of use, loss of opportunity or reputational harm, even if we were advised of their possibility.</li>
+            <li>Our total aggregate liability, for any cause and under any legal theory, <strong>will not exceed the amount actually paid for the product</strong> giving rise to the claim.</li>
           </ul>
-          <p><strong>Nada en este manual excluye ni limita nuestra responsabilidad por</strong> muerte o lesiones personales causadas por nuestra negligencia, por dolo, por fraude o tergiversación fraudulenta, por responsabilidad derivada de producto defectuoso, ni por cualquier otra responsabilidad que la ley no permita excluir o limitar. Si alguna limitación resultara inaplicable en tu jurisdicción, se aplicará el límite máximo que la ley permita.</p>
+          <p><strong>Nothing in this manual excludes or limits our liability for</strong> death or personal injury caused by our negligence, for willful misconduct, for fraud or fraudulent misrepresentation, for liability for defective products, or for any other liability that cannot be excluded or limited by law. If any limitation is unenforceable in your jurisdiction, the maximum limit permitted by law will apply.</p>
 
-          <h2 id="indemnidad">18. Indemnidad y uso por terceros</h2>
-          <p>Aceptás mantenernos indemnes frente a reclamaciones, daños, pérdidas y gastos razonables derivados de: (a) el uso del producto en contra de este manual o de la ley; (b) su modificación o reparación no autorizada; (c) su uso para fines expresamente excluidos; o (d) la falta de supervisión de menores a tu cargo.</p>
-          <p>Si prestás, revendés o cedés el producto, es tu responsabilidad <strong>entregar este manual completo</strong> y comunicar sus advertencias de seguridad a la persona que lo reciba.</p>
+          <h2 id="indemnity">18. Indemnity and use by third parties</h2>
+          <p>You agree to hold us harmless from claims, damages, losses and reasonable expenses arising from: (a) use of the product contrary to this manual or the law; (b) its unauthorized modification or repair; (c) its use for expressly excluded purposes; or (d) failure to supervise minors in your care.</p>
+          <p>If you lend, resell or transfer the product, it is your responsibility to <strong>hand over this complete manual</strong> and communicate its safety warnings to the person who receives it.</p>
 
-          <h2 id="consumidor">19. Derechos del consumidor</h2>
-          <p>Si actuás como consumidor, gozás de <strong>derechos legales imperativos</strong> que <strong>este manual no restringe, excluye ni sustituye</strong>, y que se aplican con independencia y por encima de la garantía comercial descrita aquí.</p>
-          <p>En la <strong>República Argentina</strong> rigen la <strong>Ley 24.240 de Defensa del Consumidor</strong> y el Código Civil y Comercial de la Nación. En particular:</p>
+          <h2 id="consumer">19. Consumer rights</h2>
+          <p>If you are acting as a consumer, you have <strong>mandatory statutory rights</strong> that <strong>this manual does not restrict, exclude or replace</strong>, and that apply independently of and in addition to the commercial warranty described here.</p>
+          <p>In the <strong>Argentine Republic</strong>, <strong>Consumer Protection Law No. 24,240</strong> and the Civil and Commercial Code apply. In particular:</p>
           <ul>
-            <li><strong>Garantía legal:</strong> los bienes muebles nuevos no consumibles tienen una garantía legal mínima de <strong>6 meses</strong> desde la entrega (art. 11 de la Ley 24.240). Nuestra garantía comercial se suma a ese mínimo y nunca lo reemplaza.</li>
-            <li><strong>Compras a distancia:</strong> si adquiriste el producto por internet, teléfono o fuera del establecimiento comercial, tenés <strong>10 días corridos</strong> desde la entrega para revocar la aceptación, sin expresar motivo y sin costo alguno (art. 34 de la Ley 24.240 y art. 1110 del Código Civil y Comercial).</li>
-            <li><strong>Información y trato digno:</strong> tenés derecho a información cierta, clara y detallada, y a condiciones de atención dignas y equitativas (arts. 4 y 8 bis de la Ley 24.240).</li>
-            <li>Ante un reclamo podés acudir a la autoridad de aplicación en defensa del consumidor de tu jurisdicción o al <strong>Servicio de Conciliación Previa en las Relaciones de Consumo (COPREC)</strong>.</li>
+            <li><strong>Statutory warranty:</strong> new, non-consumable movable goods have a minimum statutory warranty of <strong>6 months</strong> from delivery (art. 11 of Law No. 24,240). Our commercial warranty is added to that minimum and never replaces it.</li>
+            <li><strong>Distance purchases:</strong> if you bought the product online, by phone or away from business premises, you have <strong>10 calendar days</strong> from delivery to revoke your acceptance, without giving a reason and at no cost (art. 34 of Law No. 24,240 and art. 1110 of the Civil and Commercial Code).</li>
+            <li><strong>Information and fair treatment:</strong> you are entitled to accurate, clear and detailed information, and to dignified and fair treatment (arts. 4 and 8 bis of Law No. 24,240).</li>
+            <li>If you have a complaint, you can go to the consumer protection authority in your jurisdiction or to the <strong>Prior Conciliation Service for Consumer Relations (COPREC)</strong>.</li>
           </ul>
-          <p>Algunas jurisdicciones no permiten la exclusión de garantías implícitas ni la limitación de ciertos daños; en esos casos, las exclusiones y limitaciones anteriores se aplicarán sólo en la medida permitida por la ley, y el resto del documento permanecerá en vigor.</p>
+          <p>Some jurisdictions do not allow the exclusion of implied warranties or the limitation of certain damages; in those cases, the exclusions and limitations above apply only to the extent permitted by law, and the rest of this document remains in force.</p>
 
-          <h2 id="legal">20. Disposiciones generales</h2>
+          <h2 id="legal">20. General provisions</h2>
           <ul>
-            <li><strong>Ley aplicable y jurisdicción:</strong> este manual se rige por las leyes de la <strong>República Argentina</strong>. Para toda controversia serán competentes los tribunales ordinarios de la <strong>Ciudad de Mendoza, Provincia de Mendoza</strong>, <strong>salvo que quien reclame revista el carácter de consumidor</strong>, en cuyo caso resultarán competentes los tribunales de su domicilio, conforme al art. 36 de la Ley 24.240 y al art. 1109 del Código Civil y Comercial.</li>
-            <li><strong>Divisibilidad:</strong> si una cláusula se declara inválida o inexigible, las demás continúan plenamente vigentes.</li>
-            <li><strong>No renuncia:</strong> el hecho de no exigir el cumplimiento de una disposición no supone renuncia a hacerlo más adelante.</li>
-            <li><strong>Actualizaciones del manual:</strong> podemos actualizar este documento para reflejar cambios en el producto, en la normativa o en la información de seguridad. La versión vigente es siempre la publicada en esta página, con su fecha de actualización.</li>
-            <li><strong>Especificaciones:</strong> las imágenes, colores, funciones y especificaciones son orientativas y pueden variar. Nos reservamos el derecho de introducir mejoras sin previo aviso.</li>
-            <li><strong>Idioma:</strong> el texto en español es la versión de referencia. Ante discrepancias con una traducción, prevalece el español.</li>
-            <li><strong>Privacidad:</strong> el tratamiento de datos personales se rige por la <a href="/privacy-policy/">política de privacidad</a>, que forma parte integrante de esta documentación.</li>
+            <li><strong>Governing law and jurisdiction:</strong> this manual is governed by the laws of the <strong>Argentine Republic</strong>. Any dispute falls under the ordinary courts of the <strong>City of Mendoza, Province of Mendoza</strong>, <strong>unless the claimant is a consumer</strong>, in which case the courts of their place of residence will have jurisdiction, under art. 36 of Law No. 24,240 and art. 1109 of the Civil and Commercial Code.</li>
+            <li><strong>Severability:</strong> if any clause is declared invalid or unenforceable, the others remain in full force.</li>
+            <li><strong>No waiver:</strong> failing to enforce a provision does not mean waiving the right to enforce it later.</li>
+            <li><strong>Updates to this manual:</strong> we may update this document to reflect changes in the product, the regulations or the safety information. The version in force is always the one published on this page, with its update date.</li>
+            <li><strong>Specifications:</strong> images, colors, features and specifications are for guidance only and may vary. We reserve the right to make improvements without prior notice.</li>
+            <li><strong>Language:</strong> this manual is a translation of the <a href="/es/manual-de-usuario/" hreflang="es" lang="es">Spanish original</a>, which is the reference version. In case of any discrepancy, the Spanish version prevails.</li>
+            <li><strong>Privacy:</strong> the processing of personal data is governed by the <a href="/privacy-policy/">privacy policy</a>, which forms an integral part of this documentation.</li>
           </ul>
 
-          <h2 id="contacto">21. Contacto y soporte</h2>
+          <h2 id="contact">21. Contact and support</h2>
           <p><strong>WOLOLO STUDIO S.A.S.</strong> (wololabs)<br />
-          Maure Avelino 245, Ciudad de Mendoza, Provincia de Mendoza, República Argentina<br />
+          Maure Avelino 245, Ciudad de Mendoza, Province of Mendoza, Argentina<br />
           <a href="mailto:admin@wololabs.com">admin@wololabs.com</a></p>
-          <p>Para consultas de seguridad, incidentes con la batería o cualquier situación que haya puesto en riesgo a una persona, escribinos con el asunto <strong>«Seguridad del producto»</strong> y le daremos prioridad.</p>
+          <p>For safety questions, battery incidents or any situation that has put someone at risk, write to us with the subject <strong>&ldquo;Product safety&rdquo;</strong> and we will give it priority.</p>
 
           <div class="legal-block">
-            <p class="fine-print">Este manual forma parte del producto. Conservalo. Su contenido se ofrece de buena fe y con la mayor precisión posible; no sustituye el criterio de una persona adulta responsable ni el asesoramiento profesional. Ante cualquier duda sobre el uso seguro del producto, no lo uses y consultanos antes.</p>
+            <p class="fine-print">This manual is part of the product. Keep it. Its content is provided in good faith and as accurately as possible; it does not replace the judgment of a responsible adult or professional advice. If you have any doubt about using the product safely, do not use it and ask us first.</p>
           </div>
         </article>
-        <nav class="doc-links" aria-label="Otros documentos">
+        <nav class="doc-links" aria-label="Other documents">
             <a class="doc-link" href="/privacy-policy/">
-              <strong>Política de privacidad</strong>
-              <span>Qué datos maneja AtlasHub y cómo pedir su baja.</span>
+              <strong>Privacy policy</strong>
+              <span>What data AtlasHub handles and how to have it deleted.</span>
             </a>
             <a class="doc-link" href="/delete-account-guide/">
-              <strong>Eliminar la cuenta</strong>
-              <span>Cómo borrar tu cuenta desde la app o por correo.</span>
+              <strong>Delete your account</strong>
+              <span>How to delete your account from the app or by email.</span>
             </a>
         </nav>
         </div>
       </section>
     </main>
 
+    <!-- pie:inicio -->
     <footer class="site-footer site-footer--compact">
       <svg class="footer-deco footer-deco--left-top" viewBox="0 0 471.9 323.9" fill="#f9b606" aria-hidden="true" focusable="false"><rect x="357.6" y="0.0" width="44.4" height="6.9"/><rect x="417.0" y="0.0" width="44.4" height="6.9"/><rect x="465.0" y="11.0" width="6.9" height="44.3"/><rect x="405.5" y="11.0" width="6.9" height="44.3"/><rect x="345.9" y="11.2" width="6.9" height="44.3"/><rect x="417.0" y="59.3" width="44.4" height="6.9"/><rect x="357.4" y="59.5" width="44.4" height="6.9"/><rect x="465.0" y="70.3" width="6.9" height="44.3"/><rect x="345.9" y="70.5" width="6.9" height="44.3"/><rect x="405.4" y="70.5" width="6.9" height="44.3"/><rect x="119.3" y="79.5" width="44.4" height="6.9"/><rect x="178.8" y="79.5" width="44.4" height="6.9"/><rect x="226.7" y="90.5" width="6.9" height="44.3"/><rect x="167.3" y="90.5" width="6.9" height="44.3"/><rect x="107.6" y="90.7" width="6.9" height="44.3"/><rect x="357.4" y="118.7" width="44.4" height="6.9"/><rect x="416.8" y="118.7" width="44.4" height="6.9"/><rect x="178.8" y="138.8" width="44.4" height="6.9"/><rect x="119.1" y="139.0" width="44.4" height="6.9"/><rect x="226.7" y="149.8" width="6.9" height="44.3"/><rect x="167.1" y="150.0" width="6.9" height="44.3"/><rect x="107.6" y="150.0" width="6.9" height="44.3"/><rect x="0.2" y="198.2" width="44.4" height="6.9"/><rect x="59.6" y="198.2" width="44.4" height="6.9"/><rect x="238.4" y="198.2" width="44.4" height="6.9"/><rect x="297.9" y="198.2" width="44.4" height="6.9"/><rect x="119.1" y="198.2" width="44.4" height="6.9"/><rect x="178.6" y="198.2" width="44.4" height="6.9"/><rect x="48.1" y="209.2" width="6.9" height="44.3"/><rect x="107.6" y="209.2" width="6.9" height="44.3"/><rect x="286.4" y="209.2" width="6.9" height="44.3"/><rect x="345.9" y="209.2" width="6.9" height="44.3"/><rect x="226.8" y="209.4" width="6.9" height="44.3"/><rect x="59.6" y="257.5" width="44.4" height="6.9"/><rect x="297.9" y="257.5" width="44.4" height="6.9"/><rect x="0.0" y="257.7" width="44.4" height="6.9"/><rect x="238.3" y="257.7" width="44.4" height="6.9"/><rect x="107.6" y="268.5" width="6.9" height="44.3"/><rect x="345.9" y="268.5" width="6.9" height="44.3"/><rect x="48.0" y="268.7" width="6.9" height="44.3"/><rect x="226.8" y="268.7" width="6.9" height="44.3"/><rect x="286.2" y="268.7" width="6.9" height="44.3"/><rect x="0.0" y="317.0" width="44.4" height="6.9"/><rect x="59.4" y="317.0" width="44.4" height="6.9"/><rect x="238.3" y="317.0" width="44.4" height="6.9"/><rect x="297.7" y="317.0" width="44.4" height="6.9"/></svg>
       <svg class="footer-deco footer-deco--left-bottom" viewBox="0 0 114.5 114.8" fill="#f9b606" aria-hidden="true" focusable="false"><rect x="0.2" y="0.0" width="44.4" height="6.9"/><rect x="59.6" y="0.0" width="44.4" height="6.9"/><rect x="107.6" y="11.0" width="6.9" height="44.3"/><rect x="48.1" y="11.0" width="6.9" height="44.3"/><rect x="59.6" y="59.3" width="44.4" height="6.9"/><rect x="0.0" y="59.5" width="44.4" height="6.9"/><rect x="107.6" y="70.3" width="6.9" height="44.3"/><rect x="48.0" y="70.5" width="6.9" height="44.3"/></svg>
@@ -422,13 +434,13 @@
 
         <div class="site-footer__brand">
           <img src="/assets/wordmark-atlas-dark.png" alt="Atlas" width="1200" height="326" loading="lazy" />
-          <p class="footer-tagline">El mapa de mundos</p>
+          <p class="footer-tagline">The map of worlds</p>
         </div>
 
         <div class="site-footer__links">
           <div class="site-footer__cols">
             <div>
-              <h3>Redes</h3>
+              <h3>Social</h3>
               <ul>
                 <li><a href="https://www.instagram.com/atlas64_/" rel="noopener">Instagram</a></li>
                 <!-- PENDIENTE: agregar las URLs de Discord, TikTok, X y LinkedIn. -->
@@ -439,33 +451,30 @@
               </ul>
             </div>
             <div>
-              <h3>Soporte</h3>
+              <h3>Support</h3>
               <ul>
-                <li><a href="/user-manual/">Manual de usuario</a></li>
+                <li><a href="/user-manual/">User manual</a></li>
                 <li><a href="/#faq">FAQ</a></li>
-                <li><a href="mailto:admin@wololabs.com">Contacto</a></li>
-                <li>
-                  <a href="/ecosistema/#app">
-                    Descargar la app
-                  </a>
-                </li>
+                <li><a href="mailto:admin@wololabs.com">Contact</a></li>
+                <li><a href="/ecosystem/#app">Download the app</a></li>
               </ul>
             </div>
           </div>
 
           <p class="site-footer__legal-links">
-            <a href="/privacy-policy/">Política de privacidad</a>
-            <a href="/delete-account-guide/">Eliminar la cuenta</a>
+            <a href="/privacy-policy/">Privacy policy</a>
+            <a href="/delete-account-guide/">Delete your account</a>
           </p>
 
           <p class="site-footer__legal">
-            © Atlas — Desarrollado por WOLO Labs.<br />Made in Argentina.
+            © Atlas — Developed by WOLO Labs.<br />Made in Argentina.
           </p>
         </div>
       </div>
     </footer>
+    <!-- pie:fin -->
 
-    <script src="/script.js?v=20261026-1" defer></script>
+    <script src="/script.js?v=20261027-2" defer></script>
 
   </body>
 </html>

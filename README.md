@@ -5,25 +5,68 @@ dependencias: HTML, un CSS y un JS.
 
 ## Estructura
 
-| Archivo | Página | Origen |
-| --- | --- | --- |
-| `index.html` | Producto | página 1 del diseño `ATL_Webfinal.pdf` |
-| `juegos.html` | Juegos | catálogo y una página por juego (`juegos/<slug>/`), generados con `python tools/build_juegos.py` desde `tools/juegos.json` (textos tomados de los `metadata.json` de la app) |
-| `ecosistema.html` | Ecosistema | página 2 del diseño |
-| `sobre-nosotros.html` | Sobre nosotros | página 3 del diseño |
-| `user-manual.html` | Manual de usuario y avisos de seguridad | contenido propio |
-| `privacy-policy.html` | Política de privacidad | contenido propio |
-| `delete-account-guide.html` | Guía para eliminar la cuenta | contenido propio |
+El sitio es bilingüe: **inglés en la raíz** (idioma principal) y **español en `/es/`**.
+Cada página es un `index.html` dentro de su carpeta:
 
-Cada página tiene además una copia idéntica en su carpeta (`ecosistema/index.html`,
-etc.) para que la URL funcione sin `.html`. **Al editar una página hay que copiarla
-a su carpeta**:
+| Inglés | Español | Página | Origen |
+| --- | --- | --- | --- |
+| `index.html` | `es/index.html` | Producto | página 1 del diseño `ATL_Webfinal.pdf` |
+| `games/` | `es/juegos/` | Juegos | catálogo y una página por juego (`games/<slug>/`, `es/juegos/<slug>/`), generados con `python tools/build_juegos.py` desde `tools/juegos.json` (textos tomados de los `metadata.json` de la app; los de inglés, en el bloque `"en"` de cada juego) |
+| `ecosystem/` | `es/ecosistema/` | Ecosistema | página 2 del diseño |
+| `about-us/` | `es/sobre-nosotros/` | Sobre nosotros | página 3 del diseño |
+| `user-manual/` | `es/manual-de-usuario/` | Manual de usuario y avisos de seguridad | contenido propio |
+| `privacy-policy/` | `es/politica-de-privacidad/` | Política de privacidad | contenido propio |
+| `delete-account-guide/` | `es/eliminar-cuenta/` | Guía para eliminar la cuenta | contenido propio |
+
+**Al cambiar un texto hay que cambiarlo en los dos idiomas.** El manual y la
+política de privacidad en inglés aclaran que son una traducción y que el texto de
+referencia es el español.
+
+## Idiomas
+
+Lo común a las dos versiones vive en `tools/sitio.py`: las rutas de cada página en
+cada idioma (`RUTAS`), la barra de navegación con el selector de idioma, el pie y
+las direcciones viejas (`REDIRECCIONES`). En cada página la barra, el pie y los
+`hreflang` van entre marcas (`<!-- barra:inicio -->`, `<!-- pie:inicio -->`,
+`<!-- idiomas:inicio -->`): no se editan a mano, los escribe
 
 ```sh
-for p in juegos ecosistema sobre-nosotros user-manual privacy-policy delete-account-guide; do
-  cp "$p.html" "$p/index.html"
-done
+python tools/build_idiomas.py
 ```
+
+Hay que correrlo después de cambiar la barra o el pie (en `tools/sitio.py`), de
+agregar una página (primero se suma a `RUTAS`) o de cambiar una dirección. El orden
+completo, si se tocan juegos o el FAQ, es:
+
+```sh
+python tools/build_juegos.py && python tools/build_idiomas.py && python tools/build_seo.py
+```
+
+- Cada página declara su idioma (`<html lang>`), su `canonical` y los `hreflang` de
+  las dos versiones más el `x-default` (la inglesa). El `sitemap.xml` repite esos
+  pares.
+- El selector («ES» / «EN») lleva a la misma página en el otro idioma y conserva la
+  sección (`#faq`, `#app`…): las páginas principales usan los mismos `id` en los
+  dos idiomas, también para que la analítica (`section_view`) se pueda comparar.
+- **No hay redirección automática por idioma del navegador.** Google rastrea casi
+  siempre desde Estados Unidos y sin idioma: si se redirigiera, no vería la versión
+  en español. Cada persona elige con el selector y Google muestra en cada búsqueda
+  la versión del idioma de quien busca gracias a los `hreflang`.
+- Los textos que escriben `script.js`, `atlas3d.js` (epígrafes de las escenas 3D) y
+  `analytics.js` (aviso de cookies) salen en el idioma de `<html lang>`.
+- **Direcciones viejas**: antes el sitio estaba sólo en español en la raíz
+  (`/juegos/`, `/ecosistema/`, `/sobre-nosotros/`…). `build_idiomas.py` escribe en
+  esas rutas páginas que redirigen a su versión nueva (en `/es/`). GitHub Pages no
+  permite redirecciones 301, así que son un `meta refresh` inmediato con
+  `canonical`, que Google trata como redirección permanente; conservan los
+  parámetros (`?utm_source=…`). `user-manual`, `privacy-policy` y
+  `delete-account-guide` mantienen su dirección (ahora en inglés; Google Play
+  enlaza la política de privacidad y la guía para eliminar la cuenta).
+- **Titulares en SVG**: el diseño compone algunos titulares en Brillante y el
+  estudio los entregó vectorizados, en español (`assets/titulos/`). En inglés van
+  como texto en Playfair (`.hero__title--text`, `.story__title`,
+  `.mission__title--text`, `.steps-head__title`), marcados con `PENDIENTE` hasta
+  que lleguen los SVG en inglés.
 
 - Las páginas cargan `styles.css`, `script.js` y `atlas3d.js` con `?v=…`. **Al cambiar
   alguno de esos archivos hay que subir ese número en todas las páginas**; si no, el
@@ -101,7 +144,7 @@ Buscar `PENDIENTE` en los `.html`:
 3. Las respuestas del FAQ están redactadas a partir del manual y de la lista de
    juegos nativos de la marca: conviene revisarlas antes de publicar.
 
-`user-manual.html` tiene además su propia lista de datos pendientes en un comentario
+`es/manual-de-usuario/index.html` (y su versión en inglés) tiene además su propia lista de datos pendientes en un comentario
 al inicio del archivo.
 
 ## Estructura del hero
@@ -155,8 +198,8 @@ el póster.
 ## AtlasHub
 
 La app se descarga desde Google Play y, en iPhone, desde la beta de TestFlight. Los
-enlaces están en la sección «La app» de Ecosistema (`/ecosistema/#app`); el pie de
-todas las páginas lleva ahí. `descargar/index.html` ya no es una página: redirige a esa
+enlaces están en la sección «La app» de Ecosistema (`/ecosystem/#app` y `/es/ecosistema/#app`); el pie de
+todas las páginas lleva ahí. `descargar/index.html` ya no es una página: redirige a la versión en inglés de esa
 sección para que no se rompan enlaces ni códigos QR viejos.
 
 ## Escenas 3D del tablero
@@ -168,7 +211,7 @@ Cada una es un bloque con `data-atlas3d`:
 | --- | --- | --- |
 | `juegos` | ¿Qué es Atlas? | Tres juegos en ciclo: el Maze, con el laberinto escondido y un tesoro dorado en el centro (la ficha roja choca una pared y vuelve al inicio; la azul llega al tesoro), con las reglas en el epígrafe; una partida de ajedrez (1. e4 e5 2. Cf3) donde al levantar una pieza se encienden sus casillas posibles; y una arena de casillas grises con el rey en llamas en el centro y tres fichas rojas que lo atacan |
 | `mesa` | Módulos | De 1 a 6 módulos (botones + y −, arranca en 4) que arman un mapa de rol de ejemplo |
-| `modulo` | Atlas Core | Atlas Core espera separado, se acerca y se conecta al borde del módulo una sola vez (se enciende la fila del borde). La conexión arranca cuando se ve al menos el 60 % de la escena, y se repite si la escena sale de pantalla y vuelve. Después se repite: una ficha se apoya, la lámina blanca de Atlas Core se pone rosa al leerla, el tablero dice su nombre en una burbuja ("Red Piece!", `FICHA_NAMES`) y una ola de luz lo recorre. Cada vuelta lee una ficha de otro color |
+| `modulo` | Atlas Core | Atlas Core espera separado, se acerca y se conecta al borde del módulo una sola vez (se enciende la fila del borde). La conexión arranca cuando se ve al menos el 60 % de la escena, y se repite si la escena sale de pantalla y vuelve. Después se repite: una ficha se apoya, la lámina blanca de Atlas Core se pone rosa al leerla, el tablero dice su nombre en una burbuja ("Red Piece!", `FICHA_NAMES`) y una ola del color de esa ficha lo recorre. Cada vuelta lee una ficha de otro color |
 | `ficha` | Fichas | La ficha se enrosca en la base, se desenrosca, sale y entra otra de otro color |
 
 - Todos los modelos están en `assets/Models3D/`.
@@ -221,9 +264,11 @@ python -m http.server 8080
   vale.
 - **`robots.txt`**: todo es público, y nombra a los bots de buscadores y de IA
   (Google, Bing, OpenAI, Anthropic, Perplexity, Apple) para que quede explícito.
-- **`sitemap.xml`** y el **JSON-LD de la portada** (empresa, producto y FAQ) los
-  genera `python tools/build_seo.py`. Hay que correrlo después de agregar una
-  página, de tocar el FAQ o de correr `tools/build_juegos.py`. **El producto
+  Las redirecciones no se bloquean: Google tiene que poder leerlas.
+- **`sitemap.xml`** (con los `hreflang` de cada página) y el **JSON-LD de las dos
+  portadas** (empresa, producto y FAQ, cada uno en su idioma) los genera
+  `python tools/build_seo.py`. Hay que correrlo después de agregar una página, de
+  tocar el FAQ o de correr `tools/build_juegos.py`. **El producto
   (`Product`) no se declara mientras no haya precio definido**: Google exige
   precio o reseñas y, si falta, Search Console lo marca como error crítico.
   Cuando esté el precio, completar `PRICE` y `CURRENCY` en `build_seo.py`
@@ -231,10 +276,12 @@ python -m http.server 8080
 - Las fichas de juego llevan su JSON-LD (`VideoGame`) desde la plantilla de
   `tools/build_juegos.py`. Juegos, Ecosistema y Sobre nosotros tienen un
   `BreadcrumbList` escrito a mano.
-- **`llms.txt`** y **`llms-full.txt`**: lo que leen los asistentes de IA (ChatGPT,
+- **`llms.txt`** y **`llms-full.txt`** (en inglés; en español, `es/llms.txt` y
+  `es/llms-full.txt`): lo que leen los asistentes de IA (ChatGPT,
   Claude, Perplexity) para entender Atlas y recomendarlo. También los genera
   `tools/build_seo.py`: el texto fijo (qué es, fichas, Atlas Studio, para quién es)
-  está en `tools/llms_base.md` y los juegos salen de `tools/juegos.json`;
+  está en `tools/llms_base.md` (inglés) y `tools/llms_base.es.md` (español), y los
+  juegos salen de `tools/juegos.json`;
   `llms-full.txt` suma las reglas completas de cada juego. **La IA de Google no lee
   estos archivos**: usa el texto visible y el JSON-LD, por eso el FAQ de la portada
   repite lo importante (rol, ajedrez, familias, Atlas Studio, fichas).

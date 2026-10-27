@@ -97,16 +97,28 @@
       banner.hidden = false;
       return;
     }
+    // El aviso sale en el idioma de la página (<html lang>)
+    var t = document.documentElement.lang === "es" ? {
+      label: "Aviso de cookies",
+      text: "Usamos cookies para entender cómo se usa el sitio y así seguir mejorando. No las utilizamos para publicidad.",
+      more: '<a href="/es/politica-de-privacidad/#sitio-web">Más información</a>',
+      deny: "Rechazar",
+      accept: "Aceptar",
+    } : {
+      label: "Cookie notice",
+      text: "We use cookies to understand how the site is used so we can keep improving it. We don't use them for advertising.",
+      more: '<a href="/privacy-policy/#website">Learn more</a>',
+      deny: "Reject",
+      accept: "Accept",
+    };
     banner = document.createElement("section");
     banner.className = "cookie-bar";
-    banner.setAttribute("aria-label", "Aviso de cookies");
+    banner.setAttribute("aria-label", t.label);
     banner.innerHTML =
-      '<p class="cookie-bar__text">Usamos cookies para entender cómo se usa el sitio y así seguir mejorando. ' +
-      "No las utilizamos para publicidad. " +
-      '<a href="/privacy-policy/#sitio-web">Más información</a></p>' +
+      '<p class="cookie-bar__text">' + t.text + " " + t.more + "</p>" +
       '<div class="cookie-bar__actions">' +
-      '<button class="cookie-bar__btn" type="button" data-cookie="denied">Rechazar</button>' +
-      '<button class="cookie-bar__btn cookie-bar__btn--accept" type="button" data-cookie="granted">Aceptar</button>' +
+      '<button class="cookie-bar__btn" type="button" data-cookie="denied">' + t.deny + "</button>" +
+      '<button class="cookie-bar__btn cookie-bar__btn--accept" type="button" data-cookie="granted">' + t.accept + "</button>" +
       "</div>";
     banner.addEventListener("click", function (event) {
       var btn = event.target.closest("[data-cookie]");

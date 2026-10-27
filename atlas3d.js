@@ -45,6 +45,29 @@
   var narrow = window.matchMedia("(max-width: 760px)");
   var MOBILE_ZOOM = 0.84;
 
+  // Textos de las escenas (epígrafes y loader), en el idioma de la página
+  var TXT = document.documentElement.lang === "es" ? {
+    cargando: "Cargando…", cargandoPct: "Cargando {} %", listo: "Listo",
+    maze: ["Maze: dos fichas, un tesoro en el centro.", "El laberinto está escondido: no se ven las paredes.",
+      "Cada paso que das se enciende.", "¡Pared! La ficha vuelve al inicio.", "Turno de la otra ficha.",
+      "¡Llegó al tesoro y ganó!"],
+    ajedrez: ["Ajedrez: Atlas indica las posiciones.", "Atlas te ayuda con tus partidas.",
+      "Jugá solo con la IA o contra un amigo."],
+    arena: "¡Batallas épicas y mucho más en el universo Atlas!",
+    mesa: ["El claro del bosque.", "Aparece el río.", "El sendero llega a la villa.", "Un puente cruza el río.",
+      "El bosque sigue.", "El mapa completo."],
+  } : {
+    cargando: "Loading…", cargandoPct: "Loading {}%", listo: "Ready",
+    maze: ["Maze: two pieces, one treasure in the center.", "The labyrinth is hidden: you can't see the walls.",
+      "Every step you take lights up.", "Wall! The piece goes back to the start.", "The other piece's turn.",
+      "It reached the treasure and won!"],
+    ajedrez: ["Chess: Atlas shows you the possible moves.", "Atlas helps you through every game.",
+      "Play solo against the AI or against a friend."],
+    arena: "Epic battles and much more in the Atlas universe!",
+    mesa: ["The forest clearing.", "The river appears.", "The trail reaches the village.", "A bridge crosses the river.",
+      "The forest goes on.", "The full map."],
+  };
+
   // Colores de las casillas (definidos por Gonzalo, 2026-10-20) y del modelo.
   var CELL_OFF = 0xa9cbf9;
   var CELL_ON = 0xff4fa3;
@@ -188,7 +211,7 @@
     el.innerHTML =
       '<div class="stage3d__loader-grid">' + cells + "</div>" +
       '<div class="stage3d__loader-bar"><span></span></div>' +
-      '<p class="stage3d__loader-text">Cargando…</p>';
+      '<p class="stage3d__loader-text">' + TXT.cargando + "</p>";
     host.appendChild(el);
     host.classList.add("is-loading");
     host.setAttribute("aria-busy", "true");
@@ -209,7 +232,7 @@
       // Si algún archivo todavía no informó su tamaño, cuenta como pendiente.
       var pct = Math.max(0, Math.min(99, Math.floor((got / total) * (known / urls.length) * 100)));
       bar.style.width = pct + "%";
-      text.textContent = "Cargando " + pct + " %";
+      text.textContent = TXT.cargandoPct.replace("{}", pct);
     }
     listeners.push(update);
     update();
@@ -220,7 +243,7 @@
       host.removeAttribute("aria-busy");
       if (!ok) return;
       bar.style.width = "100%";
-      text.textContent = "Listo";
+      text.textContent = TXT.listo;
       // Dos cuadros: el primero dibuja la escena, el segundo la muestra.
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
@@ -610,12 +633,12 @@
       RED.g.visible = BLUE.g.visible = fall + rise < 19;
 
       // Las reglas, a medida que pasan
-      if (t < 1.4) say("Maze: dos fichas, un tesoro en el centro.");
-      else if (t < RED0) say("El laberinto está escondido: no se ven las paredes.");
-      else if (t < HIT) say("Cada paso que das se enciende.");
-      else if (t < BACK1) say("¡Pared! La ficha vuelve al inicio.");
-      else if (t < WIN) say("Turno de la otra ficha.");
-      else say("¡Llegó al tesoro y ganó!");
+      if (t < 1.4) say(TXT.maze[0]);
+      else if (t < RED0) say(TXT.maze[1]);
+      else if (t < HIT) say(TXT.maze[2]);
+      else if (t < BACK1) say(TXT.maze[3]);
+      else if (t < WIN) say(TXT.maze[4]);
+      else say(TXT.maze[5]);
     }
 
     // ----- Ajedrez: al levantar una pieza, el tablero muestra a dónde puede ir -----
@@ -664,9 +687,9 @@
 
     // Tres jugadas: 1. e4 e5 2. Cf3
     var MOVES = [
-      { from: [4, 6], to: [4, 4], targets: [[4, 5], [4, 4]], say: "Ajedrez: Atlas indica las posiciones." },
-      { from: [4, 1], to: [4, 3], targets: [[4, 2], [4, 3]], say: "Atlas te ayuda con tus partidas." },
-      { from: [6, 7], to: [5, 5], targets: [[5, 5], [7, 5]], say: "Jugá solo con la IA o contra un amigo.", jump: true },
+      { from: [4, 6], to: [4, 4], targets: [[4, 5], [4, 4]], say: TXT.ajedrez[0] },
+      { from: [4, 1], to: [4, 3], targets: [[4, 2], [4, 3]], say: TXT.ajedrez[1] },
+      { from: [6, 7], to: [5, 5], targets: [[5, 5], [7, 5]], say: TXT.ajedrez[2], jump: true },
     ];
     MOVES.forEach(function (mv) {
       mv.man = at[mv.from[0] + "," + mv.from[1]];
@@ -777,7 +800,7 @@
 
     function arenaFrame(t) {
       arena.visible = true;
-      say("¡Batallas épicas y mucho más en el universo Atlas!");
+      say(TXT.arena);
       var fire = clamp01((t - 0.9) / 0.5) * (1 - clamp01((t - AR_OUT) / 0.5));
       var rise = ease(clamp01((t - AR_OUT) / 0.6));
       var shakeX = 0, shakeZ = 0, flare = 0;
@@ -883,14 +906,8 @@
     var h = hash(gx, gy);
     return { c: h < 0.35 ? 0x1f5f2c : h < 0.75 ? 0x2f7d3a : 0x46a04f, e: 0.3 };
   }
-  var MESA_CAPS = {
-    1: "El claro del bosque.",
-    2: "Aparece el río.",
-    3: "El sendero llega a la villa.",
-    4: "Un puente cruza el río.",
-    5: "El bosque sigue.",
-    6: "El mapa completo.",
-  };
+  // Epígrafe para cada cantidad de módulos (de 1 a 6)
+  var MESA_CAPS = [""].concat(TXT.mesa);
 
   function sceneMesa(host) {
     return model().then(function (src) {
@@ -1000,6 +1017,10 @@
 
     var ring = glowMesh(7);
     var PINK = color(CELL_ON);
+    // La ola que recorre el tablero toma el color de la ficha leída
+    var WAVE = FICHA_NAMES.map(function (f) {
+      return color(parseInt(f[1].slice(1), 16));
+    });
     ring.position.set(0, 0.3, 13.4);
     view.scene.add(ring);
 
@@ -1099,11 +1120,16 @@
       bubble.style.left = ((tip.x + 1) / 2) * 100 + "%";
       bubble.style.top = ((1 - tip.y) / 2) * 100 + "%";
       mod.cells.forEach(function (c, i) {
-        var a = Math.max(0, 1 - Math.abs(dist[i] - wave) / 1.8) * 0.8;
-        // Al conectarse se enciende la fila del borde de Atlas Core
-        a = Math.max(a, link * 0.8 * clamp01(1.6 - dist[i]));
-        c.mat.color.copy(OFF).lerp(ON, a * 0.9);
-        c.mat.emissive.copy(ON).multiplyScalar(a * 0.6);
+        var aWave = Math.max(0, 1 - Math.abs(dist[i] - wave) / 1.8) * 0.8;
+        // Al conectarse se enciende, en rosa, la fila del borde de Atlas Core
+        var aLink = link * 0.8 * clamp01(1.6 - dist[i]);
+        var a = Math.max(aWave, aLink);
+        var isWave = aWave >= aLink;
+        var tone = isWave ? WAVE[n] : ON;
+        c.mat.color.copy(OFF).lerp(tone, a * 0.9);
+        // Con menos brillo la ola conserva el color de la ficha (el azul sobre
+        // las casillas celestes, sobre todo)
+        c.mat.emissive.copy(tone).multiplyScalar(a * (isWave ? 0.3 : 0.6));
       });
     };
   }
