@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atlas 64 — La primera consola de juegos de mesa | Sitio oficial</title>
+    <title>Atlas 64 — La consola modular de juegos de mesa | Sitio oficial</title>
     <meta
       name="description"
-      content="Sitio oficial de Atlas 64, la primera consola de juegos de mesa: un único tablero que da vida a cientos de juegos y una tecnología que se encarga del resto."
+      content="Sitio oficial de Atlas 64, la consola modular de juegos de mesa: un único tablero que da vida a cientos de juegos y una tecnología que se encarga del resto."
     />
     <link rel="canonical" href="https://atlas-64.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Atlas 64 — La primera consola de juegos de mesa | Sitio oficial" />
+    <meta property="og:title" content="Atlas 64 — La consola modular de juegos de mesa | Sitio oficial" />
     <meta
       property="og:description"
-      content="La primera consola de juegos de mesa. Un tablero, infinitos juegos."
+      content="La consola modular de juegos de mesa que se transforma en infinitos juegos."
     />
     <meta property="og:image" content="https://atlas-64.com/assets/cta-tablero.jpg" />
     <meta property="og:image:width" content="1920" />
@@ -31,8 +31,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <script src="/analytics.js?v=20261023-1" async></script>
-    <link rel="stylesheet" href="/styles.css?v=20261023-1" />
+    <script src="/analytics.js?v=20261026-1" async></script>
+    <link rel="stylesheet" href="/styles.css?v=20261026-1" />
     <script>document.documentElement.classList.add("js")</script>
     <script type="application/ld+json" id="ld-atlas">
     {
@@ -42,7 +42,7 @@
           "@type": "Organization",
           "@id": "https://atlas-64.com/#org",
           "name": "WOLO Labs",
-          "url": "https://atlas-64.com/",
+          "url": "https://wololabs.com/",
           "logo": "https://atlas-64.com/assets/logo-atlas64-dark.png",
           "email": "admin@wololabs.com",
           "sameAs": [
@@ -70,8 +70,51 @@
           }
         },
         {
+          "@type": "Product",
+          "@id": "https://atlas-64.com/#atlas",
+          "name": "Atlas 64",
+          "alternateName": "Atlas",
+          "description": "Sitio oficial de Atlas 64, la consola modular de juegos de mesa: un único tablero que da vida a cientos de juegos y una tecnología que se encarga del resto.",
+          "image": [
+            "https://atlas-64.com/assets/cta-tablero.jpg",
+            "https://atlas-64.com/assets/tablero.webp"
+          ],
+          "category": "Juegos de mesa",
+          "audience": {
+            "@type": "PeopleAudience",
+            "suggestedMinAge": 14
+          },
+          "brand": {
+            "@id": "https://atlas-64.com/#marca"
+          },
+          "url": "https://atlas-64.com/",
+          "manufacturer": {
+            "@id": "https://atlas-64.com/#org"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://presale.atlas-64.com/",
+            "price": "250",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/PreOrder",
+            "seller": {
+              "@type": "Organization",
+              "name": "WOLO Labs",
+              "url": "https://wololabs.com/"
+            }
+          }
+        },
+        {
           "@type": "FAQPage",
           "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Dónde puedo conseguir Atlas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Atlas 64 se lanza muy pronto en Kickstarter. Durante la campaña tendrá un precio de 250 USD. Para recibir el aviso del lanzamiento y no perderte la campaña, regístrate aquí."
+              }
+            },
             {
               "@type": "Question",
               "name": "¿Necesito Internet para jugar?",
@@ -254,13 +297,21 @@
             </svg>
           </button>
 
+
           <div class="hero__foot">
+            <!-- EN: The Modular Board Game Console That Plays Unlimited Games -->
             <p class="lede">
-              La primera consola de juegos de mesa. Un tablero, cientos de juegos.
+              <strong class="lede__lead">La consola modular de juegos de mesa que se transforma en infinitos juegos.</strong>
+              Un solo tablero inteligente que reconoce tus fichas, guía la partida con luces y cambia de juego
+              desde tu teléfono.
             </p>
-            <div class="btn-row">
-              <a class="btn btn--ink" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
-              <a class="btn" href="#que-es">Ver cómo funciona</a>
+            <!-- Campaña de Kickstarter: el registro se hace en el funnel de preventa
+                 (presale.atlas-64.com), que guarda el correo en SmartPush. -->
+            <div class="hero__cta">
+              <div class="btn-row">
+                <a class="btn btn--ink" href="https://presale.atlas-64.com/">Regístrate ahora</a>
+                <a class="btn" href="#que-es">Ver cómo funciona</a>
+              </div>
             </div>
           </div>
         </div>
@@ -294,7 +345,7 @@
               </figcaption>
             </figure>
             <div class="split__copy split__copy--rich">
-              <p class="statement">Atlas es <strong>la primera consola de juegos de mesa modular.</strong></p>
+              <p class="statement">Atlas es <strong>la consola modular de juegos de mesa.</strong></p>
               <ul class="copy-list" role="list">
                 <li class="rise" style="--i:1"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2" /><path d="M3.5 9.2h17M3.5 14.8h17M9.2 3.5v17M14.8 3.5v17" /></g></svg></span><span><strong>Un único tablero</strong>, múltiples juegos</span></li>
                 <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2" /><path d="M11 18.5h2" /></g></svg></span><span>Conectalo a tu celular con <a class="statement__link" href="/ecosistema/">Atlas HUB</a></span></li>
@@ -338,62 +389,26 @@
         </div>
       </section>
 
-      <!-- ================= CÓMO FUNCIONA ================= -->
-      <section class="band band--ink band--fit" id="como-funciona" data-enter>
+      <!-- ================= ATLAS CORE (3D) ================= -->
+      <!-- PENDIENTE: qué hace el tablero después de leer la ficha (la ola de luz es una suposición). -->
+      <section class="band band--ink band--fit" id="atlas-core" data-enter>
         <div class="wrap">
-          <header class="sec-head sec-head--cards">
-            <h2 class="sec-title svg-title svg-title--center">
-              <img
-                src="/assets/titulos/empezar-a-jugar.svg"
-                alt="Empezar a jugar nunca fue tan fácil."
-                style="max-width: 1400px"
-                width="837"
-                height="59"
-              />
-            </h2>
+          <header class="sec-head">
+            <h2 class="sec-title display">Atlas Core</h2>
           </header>
-
-          <!-- Las cuatro tarjetas vienen compuestas del estudio: foto, número,
-               título y descripción en una sola pieza. El texto va en el alt.
-               En el celular pasan a ser un carrusel horizontal. -->
-          <ol class="step-cards">
-            <li>
-              <img
-                src="/assets/paso-1.webp"
-                alt="Paso 1, Elegí un juego: elegí un juego desde la app y el tablero se configura automáticamente para empezar a jugar."
-                width="755"
-                height="1330"
-                loading="lazy"
-              />
-            </li>
-            <li>
-              <img
-                src="/assets/paso-2.webp"
-                alt="Paso 2, Colocá las miniaturas: Atlas reconoce automáticamente cada ficha inteligente, identificando personajes y piezas sin configuraciones ni calibraciones."
-                width="755"
-                height="1330"
-                loading="lazy"
-              />
-            </li>
-            <li>
-              <img
-                src="/assets/paso-3.webp"
-                alt="Paso 3, El tablero hace el resto: expandí el tablero acercando un módulo de expansión. Atlas lo conecta automáticamente por radiofrecuencia."
-                width="755"
-                height="1326"
-                loading="lazy"
-              />
-            </li>
-            <li>
-              <img
-                src="/assets/paso-4.webp"
-                alt="Paso 4, Jugá: Atlas detecta cada movimiento y guía la partida con iluminación inteligente para que solo te concentres en jugar."
-                width="755"
-                height="1328"
-                loading="lazy"
-              />
-            </li>
-          </ol>
+          <div class="split split--3d enter-body">
+            <div class="stage3d split__media" data-atlas3d="modulo" role="img" aria-label="Atlas Core se acopla al borde de un módulo Atlas; cada ficha que se apoya en él se ilumina y el tablero dice qué ficha es">
+              <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
+            </div>
+            <div class="split__copy split__copy--rich">
+              <p class="statement">Con <strong>Atlas Core</strong> y las bases inteligentes, Atlas <strong>reconoce cada ficha.</strong></p>
+              <ul class="copy-list" role="list">
+                <li class="rise" style="--i:1"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5l8-8h7a2 2 0 0 1 2 2v7l-8 8a2 2 0 0 1-2.8 0l-6.2-6.2a2 2 0 0 1 0-2.8z" /><circle cx="16" cy="8" r="1.4" /></g></svg></span><span>Cada base tiene <strong>un identificador único</strong></span></li>
+                <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6.5" r="2.7" /><path d="M9.5 10.5h5l1.2 7h-7.4z" /><path d="M6.5 20.5h11" /></g></svg></span><span><strong>Cada juego decide qué es</strong>: <span class="copy-nowrap">¿un <span class="word-cycle" aria-hidden="true"><span>caballero?</span><span>alfil?</span><span>edificio?</span></span></span><span class="visually-hidden">caballero, un alfil o un edificio?</span></span></li>
+                <li class="rise" style="--i:3"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5" /><path d="M6.5 8h11v3a5.5 5.5 0 0 1-11 0z" /><path d="M12 16.5V21" /></g></svg></span><span>Acoplalo al borde del tablero y <strong>¡listo!</strong></span></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -429,31 +444,99 @@
         </div>
       </section>
 
-      <!-- ================= ATLAS CORE (3D) ================= -->
-      <!-- PENDIENTE: qué hace el tablero después de leer la ficha (la ola de luz es una suposición). -->
-      <section class="band band--ink band--fit" id="atlas-core" data-enter>
+      <!-- ================= KICKSTARTER =================
+           Aviso de la campaña. El botón lleva al funnel de preventa
+           (presale.atlas-64.com), que registra el correo en SmartPush. -->
+      <section class="band band--yellow band--tight ks-banner" id="kickstarter" aria-labelledby="ks-banner-title">
+        <div class="wrap ks-banner__inner">
+          <div>
+            <h2 class="sec-title display" id="ks-banner-title">Atlas 64 llegará a Kickstarter</h2>
+            <p class="lede ks-banner__text">
+              Regístrate y te escribiremos el día que abra la campaña. Sin spam, sin ruido.
+            </p>
+          </div>
+          <a class="btn btn--ink ks-banner__btn" href="https://presale.atlas-64.com/">Regístrate ahora</a>
+        </div>
+      </section>
+
+      <!-- ================= MIRÁ CÓMO SE JUEGA ================= -->
+      <!-- PENDIENTE: oculta (hidden) hasta tener los videos reales. Por ahora son esqueletos que
+           llevan al canal de YouTube de WOLO Labs; al reemplazarlos, quitar el hidden. Gris claro,
+           entre el banner de Kickstarter (amarillo) y «Cómo funciona» (negra). -->
+      <section class="band band--paper band--fit" id="videos" data-enter hidden>
         <div class="wrap">
           <header class="sec-head">
-            <h2 class="sec-title display">Atlas Core</h2>
+            <h2 class="sec-title display">Mirá cómo se juega</h2>
           </header>
-          <div class="split split--3d enter-body">
-            <div class="stage3d split__media" data-atlas3d="modulo" role="img" aria-label="Atlas Core se acopla al borde de un módulo Atlas; cada ficha que se apoya en él se ilumina y el tablero dice qué ficha es">
-              <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
-            </div>
-            <div class="split__copy split__copy--rich">
-              <p class="statement">Con <strong>Atlas Core</strong> y las bases inteligentes, Atlas <strong>reconoce cada ficha.</strong></p>
-              <ul class="copy-list" role="list">
-                <li class="rise" style="--i:1"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5l8-8h7a2 2 0 0 1 2 2v7l-8 8a2 2 0 0 1-2.8 0l-6.2-6.2a2 2 0 0 1 0-2.8z" /><circle cx="16" cy="8" r="1.4" /></g></svg></span><span>Cada base tiene <strong>un identificador único</strong></span></li>
-                <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6.5" r="2.7" /><path d="M9.5 10.5h5l1.2 7h-7.4z" /><path d="M6.5 20.5h11" /></g></svg></span><span><strong>Cada juego decide qué es</strong>: <span class="copy-nowrap">¿un <span class="word-cycle" aria-hidden="true"><span>caballero?</span><span>alfil?</span><span>edificio?</span></span></span><span class="visually-hidden">caballero, un alfil o un edificio?</span></span></li>
-                <li class="rise" style="--i:3"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5" /><path d="M6.5 8h11v3a5.5 5.5 0 0 1-11 0z" /><path d="M12 16.5V21" /></g></svg></span><span>Acoplalo al borde del tablero y <strong>¡listo!</strong></span></li>
-              </ul>
-            </div>
+          <ul class="video-grid enter-body" role="list">
+            <li>
+              <a class="video-card video-card--main" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
+                <span class="video-card__play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
+                </span>
+                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
+              </a>
+            </li>
+            <li>
+              <a class="video-card" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
+                <span class="video-card__play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
+                </span>
+                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
+              </a>
+            </li>
+            <li>
+              <a class="video-card" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
+                <span class="video-card__play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
+                </span>
+                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
+              </a>
+            </li>
+          </ul>
+          <p class="video-more enter-body">
+            <a class="btn btn--solid" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener">Ver el canal en YouTube</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= CÓMO FUNCIONA ================= -->
+      <section class="band band--ink band--fit play-band" id="como-funciona" data-enter>
+        <!-- Fondo: las portadas de los juegos, desenfocadas, se van fundiendo una
+             tras otra (styles.css, .play-bg). Es decorativo: sin alt. -->
+        <div class="play-bg" aria-hidden="true">
+          <img src="/assets/Games/role-mapper.webp" alt="" style="--i: 0" loading="lazy" decoding="async" />
+          <img src="/assets/Games/chess.webp" alt="" style="--i: 1" loading="lazy" decoding="async" />
+          <img src="/assets/Games/maze.webp" alt="" style="--i: 2" loading="lazy" decoding="async" />
+          <img src="/assets/Games/amazonas.webp" alt="" style="--i: 3" loading="lazy" decoding="async" />
+          <img src="/assets/Games/la-luz-mala.webp" alt="" style="--i: 4" loading="lazy" decoding="async" />
+          <img src="/assets/Games/pongol.webp" alt="" style="--i: 5" loading="lazy" decoding="async" />
+          <img src="/assets/Games/moon-station.webp" alt="" style="--i: 6" loading="lazy" decoding="async" />
+          <img src="/assets/Games/plagio.webp" alt="" style="--i: 7" loading="lazy" decoding="async" />
+          <img src="/assets/Games/pixel-blaster.webp" alt="" style="--i: 8" loading="lazy" decoding="async" />
+        </div>
+        <div class="wrap">
+          <header class="sec-head">
+            <h2 class="sec-title display">Empezar a jugar nunca fue tan fácil.</h2>
+          </header>
+
+          <!-- La invitación al catálogo, centrada sobre el fondo de portadas: la frase
+               grande y renglones cortos con íconos, como en las secciones de arriba. -->
+          <div class="play-intro enter-body">
+            <p class="statement play-intro__statement">Conoce <strong>nuestros juegos</strong> y <strong>los de la comunidad.</strong></p>
+            <ul class="copy-list play-intro__list" role="list">
+              <li class="rise" style="--i:1"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" /><circle cx="8.5" cy="8.5" r="1.1" fill="currentColor" /><circle cx="12" cy="12" r="1.1" fill="currentColor" /><circle cx="15.5" cy="15.5" r="1.1" fill="currentColor" /></g></svg></span><span><strong>Ajedrez, rol y estrategia</strong>, para toda la familia</span></li>
+              <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2" /><path d="M11 18.5h2" /></g></svg></span><span>Elige en la app y <strong>el tablero se prepara solo</strong></span></li>
+              <li class="rise" style="--i:3"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3" /><path d="M3.5 19a5.5 5.5 0 0 1 11 0" /><circle cx="17" cy="9" r="2.3" /><path d="M15.5 14.2a4.5 4.5 0 0 1 5 4.8" /></g></svg></span><span><strong>Juegos nuevos</strong> creados con <a class="statement__link" href="/ecosistema/">Atlas Studio</a></span></li>
+            </ul>
+            <a class="btn btn--solid play-intro__btn rise" style="--i:4" href="/juegos/">Ver los juegos</a>
           </div>
         </div>
       </section>
 
       <!-- ================= ¿QUÉ INCLUYE LA CAJA? ================= -->
-      <section class="band band--fade-yellow band--fit" id="caja" data-enter>
+      <!-- Oculta (hidden) por ahora; para mostrarla, quitar el hidden. -->
+      <section class="band band--fade-yellow band--fit" id="caja" data-enter hidden>
         <div class="wrap">
           <header class="sec-head">
             <h2 class="sec-title svg-title svg-title--center">
@@ -514,45 +597,8 @@
         </div>
       </section>
 
-      <!-- ================= MIRÁ CÓMO SE JUEGA ================= -->
-      <!-- PENDIENTE: oculta (hidden) hasta tener los videos reales en YouTube. Por ahora son
-           esqueletos que llevan al canal de WOLO Labs; al reemplazarlos, quitar el hidden. -->
-      <section class="band band--ink band--fit" id="videos" data-enter hidden>
-        <div class="wrap">
-          <header class="sec-head">
-            <h2 class="sec-title display">Mirá cómo se juega</h2>
-          </header>
-          <ul class="video-grid enter-body" role="list">
-            <li>
-              <a class="video-card video-card--main" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
-                <span class="video-card__play" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
-                </span>
-                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
-              </a>
-            </li>
-            <li>
-              <a class="video-card" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
-                <span class="video-card__play" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
-                </span>
-                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
-              </a>
-            </li>
-            <li>
-              <a class="video-card" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener" aria-label="Ver videos de Atlas en el canal de YouTube de WOLO Labs (se abre en otra pestaña)">
-                <span class="video-card__play" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l11-6.5z" /></svg>
-                </span>
-                <span class="video-card__lines" aria-hidden="true"><i></i><i></i></span>
-              </a>
-            </li>
-          </ul>
-          <p class="video-more enter-body">
-            <a class="btn btn--solid" href="https://www.youtube.com/@wololabs" target="_blank" rel="noopener">Ver el canal en YouTube</a>
-          </p>
-        </div>
-      </section>
+      <!-- RESEÑAS:inicio -->
+      <!-- RESEÑAS:fin -->
 
       <!-- ================= FAQ ================= -->
       <section class="band band--yellow band--fit" id="faq" data-enter>
@@ -562,6 +608,14 @@
           </header>
 
           <div class="faq enter-body">
+            <details>
+              <summary>¿Dónde puedo conseguir Atlas?</summary>
+              <p class="faq__answer">
+                Atlas 64 se lanza muy pronto en Kickstarter. Durante la campaña tendrá un precio de 250 USD. Para
+                recibir el aviso del lanzamiento y no perderte la campaña,
+                <a href="https://presale.atlas-64.com/">regístrate aquí</a>.
+              </p>
+            </details>
             <details>
               <summary>¿Necesito Internet para jugar?</summary>
               <p class="faq__answer">
@@ -690,8 +744,8 @@
         <div class="wrap cta-band__inner">
           <p class="cta-band__lede enter-body">Un único tablero. Infinitas posibilidades.</p>
           <h2 class="sec-title display display--cta">Hay mundos<br />que esperan ser<br />descubiertos</h2>
-          <!-- PENDIENTE: reemplazar por la URL de la tienda cuando exista. -->
-          <a class="btn btn--solid enter-body" href="https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/" rel="noopener">Comprar Atlas</a>
+          <p class="ks-badge enter-body">Próximamente en Kickstarter</p>
+          <a class="btn btn--solid enter-body" href="https://presale.atlas-64.com/">Regístrate ahora</a>
         </div>
       </section>
     </main>
@@ -750,7 +804,7 @@
       </div>
     </footer>
 
-    <script src="/script.js?v=20261023-1" defer></script>
-    <script src="/atlas3d.js?v=20261023-1" defer></script>
+    <script src="/script.js?v=20261026-1" defer></script>
+    <script src="/atlas3d.js?v=20261026-1" defer></script>
   </body>
 </html>

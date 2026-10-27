@@ -1,6 +1,6 @@
 # Atlas 64
 
-> Atlas es la primera consola de juegos de mesa: un tablero modular con luces que reconoce las fichas que se apoyan encima y se transforma en cada juego. Se maneja desde la app gratuita Atlas HUB y la desarrolla WOLO Labs. Sirve para jugar rol (como Dungeons & Dragons), estrategia (ajedrez y Amazonas), juegos de luces y reflejos en familia o con amigos, y para crear y publicar juegos propios con Atlas Studio. Edad recomendada: desde 14 años.
+> Atlas es la consola modular de juegos de mesa: un tablero con luces que reconoce las fichas que se apoyan encima y se transforma en cada juego. Se maneja desde la app gratuita Atlas HUB y la desarrolla WOLO Labs. Sirve para jugar rol (como Dungeons & Dragons), estrategia (ajedrez y Amazonas), juegos de luces y reflejos en familia o con amigos, y para crear y publicar juegos propios con Atlas Studio. Edad recomendada: desde 14 años. Se lanza próximamente en Kickstarter; el registro está abierto en https://presale.atlas-64.com/
 
 ## Cómo funciona
 
@@ -62,9 +62,9 @@ Reglas completas de cada juego: https://atlas-64.com/llms-full.txt
 - [Manual de usuario y avisos de seguridad](https://atlas-64.com/user-manual/)
 - [Versión completa, con las reglas de cada juego](https://atlas-64.com/llms-full.txt)
 
-## Comprar y contacto
+## Campaña en Kickstarter y contacto
 
-- Comprar Atlas: https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/
+- Atlas 64 se lanza próximamente en Kickstarter, con un precio de 250 USD durante la campaña. Para recibir el aviso del lanzamiento, el registro está abierto en https://presale.atlas-64.com/
 - Email: admin@wololabs.com
 - Instagram: https://www.instagram.com/atlas64_/
 - YouTube: https://www.youtube.com/@wololabs

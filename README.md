@@ -84,9 +84,11 @@ El favicon (`favicon.png`, `assets/apple-touch-icon.png`, `assets/favicon-512.pn
 es la «A» del logotipo en negro sobre el amarillo, recortada de
 `assets/wordmark-atlas-dark.png`.
 
-Las cuatro tarjetas de «Cómo funciona» (`assets/paso-*.webp`) llegan compuestas
+Las tarjetas de «Cómo funciona» (`assets/paso-*.webp`) llegan compuestas
 del estudio, con la foto y el texto en una sola pieza. Se usan tal cual y el
-texto va en el `alt`: no es posible separarlo sin rehacer las piezas.
+texto va en el `alt`: no es posible separarlo sin rehacer las piezas. Hoy la
+portada no las usa («Empezar a jugar» es texto con un botón al catálogo, sobre
+las portadas de los juegos desenfocadas); quedan en `assets/` por si vuelven.
 
 ## Pendientes marcados en el código
 
@@ -239,10 +241,19 @@ python -m http.server 8080
 - **Analítica**: `analytics.js` carga Google Analytics 4 y Microsoft Clarity. Los
   dos IDs están al principio del archivo (buscar `ANALYTICS_ID`); con los valores
   de ejemplo no se carga nada, y en local tampoco. Los eventos propios los manda
-  `script.js`: `click_comprar`, `descargar_stl`, `click_social`, `click_app`,
+  `script.js`: `click_registro` (botones «Regístrate ahora» hacia el funnel de Kickstarter, presale.atlas-64.com), `descargar_stl`, `click_social`, `click_app`,
   `click_juego`, `faq_open` y `section_view` (cada sección con `id` que cruza el
   centro de la pantalla, una vez por página). La política de privacidad (sección 11)
   explica qué se mide.
+- **Reseñas**: están en `tools/resenas.json` (nombre, lugar, puntaje de 1 a 5, fecha
+  y texto). `tools/build_seo.py` arma con ellas el carrusel de la portada (antes
+  del FAQ) y, **sólo con las reales**, las reseñas y el promedio del producto para
+  Google. Las que tienen `"ejemplo": true` muestran la etiqueta «Reseña de
+  ejemplo» y no van a Google: hay que borrarlas cuando lleguen las reales.
+  Google exige reseñas de clientes de verdad, visibles en la página y sin filtrar
+  sólo las buenas.
+  La sección se prende y se apaga con `RESENAS_VISIBLES` en `build_seo.py` (hoy
+  apagada): apagada no se genera ni manda reseñas a Google.
 - **Aviso de cookies**: también lo arma `analytics.js` (estilos en `.cookie-bar`).
   Hasta que la persona acepta, GA4 funciona sin cookies con el modo de
   consentimiento de Google y Clarity no se carga; al aceptar se activan las dos.

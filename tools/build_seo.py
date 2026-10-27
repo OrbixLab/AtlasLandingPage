@@ -19,12 +19,17 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://atlas-64.com"  # sin www: www redirige acá
 GAMES = json.loads((ROOT / "tools" / "juegos.json").read_text(encoding="utf-8"))
 
-STORE = "https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/"
+# Dónde se consigue Atlas: por ahora sólo en la campaña de Kickstarter, con
+# registro previo en el funnel de preventa. Cuando haya tienda propia, cambiar
+# STORE, AVAILABILITY (p. ej. "InStock") y el precio.
+STORE = "https://presale.atlas-64.com/"
+AVAILABILITY = "PreOrder"
+SELLER = {"@type": "Organization", "name": "WOLO Labs", "url": "https://wololabs.com/"}
 # Precio del Product de Google. Google exige precio (o reseñas) para aceptar un
-# Product, así que mientras PRICE sea None el producto no se declara en el JSON-LD
-# (Search Console lo marcaría como error crítico). Cuando el precio esté definido,
-# completarlo, por ejemplo PRICE = 250 y CURRENCY = "USD", y volver a correr.
-PRICE = None
+# Product, así que con PRICE = None el producto no se declara en el JSON-LD (Search
+# Console lo marcaría como error crítico). El precio tiene que figurar también en
+# el texto visible de la página (está en el FAQ, «¿Dónde puedo conseguir Atlas?»).
+PRICE = 250
 CURRENCY = "USD"
 
 # Ruta pública → archivo. Las que no están acá no van al sitemap (descargar/ es
@@ -82,16 +87,90 @@ product = {
     "url": SITE + "/",
     "manufacturer": {"@id": SITE + "/#org"},
     "offers": {"@type": "Offer", "url": STORE, "price": str(PRICE), "priceCurrency": CURRENCY,
-               "availability": "https://schema.org/InStock",
-               "seller": {"@type": "Organization", "name": "Aquí Hay Dragones"}},
+               "availability": "https://schema.org/" + AVAILABILITY, "seller": SELLER},
 }
+
+# ---------------------------------------------------------------- reseñas
+# Las reseñas están en tools/resenas.json (nombre, lugar, puntaje 1-5, fecha,
+# texto). Con ellas se arma la sección visible de la portada, antes del FAQ. Las
+# que tienen "ejemplo": true muestran la etiqueta «Reseña de ejemplo» y NO van a
+# Google: al JSON-LD (review y aggregateRating) sólo llegan las reales, porque
+# Google exige que sean de clientes de verdad y que se vean en la página.
+# Interruptor de la sección: con False no se genera ni va a Google (Google exige
+# que las reseñas declaradas se vean en la página).
+RESENAS_VISIBLES = False
+RESENAS = sorted(json.loads((ROOT / "tools" / "resenas.json").read_text(encoding="utf-8")),
+                 key=lambda r: r["fecha"], reverse=True)
+reales = [r for r in RESENAS if not r.get("ejemplo")]
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+         "septiembre", "octubre", "noviembre", "diciembre"]
+E = html.escape
+
+
+def stars(n, cls="review__stars"):
+    return (f'<span class="{cls}" role="img" aria-label="{n} de 5 estrellas">'
+            f'<span class="is-on">{"★" * n}</span>{"★" * (5 - n)}</span>')
+
+
+def review_card(r):
+    y, m, _ = r["fecha"].split("-")
+    tag = '\n              <span class="review__tag">Reseña de ejemplo</span>' if r.get("ejemplo") else ""
+    lugar = f" · {E(r['lugar'])}" if r.get("lugar") else ""
+    return f'''            <li class="review">{tag}
+              {stars(r["puntaje"])}
+              <blockquote class="review__text"><p>{E(r["texto"])}</p></blockquote>
+              <p class="review__author"><strong>{E(r["nombre"])}</strong>{lugar}</p>
+              <p class="review__meta">Cliente de los tableros de prueba · {MESES[int(m) - 1]} de {y}</p>
+            </li>'''
+
+
+START, END = "      <!-- RESEÑAS:inicio -->\n", "      <!-- RESEÑAS:fin -->\n"
+section = ""
+if RESENAS and RESENAS_VISIBLES:
+    avg = sum(r["puntaje"] for r in RESENAS) / len(RESENAS)
+    arrow = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    cards = "\n".join(review_card(r) for r in RESENAS)
+    section = f'''      <!-- ================= RESEÑAS =================
+           La genera tools/build_seo.py a partir de tools/resenas.json: no editar a mano. -->
+      <section class="band band--ink reviews" id="resenas" data-enter data-rail-scope>
+        <div class="wrap">
+          <header class="sec-head reviews__head">
+            <div>
+              <h2 class="sec-title display">Lo que dicen quienes ya juegan</h2>
+              <p class="reviews__summary">{stars(round(avg), "review__stars review__stars--lg")}
+                <strong>{f"{avg:.1f}".replace(".", ",")}</strong> de 5 · {len(RESENAS)} reseñas</p>
+            </div>
+            <div class="lib-arrows reviews__arrows">
+              <button class="lib-arrow" type="button" data-rail-prev aria-label="Reseñas anteriores">{arrow}</button>
+              <button class="lib-arrow lib-arrow--next" type="button" data-rail-next aria-label="Más reseñas">{arrow}</button>
+            </div>
+          </header>
+          <ul class="reviews__track" data-rail>
+{cards}
+          </ul>
+        </div>
+      </section>
+
+'''
+if START not in index:
+    anchor = "      <!-- ================= FAQ ================= -->"
+    index = index.replace(anchor, START + END + "\n" + anchor, 1)
+index = re.sub(re.escape(START) + ".*?" + re.escape(END), lambda m: START + section + END, index, flags=re.S)
+
+if reales and RESENAS_VISIBLES:
+    product["aggregateRating"] = {"@type": "AggregateRating", "bestRating": 5, "reviewCount": len(reales),
+                                  "ratingValue": round(sum(r["puntaje"] for r in reales) / len(reales), 1)}
+    product["review"] = [{"@type": "Review", "author": {"@type": "Person", "name": r["nombre"]},
+                          "datePublished": r["fecha"], "reviewBody": r["texto"],
+                          "reviewRating": {"@type": "Rating", "ratingValue": r["puntaje"], "bestRating": 5}}
+                         for r in reales]
 
 ld = {"@context": "https://schema.org", "@graph": [
     {
         "@type": "Organization",
         "@id": SITE + "/#org",
         "name": "WOLO Labs",
-        "url": SITE + "/",
+        "url": SELLER["url"],
         "logo": SITE + "/assets/logo-atlas64-dark.png",
         "email": "admin@wololabs.com",
         "sameAs": ["https://www.instagram.com/atlas64_/", "https://www.youtube.com/@wololabs"],
@@ -164,4 +243,4 @@ full = (base.replace("{{JUEGOS}}", "\n\n".join(game_full(g) for g in GAMES).rstr
 (ROOT / "llms.txt").write_text(short, encoding="utf-8", newline="\n")
 (ROOT / "llms-full.txt").write_text(full, encoding="utf-8", newline="\n")
 
-print(f"listo: producto {'con precio' if PRICE else 'sin declarar (falta PRICE)'}, sitemap con {len(PAGES)} páginas, {len(faq)} preguntas en el JSON-LD y llms.txt con {len(GAMES)} juegos")
+print(f"listo: producto {'con precio' if PRICE else 'sin declarar (falta PRICE)'}, {len(reales)} reseñas reales y {len(RESENAS) - len(reales)} de ejemplo, sitemap con {len(PAGES)} páginas, {len(faq)} preguntas en el JSON-LD y llms.txt con {len(GAMES)} juegos")

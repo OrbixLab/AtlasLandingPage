@@ -246,7 +246,8 @@ catalog = re.sub(r'(\n    <main id="contenido").*?(\n    </main>)', lambda m: m.
 (ROOT / "juegos" / "index.html").write_text(catalog, encoding="utf-8")
 
 # ---------------------------------------------------------------- fichas
-BUY = "https://www.aquihaydragones.com.ar/productos/atlas-64-1rpkv/"
+# Registro a la campaña de Kickstarter (funnel de preventa con SmartPush)
+BUY = "https://presale.atlas-64.com/"
 HEADS = "Reglas Cómo se usa Cómo se juega Cada rol tiene su objetivo"
 PLAY = '<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>'
 PHOTO = '<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4.5 17.5l5-5 3.5 3.5 2.5-2.5 4 4"/></g><circle cx="9" cy="9.8" r="1.7" fill="currentColor"/></svg>'
@@ -270,7 +271,7 @@ for n, g in enumerate(GAMES):
                    f'{I}      <a class="g-btn g-btn--ghost" href="#como-se-juega">{label}</a>')
     else:
         actions = (f'<a class="g-btn" href="#como-se-juega">{label}</a>\n'
-                   f'{I}      <a class="g-btn g-btn--ghost" href="{BUY}" rel="noopener">Comprar Atlas</a>')
+                   f'{I}      <a class="g-btn g-btn--ghost" href="{BUY}">Regístrate ahora</a>')
 
     rules_section = ""
     if has_rules:
@@ -324,9 +325,9 @@ for n, g in enumerate(GAMES):
 {I}        <ul class="game-play__meta rise" style="--i:1">{meta_line}</ul>
 {I}        <p class="game-play__teaser rise" style="--i:2">{E(g["teaser"])}</p>
 {I}        <div class="game-play__buy rise" style="--i:3">
-{I}          <p>Para {"jugarlo" if has_rules else "usarlo"} necesitás <strong>Atlas</strong>.</p>
+{I}          <p>Para {"jugarlo" if has_rules else "usarlo"} necesitás <strong>Atlas</strong>, que llega muy pronto a Kickstarter.</p>
 {I}          <div class="g-actions">
-{I}            <a class="g-btn" href="{BUY}" rel="noopener">Comprar Atlas</a>
+{I}            <a class="g-btn" href="{BUY}">Regístrate ahora</a>
 {I}            <a class="g-btn g-btn--ghost" href="/">Conocé Atlas</a>
 {I}          </div>
 {I}        </div>

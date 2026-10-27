@@ -279,6 +279,33 @@
     update();
   }
 
+  // Carruseles con flechas ([data-rail], p. ej. las reseñas): las flechas del mismo
+  // bloque ([data-rail-scope]) avanzan de a una tarjeta y se apagan en los extremos.
+  Array.prototype.forEach.call(document.querySelectorAll("[data-rail]"), function (rail) {
+    var scope = rail.closest("[data-rail-scope]") || rail.parentNode;
+    var prev = scope.querySelector("[data-rail-prev]");
+    var next = scope.querySelector("[data-rail-next]");
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var update = function () {
+      var max = rail.scrollWidth - rail.clientWidth;
+      scope.classList.toggle("is-still", max <= 1);
+      if (prev) prev.disabled = rail.scrollLeft <= 1;
+      if (next) next.disabled = rail.scrollLeft >= max - 1;
+    };
+    var step = function (dir) {
+      var card = rail.firstElementChild;
+      if (!card) return;
+      var gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+      rail.scrollBy({ left: dir * (card.offsetWidth + gap), behavior: still ? "auto" : "smooth" });
+    };
+    if (prev) prev.addEventListener("click", function () { step(-1); });
+    if (next) next.addEventListener("click", function () { step(1); });
+    rail.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
+
   // Carruseles con [data-autoplay] (la caja en el celular): avanzan solos cada
   // 2,5 s mientras están a la vista. Se frenan mientras se tocan y unos segundos
   // después, y no se mueven si se pidió reducir movimiento.
@@ -357,8 +384,8 @@
     var href = link.getAttribute("href");
     var where = { link_text: link.textContent.trim().slice(0, 60), page: location.pathname };
 
-    if (href.indexOf("aquihaydragones.com.ar") !== -1) {
-      track("click_comprar", where);
+    if (href.indexOf("presale.atlas-64.com") !== -1) {
+      track("click_registro", where); // registro a la campaña de Kickstarter
     } else if (href.indexOf("AtlasPiecesBase.stl") !== -1) {
       track("descargar_stl", where);
     } else if (/instagram\.com|youtube\.com|tiktok\.com|discord\.|linkedin\.com|x\.com/.test(href)) {

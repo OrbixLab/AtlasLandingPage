@@ -1,0 +1,50 @@
+[
+  {
+    "nombre": "Martín G.",
+    "lugar": "Buenos Aires",
+    "puntaje": 5,
+    "fecha": "2026-09-14",
+    "texto": "Lo usamos para nuestra campaña de rol de los viernes. Armar el mapa en Role Mapper y moverlo con la cámara le cambió la sesión a todo el grupo.",
+    "ejemplo": true
+  },
+  {
+    "nombre": "Lucía R.",
+    "lugar": "Mendoza",
+    "puntaje": 5,
+    "fecha": "2026-09-20",
+    "texto": "Mis hijos dejan el teléfono para jugar al Maze. Las paredes invisibles generan unas carcajadas que hace rato no escuchábamos en casa.",
+    "ejemplo": true
+  },
+  {
+    "nombre": "Diego P.",
+    "lugar": "Córdoba",
+    "puntaje": 4,
+    "fecha": "2026-09-27",
+    "texto": "Juego ajedrez contra Stockfish todas las noches. Me encanta mover piezas reales y que el tablero me marque las jugadas.",
+    "ejemplo": true
+  },
+  {
+    "nombre": "Sofía M.",
+    "lugar": "Rosario",
+    "puntaje": 5,
+    "fecha": "2026-10-02",
+    "texto": "Imprimí mis propias miniaturas, las enrosqué en las bases y Atlas las reconoció al instante. Es exactamente lo que quería.",
+    "ejemplo": true
+  },
+  {
+    "nombre": "Tomás L.",
+    "lugar": "La Plata",
+    "puntaje": 5,
+    "fecha": "2026-10-09",
+    "texto": "PONGol se volvió el clásico de las reuniones con amigos. Nadie quiere soltar las fichas.",
+    "ejemplo": true
+  },
+  {
+    "nombre": "Valentina S.",
+    "lugar": "Montevideo",
+    "puntaje": 4,
+    "fecha": "2026-10-15",
+    "texto": "Plagio en la Academia con seis amigos fue un caos hermoso. Ya estamos esperando los próximos juegos.",
+    "ejemplo": true
+  }
+]
