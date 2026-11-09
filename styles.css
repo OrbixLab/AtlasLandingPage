@@ -1373,9 +1373,21 @@ h3 {
   letter-spacing: 0.02em;
   opacity: 0.8;
 }
-/* La descarga de Atlas Studio, debajo de su título (#creadores; el bloque es #studio). */
+/* La descarga de Atlas Studio, al final de su sección (#creadores; el bloque es #studio), centrada
+   como el botón de las guías. */
+.studio-download {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+}
+.studio-download__head {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 700;
+}
 .studio-download .store-row--studio {
-  margin-top: clamp(1.5rem, 3vw, 2rem);
+  justify-content: center;
+  margin-top: 1rem;
 }
 /* macOS y Linux todavía no tienen instalador: se ven, pero apagados y sin reaccionar. */
 .store-btn--soon {
