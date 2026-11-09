@@ -79,6 +79,14 @@ python tools/build_juegos.py && python tools/build_idiomas.py && python tools/bu
   rosca para diseñar fichas propias (23 × 23 × 11 mm); la baja el botón «Descargar modelo»
   de «Tus fichas, nuestra base». Si se actualiza, conviene mantener el nombre y corregir
   el peso que muestra el botón.
+- **Atlas Studio** se descarga desde Ecosistema, en la sección de la app (`#app`, adonde lleva
+  `/descargar`; el bloque tiene `id="studio"`). El botón de Windows apunta a
+  `https://api.atlas-64.com/v1/studio-downloads/latest`, que el backend redirige siempre al
+  instalador más nuevo: publicar una versión de Studio no pide tocar el sitio. macOS y Linux van
+  deshabilitados («Próximamente» / «Coming soon») hasta que haya instalador; para habilitarlos,
+  cambiar el `<span class="store-btn store-btn--soon">` por un `<a class="store-btn">` con
+  `…/latest?platform=macos` o `?platform=linux`, en las dos páginas. El clic se mide como
+  `descargar_studio` (`script.js`).
 
 ## Sistema de diseño
 

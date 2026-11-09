@@ -402,6 +402,8 @@
       track("click_registro", where); // registro a la campaña de Kickstarter
     } else if (href.indexOf("AtlasPiecesBase.stl") !== -1) {
       track("descargar_stl", where);
+    } else if (href.indexOf("studio-downloads") !== -1) {
+      track("descargar_studio", where); // el instalador de Atlas Studio (Windows)
     } else if (/instagram\.com|youtube\.com|tiktok\.com|discord\.|linkedin\.com|x\.com/.test(href)) {
       track("click_social", { network: link.hostname.replace(/^www\./, ""), page: location.pathname });
     } else if (/play\.google\.com|testflight\.apple\.com|apps\.apple\.com/.test(href)) {
