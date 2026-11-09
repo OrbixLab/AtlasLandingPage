@@ -5310,3 +5310,106 @@ h3 {
     padding-bottom: 4.5rem;
   }
 }
+
+/* ---------------------------------------------------------------- modelos 3D
+   La página del link de un modelo (/models/, /es/modelos/, models.js): la ficha
+   corta, el inicio de sesión y el botón de descarga. */
+.model-gate {
+  max-width: 34rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.model-gate [hidden] {
+  display: none !important;
+}
+
+.model-gate__model {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.model-gate__cover {
+  width: 5.5rem;
+  height: 5.5rem;
+  flex: none;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  background: var(--paper-2);
+}
+
+.model-gate__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+
+.model-gate__meta {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.model-gate__status {
+  margin: 0;
+}
+
+.model-gate__status--error {
+  color: var(--red);
+}
+
+.model-gate__form,
+.model-gate__ready {
+  display: grid;
+  gap: 1rem;
+}
+
+.model-gate__form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.model-gate__form input {
+  font: inherit;
+  font-weight: 400;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid var(--line);
+  border-radius: 0.6rem;
+  background: var(--white);
+  color: var(--text);
+}
+
+.model-gate__form input:focus {
+  outline: none;
+  border-color: var(--yellow-deep);
+  box-shadow: 0 0 0 3px rgba(249, 182, 6, 0.25);
+}
+
+.model-gate .btn {
+  justify-self: start;
+}
+
+.model-gate__hint {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.model-gate__link {
+  font: inherit;
+  color: var(--text);
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-left: 0.35rem;
+  text-decoration: underline;
+  cursor: pointer;
+}

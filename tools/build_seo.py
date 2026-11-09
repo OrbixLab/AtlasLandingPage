@@ -71,6 +71,8 @@ def lastmod(file):
 # Cada URL lleva sus versiones en los dos idiomas y la x-default (la inglesa).
 urls = ""
 for clave, rutas in sitio.RUTAS.items():
+    if clave in sitio.SIN_INDEXAR:
+        continue
     alternos = "".join(f'    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{rutas[l]}" />\n' for l in IDIOMAS)
     alternos += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{rutas[IDIOMAS[0]]}" />\n'
     for lang in IDIOMAS:
@@ -296,5 +298,5 @@ for lang in IDIOMAS:
     (ROOT / carpeta / "llms-full.txt").write_text(full, encoding="utf-8", newline="\n")
 
 print(f"listo: producto {'con precio' if PRICE else 'sin declarar (falta PRICE)'}, {len(reales)} reseñas reales y "
-      f"{len(RESENAS) - len(reales)} de ejemplo, sitemap con {len(sitio.RUTAS) * len(IDIOMAS)} páginas, "
+      f"{len(RESENAS) - len(reales)} de ejemplo, sitemap con {(len(sitio.RUTAS) - len(sitio.SIN_INDEXAR)) * len(IDIOMAS)} páginas, "
       f"preguntas en el JSON-LD {n_faq} y llms.txt con {len(GAMES)} juegos en cada idioma")

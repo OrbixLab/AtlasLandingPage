@@ -17,6 +17,7 @@ Cada página es un `index.html` dentro de su carpeta:
 | `user-manual/` | `es/manual-de-usuario/` | Manual de usuario y avisos de seguridad | contenido propio |
 | `privacy-policy/` | `es/politica-de-privacidad/` | Política de privacidad | contenido propio |
 | `delete-account-guide/` | `es/eliminar-cuenta/` | Guía para eliminar la cuenta | contenido propio |
+| `models/` | `es/modelos/` | Bajar un modelo 3D (`?id=<modelo>`) | la puerta del «Link para la computadora» de la app (`OrbixAppHub/MODELOS_3D.md`): inicia sesión contra la API con la cuenta de Atlas y baja el .STL si el modelo está en su biblioteca (`models.js`). Lleva `noindex` y no va al sitemap (`SIN_INDEXAR` en `tools/sitio.py`); en `localhost`, `&api=http://localhost:3030` la prueba contra el backend local |
 
 **Al cambiar un texto hay que cambiarlo en los dos idiomas.** El manual y la
 política de privacidad en inglés aclaran que son una traducción y que el texto de

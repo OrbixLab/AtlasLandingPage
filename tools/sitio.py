@@ -30,7 +30,12 @@ RUTAS = {
     "manual": {"en": "/user-manual/", "es": "/es/manual-de-usuario/"},
     "privacidad": {"en": "/privacy-policy/", "es": "/es/politica-de-privacidad/"},
     "baja": {"en": "/delete-account-guide/", "es": "/es/eliminar-cuenta/"},
+    # La puerta del link que da la app para bajar un modelo 3D en la computadora (models.js).
+    "modelos": {"en": "/models/", "es": "/es/modelos/"},
 }
+
+# Páginas que no van al sitemap ni se indexan (llevan `noindex`): no tienen nada que buscar.
+SIN_INDEXAR = {"modelos"}
 
 # Archivo viejo → dirección nueva. Las páginas en español que vivían en la raíz
 # pasaron a /es/; las que ya tenían nombre en inglés siguen en su lugar, ahora en

@@ -32,6 +32,10 @@
   // usan las mismas anclas en los dos idiomas (si no existe, se abre arriba).
   document.querySelectorAll("[data-lang-switch]").forEach(function (link) {
     link.addEventListener("click", function () {
+      // La página del link de un modelo (/models/?id=…) necesita su ?id en el otro idioma.
+      if (location.search && link.href.indexOf("?") === -1 && document.querySelector("[data-model-gate]")) {
+        link.href += location.search;
+      }
       if (location.hash && link.href.indexOf("#") === -1) link.href += location.hash;
     });
   });
