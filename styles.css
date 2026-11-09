@@ -1373,26 +1373,9 @@ h3 {
   letter-spacing: 0.02em;
   opacity: 0.8;
 }
-/* Atlas Studio para la PC, debajo de las tiendas de la app (#app, adonde lleva /descargar). */
-.studio-download {
-  margin-top: clamp(2rem, 4vw, 3rem);
-  padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
-  border-top: 1px solid rgba(242, 242, 242, 0.18);
-}
-.studio-download__head {
-  margin: 0;
-  color: var(--white);
-  font-size: 1.05rem;
-  line-height: 1.4;
-  opacity: 0.9;
-}
-.studio-download__head strong {
-  display: block;
-  font-size: 1.25rem;
-  opacity: 1;
-}
-.store-row--studio {
-  margin-top: 1rem;
+/* La descarga de Atlas Studio, debajo de su título (#creadores; el bloque es #studio). */
+.studio-download .store-row--studio {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
 }
 /* macOS y Linux todavía no tienen instalador: se ven, pero apagados y sin reaccionar. */
 .store-btn--soon {
