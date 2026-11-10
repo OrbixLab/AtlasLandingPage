@@ -29,6 +29,7 @@ RUTAS = {
     "nosotros": {"en": "/about-us/", "es": "/es/sobre-nosotros/"},
     "manual": {"en": "/user-manual/", "es": "/es/manual-de-usuario/"},
     "privacidad": {"en": "/privacy-policy/", "es": "/es/politica-de-privacidad/"},
+    "terminos": {"en": "/terms-of-service/", "es": "/es/terminos-de-servicio/"},
     "baja": {"en": "/delete-account-guide/", "es": "/es/eliminar-cuenta/"},
     # La puerta del link que da la app para bajar un modelo 3D en la computadora (models.js).
     "modelos": {"en": "/models/", "es": "/es/modelos/"},
@@ -85,6 +86,7 @@ T = {
         "contacto": "Contact",
         "app": "Download the app",
         "privacidad": "Privacy policy",
+        "terminos": "Terms of service",
         "baja": "Delete your account",
         "legal": "© Atlas — Developed by WOLO Labs.<br />Made in Argentina.",
         # El selector lleva a la misma página en el otro idioma, escrito en ese idioma
@@ -106,6 +108,7 @@ T = {
         "contacto": "Contacto",
         "app": "Descargar la app",
         "privacidad": "Política de privacidad",
+        "terminos": "Términos de servicio",
         "baja": "Eliminar la cuenta",
         "legal": "© Atlas — Desarrollado por WOLO Labs.<br />Made in Argentina.",
         "otro": ("en", "EN", "English", "View this page in English"),
@@ -190,6 +193,7 @@ def pie(lang):
 
           <p class="site-footer__legal-links">
             <a href="{url("privacidad", lang)}">{t["privacidad"]}</a>
+            <a href="{url("terminos", lang)}">{t["terminos"]}</a>
             <a href="{url("baja", lang)}">{t["baja"]}</a>
           </p>
 

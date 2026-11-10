@@ -211,6 +211,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/privacy-policy/" />
   </url>
   <url>
+    <loc>https://atlas-64.com/terms-of-service/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/terms-of-service/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/terminos-de-servicio/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/terms-of-service/" />
+  </url>
+  <url>
+    <loc>https://atlas-64.com/es/terminos-de-servicio/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/terms-of-service/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://atlas-64.com/es/terminos-de-servicio/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://atlas-64.com/terms-of-service/" />
+  </url>
+  <url>
     <loc>https://atlas-64.com/delete-account-guide/</loc>
     <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://atlas-64.com/delete-account-guide/" />
