@@ -330,10 +330,8 @@
       </section>
 
       <!-- ================= ¿QUÉ ES ATLAS? (3D) ================= -->
-      <!-- Escena 3D de tres juegos en ciclo: Maze, ajedrez y arena (atlas3d.js).
-           La imagen es el respaldo sin WebGL.
-           PENDIENTE: confirmar la mecánica real del Maze (el paso rojo es una suposición)
-           y si la arena contra un jefe es un juego de Atlas. -->
+      <!-- Juegos en ciclo (render-test.js): Maze y ajedrez, en video con fondo transparente.
+           PENDIENTE: confirmar la mecánica real del Maze (el paso rojo es una suposición). -->
       <section class="band band--yellow band--fit" id="que-es" data-enter>
         <div class="wrap">
           <header class="sec-head">
@@ -349,8 +347,7 @@
           </header>
           <div class="split split--3d enter-body">
             <figure class="stage3d-wrap split__media">
-              <div class="stage3d" data-atlas3d="juegos" role="img" aria-label="Tres juegos sobre el tablero Atlas: una ficha recorre el Maze, una partida de ajedrez muestra a dónde puede ir cada pieza y tres fichas pelean contra un rey en llamas">
-                <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
+              <div class="stage3d is-ready" data-render="juegos" role="img" aria-label="Tres juegos sobre el tablero Atlas: una ficha recorre el Maze, una partida de ajedrez muestra a dónde puede ir cada pieza y tres fichas pelean contra un rey en llamas">
               </div>
               <figcaption class="stage3d__foot stage3d__foot--center">
                 <span class="stage3d__cap" data-atlas3d-cap aria-live="polite">Maze: encontrá la salida recordando el camino.</span>
@@ -371,14 +368,13 @@
       <!-- ================= MÓDULOS (3D) ================= -->
       <!-- PENDIENTE: el mapa es de ejemplo. Confirmar el máximo de módulos (el equipo dice 6, la documentación técnica de 1 a 7). -->
       <section class="band band--paper band--fit" id="modulos" data-enter>
-        <div class="wrap" data-mesa="4">
+        <div class="wrap">
           <header class="sec-head">
             <h2 class="sec-title display">Armá tu mesa</h2>
           </header>
           <div class="split split--3d enter-body">
             <figure class="stage3d-wrap split__media">
-              <div class="stage3d" data-atlas3d="mesa" role="img" aria-label="Varios módulos Atlas unidos forman un mapa de rol con bosque, río y una villa">
-                <img class="stage3d__fallback" src="/assets/tablero-piezas.jpg" alt="" loading="lazy" />
+              <div class="stage3d is-ready" data-render="mesa" role="img" aria-label="Varios módulos Atlas unidos forman un mapa de rol con bosque, río y una villa">
               </div>
               <figcaption class="stage3d__foot stage3d__foot--center">
                 <span class="stage3d__cap" data-atlas3d-cap aria-live="polite">Un puente cruza el río.</span>
@@ -390,12 +386,7 @@
                 <li class="rise" style="--i:1"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="7.5" height="10" rx="1.5" /><rect x="14" y="7" width="7.5" height="10" rx="1.5" /><path d="M11.2 12h1.6" /></g></svg></span><span>Acercá otro y <strong>se conecta solo</strong></span></li>
                 <li class="rise" style="--i:2"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9a10 10 0 0 1 14 0M8 12.5a5.5 5.5 0 0 1 8 0" /><circle cx="12" cy="16.5" r="1.3" /></g></svg></span><span><strong>Todo inalámbrico</strong>: nada que enchufar</span></li>
                 <li class="rise" style="--i:3"><span class="copy-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5" /><rect x="13" y="3" width="8" height="8" rx="1.5" /><rect x="3" y="13" width="8" height="8" rx="1.5" /><path d="M17 14v6M14 17h6" /></g></svg></span><span>Sumá <strong>hasta 6</strong> y el mundo crece con vos</span></li>
-              </ul>
-              <div class="stepper" role="group" aria-label="Cantidad de módulos">
-                <button class="stepper__btn" type="button" data-mesa-step="-1" aria-label="Quitar un módulo">−</button>
-                <output class="stepper__count" data-mesa-count aria-live="polite">4</output>
-                <button class="stepper__btn stepper__btn--nudge" type="button" data-mesa-step="1" aria-label="Sumar un módulo">+</button>
-              </div>
+              </ul>
             </div>
           </div>
         </div>
@@ -409,8 +400,7 @@
             <h2 class="sec-title display">Atlas Core</h2>
           </header>
           <div class="split split--3d enter-body">
-            <div class="stage3d split__media" data-atlas3d="modulo" role="img" aria-label="Atlas Core se acopla al borde de un módulo Atlas; cada ficha que se apoya en él se ilumina y el tablero dice qué ficha es">
-              <img class="stage3d__fallback" src="/assets/tablero.webp" alt="" width="1228" height="631" loading="lazy" />
+            <div class="stage3d is-ready split__media" data-render="modulo" role="img" aria-label="Atlas Core se acopla al borde de un módulo Atlas; cada ficha que se apoya en él se ilumina y el tablero dice qué ficha es">
             </div>
             <div class="split__copy split__copy--rich">
               <p class="statement">Con <strong>Atlas Core</strong> y las bases inteligentes, Atlas <strong>reconoce cada ficha.</strong></p>
@@ -425,15 +415,14 @@
       </section>
 
       <!-- ================= FICHAS (3D) ================= -->
-      <!-- Escena 3D de la ficha y la base con rosca (atlas3d.js). -->
+      <!-- La ficha y la base con rosca, en video (render-test.js). -->
       <section class="band band--paper band--fit" id="fichas" data-enter>
         <div class="wrap">
           <header class="sec-head">
             <h2 class="sec-title display">Tus fichas, nuestra base</h2>
           </header>
           <div class="split split--3d enter-body">
-            <div class="stage3d split__media" data-atlas3d="ficha" role="img" aria-label="Una ficha se enrosca en la base inteligente, se desenrosca y entra otra de otro color">
-              <img class="stage3d__fallback" src="/assets/modulo-nfc.webp" alt="" width="190" height="142" loading="lazy" />
+            <div class="stage3d is-ready split__media" data-render="ficha" role="img" aria-label="Una ficha se enrosca en la base inteligente, se desenrosca y entra otra de otro color">
             </div>
             <!-- data-ficha-paso: los pasos que la escena 3D va marcando mientras la ficha se enrosca y se cambia. -->
             <div class="split__copy split__copy--rich">
@@ -815,6 +804,7 @@
     <!-- pie:fin -->
 
     <script src="/script.js?v=20261109-2" defer></script>
-    <script src="/atlas3d.js?v=20261109-2" defer></script>
+    <!-- PRUEBA: renders en video en lugar de las escenas 3D -->
+    <script src="/render-test.js" defer></script>
   </body>
 </html>

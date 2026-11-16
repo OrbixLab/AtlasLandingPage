@@ -54,7 +54,7 @@ python tools/build_juegos.py && python tools/build_idiomas.py && python tools/bu
   siempre desde Estados Unidos y sin idioma: si se redirigiera, no vería la versión
   en español. Cada persona elige con el selector y Google muestra en cada búsqueda
   la versión del idioma de quien busca gracias a los `hreflang`.
-- Los textos que escriben `script.js`, `atlas3d.js` (epígrafes de las escenas 3D) y
+- Los textos que escriben `script.js`, `render-test.js` (epígrafes de los videos) y
   `analytics.js` (aviso de cookies) salen en el idioma de `<html lang>`.
 - **Direcciones viejas**: antes el sitio estaba sólo en español en la raíz
   (`/juegos/`, `/ecosistema/`, `/sobre-nosotros/`…). `build_idiomas.py` escribe en
@@ -70,7 +70,7 @@ python tools/build_juegos.py && python tools/build_idiomas.py && python tools/bu
   `.mission__title--text`, `.steps-head__title`), marcados con `PENDIENTE` hasta
   que lleguen los SVG en inglés.
 
-- Las páginas cargan `styles.css`, `script.js` y `atlas3d.js` con `?v=…`. **Al cambiar
+- Las páginas cargan `styles.css` y `script.js` con `?v=…`. **Al cambiar
   alguno de esos archivos hay que subir ese número en todas las páginas**; si no, el
   navegador puede seguir usando la versión vieja guardada.
 - `styles.css` — sistema de diseño completo (tokens, bandas, componentes y las
@@ -212,41 +212,26 @@ enlaces están en la sección «La app» de Ecosistema (`/ecosystem/#app` y `/es
 todas las páginas lleva ahí. `descargar/index.html` ya no es una página: redirige a la versión en inglés de esa
 sección para que no se rompan enlaces ni códigos QR viejos.
 
-## Escenas 3D del tablero
+## Videos del tablero (prueba)
 
-`atlas3d.js` arma con Three.js (r128, desde jsDelivr) cuatro escenas en `index.html`.
-Cada una es un bloque con `data-atlas3d`:
+Las cuatro escenas de `index.html` y `es/index.html` son videos renderizados con fondo
+transparente (WebM VP9 con alfa, 1000 × 1000, 30 fps) en `assets/renders/`. Antes eran
+escenas de Three.js (`atlas3d.js` y los modelos de `assets/Models3D/`); se pueden
+recuperar desde git. `render-test.js` reproduce los videos de cada bloque `data-render`
+mientras se ve y sincroniza con el cuadro del video los epígrafes y la burbuja de
+Atlas Core, con los datos de los `*_epigrafes.json` y `*_burbuja.json` del render:
 
-| Valor | Sección | Qué muestra |
+| Valor | Sección | Videos |
 | --- | --- | --- |
-| `juegos` | ¿Qué es Atlas? | Tres juegos en ciclo: el Maze, con el laberinto escondido y un tesoro dorado en el centro (la ficha roja choca una pared y vuelve al inicio; la azul llega al tesoro), con las reglas en el epígrafe; una partida de ajedrez (1. e4 e5 2. Cf3) donde al levantar una pieza se encienden sus casillas posibles; y una arena de casillas grises con el rey en llamas en el centro y tres fichas rojas que lo atacan |
-| `mesa` | Módulos | De 1 a 6 módulos (botones + y −, arranca en 4) que arman un mapa de rol de ejemplo |
-| `modulo` | Atlas Core | Atlas Core espera separado, se acerca y se conecta al borde del módulo una sola vez (se enciende la fila del borde). La conexión arranca cuando se ve al menos el 60 % de la escena, y se repite si la escena sale de pantalla y vuelve. Después se repite: una ficha se apoya, la lámina blanca de Atlas Core se pone rosa al leerla, el tablero dice su nombre en una burbuja ("Red Piece!", `FICHA_NAMES`) y una ola del color de esa ficha lo recorre. Cada vuelta lee una ficha de otro color |
-| `ficha` | Fichas | La ficha se enrosca en la base, se desenrosca, sale y entra otra de otro color |
+| `juegos` | ¿Qué es Atlas? | `maze.webm` y `ajedrez.webm`, en ciclo |
+| `mesa` | Módulos | `role_mapper.webm` |
+| `modulo` | Atlas Core | `atlas_core.webm`, con la burbuja ("Red Piece!"…) |
+| `ficha` | Fichas | `ficha.webm` |
 
-- Todos los modelos están en `assets/Models3D/`.
-- El modelo es `assets/Models3D/atlas64_modulo.glb`, exportado de Fusion 360 (1,4 MB, en
-  metros, Y arriba). Cada casilla es un nodo `celda_x_y` con su propio material: x es
-  la columna y y la fila desde el borde opuesto al botón y al USB-C.
-- Los colores del pogo pin, los contactos y el botón se cambian en el código
-  (`RECOLOR`), no en el `.glb`. Las casillas apagadas son `#a9cbf9` y las encendidas,
-  rosa `#ff4fa3`.
-- La ficha es `assets/Models3D/ficha_roja.glb` (comprimida con meshopt, por eso se carga
-  también `meshopt_decoder.js`) y la base, `assets/Models3D/base_con_rosca.glb`. Si la ficha
-  no carga, el Maze usa una figura genérica hecha en código (`makePiece`). Los otros
-  colores de ficha (`FICHA_COLORS`) se pintan en el código sobre el mismo modelo.
-- Las piezas de ajedrez son `assets/Models3D/ajedrez.glb`: un nodo por pieza (`Peon`,
-  `Torre`, `Caballero`, `Alfil`, `Reina`, `Rey`), comprimido con meshopt. Salen de los STL
-  de `WoloLabs/ChessSet` (en mm, Z arriba) con `tools/convert_chess.py`, que los pasa a
-  metros con Y arriba y los reduce a 3.000–7.000 caras; después
-  `gltf-transform meshopt ajedrez_raw.glb ajedrez.glb`. El color de cada bando se pone
-  en el código. El caballo del modelo mira hacia −x.
-- Atlas Core es `assets/Models3D/modulo_nfc.glb`, con el mismo origen que el módulo:
-  cargado en 0,0,0 queda acoplado al borde del USB-C.
-- Three.js y los modelos se descargan apenas termina de cargar la página. Mientras
-  tanto cada bloque muestra un loader de su mismo tamaño con el porcentaje descargado
-  (`NEEDS` dice qué modelos espera cada escena), y la escena aparece recién cuando
-  tiene todo. Sin WebGL queda la imagen de respaldo que trae cada bloque.
+- Safari y los navegadores de iPhone no muestran la transparencia de un WebM: para
+  ellos falta una versión HEVC con alfa.
+- `role_mapper.webm` pesa 13,5 MB.
+
 - Las secciones con `band--fit` ocupan una pantalla y su contenido entra entero debajo
   de la barra (probado en 1366 × 768, 1440 × 900 y 390 × 844). En el celular, Cómo
   funciona y la caja pasan a ser carruseles horizontales. Los que llevan `data-autoplay`
@@ -255,9 +240,6 @@ Cada una es un bloque con `data-atlas3d`:
   animada: el título se enciende en 8 columnas, como las casillas del tablero, y
   después aparece el resto (`.enter-body`). `script.js` agrega `.is-in` al llegar a la
   sección. Sin JavaScript o con movimiento reducido, todo está visible desde el inicio.
-- Todas usan una vista isométrica fija, sin giro, y corren a `SPEED` (1,5) veces la
-  velocidad de su guion. `view.zoom` acerca la cámara en cada escena y
-  `view.mobileZoom` la acerca más en el celular, donde las escenas van de borde a borde.
 
 ## Ver el sitio en local
 
