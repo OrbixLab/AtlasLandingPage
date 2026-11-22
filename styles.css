@@ -1389,6 +1389,13 @@ h3 {
   justify-content: center;
   margin-top: 1rem;
 }
+/* Debajo de los botones: dónde se crea la cuenta de creador (adentro de Studio). */
+.studio-download__note {
+  max-width: 34rem;
+  margin: 1rem auto 0;
+  color: rgba(242, 242, 242, 0.7);
+  font-size: 0.9rem;
+}
 /* macOS y Linux todavía no tienen instalador: se ven, pero apagados y sin reaccionar. */
 .store-btn--soon {
   opacity: 0.45;
