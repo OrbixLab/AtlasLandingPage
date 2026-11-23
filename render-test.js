@@ -1,5 +1,7 @@
-/* PRUEBA: los renders con fondo transparente (WebM VP9 con alfa, 1000 × 1000, 30 fps)
-   en lugar de las escenas 3D de atlas3d.js. Cada bloque [data-render] reproduce sus
+/* PRUEBA: los renders (1000 × 1000, 30 fps) en lugar de las escenas 3D de atlas3d.js.
+   Por defecto van los MP4 con el fondo ya pintado del color de la banda (amarillo, tinta
+   o papel), que se ven igual en todos los navegadores. Con ?alfa en la dirección van
+   los WebM VP9 con fondo transparente (Safari y los iPhone no muestran ese alfa). Cada bloque [data-render] reproduce sus
    videos en ciclo y sincroniza con el cuadro del video los epígrafes y la burbuja
    de Atlas Core (datos de los *_epigrafes.json y *_burbuja.json del render).
    Para volver a las escenas 3D: sacar este script y devolver data-atlas3d a cada bloque. */
@@ -11,11 +13,17 @@
 
   var FPS = 30;
   var ES = document.documentElement.lang === "es";
+  var ALFA = /[?&]alfa(?:[=&]|$)/.test(location.search);
+
+  // Video de cada render: el MP4 con el color de su banda, o el WebM con alfa.
+  function src(name, fondo) {
+    return "/assets/renders/" + (ALFA ? name + ".webm" : name + "_" + fondo + ".mp4");
+  }
 
   // Epígrafes: [cuadro desde el que se ve (1 = primero), inglés, español]
   var R = {
     maze: {
-      src: "/assets/renders/maze.webm",
+      src: src("maze", "amarillo"),
       caps: [
         [1, "Maze: two pieces, one treasure in the center.", "Maze: dos fichas, un tesoro en el centro."],
         [22, "The labyrinth is hidden: you can't see the walls.", "El laberinto está escondido: no se ven las paredes."],
@@ -26,7 +34,7 @@
       ],
     },
     ajedrez: {
-      src: "/assets/renders/ajedrez.webm",
+      src: src("ajedrez", "amarillo"),
       caps: [
         [1, "Chess: Atlas shows you the possible moves.", "Ajedrez: Atlas indica las posiciones."],
         [61, "Atlas helps you through every game.", "Atlas te ayuda con tus partidas."],
@@ -34,7 +42,7 @@
       ],
     },
     role_mapper: {
-      src: "/assets/renders/role_mapper.webm",
+      src: src("role_mapper", "papel"),
       caps: [
         [1, "Put several boards together: one big table.", "Juntá varios tableros: una sola mesa."],
         [58, "Role Mapper: your RPG map, on the table.", "Role Mapper: tu mapa de rol, en la mesa."],
@@ -46,7 +54,7 @@
       ],
     },
     atlas_core: {
-      src: "/assets/renders/atlas_core.webm",
+      src: src("atlas_core", "tinta"),
       // Burbuja: punto del video donde apunta la colita y [desde, hasta, texto, fondo, letra]
       bubble: {
         x: 0.5427,
@@ -59,7 +67,7 @@
         ],
       },
     },
-    ficha: { src: "/assets/renders/ficha.webm" },
+    ficha: { src: src("ficha", "papel") },
   };
 
   // Qué videos pasa cada bloque, en orden
