@@ -214,23 +214,24 @@ sección para que no se rompan enlaces ni códigos QR viejos.
 
 ## Videos del tablero (prueba)
 
-Las cuatro escenas de `index.html` y `es/index.html` son videos renderizados con fondo
-transparente (WebM VP9 con alfa, 1000 × 1000, 30 fps) en `assets/renders/`. Antes eran
-escenas de Three.js (`atlas3d.js` y los modelos de `assets/Models3D/`); se pueden
-recuperar desde git. `render-test.js` reproduce los videos de cada bloque `data-render`
-mientras se ve y sincroniza con el cuadro del video los epígrafes y la burbuja de
-Atlas Core, con los datos de los `*_epigrafes.json` y `*_burbuja.json` del render:
+Las cuatro escenas de `index.html` y `es/index.html` son videos renderizados (MP4,
+1000 × 1000, 30 fps) en `assets/renders/`, con el fondo ya pintado del color de su
+banda: así se ven igual en todos los navegadores (los WebM con alfa que se probaron
+antes no se veían transparentes en Safari ni en iPhone). Antes eran escenas de
+Three.js (`atlas3d.js` y los modelos de `assets/Models3D/`); se pueden recuperar desde
+git. `render-test.js` reproduce los videos de cada bloque `data-render` mientras se ve
+y sincroniza con el cuadro del video los epígrafes y la burbuja de Atlas Core, con los
+datos de los `*_epigrafes.json` y `*_burbuja.json` del render:
 
 | Valor | Sección | Videos |
 | --- | --- | --- |
-| `juegos` | ¿Qué es Atlas? | `maze.webm` y `ajedrez.webm`, en ciclo |
-| `mesa` | Módulos | `role_mapper.webm` |
-| `modulo` | Atlas Core | `atlas_core.webm`, con la burbuja ("Red Piece!"…) |
-| `ficha` | Fichas | `ficha.webm` |
+| `juegos` | ¿Qué es Atlas? (amarillo) | `maze_amarillo.mp4` y `ajedrez_amarillo.mp4`, en ciclo |
+| `mesa` | Módulos (papel) | `role_mapper_papel.mp4` |
+| `modulo` | Atlas Core (tinta) | `atlas_core_tinta.mp4`, con la burbuja ("Red Piece!"…) |
+| `ficha` | Fichas (papel) | `ficha_papel.mp4` |
 
-- Safari y los navegadores de iPhone no muestran la transparencia de un WebM: para
-  ellos falta una versión HEVC con alfa.
-- `role_mapper.webm` pesa 13,5 MB.
+- Si cambia el color de una banda (`--yellow`, `--ink`, `--paper`), hay que volver a
+  renderizar sus videos con ese fondo: si no, se ve el borde del recuadro.
 
 - Las secciones con `band--fit` ocupan una pantalla y su contenido entra entero debajo
   de la barra (probado en 1366 × 768, 1440 × 900 y 390 × 844). En el celular, Cómo

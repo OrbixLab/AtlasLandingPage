@@ -1,7 +1,6 @@
 /* PRUEBA: los renders (1000 × 1000, 30 fps) en lugar de las escenas 3D de atlas3d.js.
-   Por defecto van los MP4 con el fondo ya pintado del color de la banda (amarillo, tinta
-   o papel), que se ven igual en todos los navegadores. Con ?alfa en la dirección van
-   los WebM VP9 con fondo transparente (Safari y los iPhone no muestran ese alfa). Cada bloque [data-render] reproduce sus
+   Son MP4 con el fondo ya pintado del color de la banda (amarillo, tinta o papel), así
+   se ven igual en todos los navegadores. Cada bloque [data-render] reproduce sus
    videos en ciclo y sincroniza con el cuadro del video los epígrafes y la burbuja
    de Atlas Core (datos de los *_epigrafes.json y *_burbuja.json del render).
    Para volver a las escenas 3D: sacar este script y devolver data-atlas3d a cada bloque. */
@@ -13,11 +12,10 @@
 
   var FPS = 30;
   var ES = document.documentElement.lang === "es";
-  var ALFA = /[?&]alfa(?:[=&]|$)/.test(location.search);
 
-  // Video de cada render: el MP4 con el color de su banda, o el WebM con alfa.
+  // Video de cada render: el MP4 con el fondo del color de su banda.
   function src(name, fondo) {
-    return "/assets/renders/" + (ALFA ? name + ".webm" : name + "_" + fondo + ".mp4");
+    return "/assets/renders/" + name + "_" + fondo + ".mp4";
   }
 
   // Epígrafes: [cuadro desde el que se ve (1 = primero), inglés, español]
